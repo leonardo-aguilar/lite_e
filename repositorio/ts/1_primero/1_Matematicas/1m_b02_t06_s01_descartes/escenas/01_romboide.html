@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>&Aacute;rea del Romboide</title>
+	<script type='text/javascript' src='lib/descartes-min.js'></script>	
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+		body{
+			background-color:#7db9f2;
+		}
+	</style>
+</head>
+<body >
+
+<p align="center">
+
+<applet width=790 height=520
+        code="descinst.com.mja.descartes.DescartesJS.class"
+        codebase="./"
+        archive="descinst.jar,http://recursostic.educacion.es/descartes/web/plugin/descinst.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='Presiona el bot&oacute;n Animar y deduce la f&oacute;rmula para obtener' subtitle='el &aacute;rea de cualquier romboide, puedes modificar su altura y su base.' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='img/instrucciones.jpg' titlefont='SansSerif,BOLD,22' subtitlefont='SansSerif,BOLD,22' ">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="4.5616, 2012-07-19">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' fijo='s&iacute;' escala='43' O.x='70' O.y='-30' imagen='img/fondo.png' despl_imagen='arr-izq' fondo='naranja' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='n1' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Altura' expresi&oacute;n='(0,425,173,30)' valor='3' min='2' max='4.8' decimales='1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0'">
+   <param name="C_01" value="id='n2' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Base' expresi&oacute;n='(173,425,173,30)' valor='4' min='n3+0.5' max='6.5' decimales='1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_02" value="id='n3' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Lado' expresi&oacute;n='(2*173,425,174,30)' valor='n1+1' min='n1+0.2' max='5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_03" value="id='btn1ar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(130,395,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ar.png' acci&oacute;n='calcular' par&aacute;metro='n1=n1+.1' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_04" value="id='btn1ab' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(130,435,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ab.png' acci&oacute;n='calcular' par&aacute;metro='n1=n1-.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_05" value="id='btn2ar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(275,395,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ar.png' acci&oacute;n='calcular' par&aacute;metro='n2=n2+.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_06" value="id='btn2ab' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(275,435,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ab.png' acci&oacute;n='calcular' par&aacute;metro='n2=n2-.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_07" value="id='btn3ar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(425,395,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ar.png' acci&oacute;n='calcular' par&aacute;metro='n3=n3+.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_08" value="id='btn3ab' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(425,435,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ab.png' acci&oacute;n='calcular' par&aacute;metro='n3=n3-.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_09" value="id='Dividir' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Dividir' expresi&oacute;n='(500,405,100,30)' decimales='0' fijo='s&iacute;' visible='no' color='blanco' negrita='s&iacute;' fuente puntos='22' imagen='img/btn.png' acci&oacute;n='calcular' par&aacute;metro='vartemp=vartemp+1\nDividir=vartemp%2' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_10" value="id='n5' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Rotacion' incr='1' min='0' max='180' decimales='0' fijo='s&iacute;' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_11" value="id='Reiniciar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Reiniciar' expresi&oacute;n='(650,405,100,30)' fijo='s&iacute;' visible='s&iacute;' color='blanco' negrita='s&iacute;' fuente puntos='22' imagen='img/btn.png' acci&oacute;n='calcular' par&aacute;metro='n5=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(Dividir)&amp;(n5=35)' pos_mensajes='centro'">
+   <param name="C_12" value="id='anim' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Animar' expresi&oacute;n='(650,405,100,30)' fijo='s&iacute;' visible='s&iacute;' color='blanco' negrita='s&iacute;' fuente puntos='22' imagen='img/btn.png' acci&oacute;n='animar' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(Dividir)&amp;(n5=0)' pos_mensajes='centro'">
+   <param name="A_00" value="id='dB' expresi&oacute;n='sqrt(n3^2-n1^2)'">
+   <param name="A_01" value="id='a1' algoritmo='s&iacute;' evaluar='siempre' inicio='X=n2;Y=n1;Z=n3;d=d'">
+   <param name="G_00" value="espacio='E1' tipo='texto' color='1569b4' expresi&oacute;n='[50,410]' texto='Altura  [n1]' fuente='SansSerif,BOLD,22' fijo='s&iacute;'">
+   <param name="G_01" value="espacio='E1' tipo='texto' color='1569b4' expresi&oacute;n='[200,410]' texto='Base  [n2]' fuente='SansSerif,BOLD,22' fijo='s&iacute;'">
+   <param name="G_02" value="espacio='E1' tipo='texto' color='1569b4' expresi&oacute;n='[350,410]' texto='Lado  [n3]' fuente='SansSerif,BOLD,22' fijo='s&iacute;'">
+   <param name="G_03" value="espacio='E1' tipo='pol&iacute;gono' color='(1.0,1.0,0.0,n5*Dividir)' expresi&oacute;n='(-n2,-n1/2)(-n2+dB,n1/2)(dB,n1/2)(0,-n1/2)(-n2,-n1/2)' relleno='(1.0,1.0,0.0,n5*Dividir)'">
+   <param name="G_04" value="espacio='E1' tipo='pol&iacute;gono' color='turquesa' dibujar-si='Dividir=1' expresi&oacute;n='(-n2,-n1/2)(-n2+dB,n1/2)(0,n1/2)(0,-n1/2)(-n2,-n1/2)' relleno='turquesa' ancho='2'">
+   <param name="G_05" value="espacio='E1' tipo='pol&iacute;gono' color='grisObscuro' dibujar-si='Dividir=1' expresi&oacute;n='(-n2*(n5/35),-n1/2)(-n2*(n5/35)+dB,n1/2)(-n2*(n5/35),n1/2)(-n2*(n5/35),-n1/2)' relleno='turquesa' ancho='3'">
+   <param name="G_06" value="espacio='E1' tipo='segmento' color='1569b4' expresi&oacute;n='(-(n2),-(n1/2)-1.3)(0,-(n1/2)-1.3)' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_07" value="espacio='E1' tipo='segmento' color='1569b4' expresi&oacute;n='(-(n2)-1,-(n1/2))(-(n2)-1,(n1/2))' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_08" value="espacio='E1' tipo='segmento' color='1569b4' expresi&oacute;n='(dB+1,n1/2)(1,-n1/2)' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_09" value="espacio='E1' tipo='segmento' color='1569b4' dibujar-si='n5=180' expresi&oacute;n='((d/2),-(n1/2)-1)((n3+(d/2)),-(n1/2)-1)' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_10" value="espacio='E1' tipo='punto' color='00000c' expresi&oacute;n='(-n2-1-1.6,0)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red21\green105\blue180;\red0\green0\blue12;}\f1\fs44\b\cf0 Altura\f2\fs24\b0\par \cf1}' fuente='Arial Negrita,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_11" value="espacio='E1' tipo='punto' color='00000c' expresi&oacute;n='(1.5+dB/2,-1+(n2/n3)/2)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red21\green105\blue180;\red0\green0\blue12;}\f1\fs44\b\cf0 Lado\cf1\f2\fs44\b0\par }' fuente='Arial Negrita,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_12" value="espacio='E1' tipo='punto' color='1569b4' expresi&oacute;n='(-(n2-(d/2))+(n2/3)-.2,-(n1/2)-1+.4)((d/2)+(n2/4),-(n1/2)-1+.4)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs44\b Base\f2\fs44\b0\par}' fuente='SansSerif,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="Animaci&oacute;n" value="controles='no' auto='no' inicio='n5=0' hacer='n5=n5+1' mientras='n5&lt;35'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.com/" target="_blank">JAVA</a>.</font>
+</applet></p>
+
+</body>
+</html>
+
+<script id="macros/area_tri.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+tipo='pol&iacute;gono' color='grisObscuro' expresi&oacute;n='(0,0)(X/2,-(Y/2))(0,-(Y/2))(0,0)' relleno='turquesa' ancho='4'
+</script>

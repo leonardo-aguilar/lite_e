@@ -1,0 +1,32 @@
+
+.titulo1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #ffffff;
+}
+.titulos2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #666666;
+}
+.Tituloa {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ee3e80;
+}
+.cuerpo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-variant: normal;
+	color: #666666;
+}
+.creditos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	font-variant: normal;
+	color: #666666;
+}

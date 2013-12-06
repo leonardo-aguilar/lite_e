@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<link href="css/estilo.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="javascript/jquery-1.9.1.js"></script>
+	<script language="javascript" src="javascript/utils.js" ></script>
+	<script language="javascript" type="text/javascript">
+		// Muestra u oculta el mensaje de posicion
+		SystemCloseButton 	= false;
+		// Controla la propiedad de visibilidad del la posición de navegación
+		ShowUnitPosition 	= true;
+		// Controla la propiedad de visibilidad de las flechas de navegación.
+		ShowNavigationArrows= true;
+
+		// Autoajuste de los botones.
+		AdjustButtons		= true;
+		// Activa los bordes redondos para botones
+		RoundedCorners		= false;
+
+		// Tamaño fijo de botones
+		// Al establecer un valor (en pixeles) se desactiva el ajuste automático de botones.
+		FixedButtonWidth	= -1;
+
+		// Cambiar tamaño por omisión del contenedor de escenas.
+		// El valor por omisión es -1. Los valores permitidos son enteros
+		// mayores a 790 en el ancho y 520 en lo alto.
+		ContentFrameWidth	= -1;
+		ContentFrameHeight  = -1;
+
+
+		// Título de la página
+		PageTitle 			= "Área del romboide";
+		// Título de la unidad de Descartes
+		UnitTitle			= "Área del romboide";
+
+		// Declara las secciones y escenas del unidad interactiva
+		declareNewUnit(
+			scene = { Name: "Inicio",
+					  Files: [ "escenas/1_intro_1/index.html" ]} );
+
+		declareNewUnit(
+			scene = { Name: "Exploración",
+					  Files: [ "escenas/2_expl_1/index.html", "escenas/2_expl_2/index.html" ]} );
+
+		declareNewUnit(
+			scene = { Name: "Ejercicios",
+					  Files: [ "escenas/3_ejer_1/index.html" ]} );
+
+		declareNewUnit(
+			scene = { Name: "Evaluación",
+					  Files: [ "escenas/4_eval_1/index.html" ]} );
+
+		declareNewUnit(
+			scene = { Name: "Primera",
+					  Files: [ "escenas/4_eval_3/index.html" ]} );
+
+		declareNewUnit(
+			scene = { Name: "Segunda",
+					  Files: [ "escenas/4_eval_2/index.html" ]} );
+
+		$(function() {
+			initializeContainer();
+		});
+
+	</script>
+</head>
+
+
+<body>
+
+<div id="container">
+	<div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
+	<div id="content"><iframe id="jsApplet"></iframe></div>
+	<div id="footer">
+		<div id="navigation">
+			<div id="navigationButtons" ></div>
+			<div id="tools">
+				<a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
+				<a id="cprght" href="javascript:verCreditos();void(0);">c</a>
+				<a id="info" href="javascript:verDocumentacion();void(0);">i</a>
+			</div>
+
+			<div id="navigationArrows" >
+				<div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
+				<div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+
+
+</html>
+

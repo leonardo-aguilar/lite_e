@@ -1,0 +1,61 @@
+<!Doctype html>
+<html>
+<head>
+<title>Curvas param&eacute;tricas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type='text/javascript' src='lib/descartes-min.js'></script>
+   <script> var removeApplet = false; //comentar esta linea o poner a falso para mostrar el applet </script>
+   <script type='text/javascript' src='../descartes-min.js'></script>
+</head>
+<body BGCOLOR="d0e8ee">
+
+<br/>
+<p align="center">
+
+<ajs width=900 height=600
+        code="Descartes.class"
+        codebase="./"
+        archive="Descartes5.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="900x600">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="4.51, 2011-09-18">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='MAIN' fijo='s&iacute;' escala='36' O.y='-150' despl_imagen='arr-izq' fondo='d0e8ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_01" value="tipo='R2' id='GRAF' x='80' y='35' ancho='740' alto='520' escala='50' O.y='20' despl_imagen='arr-izq' fondo='f8f8e0' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_02" value="tipo='R2' id='TITULO' x='250' y='0' ancho='400' alto='45' despl_imagen='arr-izq' fondo='485070' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='scroll' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='scroll' expresi&oacute;n='(824,35+GRAF._h-67,35,70)' incr='1' min='-SM*(N-3)' max='0' decimales='0' fijo='no' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='N&gt;3'">
+   <param name="C_01" value="id='b1' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(1),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_01.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_02" value="id='b2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(2),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_02.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_03" value="id='b3' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(3),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_03.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_04" value="id='b4' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(4),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_04.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_05" value="id='b5' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(5),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_05.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_06" value="id='b6' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='GRAF' expresi&oacute;n='(25,buttonY(6),GRAF._w-50,150)' fijo='s&iacute;' visible='s&iacute;' imagen='VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='escena_06.html target=_blank' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="A_00" value="id='buttonY(n)' expresi&oacute;n='scroll*DS+25+(n-1)*DH'">
+   <param name="A_01" value="id='InitConstants(ne,nd)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='N=ne' hacer='Nexpl=nd;IH0=96;H0=IH0-10*(Nexpl+1);Y0=30;DH=168;DS=24;SM=DH/DS'">
+   <param name="A_02" value="id='Icono' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='Icono[0]=&squot;images/escena_01.png&squot;;Icono[1]=&squot;images/escena_02.png&squot;;Icono[2]=&squot;images/escena_03.png&squot;;Icono[3]=&squot;images/escena_04.png&squot;;Icono[4]=&squot;images/escena_05.png&squot;'">
+   <param name="A_03" value="id='Titulo' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6'">
+   <param name="A_04" value="id='Descr01' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6'">
+   <param name="A_05" value="id='Descr02' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6'">
+   <param name="A_06" value="id='Descr03' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6'">
+   <param name="A_07" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='InitConstants(4,3)' hacer='Titulo[0]=&squot;Figuras de Lisajous&squot;;Descr01[0]=&squot;Las figuras de Lisajous aparecen en los osciloscopios&squot;;Descr02[0]=&squot;Se generan por composici&oacute;n de dos sinusoides ortogonales&squot;;Descr03[0]=&squot;con per&iacute;odos enteros.&squot;;Titulo[1]=&squot;Curvas polares&squot;;Descr01[1]=&squot;Las curvas polares son las que se generan escribiendo  r&squot;;Descr02[1]=&squot;en funci&oacute;n de &#x3b8; y usando &#x3b8; como par&aacute;metro.&squot;;Descr03[1]=&squot;En esta escena  r = a + b&middot;sen(2 &#x3c0; &#x3b8;).&squot;;Titulo[2]=&squot;La Cardioide&squot;;Descr01[2]=&squot;La cardioide es una epi-cicloide que se forma haciendo girar&squot;;Descr02[2]=&squot;una circunferencia sobre otra fija del mismo radio.&squot;;Descr03[2]=&squot;La curva la dibuja un punto de la circunferenca m&oacute;vil.&squot;;Titulo[3]=&squot;Epi- e Hipo-cicloides y las Trocoides&squot;;Descr01[3]=&squot;Las epi e hipo-cicloides se forman rodando una circunferencia&squot;;Descr02[3]=&squot;sobre otra. Las trocoides tambi&eacute;n pero cuando el punto que las&squot;;Descr03[3]=&squot;dibuja dista del centro de la m&oacute;vil m&aacute;s o menos que su radio.&squot;;;'">
+   <param name="A_08" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer=';'">
+   <param name="G_00" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(0,10)(899,10)(899,599)(0,599)(0,10)' ancho='9'">
+   <param name="G_01" value="espacio='MAIN' tipo='segmento' fondo='s&iacute;' color='d0e8ff' coord_abs='s&iacute;' expresi&oacute;n='(0,0)(900,0)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='19'">
+   <param name="G_02" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(80,35)(819,35)(819,GRAF._h-1+35)(80,GRAF._h-1+35)(80,35)' ancho='9'">
+   <param name="G_03" value="espacio='TITULO' tipo='texto' color='blanco' expresi&oacute;n='[70,8]' texto='Curvas param&eacute;tricas' fuente='SansSerif,PLAIN,28' fijo='s&iacute;'">
+   <param name="G_04" value="espacio='GRAF' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='[140,scroll*DS+IH0+s*DH,1.0,1.0]' familia='s' s.intervalo='[0,N-1]' s.pasos='N-1' archivo='Icono[s]'">
+   <param name="G_05" value="espacio='GRAF' tipo='texto' color='grisObscuro' expresi&oacute;n='[270,scroll*DS+H0+s*DH]' familia='s' s.intervalo='[0,N-1]' s.pasos='N-1' texto='[Titulo[s]]' fuente='SansSerif,PLAIN,18' fijo='s&iacute;'">
+   <param name="G_06" value="espacio='GRAF' tipo='texto' color='grisObscuro' dibujar-si='Nexpl&gt;=1' expresi&oacute;n='[270,scroll*DS+H0+Y0+s*DH]' familia='s' s.intervalo='[0,N-1]' s.pasos='N-1' texto='[Descr01[s]]' fuente='SansSerif,PLAIN,16' fijo='s&iacute;'">
+   <param name="G_07" value="espacio='GRAF' tipo='texto' color='grisObscuro' dibujar-si='Nexpl&gt;=2' expresi&oacute;n='[270,scroll*DS+H0+Y0+20+s*DH]' familia='s' s.intervalo='[0,N-1]' s.pasos='N-1' texto='[Descr02[s]]' fuente='SansSerif,PLAIN,16' fijo='s&iacute;'">
+   <param name="G_08" value="espacio='GRAF' tipo='texto' color='grisObscuro' dibujar-si='Nexpl&gt;=3' expresi&oacute;n='[270,scroll*DS+H0+Y0+40+s*DH]' familia='s' s.intervalo='[0,N-1]' s.pasos='N-1' texto='[Descr03[s]]' fuente='SansSerif,PLAIN,16' fijo='s&iacute;'">
+   <param name="G_09" value="espacio='MAIN' tipo='texto' color='20303a' expresi&oacute;n='[260,MAIN._h-29]' texto='Autores: Jos&eacute; Luis Abreu Le&oacute;n y Daniel Monsivais Vel&aacute;zquez' fuente='SansSerif,PLAIN,14' fijo='s&iacute;'">
+</ajs>
+</p>
+
+</body>
+</html>

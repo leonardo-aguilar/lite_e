@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>¿Cuál cae primero?</title>
+</head>
+<body BGCOLOR="000000" topmargin="0" leftmargin="0" scroll="no">
+<p align="center">
+<applet name="Exp_datos_sin_ag"
+        code="Descartes.class"
+        codebase="../../"
+        archive="Descartes3.jar,Descartes_S.jar"
+        MAYSCRIPT
+        width=790 height=565>
+   <param name="sonido" value="si">
+   <param name="decimal_symbol" value=".">
+   <param name="deshacer" value="no">
+   <param name="nombre" value="Exp_datos_sin_ag">
+   <param name="Versi&oacute;n" value="3.92, 2008-06-25">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E2' fijo='si' escala='1' O.x='-150' imagen='images/fondo.png' despl_imagen='arr-izq' fondo='00858d' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_01" value="tipo='R2' id='E3' x='515' y='85' ancho='230' alto='185' fijo='si' escala='0.5' O.x='-110' O.y='91' imagen='images/grafica.png' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='debug' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='exterior' valor='1' nombre='debug' visible='si' acci&oacute;n='calcular' par&aacute;metro='debuger=debuger+1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_01" value="id='r1' espacio='E2' tipo='gr&aacute;fico' color='azul' color-int='rojo' expresi&oacute;n='(pEsf_x-50,pEsf_y)' constricci&oacute;n='x=pEsf_x-80' imagen='images/cabeza_scroll.png'">
+   <param name="C_02" value="id='r1.x' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='pEsf_x-80' nombre='r1.x' visible='si' pos_mensajes='centro'">
+   <param name="C_03" value="id='r1.y' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='110' nombre='r1.y' min='pEsf_y-30' max='pEsf_y+47' visible='si' pos_mensajes='centro'">
+   <param name="C_04" value="id='r2' espacio='E2' tipo='gr&aacute;fico' color='azul' color-int='rojo' constricci&oacute;n='x=pEsf_x-80' imagen='images/cabeza_scroll.png'">
+   <param name="C_05" value="id='r2.x' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='pEsf_x-80' nombre='r2.x' visible='si' pos_mensajes='centro'">
+   <param name="C_06" value="id='r2.y' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='-122' nombre='r2.y' min='-162' max='-85' visible='si' pos_mensajes='centro'">
+   <param name="C_07" value="id='h1' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,145)(30,30)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='hueco1=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_08" value="id='h2' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,377)(30,30)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='hueco2=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_09" value="id='c1' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,180)(30,30)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='hueco1=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_10" value="id='c2' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,357+35+20)(30,30)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='hueco2=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_11" value="id='palanca' espacio='E2' tipo='gr&aacute;fico' color='negro' color-int='rojo' tama&ntilde;o='8' constricci&oacute;n='64=sqrt((x-314)^2+(y+205)^2)'">
+   <param name="C_12" value="id='palanca.x' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='315.30' nombre='palanca.x' min='271' max='359' visible='si' pos_mensajes='centro'">
+   <param name="C_13" value="id='palanca.y' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='-141.01' nombre='palanca.y' min='-155' visible='si' pos_mensajes='centro'">
+   <param name="C_14" value="id='obj1mas' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,240)(25,25)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='obj1=(obj1&lt;5)?obj1+1:0' pos_mensajes='centro'">
+   <param name="C_15" value="id='obj1menos' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(35,240)(25,25)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='obj1=(obj1&gt;0)?obj1-1:5' pos_mensajes='centro'">
+   <param name="C_16" value="id='obj2mas' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(230,357+35+60+20)(25,25)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='obj2=(obj2&lt;5)?obj2+1:0' pos_mensajes='centro'">
+   <param name="C_17" value="id='obj2menos' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(35,357+35+60+20)(25,25)' visible='si' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='obj2=(obj2&gt;0)?obj2-1:5' pos_mensajes='centro'">
+   <param name="C_18" value="id='grosor_1' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='2' nombre='grosor_1' visible='si' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_19" value="id='grosor_2' espacio='E2' tipo='num&eacute;rico' regi&oacute;n='exterior' valor='2' nombre='grosor_2' visible='si' pos_mensajes='centro'">
+   <param name="C_20" value="id='arriba' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(354,488,40,40)' visible='si' dibujar-si='(((abs(y1+180))&lt;10)&amp;((abs(y2+180))&lt;10))' imagen='images/vacio.gif' acci&oacute;n='calcular' par&aacute;metro='y1=165\ny2=165\nvl1=0\nvl2=0\nT1=0\nT2=0' pos_mensajes='centro'">
+   <param name="C_21" value="id='abajo' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(354,488,40,40)' visible='si' imagen='images/vacio.gif' acci&oacute;n='animar' pos_mensajes='centro'">
+   <param name="C_22" value="id='limpia' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(729,380)(40,20)' visible='si' imagen='images/vacio.gif' acci&oacute;n='limpiar' pos_mensajes='arr_izq'">
+   <param name="C_23" value="id='ayuda' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(738,520)(26,45)' nombre='ayuda' visible='si' imagen='images/vacio.gif' acci&oacute;n='abrir URL' par&aacute;metro='javascript:window.open(&squot;doc/info.html&squot;,&squot;Ayuda&squot;,&squot;top=40,left=40,width=720,height=500,toolbar=0,menubar=0,scrollbars=1,resizable=0,location=0,status=0&squot;);void(0);' pos_mensajes='centro'">
+   <param name="C_24" value="id='salir' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(34+730,22+520,26,23)' visible='si' imagen='images/VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='javascript:parent.parent.cerrar();' pos_mensajes='centro'">
+   <param name="C_25" value="id='llave' espacio='E2' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' expresi&oacute;n='(34+730,520,26,22)' visible='si' imagen='images/VACIO.GIF' acci&oacute;n='abrir URL' par&aacute;metro='javascript:parent.parent.mostrarBarra(&squot;true&squot;);void(0);' pos_mensajes='centro'">
+   <param name="A_00" value="id='densidad' vector='si' tama&ntilde;o='6' evaluar='una-sola-vez' expresi&oacute;n='densidad[0]=350;densidad[1]=2500;densidad[2]=40;densidad[3]=2500;densidad[4]=2700;densidad[5]=19300;'">
+   <param name="A_01" value="id='objetos' vector='si' tama&ntilde;o='6' evaluar='una-sola-vez' expresi&oacute;n='objetos[0]=|Madera|;objetos[1]=|Concreto|;objetos[2]=| Unicel |;objetos[3]=| Cristal|;objetos[4]=|Aluminio|;objetos[5]=|   Oro  |;'">
+   <param name="A_02" value="id='estado' vector='si' tama&ntilde;o='2' evaluar='una-sola-vez' expresi&oacute;n='estado[0]=|s&oacute;lida|;estado[1]=|hueca|;'">
+   <param name="A_03" value="id='masa_obj' vector='si' tama&ntilde;o='6' evaluar='una-sola-vez' expresi&oacute;n='masa_obj[0]=6.356;masa_obj[1]=1.531;masa_obj[2]=0.0133;masa_obj[3]=0.0133;masa_obj[4]=2.800;masa_obj[5]=1500'">
+   <param name="A_04" value="id='k_obj' vector='si' tama&ntilde;o='6' evaluar='una-sola-vez' expresi&oacute;n='k_obj[0]=0;k_obj[1]=0;k_obj[2]=0'">
+   <param name="A_05" value="id='INICIO' algoritmo='si' evaluar='una-sola-vez' inicio='VolH1=0;VolS1=0;VolH2=0;VolS2=0;Espesor=0.015;altura1=0;altura2=0;pEsf_x=-100;pEsf_y=100;n_obj1=0;n_obj2=0;y1=165;y2=165;v1=0;v2=0;t=0;vl1=0;vl2=0;g1=0;g2=0;pl=370;p2=370;mDista=0;A=0;b=0;tubo=0' hacer='CCC=0.1;rho=(0.0745/0.454)/(0.305*0.305*0.305);KKK=0.5*CCC*rho;'">
+   <param name="A_06" value="id='CALCULOS' algoritmo='si' evaluar='siempre' hacer='radio1=0.001+(((0.5/77)*r1.y)+0.0454545);radio2=0.001+(((0.5/77)*r2.y)+1.551948051);;Area1=pi*radio1*radio1;Area2=pi*radio2*radio2;;VolS1=((4/3)*pi*radio1^3);VolH1=VolS1-((4/3)*pi*(radio1-Espesor)^3);VolS2=((4/3)*3.1416*radio2^3);VolH2=VolS2-((4/3)*3.1416*(radio2-Espesor)^3);;m1=densidad[obj1]*((hueco1)?VolH1:VolS1);m2=densidad[obj2]*((hueco2)?VolH2:VolS2);;k1=radio1-0.5;k2=radio2-0.5;;mDista=(palanca.y+205)/(palanca.x-314);a=atan(mDista);b=a*(180/3.1416);A=ind(palanca.x&gt;314)*(ind(palanca.y&gt;-205)*b+ind(palanca.y&lt;-205)*(b+360))+ind(palanca.x&lt;314)*(b+180);da=(-(1/41))*A+3.1707;da=(da&lt;0.1)?0:da;;tubo=ent(da*100);;palanca.x=(abs(palanca.x-315)&lt;10)?315.30:palanca.x;;altura1=(y1&lt;-180)?0:((123/345)*y1)+64.18;altura2=(y2&lt;-180)?0:((123/345)*y2)+64.18;;y1=(y1&lt;-180)?-180.01:y1;y2=(y2&lt;-180)?-180.01:y2;;;'">
+   <param name="A_07" value="id='sCaida1' evento='si' condici&oacute;n='(da&gt;0)&amp;(y1&lt;165)' acci&oacute;n='reproducir' par&aacute;metro='images/caida.mp3' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_08" value="id='sCaida2' evento='si' condici&oacute;n='(da&gt;0)&amp;(y2&lt;165)' acci&oacute;n='reproducir' par&aacute;metro='images/caida.mp3' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_09" value="id='sPopMetal1' evento='si' condici&oacute;n='(da&gt;0)&amp;(y1&lt;-180)' acci&oacute;n='reproducir' par&aacute;metro='images/metal.mp3' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_10" value="id='sPopMetal2' evento='si' condici&oacute;n='(da&gt;0)&amp;(y2&lt;-180)' acci&oacute;n='reproducir' par&aacute;metro='images/metal.mp3' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_11" value="id='avanza()' algoritmo='si' algoritmo='si' inicio='nnn=0;dt=0.002;dT=600*dt' hacer='g1=9.8-(2*da*k1*vL1*vL1)/m1;g2=9.8-(2*da*k2*vL2*vL2)/m2;vL1=(y1&gt;=-180)?vL1+(g1*dt):vL1;vL2=(y2&gt;=-180)?vL2+(g2*dt):vL2;y1=(y1&gt;=-180)?y1-vL1*dt-(g1*dt*dt)/2:y1;y2=(y2&gt;=-180)?y2-vL2*dt-(g2*dt*dt)/2:y2;p1=(pl&gt;=0)?y1+180:pl;p2=(p2&gt;=0)?y2+180:p2;T1=(y1&gt;=-180)?T1+dT:T1;T2=(y2&gt;=-180)?T2+dT:T2;t=t+dt;nnn=nnn+1;' mientras='nnn&lt;50'">
+   <param name="A_12" value="id='avanza2()' algoritmo='si' algoritmo='si' inicio='nnn=0;dt=0.002;dT=600*dt;Presion=da' hacer='D1=KKK*Presion*Area1*v1*v1;D2=KKK*Presion*Area2*v2*v2;g1=9.8-D1/m1;g2=9.8-D2/m2;v1=(y1&gt;=-180)?v1+(g1*dt):v1;v2=(y2&gt;=-180)?v2+(g2*dt):v2;y1=(y1&gt;=-180)?y1-v1*dt-(g1*dt*dt)/2:y1;y2=(y2&gt;=-180)?y2-v2*dt-(g2*dt*dt)/2:y2;vL1=v1;vL2=v2;p1=(pl&gt;=0)?y1+180:pl;p2=(p2&gt;=0)?y2+180:p2;T1=(y1&gt;=-180)?T1+dT:T1;T2=(y2&gt;=-180)?T2+dT:T2;t=t+dt;nnn=nnn+1;' mientras='nnn&lt;50'">
+   <param name="G_00" value="espacio='E3' tipo='punto' color='rojo' dibujar-si='y1&gt;-195' expresi&oacute;n='(p1&gt;0?t*20:0,p1)' rastro='9bff4f51' fuente='Monospaced,PLAIN,12' tama&ntilde;o='grosor_1'">
+   <param name="G_01" value="espacio='E3' tipo='punto' color='azul' dibujar-si='y2&gt;-195' expresi&oacute;n='(p2&gt;0?t*20:0,p2)' rastro='a5544fff' tama&ntilde;o='grosor_2'">
+   <param name="G_02" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=0)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/maderaH.png'">
+   <param name="G_03" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=0)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/maderaH.png'">
+   <param name="G_04" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=1)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/concretoH.png'">
+   <param name="G_05" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=1)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/concretoH.png'">
+   <param name="G_06" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=2)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/unicelH.png'">
+   <param name="G_07" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=2)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/unicelH.png'">
+   <param name="G_08" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=3)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/cristalH.png'">
+   <param name="G_09" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=3)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/cristalH.png'">
+   <param name="G_10" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=4)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/metalH.png'">
+   <param name="G_11" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=4)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/metalH.png'">
+   <param name="G_12" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=5)&amp;(hueco1=1)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/oroH.png'">
+   <param name="G_13" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=5)&amp;(hueco2=1)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/oroH.png'">
+   <param name="G_14" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=0)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/maderaC.png'">
+   <param name="G_15" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=0)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/maderaC.png'">
+   <param name="G_16" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=1)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/concretoC.png'">
+   <param name="G_17" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=1)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/concretoC.png'">
+   <param name="G_18" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=2)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/unicelC.png'">
+   <param name="G_19" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=2)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/unicelC.png'">
+   <param name="G_20" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=3)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/cristalC.png'">
+   <param name="G_21" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=3)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/cristalC.png'">
+   <param name="G_22" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=4)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/metalC.png'">
+   <param name="G_23" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=4)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/metalC.png'">
+   <param name="G_24" value="espacio='E2' tipo='imagen' dibujar-si='(obj1=5)&amp;(hueco1=0)' expresi&oacute;n='(pEsf_x,pEsf_y)(radio1,radio1)' archivo='images/oroC.png'">
+   <param name="G_25" value="espacio='E2' tipo='imagen' dibujar-si='(obj2=5)&amp;(hueco2=0)' expresi&oacute;n='(pEsf_x,-132)(radio2,radio2)' archivo='images/oroC.png'">
+   <param name="G_26" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[110,245]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36{\*\mjaformula{\expr objetos[obj1]\decimals 2\fixed0}}\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_27" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[25,80]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36{\*\mjaformula{\expr radio1*100\decimals 1\fixed0}} mm\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_28" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[155,80]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36{\*\mjaformula{\expr m1\decimals 1\fixed0} g}\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_29" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[110,225+232+20]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36{\*\mjaformula{\expr objetos[obj2]\decimals 2\fixed0}}\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_30" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[25,60+235+15]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36  {\*\mjaformula{\expr radio2*100\decimals 1\fixed0} mm}\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_31" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[155,60+235+15]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36  {\*\mjaformula{\expr m2\decimals 1\fixed0} g}\f2\fs24\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="G_32" value="espacio='E2' tipo='segmento' color='negro' expresi&oacute;n='(314,-205)(palanca.x,palanca.y)' fijo='no' tama&ntilde;o='1' ancho='5'">
+   <param name="G_33" value="espacio='E2' tipo='imagen' dibujar-si='obj1=0' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/maderaP.png'">
+   <param name="G_34" value="espacio='E2' tipo='imagen' dibujar-si='obj1=1' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/concretoP.png'">
+   <param name="G_35" value="espacio='E2' tipo='imagen' dibujar-si='obj1=2' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/unicelP.png'">
+   <param name="G_36" value="espacio='E2' tipo='imagen' dibujar-si='obj1=3' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/cristalP.png'">
+   <param name="G_37" value="espacio='E2' tipo='imagen' dibujar-si='obj1=4' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/metalP.png'">
+   <param name="G_38" value="espacio='E2' tipo='imagen' dibujar-si='obj1=5' expresi&oacute;n='(105,y1)(radio1,radio1)' archivo='images/oroP.png'">
+   <param name="G_39" value="espacio='E2' tipo='imagen' dibujar-si='obj2=0' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/maderaP.png'">
+   <param name="G_40" value="espacio='E2' tipo='imagen' dibujar-si='obj2=1' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/concretoP.png'">
+   <param name="G_41" value="espacio='E2' tipo='imagen' dibujar-si='obj2=2' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/unicelP.png'">
+   <param name="G_42" value="espacio='E2' tipo='imagen' dibujar-si='obj2=3' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/cristalP.png'">
+   <param name="G_43" value="espacio='E2' tipo='imagen' dibujar-si='obj2=4' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/metalP.png'">
+   <param name="G_44" value="espacio='E2' tipo='imagen' dibujar-si='obj2=5' expresi&oacute;n='(155,y2)(radio2,radio2)' archivo='images/oroP.png'">
+   <param name="G_45" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;1.7)' expresi&oacute;n='(2,238)' archivo='images/aire60.png'">
+   <param name="G_46" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;1.5)&amp;(da&lt;1.7)' expresi&oacute;n='(2,238)' archivo='images/aire50.png'">
+   <param name="G_47" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;1.2)&amp;(da&lt;1.5)' expresi&oacute;n='(2,238)' archivo='images/aire40.png'">
+   <param name="G_48" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;0.9)&amp;(da&lt;1.2)' expresi&oacute;n='(2,238)' archivo='images/aire30.png'">
+   <param name="G_49" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;0.6)&amp;(da&lt;0.9)' expresi&oacute;n='(2,238)' archivo='images/aire20.png'">
+   <param name="G_50" value="espacio='E2' tipo='imagen' dibujar-si='(da&gt;0.3)&amp;(da&lt;0.6)' expresi&oacute;n='(2,238)' archivo='images/aire10.png'">
+   <param name="G_51" value="espacio='E2' tipo='imagen' expresi&oacute;n='(2,238)' archivo='images/cristaltubo.png'">
+   <param name="G_52" value="espacio='E2' tipo='imagen' dibujar-si='((-1)^tubo)&gt;0' expresi&oacute;n='(173,-148)' archivo='images/tuboinflado.png'">
+   <param name="G_53" value="espacio='E2' tipo='imagen' expresi&oacute;n='(173,-148)' archivo='images/verde.png'">
+   <param name="G_54" value="espacio='E2' tipo='arco' color='negro' centro='(318,-198)' radio='38' inicio='47' fin='A' relleno='negro'">
+   <param name="G_55" value="espacio='E2' tipo='imagen' expresi&oacute;n='(173,-148)' archivo='images/tapa.png'">
+   <param name="G_56" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,180)' archivo='images/solida.png'">
+   <param name="G_57" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,145)' archivo='images/hueco.png'">
+   <param name="G_58" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,377)' archivo='images/hueco.png'">
+   <param name="G_59" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,357+35+20)' archivo='images/solida.png'">
+   <param name="G_60" value="espacio='E2' tipo='imagen' dibujar-si='hueco1=0' coord_abs='si' expresi&oacute;n='(230,180)' archivo='images/atras_esfera.png'">
+   <param name="G_61" value="espacio='E2' tipo='imagen' dibujar-si='hueco1=1' coord_abs='si' expresi&oacute;n='(230,145)' archivo='images/atras_esfera.png'">
+   <param name="G_62" value="espacio='E2' tipo='imagen' dibujar-si='hueco2=1' coord_abs='si' expresi&oacute;n='(230,377)' archivo='images/atras_esfera.png'">
+   <param name="G_63" value="espacio='E2' tipo='imagen' dibujar-si='hueco2=0' coord_abs='si' expresi&oacute;n='(230,357+35+20)' archivo='images/atras_esfera.png'">
+   <param name="G_64" value="espacio='E2' tipo='texto' color='azul' expresi&oacute;n='[490,90]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\f1\fs24\cf0 123\f2\fs24\cf1\par}' fuente='SansSerif,PLAIN,12'">
+   <param name="G_65" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(354,488)' archivo='images/abajo.png'">
+   <param name="G_66" value="espacio='E2' tipo='imagen' dibujar-si='(((abs(y1+180))&lt;10)&amp;((abs(y2+180))&lt;10))' coord_abs='si' expresi&oacute;n='(354,488)' archivo='images/arriba.png'">
+   <param name="G_67" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,240)' archivo='images/adelante.png'">
+   <param name="G_68" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(230,357+35+60+20)' archivo='images/adelante.png'">
+   <param name="G_69" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(35,240)' archivo='images/atras.png'">
+   <param name="G_70" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(35,357+35+60+20)' archivo='images/atras.png'">
+   <param name="G_71" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[488,278+24]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red184\green0\blue0;\red0\green0\blue0;\red0\green0\blue171;}\f1\fs32\b                       \cf0 Esfera 1 \cf1          \cf2 Esfera 2\cf1\par Altura           {\*\mjaformula{\expr altura1\decimals 2\fixed0}}  m        \par Velocidad   {\*\mjaformula{\expr vL1\decimals 1\fixed0}}  m/s        \par Tiempo        {\*\mjaformula{\expr T1/1000\decimals 2\fixed0}}  s       \par                        \f2\fs24\b0\par}' fuente='Arial,BOLD,16'">
+   <param name="G_72" value="espacio='E2' tipo='texto' color='negro' expresi&oacute;n='[674,278+24]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs32\b\par  {\*\mjaformula{\expr altura2\decimals 2\fixed0}}  m\par  {\*\mjaformula{\expr vL2\decimals 1\fixed0}}  m/s\par  {\*\mjaformula{\expr T2/1000\decimals 2\fixed0}}  s                     \f2\fs24\b0\par}' fuente='Arial,BOLD,16'">
+   <param name="G_73" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(0,0)' archivo='images/titulo.png'">
+   <param name="G_74" value="espacio='E2' tipo='texto' color='blanco' expresi&oacute;n='[145,18]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}\f1\fs36\b 1.2.1 \u191 C\u243 mo caen los cuerpos?   |    \u191 Cu\u225 l cae primero?\par}' fuente='SansSerif,BOLD,18'">
+   <param name="G_75" value="espacio='E2' tipo='imagen' coord_abs='si' expresi&oacute;n='(729,380)' archivo='images/borrar.png'">
+   <param name="G_76" value="espacio='E2' tipo='texto' color='blanco' dibujar-si='((-1)^debuger)&lt;0' expresi&oacute;n='[20,20]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red255\green255\blue255;}\f1\fs36\cf0\par \par  tubo={\*\mjaformula{\expr tubo\decimals 2\fixed0}}                                            E3.Ox={\*\mjaformula{\expr E3.Ox\decimals 2\fixed0}}  E3.Oy={\*\mjaformula{\expr E3.Oy\decimals 2\fixed0}}\par A={\*\mjaformula{\expr A\decimals 2\fixed0}}   radio1={\*\mjaformula{\expr radio1\decimals 2\fixed0}} radio2={\*\mjaformula{\expr radio2\decimals 2\fixed0}}  m1={\*\mjaformula{\expr m1\decimals 2\fixed0}}  m2={\*\mjaformula{\expr m2\decimals 2\fixed0}} \par da={\*\mjaformula{\expr da\decimals 2\fixed0}}        T1={\*\mjaformula{\expr T1\decimals 2\fixed0}}  T2={\*\mjaformula{\expr T2\decimals 2\fixed0}}      altura1={\*\mjaformula{\expr altura1\decimals 2\fixed0}} altura2={\*\mjaformula{\expr altura2\decimals 2\fixed0}}\par y1={\*\mjaformula{\expr y1\decimals 2\fixed0}}                        vL1={\*\mjaformula{\expr vl1\decimals 2\fixed0}} vL2={\*\mjaformula{\expr vl2\decimals 2\fixed0}}\f2\fs24\par \par g1={\*\mjaformula{\expr g1\decimals 2\fixed1}}   vl1={\*\mjaformula{\expr vl1\decimals 2\fixed0}}\par g2={\*\mjaformula{\expr g2\decimals 2\fixed0}}   vl2={\*\mjaformula{\expr vl2\decimals 2\fixed0} } E2.mouse_pressed\cf1  \cf0 ={\*\mjaformula{\expr E2.mouse_pressed\decimals 0\fixed0} }posX={\*\mjaformula{\expr E2.mouse_x\decimals 2\fixed0}}  posY={\*\mjaformula{\expr E2.mouse_y\decimals 2\fixed0} }\par VolS={\*\mjaformula{\expr VolS\decimals 2\fixed1} } VolH={\*\mjaformula{\expr VolH\decimals 2\fixed1}}\cf1\par}' fuente='SansSerif,PLAIN,18'">
+   <param name="Animaci&oacute;n" value="pausa='60' controles='no' auto='no' inicio='t=0;vL1=0;vL2=0;y1=165;y2=165;p1=370;p2=370;T1=0;T2=0;v1=0;v2=0' hacer='avanza2();;' mientras='(y1&gt;=-180)|(y2&gt;=-180)'">
+</applet>
+</p>
+
+</body>
+</html>

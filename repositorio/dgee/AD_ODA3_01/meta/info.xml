@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_01" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		N&uacute;meros naturales</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+Orden en los n&uacute;meros naturales y su representaci&oacute;n en la recta num&eacute;rica. Operaciones b&aacute;sicas con n&uacute;meros naturales. Operaciones b&aacute;sicas con n&uacute;meros naturales. 
+Algoritmo de Euclides (m&iacute;nimo com&uacute;n m&uacute;ltiplo y m&aacute;ximo com&uacute;n divisor) 1. Algoritmo de Euclides (m&iacute;nimo com&uacute;n m&uacute;ltiplo y m&aacute;ximo com&uacute;n divisor) 2.
+	]]></Descripcion>
+</recurso>
+
+<!--
+********************************************************************************
+                               **** Áreas **** 
+Matemáticas 
+	Aritmética
+		Fracciones
+	Álgebra
+		Combinatoria
+		Ecuaciones lineales
+		Ecuaciones polinomiales
+		Polinomios
+		Álgebra lineal
+		Teoría de grupos
+		Álgebra abstracta
+	Geometría
+		Geometría elemental
+		Geometría clásica
+		Geometría analítica
+	Trigonometría 
+	Probabilidad 
+		Cálculo de probabilidades
+		Eventos
+		Variables aleatorias
+		Ley de los grandes números
+		Teorema del límite central
+	Estadística
+		Medidas de tendencia central
+		Muestreo
+		Distribuciones
+		Inferencia
+	Cálculo
+		Funciones 
+		Límites
+		Continuidad
+		Derivadas 
+		Integrales 
+	Teoría de números
+	Teoría de gráficas
+Física
+	Mecánica
+	Electromagnetismo
+	Óptica
+	Físico-química 
+	Termodinámica
+	Mecánica estadística
+	Mecánica cuántica
+	Relatividad
+
+********************************************************************************
+
+********************************************************************************
+                             **** Niveles ****
+
+	Primaria
+	Preescolar
+	Secundaria
+	Bachillerato
+	Licenciatura
+	Posgrado 
+	Maestria
+	Doctorado
+
+********************************************************************************
+
+-->

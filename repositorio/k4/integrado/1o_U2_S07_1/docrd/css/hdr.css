@@ -1,0 +1,233 @@
+body{
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	overflow: auto;
+	background-attachment: scroll;
+	background-image: url(../images/h_bck.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-color: #f0f0f0;
+	}
+	
+.titulo_ventana{
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   
+	
+	   
+.t_RES_B1{
+	font-size: 17px;
+	color: #7ca402;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: Bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }
+	   
+.t_RES_B2{
+	font-size: 17px;
+	color: #b43152;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: Bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   	  
+.t_RES_B3{
+	font-size: 17px;
+	color: #018394;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: Bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   	
+.t_RES_B4{
+	font-size: 17px;
+	color: #c46a1a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: Bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }		
+	
+.t_RES_B5{
+	font-size: 17px;
+	color: #b98e03;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: Bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+
+
+	
+.menu_RES{
+	font-size: 12px;
+	color: #4c4c4c;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+
+
+		   
+	   
+.menu_materias{
+	font-size: 14px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   
+.menuMateria_link{
+	font-size: 12px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: underline;
+	   }
+.menuMateria_link:hover {
+	font-size: 12px;
+	color: #3575b3;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: underline;
+		   }
+	   
+.info_ventana{
+	font-size: 11px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   
+.textos{
+	font-size: 11px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 0px;
+	text-decoration: none;
+	   }		   
+	   
+.textos_titulos{
+	font-size: 11px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   	   
+.lista_link{
+	font-size: 11px;
+	color: #17314a;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: underline;
+	   }
+.lista_link:hover {
+	font-size: 11px;
+	color: #3575b3;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: underline;
+		   }
+
+
+.ruta{
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 10px;
+	text-decoration: none;
+	   }
+  
+.ruta_link{
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: none;
+	   }
+.ruta_link:hover {
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration: underline;
+		   }
+	   
+.txt_tit01{
+	font-size: 14px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 5px;
+	   }	   
+	   
+.celda_01{
+	font-size: 12px;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	background-attachment: scroll;
+	background-image: url(../images/bck01.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+	background-color: #f4f4f4;
+	padding: 5px;
+	   }	   
+	   
+.textos_RES{
+	font-size: 11px;
+	line-height:14px;
+	color: #4c4c4c;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 5px;
+	text-decoration: none;
+	   }	   
+	   
+.textos_RES_Tit_CE{
+	font-size: 11px;
+	line-height:14px;
+	color: #0088a6;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 5px;
+	text-decoration: none;
+	   }	  
+	   
+.textos_compo{
+	font-size: 11px;
+	color: #591703;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 0px;
+	text-decoration: none;
+	   }	
+	   
+.textos_compo:link, .textos_compo:visited{
+	font-size: 11px;
+	color: #591703;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	padding-left: 0px;
+	text-decoration: underline;
+	   }		    	   
+	   

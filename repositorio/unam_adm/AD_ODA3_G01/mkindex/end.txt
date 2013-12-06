@@ -1,0 +1,21 @@
+<!-- línea de separación final -->
+<tr><td><br/><br/></td></tr>
+
+
+</table>
+
+<br/>
+
+<table width="100%" class="pie">
+<tr><td>
+<ul>
+Para visualizar estas unidades interactivas es necesario usar un navegador de &uacute;ltima generaci&oacute;n 
+<br/>que implemente el Canvas de HTML5, como por ejemplo: Google Chrome, Mozila Firefox o Safari
+</ul>
+</td></tr></table>
+
+<br>
+
+
+</body>
+</html>

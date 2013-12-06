@@ -1,0 +1,17 @@
+7
+
+'De acuerdo con la tabla'
+'¿Qué suceso tiene mayor frecuencia absoluta?'
+'De acuerdo con la tabla'
+'¿Cuál es la frecuencia relativa del número 4?'
+'La tabla muestra las notas obtenidas por los alumnos'
+'en una prueba ¿Cuántos alumnos tiene el curso?'
+'De acuerdo con el texto que sigue determina la'
+'frecuencia relativa de familias con 2 hijos o menos'
+'Determina la frecuencia relativa de las empresas'
+'que tienen 18 o menos plantas atacadas por plagas.'
+
+'Al lanzar 1000 veces un dado se obtienen los siguientes'
+'resultados. ¿Cuál es la frecuencia relativa del 4?.'
+'Al extraer al azar 1 000 veces una bola de una caja,'
+'en la que hay 4 bolas verdes, 4 bolas azules y 4 bolas rojas'

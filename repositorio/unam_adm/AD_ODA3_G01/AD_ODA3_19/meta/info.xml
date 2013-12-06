@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_19" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Resoluci&oacute;n de ecuaciones cuadr&aacute;ticas (primera parte)</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Soluci&oacute;n de ecuaciones cuadr&aacute;ticas de los tipos Ax^2 + C = 0, Ax^2 + C = D, Ax^2 + Bx = 0, A (x + M)^2 = N y (Ax + B)(Cx + D) = 0.
+
+	]]></Descripcion>
+</recurso>

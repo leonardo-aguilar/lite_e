@@ -1,62 +1,186 @@
+<?php
+
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL);
+
+	require_once ("config.php");
+	require_once ($GLOBALS["controller"] . "/FileSystemSet.php");
+
+?>
+
 <html>
 	<head>
 		<title>Titulo</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<link rel="stylesheet" type="text/css" href="style/ui-lightness/jquery-ui-1.10.3.custom.css" >
+		<link rel="stylesheet" type="text/css" href="style/general/main.css">
+
+		<script language="javascript" src="javascript/jquery-1.9.1.js"></script>
+		<script language="javascript" src="javascript/jquery-ui-1.10.3.custom.js"></script>
+	    <script language="javascript" src="javascript/utils.js"></script>
+
+        <script>
+
+            $(function() {
+
+                $( "#menu" ).menu({
+                    position: {at: "left bottom"}
+                });
+
+                $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
+                    // alert($(this).attr("id"));
+                    if(this.checked) ++SelectedScenes;
+                    else --SelectedScenes;
+
+                    $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
+                });
+
+                 $("#ContainerConfigurationDialog").dialog({
+                    autoOpen: false,
+                    height: 450,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Restablecer valores": function() {
+                            RestoreContainerDefaults ();
+                        },
+                        "Compilar escenas": function() {
+                            var bValid = true;
+
+                            if ( bValid ) {
+                                $(this).dialog( "close" );
+
+                                $("#ContainerConfigurationForm input").each(function() {
+                                    if ($(this).attr("type") == "checkbox")
+                                        $("#ContentSelector").append("<input type='hidden' name='"+$(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
+                                    else
+                                        $("#ContentSelector").append("<input type='hidden' name='"+$(this).attr('id')+"' value='" + $(this).val() + "' />");
+                                });
+
+                                $("#ContentSelector").submit();
+                            }
+                        },
+                        Cancel: function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+
+                RestoreContainerDefaults ();
+                CleanSceneSelection ();
+            });
+
+        </script>
+
+        <style>
+
+            .ui-menu { overflow: hidden;}
+            .ui-menu .ui-menu { overflow: visible !important; }
+            .ui-menu > li { float: left; display: block; width: auto !important; }
+            .ui-menu > li { margin: 3px 3px !important; padding: 0 0 !important; }
+            .ui-menu > li > a { float: left; display: block; clear: both; overflow: hidden;}
+            .ui-menu .ui-menu-icon { margin-top: 0 !important;}
+            .ui-menu .ui-menu .ui-menu li { float: left; display: block;}
+
+
+            .ui-dialog .ui-state-error { padding: .3em; }
+            .validateTips { border: 1px solid transparent; padding: 0.3em; }
+
+            #ContainerConfigurationDialog span {
+                display:block;
+                margin-bottom:6px;
+                padding: .4em;
+            }
+
+            #ContainerConfigurationDialog td { padding: 3px; }
+            #ContainerConfigurationDialog td.label { width: 180px; text-align: right; }
+            #ContainerConfigurationDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
+
+            fieldset { padding: 0; border: 0; margin-top: 5px; }
+
+        </style>
+
 	</head>
 	<body>
+	<div id="ContainerConfigurationDialog" title="Configuración del contenedor">
+	    <form id="ContainerConfigurationForm">
+            <table>
+                    <tr>
+                        <td class="label">Mostrar botón de cerrar</td>
+                        <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Mostrar posición de la unidad</td>
+                        <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Mostrar flechas de navegación</td>
+                        <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Autoajustar botones</td>
+                        <td><input type="checkbox" name="AdjustButtons" id="AdjustButtons" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Redondear botones</td>
+                        <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Tamaño fijo de botones</td>
+                        <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Anchura del contenedor</td>
+                        <td><input type="text" name="ContentFrameWidth" id="ContentFrameWidth" class="ui-widget-content ui-corner-all" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Altura del contenedor</td>
+                        <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Título para la página</td>
+                        <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Título para la nueva unidad</td>
+                        <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
+                    </tr>
+            </table>
+        </form>
+    </div>
+    <div class="MainMenu">
+            <ul id="menu">
+                <li><a href="#">Selección de escenas</a>
+                    <ul>
+                        <li><a href="javascript:ShowSceneSelection();">Mostrar...</a></li>
+                        <li><a href="javascript:CleanSceneSelection();">Limpiar selección...</a></li>
+                        <li class="ui-state-disabled"><a href="javascript:ExportSceneSelection();">Exportar selección...</a></li>
+                    </ul>
+                </li>
+                <li class="ui-state-disabled"><a href="#">Selección de unidades</a>
+                    <ul>
+                        <li><a href="#">Mostrar...</a></li>
+                        <li><a href="#">Limpiar selección...</a></li>
+                        <li><a href="#">Exportar selección...</a></li>
+                    </ul>
+                </li>
+            </ul>
+		</div>
+		<div class="ContentArea">
+			<iframe id="ContentFrame" name="ContentFrame" src=""></iframe>
+		</div>
+		<div class="MenuArea">
+		<form action="./template/index.php" method="post" id="ContentSelector" name="ContentSelector" target="ContentFrame">
+        <?php
 
-<?php
+	        $util = new FileSystemSet($GLOBALS["repository"]);
+	        $util->PrintLOInfo();
 
-require_once("classes/classes.php");
-
-// funciones de utilidad
-
-function imprimir_vars($obj)
-{
-foreach (get_object_vars($obj) as $prop => $val) {
-    echo "\t$prop = $val\n";
-}
-}
-
-function imprimir_métodos($obj)
-{
-$arr = get_class_methods(get_class($obj));
-foreach ($arr as $método) {
-    echo "\tfunción $método()\n";
-}
-}
-
-function clase_padre($obj, $clase)
-{
-if (is_subclass_of($GLOBALS[$obj], $clase)) {
-    echo "El objeto $obj pertenece a la clase " . get_class($$obj);
-    echo ", una subclase de $clase\n";
-} else {
-    echo "El objeto $obj no pertenece a una subclase de $clase\n";
-}
-}
-
-// instancias 2 objetos
-
-$vegetariano = new Verdura(true, "blue");
-$frondoso = new Espinaca();
-
-// imprimir información sobre los objetos
-echo "vegetariano: CLASE " . get_class($vegetariano) . "\n";
-echo "frondoso: CLASE " . get_class($frondoso);
-echo ", PADRE " . get_parent_class($frondoso) . "\n";
-
-// mostrar las propiedades de vegetariano
-echo "\nvegetariano: Propiedades\n";
-imprimir_vars($vegetariano);
-
-// y los métodos de frondoso
-echo "\nfrondoso: Métodos\n";
-imprimir_métodos($frondoso);
-
-echo "\nPadre:\n";
-clase_padre("frondoso", "Espinaca");
-clase_padre("frondoso", "Verdura");
-?>
+        ?>
+        </form>
+    </div>
+    <div class="locker"></div>
+    <div id="counter">Escenas seleccionadas: 0</div>
 	</body>
 </html>

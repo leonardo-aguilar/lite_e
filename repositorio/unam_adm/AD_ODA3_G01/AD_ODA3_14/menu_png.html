@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1"?><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+   <title>menu</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/ddaccordion.js">
+/***********************************************
+* Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+</script>
+
+<script type="text/javascript">
+ddaccordion.init({
+	headerclass: "silverheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: false, //persist state of opened contents within browser session?
+	toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+
+</script>
+
+<style type="text/css">
+
+.applemenu{
+margin: 0px -8px;
+padding: 0;
+width: 130px; /*width of menu*/
+border: 2px solid  #F90;
+height:auto;
+}
+
+.applemenu div.silverheader a{
+background: black url(images/silvergradient.gif) repeat-x center left;
+font: normal 12px Tahoma, "Lucida Grande", "Trebuchet MS", Helvetica, sans-serif;
+color: white;
+display: block;
+position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+width: auto;
+padding: auto 0;
+padding-left: 0px;
+height:auto;
+}
+
+.applemenu div.silverheader a:visited, .applemenu div.silverheader a:active{
+color: white;
+}
+
+.applemenu div.selected a, .applemenu div.silverheader a:hover{
+background-image: url(images/silvergradientover.gif);
+color: white;
+}
+
+.applemenu div.submenu{ /*DIV that contains each sub menu*/
+background: white;
+height: auto; /*Height that applies to all sub menu DIVs. A good idea when headers are toggled via "mouseover" instead of "click"*/
+}
+
+.applemenu div.submenu ul{
+font: normal 12px Tahoma, "Lucida Grande", "Trebuchet MS", Helvetica, sans-serif;
+list-style-position:inside;
+white-space:pre-wrap;
+margin: 5px;
+padding: 5px;
+width: auto;
+height:auto;
+}
+
+.applemenu div.submenu ul li:hover{
+color: red;
+}
+
+.applemenu div.submenu ul li a:hover{
+color: red;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="applemenu">
+<div class="silverheader">
+  <div align="center"><a>Problemas que dan lugar a ecuaciones lineales con una inc&oacute;gnita</a></div>
+</div>
+	<div style="display: none;" class="submenu">
+	<ul>
+		<li> <a href="png/png_67_32_53_2_6_0_0_0.html" target="main">Resoluci&oacute;n de problemas que dan lugar a ec. lin. con una inc&oacute;gnita 1</a>
+		<li> <a href="png/png_67_32_54_2_6_0_0_0.html" target="main">Resoluci&oacute;n de problemas que dan lugar a ec. lin. con una inc&oacute;gnita 2</a>
+	<ul>
+	</div>
+</div>
+</body>
+</html>

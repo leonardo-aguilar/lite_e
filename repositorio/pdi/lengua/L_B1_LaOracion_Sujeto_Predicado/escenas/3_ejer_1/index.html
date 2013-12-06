@@ -1,0 +1,282 @@
+<html>
+<head>
+	<title>Formar oraciones uniendo sujetos y predicados.</title>
+	<style>
+		* {
+			padding:0;
+			margin:0;
+			border:0;
+		}
+	</style>
+	<script type='text/javascript' src='../lib/descartes-min.js'></script>
+</head>
+<body BGCOLOR="ffffff">
+
+<p align="left">
+<ajs name="Descartes" width=790 height=520
+        code="Descartes.class"
+        codebase="../"
+        archive="lib/Descartes5.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='Recuerda que el sujeto y el predicado concuerdan en persona y n&uacute;mero.' subtitle='Relaciona cada sujeto con un predicado para formar oraciones con sentido.' subtitlines='2' bgcolor='d0f0ff' fgcolor='ffffff' align='center' titleimage='images/instrucciones.jpg' titlefont='SansSerif,PLAIN,22' subtitlefont='SansSerif,PLAIN,22' ">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="deshacer" value="no">
+   <param name="nombre" value="Descartes">
+   <param name="Versi&oacute;n" value="5.101, 2013-07-16">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_01" value="tipo='R2' id='E1' fijo='s&iacute;' escala='1' O.x='-50%' O.y='-50%' imagen='images/fondo.png' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_01" value="id='bloques.debug' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='E1' nombre='bloques.debug' valor='bloques.debug' incr='1' min='0' fijo='no' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_02" value="id='btnSigEjer' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='&gt;' expresi&oacute;n='(btnSigEjer.x,-btnSigEjer.y,btnSigEjer.w,btnSigEjer.h)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='sigEjercicio()' dibujar-si='0&amp;(btnSigEjer.visible|seleccionAleatoria)'">
+   <param name="C_03" value="id='btnAntEjer' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='&lt;' expresi&oacute;n='(btnAntEjer.x,-btnAntEjer.y,btnAntEjer.w,btnAntEjer.h)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='antEjercicio()' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(btnAntEjer.visible)&amp;(!seleccionAleatoria)'">
+   <param name="C_04" value="id='btnVerificar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Verificar' expresi&oacute;n='(btnVerificar.x,-btnVerificar.y,btnVerificar.w,btnVerificar.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='18' imagen='images/btn120.png' acci&oacute;n='calcular' par&aacute;metro='verificar()' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='btnVerificar.visible' activo-si='btnVerificar.activo_si'">
+   <param name="C_05" value="id='btnBorrar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Borrar' expresi&oacute;n='(btnBorrar.x,-btnBorrar.y,btnBorrar.w,btnBorrar.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='18' imagen='images/btn120.png' acci&oacute;n='calcular' par&aacute;metro='bloques.edicion=bloques.BORRAR\nbtnVerificar.activo_si=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bloques.edicion==bloques.NORMAL'">
+   <param name="C_06" value="id='btnEditar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Relacionar' expresi&oacute;n='(btnBorrar.x,-btnBorrar.y,btnBorrar.w,btnBorrar.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='18' imagen='images/btn120.png' acci&oacute;n='calcular' par&aacute;metro='bloques.edicion=bloques.NORMAL\nbtnVerificar.activo_si=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bloques.edicion==bloques.BORRAR'">
+   <param name="C_07" value="id='btnLimpiar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Reiniciar' expresi&oacute;n='(btnLimpiar.x,-btnLimpiar.y,btnLimpiar.w,btnLimpiar.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='18' imagen='images/btn120.png' acci&oacute;n='calcular' par&aacute;metro='tt=(verificado&amp;correcto)?sigEjercicio():bloques.limpiarRel()\nverificado=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='btnLimpiar.visible'">
+   <param name="C_08" value="id='___ACOMODO____' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='exterior' espacio='E1' nombre='___ACOMODO____' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='initP()' pos_mensajes='centro'">
+   <param name="C_09" value="id='_verAcomodar_' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='E1' nombre='_verAcomodar_' valor='_verAcomodar_' incr='1' min='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_10" value="id='output' tipo='num&eacute;rico' interfaz='campo de texto' solo_texto='s&iacute;' regi&oacute;n='exterior' espacio='E1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='_tt=(output==&squot;0&squot;)?muestraPosCtr():0' dibujar-si='_verAcomodar_' activo-si='_verAcomodar_' pos_mensajes='centro'">
+   <param name="C_11" value="id='posGols' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(posGols.x,posGols.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_12" value="id='posGols2' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(posGols2.x,posGols2.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_13" value="id='posLabes' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(posLabes.x,posLabes.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_14" value="id='posLabes2' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(posLabes2.x,posLabes2.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_15" value="id='btnVerificar' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='6' expresi&oacute;n='(btnVerificar.x,btnVerificar.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_16" value="id='btnAntEjer' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='6' expresi&oacute;n='(btnAntEjer.x,btnAntEjer.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='_verAcomodar_==2' activo-si='_verAcomodar_==2'">
+   <param name="C_17" value="id='btnSigEjer' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='6' expresi&oacute;n='(btnSigEjer.x,btnSigEjer.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==2' activo-si='_verAcomodar_==2'">
+   <param name="C_18" value="id='retro' tipo='gr&aacute;fico' espacio='E1' color='ff6f69' color-int='b10000' expresi&oacute;n='(retro.x,retro.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==2' activo-si='_verAcomodar_==2'">
+   <param name="C_19" value="id='correcto' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='7bc372' expresi&oacute;n='(correcto.x,correcto.y)' fijo='s&iacute;' dibujar-si='_verAcomodar_==2' activo-si='_verAcomodar_==2'">
+   <param name="C_20" value="id='txtEjercicioN' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(txtEjercicioN.x,txtEjercicioN.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='_verAcomodar_==2' activo-si='_verAcomodar_==2'">
+   <param name="C_21" value="id='btnLimpiar' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(btnLimpiar.x,btnLimpiar.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="C_22" value="id='btnBorrar' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' expresi&oacute;n='(btnBorrar.x,btnBorrar.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='_verAcomodar_==1' activo-si='_verAcomodar_==1'">
+   <param name="A_01" value="id='__POS_CTR__'">
+   <param name="A_02" value="id='nombresCtr' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='12' expresi&oacute;n='nombresCtr[0]=&squot;btnVerificar&squot;;nombresCtr[1]=&squot;btnAntEjer&squot;;nombresCtr[2]=&squot;btnSigEjer&squot;;nombresCtr[3]=&squot;posLabes&squot;;nombresCtr[4]=&squot;posGols&squot;;nombresCtr[5]=&squot;posLabes2&squot;;nombresCtr[6]=&squot;posGols2&squot;;nombresCtr[7]=&squot;correcto&squot;;nombresCtr[8]=&squot;retro&squot;;nombresCtr[9]=&squot;txtEjercicioN&squot;;nombresCtr[10]=&squot;btnLimpiar&squot;;nombresCtr[11]=&squot;btnBorrar&squot;;;;'">
+   <param name="A_03" value="id='muestraPosCtr()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0; _separator=&squot; &squot;; _equals=&squot;=&squot;; output=&squot;&squot;;' hacer=';;_varName=nombresCtr[_index];_varX=_varName+&squot;.x&squot;;_valX=_Eval_(_varX);;_varY=_varName+&squot;.y&squot;;_valY=_Eval_(_varY);;;_str1=_varX+_equals+_valX+_separator+_varY+_equals+_valY+_separator+_separator;output=output+_str1;_mostrarPosEvent=1;;_index=_index+1' mientras='_index&lt;nombresCtr.long'">
+   <param name="A_04" value="id='acomodaAux()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_acomodarEnX=(_dirCol2==bloques.X_AXIS);posGols2.x=(_acomodarEnX)?posGols2.x:posGols.x;posGols2.y=(_acomodarEnX)?posGols.y:posGols2.y;;;_acomodarEnX=(_dirCol1==bloques.X_AXIS);posLabes2.x=(_acomodarEnX)?posLabes2.x:posLabes.x;posLabes2.y=(_acomodarEnX)?posLabes.y:posLabes2.y;;;;doLayoutBloques();;;acomodaDependientes();;;'">
+   <param name="A_05" value="id='acomodaDependientes()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='txtEjercicioN.x=btnAntEjer.x+btnAntEjer.w;txtEjercicioN.y=btnAntEjer.y-3;;btnSigEjer.x=txtEjercicioN.x+50;btnSigEjer.y=btnAntEjer.y'">
+   <param name="A_06" value="id='__VEC_DATOS_EXT__'">
+   <param name="A_07" value="id='wordCol1' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='wordCol1[0]=&squot;Los gatos de mi barrio&squot;;wordCol1[1]=&squot;Mis abuelos&squot;;wordCol1[2]=&squot;Tu prima Isabel&squot;;wordCol1[3]=&squot;Los alumnos de la clase&squot;;wordCol1[4]=&squot;T&uacute;&squot;;wordCol1[5]=&squot;El vecino de Andr&eacute;s&squot;'">
+   <param name="A_08" value="id='wordCol2' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='wordCol2[0]=&squot;ma&uacute;llan por la noche.&squot;;wordCol2[1]=&squot;me visitar&aacute;n ma&ntilde;ana.&squot;;wordCol2[2]=&squot;est&aacute; muy contenta.&squot;;wordCol2[3]=&squot;iremos de excursi&oacute;n.&squot;;wordCol2[4]=&squot;eres mi mejor amigo.&squot;;wordCol2[5]=&squot;casi nunca est&aacute; en casa.&squot;;'">
+   <param name="A_09" value="id='relCol1' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='relCol1[0]=0;relCol1[1]=1;relCol1[2]=2;relCol1[3]=3;relCol1[4]=4;relCol1[5]=5'">
+   <param name="A_10" value="id='relCol2' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='relCol2[0]=0;relCol2[1]=1;relCol2[2]=2;relCol2[3]=3;relCol2[4]=4;relCol2[5]=5'">
+   <param name="A_11" value="id='relacionCol' vector='s&iacute;' matriz='s&iacute;' evaluar='una-sola-vez' columnas='2' filas='200' expresi&oacute;n='&oacute;=|*****************************************************|;&oacute;=|* En este vector se buscan los ejercicios faciles   *|;&oacute;=|* En la posicion 0 se tiene que poner el numero     *|;&oacute;=|* de palabras que contiene cada ejercicio. Si en la *|;&oacute;=|* primera entrada se encuentra un 5, espera que la  *|;&oacute;=|* longitud del vector sea de 5n+1 y se supondr&aacute; que *|;&oacute;=|* hay -n- ejercicios en el modo facil               *|;&oacute;=|*****************************************************|'">
+   <param name="A_12" value="id='__VEC_EVAL__'">
+   <param name="A_13" value="id='wordCorrect' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='relCol2.long+100'">
+   <param name="A_14" value="id='wordOrden' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='bloques.n_coln+100'">
+   <param name="A_15" value="id='__FUNCIONES__'">
+   <param name="A_16" value="id='___INT_EJERC__'">
+   <param name="A_17" value="id='initEasy(_iBloq,_tamGrupo)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;myRnd.minRango=0;myRnd.maxRango=_tamGrupo;myRnd.creaAleatorios();bloques.limpiarRel()' hacer='_indexRnd=myRnd.resultadoVec[_index];_index2=_iBloq*_tamGrupo+_indexRnd;;;wordOrden[_index2]=_index;bloques.col1_txt[_index]=wordCol1[_index2];;_index=_index+1' mientras='_index&lt;_tamGrupo'">
+   <param name="A_18" value="id='doLayoutBloques()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_tmpW=abs(posLabes.x-posLabes2.x);_tmpH=abs(posLabes.y-posLabes2.y);_tmpW=(_dirCol1==bloques.Y_AXIS)?_tmpH:_tmpW;bloques.acomoda_Col1(posLabes.x,-posLabes.y,_tmpW,_dirCol1,_gapX_Col1,_gapY_Col1);bloques.guardaPosOrigCol1();;_tmpW=abs(posGols.x-posGols2.x);_tmpH=abs(posGols.y-posGols2.y);_tmpW=(_dirCol2==bloques.Y_AXIS)?_tmpH:_tmpW;bloques.acomoda_Col2(posGols.x,-posGols.y,_tmpW,_dirCol2,_gapX_Col2,_gapY_Col2)'">
+   <param name="A_19" value="id='initEjer(_iBloque,_pNWordsCol1,_pNWordsCol2)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='verificado=0;correcto=0;bloques.enabled=1;btnVerificar.visible=1;btnLimpiar.visible=1;btnVerificar.activo_si=1;bloques.edicion=bloques.NORMAL;;;bloques.n_col1=_pNWordsCol1;bloques.n_col2=_pNWordsCol2;;vaciaBloques();initEasy(_iBloque,_pNWordsCol1);doLayoutBloques();'">
+   <param name="A_20" value="id='___MACRO_BLOQUES__'">
+   <param name="A_21" value="id='sync_esp()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='bloques.Esp.mousePressed=(E1.mouse_pressed)&amp;(bloques.enabled);bloques.Esp.mouse_x=E1.mouse_x;bloques.Esp.mouse_y=E1.mouse_y;bloques.Esp.Ox=E1.Ox;bloques.Esp.Oy=E1.Oy;bloques.Esp.w=E1._w;bloques.Esp.h=E1._h;bloques.Esp.escala=E1.escala;;'">
+   <param name="A_22" value="id='vaciaBloques()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;_limiteI=max(bloques.n_col1,bloques.n_col2)' hacer='_index1=min(_index,bloques.n_col1-1);_index2=min(_index,bloques.n_col2-1);;;;bloques.col1_w[_index1]=bloques.ancho;bloques.col1_h[_index1]=bloques.alto;;bloques.col2_w[_index2]=bloques.ancho;bloques.col2_h[_index2]=bloques.alto;;bloques.col1_txt[_index1]=&squot;&squot;;bloques.col2_txt[_index2]=wordCol2[min(_index2,wordCol2.long-1)];;;bloques.col1_rel[_index1]=-1;bloques.col2_rel[_index2]=-1;;;bloques.col1_dx[_index1]=bloques.col1.dx;bloques.col1_dy[_index1]=bloques.col1.dy;;bloques.col2_dx[_index2]=bloques.col2.dx;bloques.col2_dy[_index2]=bloques.col2.dy;bloques.adyacencias[_index1,_index2]=0;;;bloques.col1_BA[_index1]=(bloques.usarFondosImagen)?1:bloques.col1.Borde.A;bloques.col1_BR[_index1]=bloques.col1.Borde.R;bloques.col1_BG[_index1]=bloques.col1.Borde.G;bloques.col1_BB[_index1]=bloques.col1.Borde.B;bloques.col1_BW[_index1]=bloques.col1.Borde.W;;bloques.col1_A[_index1]=(bloques.usarFondosImagen)?1:bloques.col1.Int.A;bloques.col1_R[_index1]=bloques.col1.Int.R;bloques.col1_G[_index1]=bloques.col1.Int.G;bloques.col1_B[_index1]=bloques.col1.Int.B;;bloques.col2_BA[_index2]=(bloques.usarFondosImagen)?1:bloques.col2.Borde.A;bloques.col2_BR[_index2]=bloques.col2.Borde.R;bloques.col2_BG[_index2]=bloques.col2.Borde.G;bloques.col2_BB[_index2]=bloques.col2.Borde.B;bloques.col2_BW[_index2]=bloques.col2.Borde.W;;bloques.col2_A[_index2]=(bloques.usarFondosImagen)?1:bloques.col2.Int.A;bloques.col2_R[_index2]=bloques.col2.Int.R;bloques.col2_G[_index2]=bloques.col2.Int.G;bloques.col2_B[_index2]=bloques.col2.Int.B;;;;_index=_index+1' mientras='_index&lt;_limiteI'">
+   <param name="A_23" value="id='___FUN_EVAL__'">
+   <param name="A_24" value="id='sigEjercicio()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_bUsar=min(_bUsar+1,_maxBloq-1);_bUsar=(seleccionAleatoria)?ent(rnd*_maxBloq):_bUsar;;btnSigEjer.visible=(_bUsar&lt;(_maxBloq-1));btnAntEjer.visible=(_bUsar&gt;0);;bloques.limpiarRel();verificado=0;btnVerificar.activo_si=1;btnVerificar.visible=1;bloques.edicion=bloques.NORMAL;;initEjer(_bUsar,nWordsCol1,nWordsCol2);'">
+   <param name="A_25" value="id='antEjercicio()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_bUsar=max(_bUsar-1,0);_bUsar=(seleccionAleatoria)?ent(rnd*_maxBloq):_bUsar;;btnSigEjer.visible=(_bUsar&lt;(_maxBloq-1));btnAntEjer.visible=(_bUsar&gt;0);;bloques.limpiarRel();verificado=0;btnVerificar.activo_si=1;btnVerificar.visible=1;bloques.edicion=bloques.NORMAL;;initEjer(_bUsar,nWordsCol1,nWordsCol2);;'">
+   <param name="A_26" value="id='verificaRel()' algoritmo='s&iacute;' expresi&oacute;n='_res' algoritmo='s&iacute;' inicio='_index=0;_res=(bloques.n_relaciones==relCol1.long);' hacer='_index1Map=relCol1[_index];_index2Map=relCol2[_index];;_index1Map=wordOrden[_index1Map];;_hayRel=bloques.adyacencias[_index1Map,_index2Map];;_tmpAntBien=wordCorrect[_index1Map];__tmpAntBien=(_tmpAntBien==0)?&squot;&squot;:_tmpAntBien;;wordCorrect[_index1Map]=(_tmpAntBien)&amp;(_hayRel);;_res=_res&amp;_hayRel;_index=_index+1' mientras='(_index&lt;(relCol1.long))'">
+   <param name="A_27" value="id='verificar()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='wordCorrect[0]=1;wordCorrect[1]=1;wordCorrect[2]=1;wordCorrect[3]=1;wordCorrect[4]=1;wordCorrect[5]=1;wordCorrect[6]=1;wordCorrect[7]=1;wordCorrect[8]=1;wordCorrect[9]=1;;;verificado=1;correcto=verificaRel();bloques.enabled=(!correcto);btnVerificar.visible=(!correcto)'">
+   <param name="A_28" value="id='___ALG_INIT__'">
+   <param name="A_29" value="id='___EVENTOS__'">
+   <param name="A_30" value="id='****FIN_PLANTILLA***'">
+   <param name="A_31" value="id='calcPosImgBienMal(_iWord)' algoritmo='s&iacute;' expresi&oacute;n='verificado' algoritmo='s&iacute;' hacer='_tmpObj.x=bloques.col1_x[_iWord]+bloques.col1_w[_iWord]-15;_tmpObj.y=bloques.col1_y[_iWord]+bloques.col1_h[_iWord]-15;;_tmpObj.bien=wordCorrect[_iWord]'">
+   <param name="A_32" value="id='imgTmpBienMal' vector='s&iacute;' evaluar='una-sola-vez' expresi&oacute;n='imgTmpBienMal[0]=&squot;images/mal.png&squot;;imgTmpBienMal[1]=&squot;images/bien.png&squot;;'">
+   <param name="A_33" value="id='bienObjCol1(_iCol1)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0' hacer='_iCol1=bloques.relDer[_iSeg];_iCol2=bloques.relIzq[_iSeg];;;_index=_index+1'">
+   <param name="A_34" value="id='INIT_DATOS' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='nWordsCol1=wordCol1.long;nWordsCol2=wordCol2.long;;;_tmpLong=wordCol1.long;_maxBloq=ent(_tmpLong/nWordsCol1);;_malCFGArchivo=(_tmpLong%nWordsCol1)&gt;0;_malCfgArchivoRel=(relCol1.long!=relCol2.long) ;;;cambiarSigEscena=0;cambiarAntEscena=0;'">
+   <param name="A_35" value="id='CFG_SIZE' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='btnVerificar.w=121;btnVerificar.h=31;;btnSigEjer.w=30;btnSigEjer.h=30;;btnAntEjer.w=btnSigEjer.w;btnAntEjer.h=btnSigEjer.h;;btnLimpiar.w=121;btnLimpiar.h=31;;btnBorrar.w=121;btnBorrar.h=31;'">
+   <param name="A_36" value="id='CFG_BTN_POS' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='btnVerificar.x=336;btnVerificar.y=-412;;btnAntEjer.x=670;btnAntEjer.y=-14;;btnSigEjer.x=750;btnSigEjer.y=-14;;posLabes.x=27;posLabes.y=-36 ;;posGols.x=498 ;posGols.y=-36 ;;posLabes2.x=27;posLabes2.y=-336 ;;posGols2.x=498 ;posGols2.y=-329 ;;correcto.x=290;correcto.y=-352;;retro.x=316;retro.y=-374;;txtEjercicioN.x=700;txtEjercicioN.y=-17;;btnLimpiar.x=470;btnLimpiar.y=-412;;btnBorrar.x=200;btnBorrar.y=-412;'">
+   <param name="A_37" value="id='CFG_BLOQ' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='bloques.enabled=1;bloques.dejarInsertar=1;bloques.tipoRel=bloques.REL_1_1;;;;&ocirc;=|*****************************************************|;&ocirc;=|* Controla si se pondran imagenes de fondo en lugar *|;&ocirc;=|* de rectangulos. La ruta donde busca las imagenes: *|;&ocirc;=|*                                                   *| ;&ocirc;=|*  images/palabras/fondoBase.png                    *|;&ocirc;=|*  images/palabras/fondoPalabra.png                 *|;&ocirc;=|*                                                   *|;&ocirc;=|* Recordar que si se cambia el tamano de las        *|  ;&ocirc;=|* imagenes (125x30) hay que actualizar el alto y    *|;&ocirc;=|* ancho en la configuracion de los bloques          *|;&ocirc;=|*                                                   *|;&ocirc;=|*****************************************************|;bloques.usarFondosImagen=0;;bloques.tipoInter=bloques.ARRASTRE;bloques.tipoInter=bloques.CLIC;;&ocirc;=|***************************************************|;&ocirc;=|*            Tamanos de botones                   *|;&ocirc;=|***************************************************|;bloques.alto=33;bloques.ancho=260;;;bloques.col1.dx=0;bloques.col1.dy=5;;bloques.col2.dx=0;bloques.col2.dy=5;;bloques.wArgolla=10;;;&ocirc;=|***************************************************|;&ocirc;=|*                   COLORES                       *|;&ocirc;=|***************************************************|;bloques.col1.Borde.A=0.5;bloques.col1.Borde.R=0.5;bloques.col1.Borde.G=0.5;bloques.col1.Borde.B=0.8;bloques.col1.Borde.W=1;;;bloques.col1.Int.A=0.8;bloques.col1.Int.R=0.6;bloques.col1.Int.G=0.9;bloques.col1.Int.B=0.8;;;;;bloques.col2.Borde.A=0.5;bloques.col2.Borde.R=0.5;bloques.col2.Borde.G=0.5;bloques.col2.Borde.B=0.8;bloques.col2.Borde.W=1;;bloques.col2.Int.A=0.8;bloques.col2.Int.R=0.6;bloques.col2.Int.G=1;bloques.col2.Int.B=0.9;;;;&ocirc;=|***************************************************|;&ocirc;=|*  COLORES DEL BLOQUE QUE ESTA SELECT             *|;&ocirc;=|***************************************************|;bloques.maskSelect.A=0.2;bloques.maskSelect.R=1;bloques.maskSelect.G=1;bloques.maskSelect.B=0.6;;bloques.maskSelect.BA=0.2;bloques.maskSelect.BR=1;bloques.maskSelect.BG=1;bloques.maskSelect.BB=1;bloques.maskSelect.BW=2;;;;&ocirc;=|***************************************************|;&ocirc;=|*  COLORES DEL BLOQUE QUE ESTA SELECT             *|;&ocirc;=|***************************************************|;;bloques.segmentos.A=0;bloques.segmentos.R=0.4;bloques.segmentos.G=0.4;bloques.segmentos.B=0.8;bloques.segmentos.W=2;;bloques.segmentoSel.A=0.6;bloques.segmentoSel.R=0.4;bloques.segmentoSel.G=0.9;bloques.segmentoSel.B=0.4;bloques.segmentoSel.W=4;;;;&ocirc;=|***************************************************|;&ocirc;=|* Configuramos los espacios entre celdas y        *|;&ocirc;=|* la orientacion                                  *|;&ocirc;=|***************************************************|;_gapX_Col1=5;_gapY_Col1=20;_dirCol1=bloques.Y_AXIS;;_gapX_Col2=5;_gapY_Col2=20;_dirCol2=bloques.Y_AXIS;;'">
+   <param name="A_38" value="id='CFG' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='&ocirc;=|***************************************************|;&ocirc;=|* Se se tomara aleatoriamente un grupo de los     *|;&ocirc;=|* ejercicios                                      *|;&ocirc;=|***************************************************|;seleccionAleatoria=1;;&ocirc;=|***************************************************|;&ocirc;=|* Que botones son visibles. Si los ejercicios son *|;&ocirc;=|* tomados aleatoriamente, btnAntEjer siempre esta *|;&ocirc;=|* oculto                                          *|;&ocirc;=|***************************************************|;btnSigEjer.visible=0;btnAntEjer.visible=0;btnVerificar.visible=1'">
+   <param name="A_39" value="id='CALC_PLANT' algoritmo='s&iacute;' evaluar='siempre' hacer='sync_esp();_mouseSoltado=(mousePAnt)&amp;(!E1.mouse_pressed);mousePAnt=E1.mouse_pressed;;;_tmpBool=(bloques.activo&gt;=0)&amp;(verificado);;verificado=(_tmpBool)?0:verificado;tt=(_verAcomodar_&gt;0)?acomodaAux():0;'">
+   <param name="A_40" value="id='cambiarSigEscena' evento='s&iacute;' condici&oacute;n='cambiarSigEscena' acci&oacute;n='abrir URL' par&aacute;metro='javascript:parent.siguienteEscena();void(0);' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_41" value="id='cambiarAntEscena' evento='s&iacute;' condici&oacute;n='cambiarAntEscena' acci&oacute;n='abrir URL' par&aacute;metro='javascript:parent.anteriorEscena();void(0);' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="A_42" value="id='limpiaVars' evento='s&iacute;' condici&oacute;n='1' acci&oacute;n='calcular' par&aacute;metro='_mostrarPosEvent=0\n_malCFGArchivo=0\n_malCfgArchivoRel=0' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_43" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='antEjercicio();'">
+   <param name="A_44" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer=';'">
+   <param name="G_01" value="espacio='E1' tipo='macro' fondo='s&iacute;' dibujar-si='0' expresi&oacute;n='macros/randoms.txt' nombre='myRnd'">
+   <param name="G_02" value="espacio='E1' tipo='macro' expresi&oacute;n='macros/relacionObj.txt' nombre='bloques'">
+   <param name="G_03" value="espacio='E1' tipo='texto' dibujar-si='(verificado)&amp;(!correcto)' expresi&oacute;n='[retro.x,-retro.y]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red159\green0\blue0;\red0\green0\blue255;}\f1\fs40\b\cf0 No es correcto.\f2\fs24\b0\cf1}' fuente='Arial Negrita,BOLD,20' fijo='s&iacute;'">
+   <param name="G_04" value="espacio='E1' tipo='texto' dibujar-si='(verificado)&amp;(correcto)' expresi&oacute;n='[correcto.x,-correcto.y]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Arial;\f4\fcharset0 Courier New;}{\colortbl\red58\green150\blue58;\red0\green0\blue255;}\f1\fs50\b\cf0         \fs42\u161 Muy bien! \fs50\par \fs36\b0 Has completado el ejercicio.\cf1\f4\fs24}' fuente='Arial Negrita,BOLD,25' fijo='s&iacute;'">
+   <param name="G_05" value="espacio='E1' tipo='texto' dibujar-si='!seleccionAleatoria' expresi&oacute;n='[txtEjercicioN.x,-txtEjercicioN.y]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red80\green80\blue80;\red0\green0\blue255;}\cf0\f1\fs36\b{\*\mjaformula{\expr _bUsar+1}}/{\*\mjaformula{\expr _maxBloq}}\cf1\f2\fs24\b0}' fuente='Arial Negrita,BOLD,18' fijo='no'">
+   <param name="G_06" value="espacio='E1' tipo='texto' fondo='s&iacute;' dibujar-si='0' expresi&oacute;n='[___DEBUG___,20]' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_07" value="espacio='E1' tipo='texto' dibujar-si='bloques.debug==4' expresi&oacute;n='[20,20+s*20]' texto='_maxBloq=[_maxBloq]\nnWords=[nWords]\nwordEasy.long=[wordEasy.long]\nbloques.enabled=[bloques.enabled]\n_selRND=[_selRND]\nrnd=[rnd]' fuente='Monospaced,PLAIN,12' fijo='no'">
+   <param name="G_08" value="espacio='E1' tipo='texto' dibujar-si='bloques.debug==5' expresi&oacute;n='[0,220+15*s]' familia='s' s.intervalo='[0,bloques.n_col1-1]' s.pasos='bloques.n_col1-1' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\f1\fs28\b\cf0{\*\mjaformula{\expr wordCorrect[s]}}\f2\fs24\b0\cf1}' fuente='SansSerif,BOLD,14' fijo='no'">
+   <param name="G_09" value="espacio='E1' tipo='imagen' dibujar-si='calcPosImgBienMal(s)' coord_abs='s&iacute;' expresi&oacute;n='(_tmpObj.x+5,_tmpObj.y,1,1)' familia='s' s.intervalo='[0,relCol1.long-1]' s.pasos='relCol1.long-1' archivo='[imgTmpBienMal[_tmpObj.bien]]'">
+</ajs></p>
+
+<script id="macros/randoms.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=español
+id='minRango' expresión='0' evaluar='una-sola-vez' constante='si'
+id='maxRango' expresión='10' evaluar='una-sola-vez' constante='si'
+id='n_numeros' expresión='ent(maxRango-minRango)'
+id='VecAux1' tamaño='n_numeros+100' evaluar='una-sola-vez' expresión='VecAux1[0]=0;VecAux1[1]=0;VecAux1[2]=0' vector='si'
+id='resultadoVec' tamaño='n_numeros+100' evaluar='una-sola-vez' vector='si'
+id='initVecAux1()' inicio='_indexT=0;_ancla=minRango;' hacer='VecAux1[_indexT]=_ancla;_indexT=_indexT+1;_ancla=_ancla+1;' mientras='_indexT&lt;n_numeros' algoritmo='si'
+id='reacomodaVector(_posBorrar)' inicio='_indexAcomoda=_posBorrar;' hacer='VecAux1[_indexAcomoda]=VecAux1[_indexAcomoda+1];_indexAcomoda=_indexAcomoda+1' mientras='_indexAcomoda&lt;(n_numeros-1)' algoritmo='si'
+id='creaAleatorios()' inicio='initVecAux1();_indexCrearAl=0;' hacer='_cuantosQuedan=(n_numeros-_indexCrearAl);_indexAleatorio=ent(rnd*_cuantosQuedan);;resultadoVec[_indexCrearAl]=VecAux1[_indexAleatorio];;reacomodaVector(_indexAleatorio);_indexCrearAl=_indexCrearAl+1' mientras='_indexCrearAl&lt;n_numeros' algoritmo='si'
+tipo='texto' color='azul' expresión='[20,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='resultadoVec([s])=[resultadoVec[s]]' fijo='no' 
+tipo='texto' color='azul' expresión='[220,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='VecAux1([s])=[VecAux1[s]]' fijo='no' 
+</script>
+
+<script id="macros/relacionObj.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='____CONST____'
+id='NORMAL' constante='s&iacute;' expresi&oacute;n='10' evaluar='una-sola-vez'
+id='BORRAR' constante='s&iacute;' expresi&oacute;n='11' evaluar='una-sola-vez'
+id='REL_1_1' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='REL_1_N' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='REL_N_1' constante='s&iacute;' expresi&oacute;n='2' evaluar='una-sola-vez'
+id='REL_N_N' constante='s&iacute;' expresi&oacute;n='3' evaluar='una-sola-vez'
+id='X_AXIS' constante='s&iacute;' expresi&oacute;n='9999' evaluar='una-sola-vez'
+id='Y_AXIS' constante='s&iacute;' expresi&oacute;n='99999' evaluar='una-sola-vez'
+id='__INTERAC_CGF____'
+id='tipoInter' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='CLIC' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='ARRASTRE' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='__VAR_internas____'
+id='_soltado' constante='s&iacute;' expresi&oacute;n='NORMAL' evaluar='una-sola-vez'
+id='_mousePixX' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='_mousePixY' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='_mousePressed_ANT' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='_resienPress' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='__VAR_externas____'
+id='debug' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.Ox' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.Oy' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.escala' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mousePressed' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mouse_x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mouse_y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.w' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.h' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='usarFondosImagen' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='wArgolla' constante='s&iacute;' expresi&oacute;n='15' evaluar='una-sola-vez'
+id='tipoRel' constante='s&iacute;' expresi&oacute;n='REL_1_N' evaluar='una-sola-vez'
+id='edicion' constante='s&iacute;' expresi&oacute;n='NORMAL' evaluar='una-sola-vez'
+id='____NUMERO_FILAS____'
+id='n_col1' constante='s&iacute;' expresi&oacute;n='10' evaluar='una-sola-vez'
+id='n_col2' constante='s&iacute;' expresi&oacute;n='3' evaluar='una-sola-vez'
+id='n_relaciones' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='__COLORES_OTROS____'
+id='maskSelect.A' constante='s&iacute;' expresi&oacute;n='0.4' evaluar='una-sola-vez'
+id='maskSelect.R' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='maskSelect.G' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='maskSelect.B' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='maskSelect.BW' constante='s&iacute;' expresi&oacute;n='2' evaluar='una-sola-vez'
+id='maskSelect.BA' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='maskSelect.BR' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='maskSelect.BG' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='maskSelect.BB' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segmentos.A' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segmentos.R' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segmentos.G' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segmentos.B' constante='s&iacute;' expresi&oacute;n='0.5' evaluar='una-sola-vez'
+id='segmentos.W' constante='s&iacute;' expresi&oacute;n='2' evaluar='una-sola-vez'
+id='segmentoSel.A' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segmentoSel.R' constante='s&iacute;' expresi&oacute;n='0.4' evaluar='una-sola-vez'
+id='segmentoSel.G' constante='s&iacute;' expresi&oacute;n='0.4' evaluar='una-sola-vez'
+id='segmentoSel.B' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='segmentoSel.W' constante='s&iacute;' expresi&oacute;n='3' evaluar='una-sola-vez'
+id='__ETIQUETAS__'
+id='adyacencias' vector='s&iacute;' matriz='s&iacute;' evaluar='una-sola-vez' columnas='200' filas='200'
+id='relDer' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_relaciones+100'
+id='relIzq' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_relaciones+100'
+id='col1_x' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_y' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_w' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_h' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_txt' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_rel' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_xOrig' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_yOrig' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_dx' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_dy' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_IMG' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100' archivo='datos/imgCol1.txt'
+id='col1_A' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_R' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_G' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_B' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_BW' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_BA' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_BR' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_BG' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='col1_BB' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col1+100'
+id='__BASES__'
+id='col2_x' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_y' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_w' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_h' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_txt' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_rel' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_xOrig' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_yOrig' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_dx' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_dy' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_IMG' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100' archivo='datos/imgCol2.txt'
+id='col2_A' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_R' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_G' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_B' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_BW' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_BA' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_BR' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_BG' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='col2_BB' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='n_col2+100'
+id='____FUNCIONES____'
+id='acomoda_Col1(xP,yP,maxVal,horien,_gapX,_gapY)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;posX=xP;posY=yP;_incrX=(horien==X_AXIS);_incrY=(horien==Y_AXIS);_maxW=0;_maxH=0;maxVal2=(maxVal&lt;0)?9999999:maxVal;strDebug=&squot;&squot;' hacer='col1_x[_index]=posX;col1_y[_index]=posY;;_Width=col1_w[_index];_Height=col1_h[_index];;_maxH=max(_maxH,_Height);_maxW=max(_maxW,_Width);;_cambiarFil=(_incrX)&amp;(maxVal&lt;abs(posX+_Width-xP));_cambiarCol=(_incrY)&amp;(maxVal&lt;abs(posY+_Height-yP));;;;posX=(_cambiarFil)?(xP):(posX+_incrX*(_Width+_gapX));posY=(_cambiarCol)?(yP):(posY+_incrY*(_Height+_gapY));;posX=(_cambiarCol)?(posX+_Width+_gapX):posX;posY=(_cambiarFil)?(posY+_Height+_gapY):posY;;;strDebug=strDebug+_cambiarFil+&squot;,&squot;+_cambiarCol+&squot; - &squot;;_index=_index+1' mientras='_index&lt;n_col1'
+id='acomoda_Col2(xP,yP,maxVal,horien,_gapX,_gapY)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;posX=xP;posY=yP;_incrX=(horien==X_AXIS);_incrY=(horien==Y_AXIS);_maxW=0;_maxH=0;maxVal2=(maxVal&lt;0)?9999999:maxVal;strDebug=&squot;&squot;' hacer='col2_x[_index]=posX;col2_y[_index]=posY;;_Width=col2_w[_index];_Height=col2_h[_index];;_maxH=max(_maxH,_Height);_maxW=max(_maxW,_Width);;_cambiarFil=(_incrX)&amp;(maxVal&lt;abs(posX+_Width-xP));_cambiarCol=(_incrY)&amp;(maxVal&lt;abs(posY+_Height-yP));;;;posX=(_cambiarFil)?(xP):(posX+_incrX*(_Width+_gapX));posY=(_cambiarCol)?(yP):(posY+_incrY*(_Height+_gapY));;posX=(_cambiarCol)?(posX+_Width+_gapX):posX;posY=(_cambiarFil)?(posY+_Height+_gapY):posY;;;strDebug=strDebug+_cambiarFil+&squot;,&squot;+_cambiarCol+&squot; - &squot;;_index=_index+1' mientras='_index&lt;n_col2'
+id='calcArgollaCol1(_iCol1)' algoritmo='s&iacute;' expresi&oacute;n='1' algoritmo='s&iacute;' inicio='_wArg=wArgolla' hacer='_argX1=col1_x[_iCol1]+col1_w[_iCol1];_argY1=col1_y[_iCol1]+(col1_h[_iCol1]-_wArg)/2;;_argX2=_argX1+_wArg;_argY2=_argY1+_wArg'
+id='calcArgollaCol2(_iCol2)' algoritmo='s&iacute;' expresi&oacute;n='1' algoritmo='s&iacute;' inicio='_wArg=wArgolla' hacer='_argX1=col2_x[_iCol2]-_wArg;_argY1=col2_y[_iCol2]+(col2_h[_iCol2]-_wArg)/2;_argX2=_argX1+_wArg;_argY2=_argY1+_wArg;;;'
+id='calculaSegmento(_iSeg)' algoritmo='s&iacute;' expresi&oacute;n='1' algoritmo='s&iacute;' hacer='_iCol1=relDer[_iSeg];_iCol2=relIzq[_iSeg];;calcArgollaCol1(_iCol1);_segX1=_argX1+wArgolla/2;_segY1=_argY1+wArgolla/2;;calcArgollaCol2(_iCol2);_segX2=_argX1+wArgolla/2;_segY2=_argY1+wArgolla/2;'
+id='guardaPosOrigCol1()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;' hacer='col1_xOrig[_index]=col1_x[_index];col1_yOrig[_index]=col1_y[_index];;_index=_index+1;' mientras='_index&lt;(n_col1)'
+id='baseOcupadaPor(iBase)' algoritmo='s&iacute;' expresi&oacute;n='_resBaseOc' algoritmo='s&iacute;' inicio='_indexLabelT=0;_resBaseOc=-1' hacer='_ocupadaPor=col1_rel[_indexLabelT];;_resBaseOc=(_ocupadaPor==iBase)?_indexLabelT:_resBaseOc;_indexLabelT=_indexLabelT+1' mientras='(_indexLabelT&lt;n_col1)&amp;(_resBaseOc&lt;0)'
+id='sobreCual(mX,mY)' algoritmo='s&iacute;' expresi&oacute;n='_res' algoritmo='s&iacute;' inicio='index=0;limiteIter=n_col1;_res=-1' hacer='_pos.x=col1_x[index];_pos.y=col1_y[index];;_pos.x2=_pos.x+col1_w[index]+wArgolla;_pos.y2=_pos.y+col1_h[index];;;_estaSobre=(_pos.x&lt;=mX)&amp;(_pos.x2&gt;=mX);_estaSobre=_estaSobre&amp;(_pos.y&lt;=mY)&amp;(_pos.y2&gt;=mY);;_res=(_estaSobre)?index:_res;;index=index+1' mientras='(index&lt;n_col1)&amp;(!_estaSobre)'
+id='sobreCualSoltado(_x,_y,_w,_h)' algoritmo='s&iacute;' expresi&oacute;n='_res' algoritmo='s&iacute;' inicio='_indexD=n_col2-1;_res=-1;' hacer='_tmpA.x=col2_x[_indexD]-wArgolla;_tmpA.y=col2_y[_indexD];_tmpA.w=col2_w[_indexD]+wArgolla;_tmpA.h=col2_h[_indexD];;_cond1=_tmpA.x&lt;(_x +_w);_cond2=_x&lt;(_tmpA.x+_tmpA.w);_cond3=_tmpA.y&lt;(_y+_h);_cond4=_y&lt;(_tmpA.y+_tmpA.h);;_colision=(_cond1)&amp;(_cond2)&amp;(_cond3)&amp;(_cond4);_res=(_colision)?_indexD:_res;_indexD=_indexD-1;' mientras='(_indexD&gt;=0)&amp;(!_colision)'
+id='moveLabelTo(iL1,toPX,toPY)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_posT.x=col1_x[iL1];_posT.y=col1_y[iL1];;_posT.w2=col1_w[iL1]/2;_posT.h2=col1_h[iL1]/2;;_posT.x=toPX-_posT.w2;_posT.y=toPY-_posT.h2;;;col1_x[iL1]=_posT.x;col1_y[iL1]=_posT.y;'
+id='pegaABase(_iLabel,_iBase)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_tmpB.x=col2_x[_iBase];_tmpB.y=col2_y[_iBase];_tmpB.w=col2_w[_iBase];_tmpB.h=col2_h[_iBase];;col1_x[_iLabel]=_tmpB.x+(_tmpB.w-col1_w[_iLabel])/2;col1_y[_iLabel]=_tmpB.y+(_tmpB.h-col1_h[_iLabel])/2;;col1_rel[_iLabel]=_iBase;col2_rel[_iBase]=_iLabel;;'
+id='regresaAOrig(iLabel)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='col1_x[iLabel]=col1_xOrig[iLabel];col1_y[iLabel]=col1_yOrig[iLabel];col1_rel[iLabel]=-1;;;'
+id='initArrastrar(iLabel)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_iBloque=col1_rel[iLabel];_tmpIB=max(_iBloque,0);;col2_rel[_tmpIB]=(_iBloque&gt;-1)?-1:col2_rel[_tmpIB];;col1_rel[iLabel]=-1'
+id='arrastrando(iLabelAct,_mPixX,_mPixY)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='moveLabelTo(iLabelAct,_mPixX,_mPixY)'
+id='reacomodaRel(_iBaseInit)' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=_iBaseInit;_iLabelRelAnt=-1;' hacer='_iLabelRel=col2_rel[_index];col2_rel[_index]=-1;;tt=(_iLabelRel&gt;-1)?regresaAOrig(_iLabelRel):0;tt=(_iLabelRelAnt&gt;-1)?pegaABase(_iLabelRelAnt,_index):0;;_iLabelRelAnt=_iLabelRel;;_index=_index+1' mientras='(_index&lt;n_col2)&amp;(_iLabelRelAnt&gt;-1)'
+id='relExiste(_iCEx1,_iCEx2)' algoritmo='s&iacute;' expresi&oacute;n='_res' algoritmo='s&iacute;' inicio='_index=0;_res=0;' hacer='_tmpBool1=(relDer[_index]==_iCEx1);_tmpBool2=(relIzq[_index]==_iCEx2);;caso1=(tipoRel==REL_1_1)&amp;(_tmpBool1|_tmpBool2);caso2=(tipoRel==REL_1_N)&amp;(_tmpBool2);caso3=(tipoRel==REL_N_1)&amp;(_tmpBool1);caso4=(tipoRel==REL_N_N)&amp;(_tmpBool1)&amp;(_tmpBool2);;_res=(n_relaciones&gt;0)&amp;(caso1|caso2|caso3);;_index=_index+1' mientras='(_index&lt;n_relaciones)&amp;(!_res)'
+id='relCols(_iCRel1,_iCRel2)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='adyacencias[_iCRel1,_iCRel2]=1'
+id='soltando(iLabel,_pMXpix,_pMYpix)' algoritmo='s&iacute;' expresi&oacute;n='_relCol' algoritmo='s&iacute;' hacer=';activo2=sobreCualSoltado(_pMXpix,_pMYpix,1,1);_relCol=(activo2&gt;-1)&amp;(!relExiste(iLabel,activo2));;tt=(_relCol)?relCols(iLabel,activo2):0;;activo2=-1;;'
+id='borrarRel(_iCalB1,_iCalB2)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='adyacencias[_iCalB1,_iCalB2]=0;'
+id='actVecRelaciones()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;_limiteRel=(n_col1*n_col2);n_relaciones=0' hacer='_indexCol=(_index%n_col2);_indexRow=ent(_index/n_col2);;_hayRel=(adyacencias[_indexRow,_indexCol]==1);;relDer[n_relaciones]=(_hayRel)?_indexRow:relDer[n_relaciones];relIzq[n_relaciones]=(_hayRel)?_indexCol:relIzq[n_relaciones];;n_relaciones=n_relaciones+((_hayRel)?1:0);;_index=_index+1' mientras='_index&lt;_limiteRel'
+id='limpiarRel()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_index=0;_lIter=(n_col1*n_col2);' hacer='_indexCol=(_index%n_col2);_indexRow=ent(_index/n_col2);adyacencias[_indexRow,_indexCol]=0;_index=_index+1' mientras='_index&lt;_lIter'
+id='calcBorrar()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_puedeRel=(_soltado)&amp;(activo&gt;-1);activo2=(_puedeRel)?sobreCualSoltado(_mousePixX,_mousePixY,1,1):activo2;;_borrarRel=(activo&gt;-1)&amp;(activo2&gt;-1);tt=(_borrarRel)?borrarRel(activo,activo2):0;;activo=(_soltado)?sobreCual(_mousePixX,_mousePixY):activo;;activo=(_borrarRel)?-1:activo;activo2=-1'
+id='calcRelArrastre()' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer='_puedeRel=(_soltado)&amp;(activo&gt;-1);tt=(_puedeRel)?soltando(activo,_mousePixX,_mousePixY):0;;activo=(!Esp.mousePressed)?-1:activo;activo2=(!Esp.mousePressed)?-1:activo2;;activo=(_resienPress)?sobreCual(_mousePixX,_mousePixY):activo'
+id='calcRelClic()' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer=';_relacionados=((_soltado)&amp;(activo&gt;=0))?soltando(activo,_mousePixX,_mousePixY):0;activo=(_soltado)?sobreCual(_mousePixX,_mousePixY):activo;activo=(_relacionados)?-1:activo;;;'
+id='calcRel()' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer='tt=(tipoInter==CLIC)?calcRelClic():calcRelArrastre()'
+id='HACK_TO_FUN' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='_mousePixX=0;_mousePixY=0;;entroFun=&squot;&squot;;;acomoda_Col1(0,0,0,0,0,0);acomoda_Col2(0,0,0,0,0,0);calcArgollaCol1(0);calcArgollaCol2(0);calculaSegmento(0);calcSegEdicion(0);guardaPosOrigCol1();baseOcupadaPor(0);sobreCual(-1,-1);sobreCualSoltado(-1,-1,-1,-1);moveLabelTo(0,0,0);pegaABase(0,0);regresaAOrig(0);initArrastrar(0);arrastrando(0,0,0);reacomodaRel(0);relExiste(0,0);tt=(0)?relCols(0,0):0;soltando(0,-1,-1);;;limpiarRel();'
+id='____CALCULOS____'
+id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='activo=-1;activo2=-1'
+id='INICIO_COL1' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='index=0;limiteIter=min(n_col1,n_col1);' hacer='col1_txt[index]=&squot;Label_&squot;+index;col1_x[index]=150;col1_y[index]=100+index*20;col1_w[index]=125+ent(rnd*5)*5;col1_h[index]=30;col1_rel[index]=-1;;col1_dy[index]=3;col1_dx[index]=0;;;col1_A[index]=0.6;col1_R[index]=0;col1_G[index]=1;col1_B[index]=1;;col1_BW[index]=1;col1_BA[index]=0.5;col1_BR[index]=0;col1_BG[index]=0;col1_BB[index]=1;;index=index+1' mientras='index&lt;limiteIter'
+id='INICIO_COL2' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='index=0;limiteIter=n_col2;' hacer='col2_txt[index]=index+1;col2_x[index]=120;col2_y[index]=100+index*20;col2_w[index]=125;col2_h[index]=30;col2_rel[index]=-1;;col2_dx[index]=0;col2_dy[index]=2;;col2_A[index]=0.6;col2_R[index]=1;col2_G[index]=1;col2_B[index]=0.6;;col2_BW[index]=2;col2_BA[index]=0.5;col2_BR[index]=0;col2_BG[index]=0;col2_BB[index]=1;;index=index+1' mientras='index&lt;limiteIter'
+id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='acomoda_Col1(300,100,400,Y_AXIS,5,5);guardaPosOrigCol1();acomoda_Col2(600,100,400,Y_AXIS,5,5);'
+id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='_mousePixX=(Esp.mouse_x*Esp.escala)+Esp.w/2+Esp.Ox;_mousePixY=(-Esp.mouse_y*Esp.escala)+Esp.h/2+Esp.Oy;;_resienPress=(!_mousePressed_ANT)&amp;(Esp.mousePressed);_soltado=(_mousePressed_ANT)&amp;(!Esp.mousePressed);;;tt=((edicion==BORRAR))?calcBorrar():0;tt=((edicion==NORMAL))?calcRel():0;;actVecRelaciones();;_mousePressed_ANT=Esp.mousePressed;;;'
+id='CALC_EXTRA' algoritmo='s&iacute;' evaluar='siempre' hacer='segEdit.ver=(Esp.mousePressed)&amp;(activo&gt;-1)&amp;(edicion==NORMAL)&amp;(tipoInter==ARRASTRE);;tt=(activo&gt;-1)?calcArgollaCol1(activo):0;segEdit.X1=_argX1+wArgolla/2;segEdit.Y1=_argY1+wArgolla/2;segEdit.X2=(Esp.mouse_x*Esp.escala+Esp.w/2+Esp.Ox);segEdit.Y2=(-Esp.mouse_y*Esp.escala+Esp.h/2+Esp.Oy);;;'
+tipo='imagen' dibujar-si='usarFondosImagen' coord_abs='s&iacute;' expresi&oacute;n='(col2_x[s],col2_y[s])' familia='s' s.intervalo='[0,n_col2-1]' s.pasos='n_col2-1' archivo='col2_IMG[s]' 
+tipo='pol&iacute;gono' color='(col2_BR[s],col2_BG[s],col2_BB[s],col2_BA[s])' coord_abs='s&iacute;' expresi&oacute;n='(col2_x[s],col2_y[s])(col2_x[s]+col2_w[s],col2_y[s])(col2_x[s]+col2_w[s],col2_y[s]+col2_h[s])(col2_x[s],col2_y[s]+col2_h[s])(col2_x[s],col2_y[s])' familia='s' s.intervalo='[0,n_col2-1]' s.pasos='n_col2-1' relleno='(col2_R[s],col2_G[s],col2_B[s],col2_A[s])' ancho='col2_BW[s]' 
+tipo='pol&iacute;gono' color='(col2_BR[s],col2_BG[s],col2_BB[s],(usarFondosImagen)?0:col2_BA[s])' dibujar-si='calcArgollaCol2(s)' coord_abs='s&iacute;' expresi&oacute;n='(_argX1,_argY1)(_argX2,_argY1)(_argX2,_argY2)(_argX1,_argY2)(_argX1,_argY1)' familia='s' s.intervalo='[0,n_col2-1]' s.pasos='n_col2-1' relleno='(col2_R[s],col2_G[s],col2_B[s],(usarFondosImagen)?0:col2_BA[s])' ancho='col2_BW[s]' 
+tipo='texto' color='negro' expresi&oacute;n='[col2_x[s]+col2_dx[s],col2_y[s]+col2_dy[s]]' familia='s' s.intervalo='[0,n_col2-1]' s.pasos='n_col2-1' texto='[col2_txt[s]]' fuente='SansSerif,PLAIN,22' fijo='no' 
+tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(col1_x[s],col1_y[s])' familia='s' s.intervalo='[0,n_col1-1]' s.pasos='n_col1-1' archivo='col1_IMG[s]' 
+tipo='pol&iacute;gono' color='(col1_BR[s],col1_BG[s],col1_BB[s],col1_BA[s])' coord_abs='s&iacute;' expresi&oacute;n='(col1_x[s],col1_y[s])(col1_x[s]+col1_w[s],col1_y[s])(col1_x[s]+col1_w[s],col1_y[s]+col1_h[s])(col1_x[s],col1_y[s]+col1_h[s])(col1_x[s],col1_y[s])' familia='s' s.intervalo='[0,n_col1-1]' s.pasos='n_col1-1' relleno='(col1_R[s],col1_G[s],col1_B[s],col1_A[s])' ancho='col1_BW[s]' 
+tipo='pol&iacute;gono' color='(col1_BR[s],col1_BG[s],col1_BB[s],(usarFondosImagen)?0:col1_BA[s])' dibujar-si='calcArgollaCol1(s)' coord_abs='s&iacute;' expresi&oacute;n='(_argX1,_argY1)(_argX2,_argY1)(_argX2,_argY2)(_argX1,_argY2)(_argX1,_argY1)' familia='s' s.intervalo='[0,n_col1-1]' s.pasos='n_col1-1' relleno='(col1_R[s],col1_G[s],col1_B[s],(usarFondosImagen)?0:col1_BA[s])' ancho='col1_BW[s]' 
+tipo='texto' expresi&oacute;n='[col1_x[s]+col1_dx[s],col1_y[s]+col1_dy[s]]' familia='s' s.intervalo='[0,n_col1-1]' s.pasos='n_col1-1' texto='[col1_txt[s]]' fuente='SansSerif,PLAIN,22' fijo='no' 
+tipo='pol&iacute;gono' color='(maskSelect.BR,maskSelect.BG,maskSelect.BB,maskSelect.BA)' dibujar-si='activo>=0' coord_abs='s&iacute;' expresi&oacute;n='(col1_x[activo],col1_y[activo])(col1_x[activo]+col1_w[activo],col1_y[activo])(col1_x[activo]+col1_w[activo],col1_y[activo]+col1_h[activo])(col1_x[activo],col1_y[activo]+col1_h[activo])(col1_x[activo],col1_y[activo])' relleno='(maskSelect.R,maskSelect.G,maskSelect.B,maskSelect.A)' ancho='maskSelect.BW' 
+tipo='segmento' color='(segmentos.R,segmentos.G,segmentos.B,segmentos.A)' dibujar-si='calculaSegmento(s)' coord_abs='s&iacute;' expresi&oacute;n='(_segX1,_segY1)(_segX2,_segY2)' familia='s' s.intervalo='[0,n_relaciones-1]' s.pasos='n_relaciones-1' fijo='s&iacute;' tama&ntilde;o='wArgolla/4' ancho='segmentos.W' 
+tipo='segmento' color='(segmentoSel.R,segmentoSel.G,segmentoSel.B,segmentoSel.A)' dibujar-si='calculaSegmento(s)&(activo==_iCol1)' coord_abs='s&iacute;' expresi&oacute;n='(_segX1,_segY1)(_segX2,_segY2)' familia='s' s.intervalo='[0,n_relaciones-1]' s.pasos='n_relaciones-1' fijo='s&iacute;' tama&ntilde;o='wArgolla/4' ancho='segmentoSel.W' 
+tipo='segmento' dibujar-si='segEdit.ver' coord_abs='s&iacute;' expresi&oacute;n='(segEdit.X1,segEdit.Y1)(segEdit.X2,segEdit.Y2)' fijo='s&iacute;' tama&ntilde;o='wArgolla/4' ancho='3' 
+tipo='texto' color='000050' dibujar-si='debug==2' expresi&oacute;n='[20,20]' texto='[n_relaciones] activo2=[activo2]' fijo='no' 
+tipo='texto' dibujar-si='debug==2' expresi&oacute;n='[20,50+s*15]' familia='s' s.intervalo='[0,n_relaciones-1]' s.pasos='n_relaciones-1' texto='[relDer[s]]->[relIzq[s]]' fijo='no' 
+tipo='texto' dibujar-si='debug==1' expresi&oacute;n='[20,20]' texto='entroFun=\n[entroFun]' fijo='no' 
+tipo='texto' dibujar-si='debug==3' expresi&oacute;n='[20,20]' texto='Esp.pos = {[Esp.Ox],[Esp.Oy],[Esp.escala],[Esp.w],[Esp.h],[Esp.mousePressed],[Esp.mouse_x],[Esp.mouse_y]}' fijo='no' 
+tipo='texto' dibujar-si='debug==5' expresi&oacute;n='[20+10*ent(s/n_col1),50+11*(s%n_col1)]' familia='s' s.intervalo='[0,(n_col1*n_col2)-1]' s.pasos='(n_col1*n_col2)-1' texto='[adyacencias[s%n_col1,ent(s/n_col1)]]' fijo='no'
+</script>
+
+</body>
+</html>

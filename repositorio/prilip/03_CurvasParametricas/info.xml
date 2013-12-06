@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Solo hay que cambiar id, nivel, area, titulo y Descripcion 
+	los demás son comunes de todos los recursos del proyecto
+	
+	Se puede poner mas de un nively un area. Para ello solo hay 
+	que separar por comas cada termino : 
+				area="Aritmética, Matemáticas" 
+-->
+<recurso 
+	id='03_CurvasParametricas' 	  
+	nivel="Bachillerato" 
+	area="Geometría analítica"
+	 
+	proyecto="PRILiP"
+	licencia="Creative Commons" 
+	plataforma="DescartesJS, HTML 5"
+	idDrupal='2911' 
+	>
+	<titulo>
+		<![CDATA[Curvas paramétricas]]>
+	</titulo>
+	<Descripcion>
+		<![CDATA[
+			Hay una gran cantidad de curvas que se pueden definir paramétricamente.
+			Se muestran varios casos como los de las cicloides, epicicloides, hipocicloides,
+			la cardioide, las trocoides, las curvas polares y las figuras de Lisajous.
+		]]>
+	</Descripcion>
+</recurso>
+
+<!--
+
+******************************************************************************************
+**** Áreas ****
+Lengua española; 
+Formación integral; 
+Matemáticas; 
+	Aritmética; 
+		Fracciones; 
+	Álgebra; 
+	Geometría; 
+		Geometría elemental; 
+		Geometría clásica; 
+		Geometría analítica; 
+	Trigonometría; 
+	Probabilidad; 
+	Estadística; 
+	Cálculo; 
+		Funciones; 
+		Límites; 
+		Continuidad
+		Derivadas; 
+		Integrales; 
+	Teoría de números; 
+	Teoría  de gráficas; 
+Física; 
+Química; 
+
+******************************************************************************************
+
+******************************************************************************************
+**** Niveles ****
+
+	Primaria
+	Preescolar
+	Secundaria
+	Bachillerato
+******************************************************************************************
+
+-->

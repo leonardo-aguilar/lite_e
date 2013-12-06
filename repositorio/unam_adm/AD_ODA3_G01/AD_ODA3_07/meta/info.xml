@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_07" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Los n&uacute;meros irracionales</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Ubicaci&oacute;n de un n&uacute;mero irracional entre dos racionales. N&uacute;meros irracionales como expansiones decimales infinitas y no peri&oacute;dicas.
+
+	]]></Descripcion>
+</recurso>

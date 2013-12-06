@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_04" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Orden y representaci&oacute;n de los n&uacute;meros racionales</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Localizar n&uacute;meros racionales en la recta num&eacute;rica en forma de fracci&oacute;n y en forma decimal. Distinguir cu&aacute;l de dos n&uacute;meros racionales es mayor. Comparar n&uacute;meros racionales mediante su representaci&oacute;n gr&aacute;fica.
+
+	]]></Descripcion>
+</recurso>

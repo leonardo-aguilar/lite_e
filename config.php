@@ -1,29 +1,39 @@
 <?php  // Config
 
-unset($CFG);
+unset ($CFG);
 global $CFG;
 
 $CFG = new stdClass();
 
 // Base de datos
-$CFG->dbhost    		= "localhost";
-$CFG->dbname    		= "lite_deliverables";
-$CFG->dbuser    		= "lite";
-$CFG->dbpass    		= "lite";
-$CFG->dbport			= "3306";
+$GLOBALS["dbhost"]    			= "localhost";
+$GLOBALS["dbname"]    			= "lite_deliverables";
+$GLOBALS["dbuser"]    			= "lite";
+$GLOBALS["dbpass"]    			= "lite";
+$GLOBALS["dbport"]				= "3306";
 
 // Ubicaciones
-$CFG->wwwroot   		= "http://localhost/lite_e/";
-$CFG->dataroot  		= "/Users/Leonardo/Documents/Trabajo/Freelance/LITE/2013_PreparacionDeEntregas/oas";
-$CFG->dataroot			= realpath($CFG->dataroot);
+$GLOBALS["wwwroot"]   			= "http://" . $_SERVER['HTTP_HOST'] . "/lite_e";
 
-$CFG->path_rootdir 		= dirname(dirname(__FILE__));
-$CFG->path_data			= $CFG->path_rootdir . "/datalayer/";
-$CFG->path_controller	= $CFG->path_rootdir . "/controller/";
-$CFG->path_model		= $CFG->path_rootdir . "/model/";
-$CFG->path_view			= $CFG->path_rootdir . "/view/";
+$GLOBALS["path_rootdir"] 		= $_SERVER['DOCUMENT_ROOT'] . "/lite_e";
+$GLOBALS["path_datalayer"]		= $GLOBALS["path_rootdir"] . "/datalayer";
+$GLOBALS["repository"]			= $GLOBALS["path_rootdir"] . "/repositorio";
+$GLOBALS["libdir"]				= $GLOBALS["path_rootdir"] . "/lib";
+$GLOBALS["controller"]			= $GLOBALS["path_rootdir"] . "/controller";
+$GLOBALS["model"]				= $GLOBALS["path_rootdir"] . "/entities";
+$GLOBALS["view"]				= $GLOBALS["path_rootdir"] . "/view";
 
 // Debug
-$CFG->debug 			= true;
+$GLOBALS["debug"] 				= true;
 
-?>
+
+
+// archivo: functions.php
+function noCache() {
+      header("Expires: Tue, 01 Jul 2001 06:00:00 GMT");
+      header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+      header("Cache-Control: no-store, no-cache, must-revalidate");
+      header("Cache-Control: post-check=0, pre-check=0", false);
+      header("Pragma: no-cache");
+}
+

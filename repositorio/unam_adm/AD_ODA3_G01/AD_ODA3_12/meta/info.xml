@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_12" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Resoluci&oacute;n de ecuaciones lineales b&aacute;sicas (primera parte)</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Ecuaciones lineales del tipo A x = B, con A y B enteros y con A y B racionales. Ecuaciones lineales del tipo A x + B = C con A, B y C enteros y con A, B y C racionales. Ecuaciones lineales del tipo A (x + B) = C (x + D) con A, B, C y D enteros.
+
+	]]></Descripcion>
+</recurso>

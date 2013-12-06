@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frecuencia</title>
+	<script type='text/javascript' src='../descartes-min.js'></script>
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+	</style>
+</head>
+<body >
+
+<p align="left">
+<applet width=790 height=520
+        code="descinst.com.mja.descartes.DescartesJS.class"
+        codebase="./"
+        archive="descinst.jar,http://recursostic.educacion.es/descartes/web/plugin/descinst.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='Lanza el dado 20 veces y analiza el comportamiento de la tabla.' subtitle='Responde luego las preguntas propuestas.' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='imagenes/instrucciones.jpg' titlefont='SansSerif,PLAIN,22' subtitlefont='SansSerif,PLAIN,22' ">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="deshacer" value="no">
+   <param name="Versi&oacute;n" value="5.011, 2012-08-27">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' fijo='s&iacute;' escala='40' O.x='-280' O.y='120' imagen='imagenes/fondo.png' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='n4' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Lanzar' expresi&oacute;n='(220,400,100,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn100.png' acci&oacute;n='animar' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(bt1=1)&amp;(contador&lt;20)'">
+   <param name="C_01" value="id='n5' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Marcar' expresi&oacute;n='(370,400,100,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn100.png' acci&oacute;n='calcular' par&aacute;metro='mover=0\nlanzar=1\nbt1=1\nbt2=0\ndado=0\nc1=c1+(m1=1)\nc2=c2+(m1=2)\nc3=c3+(m1=3)\nc4=c4+(m1=4)\nc5=c5+(m1=5)\nc6=c6+(m1=6)\nc7=c7+(m1+m2=7)\nc8=c8+(m1+m2=8)\nc9=c9+(m1+m2=9)\nc10=c10+(m1+m2=10)\nc11=c11+(m1+m2=11)\nc12=c12+(m1+m2=12)\ncontador=contador+1\ntotal=c1+c2+c3+c4+c5+c6\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bt2=1' activo-si='mover=1'">
+   <param name="C_02" value="id='n8' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Otra vez' expresi&oacute;n='(520,400,100,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn100.png' acci&oacute;n='calcular' par&aacute;metro='bt1=1\nbt2=0\ncontador=0\nc1=0;c2=0;c3=0;c4=0;c5=0;c6=0\ntotal=0\nd=-14\nk=0\n\nlanzar=1\nmover=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='contador&gt;=20'">
+   <param name="A_00" value="id='contador' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_01" value="id='bt1' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_02" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='SOM.Top=200;SOM.Left=200;SOM.transp=0.80;SOM.rojo=0.28;SOM.verde=0.60;SOM.azul=0.93;otro=1;;;;'">
+   <param name="A_03" value="id='an' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_04" value="id='d' constante='s&iacute;' expresi&oacute;n='-14' evaluar='una-sola-vez'">
+   <param name="A_05" value="id='k' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_06" value="id='lanzar' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_07" value="id='mover' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_08" value="id='bt2' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="G_00" value="espacio='E1' tipo='macro' expresi&oacute;n='macros/sombras.txt' nombre='SOM'">
+   <param name="G_01" value="espacio='E1' tipo='imagen' expresi&oacute;n='(0,4)' archivo='imagenes/tabla.jpg'">
+   <param name="G_02" value="espacio='E1' tipo='imagen' dibujar-si='m1=1' expresi&oacute;n='(d,0)' archivo='imagenes/dado1.png' rotini='an'">
+   <param name="G_03" value="espacio='E1' tipo='imagen' dibujar-si='m1=2' expresi&oacute;n='(d,0)' archivo='imagenes/dado2.png' rotini='an'">
+   <param name="G_04" value="espacio='E1' tipo='imagen' dibujar-si='m1=3' expresi&oacute;n='(d,0)' archivo='imagenes/dado3.png' rotini='an'">
+   <param name="G_05" value="espacio='E1' tipo='imagen' dibujar-si='m1=4' expresi&oacute;n='(d,0)' archivo='imagenes/dado4.png' rotini='an'">
+   <param name="G_06" value="espacio='E1' tipo='imagen' dibujar-si='m1=5' expresi&oacute;n='(d,0)' archivo='imagenes/dado5.png' rotini='an'">
+   <param name="G_07" value="espacio='E1' tipo='imagen' dibujar-si='m1=6' expresi&oacute;n='(d,0)' archivo='imagenes/dado6.png' rotini='an'">
+   <param name="G_08" value="espacio='E1' tipo='imagen' dibujar-si='m1=0' expresi&oacute;n='(d,0)' archivo='imagenes/dado6.png' rotini='an'">
+   <param name="G_09" value="espacio='E1' tipo='imagen' dibujar-si='raro=99' expresi&oacute;n='(-3,12)' archivo='imagenes/postit2.png'">
+   <param name="G_10" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[285,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c1]\decimals 0\fixed1}}   \cf1\f2\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_11" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[325,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c2]\decimals 0\fixed1}}   \cf1\f2\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_12" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[365,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c3]\decimals 0\fixed1}}  \f2\fs28  \cf1\f3\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_13" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[405,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c4]\decimals 0\fixed1}}\f2\fs36    \cf1\f3\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_14" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[445,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c5]\decimals 0\fixed1}}\f2\fs36    \cf1\f3\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_15" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[485,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [c6]\decimals 0\fixed1}}   \cf1\f2\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_16" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[280,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c1]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Arial Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_17" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[320,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c2]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Times New Roman Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_18" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[360,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c3]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Times New Roman Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_19" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[400,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c4]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Times New Roman Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_20" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[440,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c5]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Times New Roman Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_21" value="espacio='E1' tipo='texto' color='20303a' expresi&oacute;n='[480,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [c6]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}}\cf1\f2\fs24\i0}' fuente='Times New Roman Italic,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_22" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='contador!=0' expresi&oacute;n='[545,240]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs36\i{\*\mjaformula{\expr [total]\decimals 0\fixed1}}\cf1\fs24\i0}' fuente='Arial Italic,ITALIC,18' fijo='s&iacute;'">
+   <param name="G_23" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='contador!=0' expresi&oacute;n='[525,275]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Arial;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs32\i{\*\mjaformula{\fraction{\num{\expr [contador]\decimals 0\fixed1}}{\den{\expr [contador]\decimals 0\fixed1}}}=1}\f2\fs24\i0\cf1}' fuente='Times New Roman Cursiva,ITALIC,16' fijo='s&iacute;'">
+   <param name="G_24" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='contador&gt;=20' expresi&oacute;n='[110,70]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs44\u191 Qu\u233  suceso tiene mayor frecuencia relativa?\par \u191 Qu\u233  suceso tiene mayor frecuencia absoluta?\par \u191 Cu\u225 nto suman las frecuencias absolutas?\par \u191 Cu\u225 nto suman las frecuencias relativas?\f2\fs24\cf1\par \par }' fuente='Arial,PLAIN,22' fijo='s&iacute;'">
+   <param name="G_25" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='contador&lt;20' expresi&oacute;n='[110,120]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs44 Lanza el dado 20 veces y analiza el comportamiento de la tabla.\par Responde luego las preguntas propuestas.\f2\fs24\cf1\par \par }' fuente='Arial,PLAIN,22' fijo='s&iacute;'">
+   <param name="Animaci&oacute;n" value="controles='no' auto='no' inicio='espacio=4;d=-4  ;d1=ent(rnd*6)+1 ;d2=ent(rnd*6)+1;lanzar=0;mover=1;sumar=0' hacer=';an=360*d/4;d=d+1;;m1=(d=1)?d1:m1;bt1=0;bt2=1;dado=99;;;;;' mientras='d&lt;1'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.com/" target="_blank">JAVA</a>.</font>
+</applet></p>
+
+<script id="macros/sombras.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='W' constante='s&iacute;' expresi&oacute;n='790' evaluar='una-sola-vez'
+id='H' constante='s&iacute;' expresi&oacute;n='455' evaluar='una-sola-vez'
+id='Top' constante='s&iacute;' expresi&oacute;n='500' evaluar='una-sola-vez'
+id='Left' constante='s&iacute;' expresi&oacute;n='300' evaluar='una-sola-vez'
+id='transp' constante='s&iacute;' expresi&oacute;n='0.8' evaluar='una-sola-vez'
+id='rojo' constante='s&iacute;' expresi&oacute;n='0.2' evaluar='una-sola-vez'
+id='verde' constante='s&iacute;' expresi&oacute;n='0.8' evaluar='una-sola-vez'
+id='azul' constante='s&iacute;' expresi&oacute;n='0.99' evaluar='una-sola-vez'
+tipo='curva' color='(rojo,verde,azul,transp)' coord_abs='s&iacute;' expresi&oacute;n='((t<=1)?Top*t^2:Top*(1-t),(t<=1)?Left*(1-sqrt(1-(1-t^2)^2)):0)' t.intervalo='[0,2]' t.pasos='64' relleno='(rojo,verde,azul,transp)' ancho='0' visible='no' 
+tipo='curva' color='(rojo,verde,azul,transp)' coord_abs='s&iacute;' expresi&oacute;n='((t<=1)?W-Top*t^2:W-Top*(1-t),(t<=1)?H-Left*(1-sqrt(1-(1-t^2)^2)):H)' t.intervalo='[0,2]' t.pasos='64' relleno='(rojo,verde,azul,transp)' ancho='0' visible='no' 
+</script>
+
+</body>
+</html>

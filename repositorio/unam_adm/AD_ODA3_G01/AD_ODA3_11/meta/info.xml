@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_11" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Operaciones con potencias y radicales</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Realizaci&oacute;n de operaciones combinadas que incluyen potencias con y sin racionalizaci&oacute;n.
+
+	]]></Descripcion>
+</recurso>

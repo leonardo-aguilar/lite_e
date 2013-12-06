@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Gr&aacute;fica de barras&nbsp;-&nbsp;Tipos de gr&aacute;ficas.</title>
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+		body{
+			background-color:#7db9f2;
+		}
+	</style>
+</head>
+<body>
+
+<p align="center">
+<applet width=790 height=520
+        code="descinst.Descartes"
+	codebase="./"
+        archive="../../DescartesLib.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='En los peri&oacute;dicos, libros y revistas seguramente has visto tablas' subtitle='y gr&aacute;ficas que nos dan informaci&oacute;n completa de un fen&oacute;meno.' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='images/instrucciones.jpg' titlefont='SansSerif,BOLD,22' subtitlefont='SansSerif,BOLD,22' ">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="deshacer" value="no">
+   <param name="Versi&oacute;n" value="4.0985, 2010-06-05">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' imagen='images/fondo.png' despl_imagen='centrada' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_01" value="tipo='R2' id='graficas' x='28' y='18' ancho='740' alto='420' dibujar-si='graficas=1' despl_imagen='arr-izq' fondo='41ffffff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='g' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs40 ( {\*\mjaformula{\expr Px}}, {\*\mjaformula{\expr Py}} )\cf1\f2\fs24}' fuente='Arial,PLAIN,20' decimales='0' fijo='s&iacute;' dibujar-si='0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_01" value="id='g2' tipo='gr&aacute;fico' espacio='graficas' color='azul' color-int='rojo' tama&ntilde;o='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs40 ( {\*\mjaformula{\expr Px2}}, {\*\mjaformula{\expr Py2}} )\cf1\f2\fs24}' fuente='Arial,PLAIN,20' decimales='0' fijo='s&iacute;' dibujar-si='0' activo-si='graficas=1' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_02" value="id='barras' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(31,69,190,106)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' fuente puntos='22' imagen='images/barras_b.png' acci&oacute;n='calcular' par&aacute;metro='graficas=1\nlineas=0\nsectores=0\nbarras=(barras-1)?0:1' par&aacute;metro.fuente='Monospaced,PLAIN,12' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_03" value="id='sectores' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(611,145,143,116)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='images/sectores_b.png' acci&oacute;n='calcular' par&aacute;metro='graficas=1\nlineas=0\nbarras=0\nsectores=(sectores-1)?0:1' par&aacute;metro.fuente='Monospaced,PLAIN,12' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_04" value="id='lineas' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(370,231,112,92)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' fuente puntos='22' imagen='images/lineas_b.png' acci&oacute;n='calcular' par&aacute;metro='graficas=1\nsectores=0\nbarras=0\nlineas=(lineas-1)?0:1' par&aacute;metro.fuente='Monospaced,PLAIN,12' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_05" value="id='X' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='graficas' nombre='X' expresi&oacute;n='(graficas._w-60,graficas._h-40,50,30)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' cursiva='s&iacute;' fuente puntos='22' imagen='images/btn050.png' acci&oacute;n='calcular' par&aacute;metro='graficas=0\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='graficas=1' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="A_00" value="id='initRedon()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='RA1.transp=0.80;RA1.rojo=0.95;RA1.verde=0.00;RA1.azul=0.10;RA1.w=280;RA1.h=40;RA1.x=(E1._w-RA1.w)/2;RA1.y=16;RA2.transp=0.80;RA2.rojo=0.95;RA2.verde=0.00;RA2.azul=0.10;RA2.x=180;RA2.y=140;RA2.w=420;RA2.h=120'">
+   <param name="A_01" value="id='initSombras()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='SOM1.transp=0.80;SOM1.rojo=0.90;SOM1.verde=0.10;SOM1.azul=0.99;SOM1.Top=200;SOM1.Left=100;SOM2.transp=0.90;SOM2.rojo=0.00;SOM2.verde=0.50;SOM2.azul=0.95;SOM2.Top=400;SOM2.Left=300;'">
+   <param name="A_02" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='initRnd()' hacer='initSombras();initRedon();anim=1'">
+   <param name="A_03" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='Px=E1._w/2+g.x*E1.escala;Py=E1._h/2-g.y*E1.escala;;Px2=graficas._w/2+g2.x*graficas.escala;Py2=graficas._h/2-g2.y*graficas.escala;;;'">
+   <param name="A_04" value="id='Animar' evento='s&iacute;' condici&oacute;n='animar' acci&oacute;n='animar' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="G_00" value="espacio='E1' tipo='macro' fondo='s&iacute;' expresi&oacute;n='macros/sombras.txt' nombre='SOM1'">
+   <param name="G_01" value="espacio='E1' tipo='macro' fondo='s&iacute;' expresi&oacute;n='macros/sombras_inv.txt' nombre='SOM2'">
+   <param name="G_02" value="espacio='E1' tipo='texto' dibujar-si='graficas=0' expresi&oacute;n='[130,19]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red32\green48\blue80;\red32\green48\blue58;}\f1\fs48\cf0 Para ver las gr\u225 ficas da clic en cada una de ellas\fs44\cf1}' fuente='Arial,PLAIN,24' fijo='s&iacute;'">
+   <param name="G_03" value="espacio='E1' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(153,170,0.4,0.4)' archivo='images/barras_p_bn.png'">
+   <param name="G_04" value="espacio='E1' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(424,291,0.4,0.4)' archivo='images/lineas_p.png'">
+   <param name="G_05" value="espacio='E1' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(660,220,0.4,0.4)' archivo='images/sectores_p_bn.png'">
+   <param name="G_06" value="espacio='graficas' tipo='texto' dibujar-si='graficas=1&amp;barras=1' expresi&oacute;n='[281,5]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red0\green171\blue255;\red32\green48\blue58;}\f1\fs58\b\cf0 Gr\u225 fica de barras\cf1\fs44\b0}' fuente='Arial Negrita,BOLD,29' fijo='s&iacute;'">
+   <param name="G_07" value="espacio='graficas' tipo='imagen' dibujar-si='graficas=1&amp;barras=1' coord_abs='s&iacute;' expresi&oacute;n='(graficas._w/2,233,0.9,0.9)' archivo='images/barras.png'">
+   <param name="G_08" value="espacio='graficas' tipo='texto' dibujar-si='graficas=1&amp;lineas=1' expresi&oacute;n='[275,2]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red0\green171\blue255;\red32\green48\blue58;}\f1\fs58\b\cf0 Gr\u225 fica de l\u237 neas \cf1\fs44\b0}' fuente='Arial Negrita,BOLD,29' fijo='s&iacute;'">
+   <param name="G_09" value="espacio='graficas' tipo='imagen' dibujar-si='graficas=1&amp;lineas=1' coord_abs='s&iacute;' expresi&oacute;n='(graficas._w/2,224,1,1)' archivo='images/lineas.png'">
+   <param name="G_10" value="espacio='E1' tipo='texto' dibujar-si='0' expresi&oacute;n='[20,70]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;}\f1\fs44{\*\mjaformula{\expr Px\decimals 0\fixed0}} , \f2\fs48\i{\*\mjaformula{\expr Py\decimals 0\fixed0}}\f1\fs44\i0}' fuente='Arial,PLAIN,22' fijo='s&iacute;'">
+   <param name="G_11" value="espacio='graficas' tipo='texto' dibujar-si='graficas=1&amp;sectores=1' expresi&oacute;n='[241,5]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red0\green171\blue255;\red32\green48\blue58;}\f1\fs58\b\cf0 Gr\u225 fico de sectores\cf1\fs44\b0}' fuente='Arial Negrita,BOLD,29' fijo='s&iacute;'">
+   <param name="G_12" value="espacio='graficas' tipo='imagen' dibujar-si='graficas=1&amp;sectores=1' coord_abs='s&iacute;' expresi&oacute;n='(E1._w/2,225,0.9,0.9)' archivo='images/sectores.png'">
+   <param name="G_13" value="espacio='E1' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(0,5)' archivo='images/marquito.png'">
+   <param name="Animaci&oacute;n" value="pausa='20' controles='no' auto='s&iacute;' inicio='t=0;anim=1;animar=0' hacer='t=t+10;anim=(t&lt;RA1.w-10)?1:0' mientras='t&lt;RA1.w'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">J2RE</a>.</font>
+</applet></p>
+
+</body>
+</html>

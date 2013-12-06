@@ -1,0 +1,44 @@
+	body {
+		color: #204068;
+		background-color: #3C3;
+		background-image: none;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 10.0pt;
+		font-style: normal;
+		font-weight: bold;
+		margin-left: 6px;
+		margin-right: 0px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		scrollbar-face-color : #406088;
+		scrollbar-arrow-color : #ffffff;
+		scrollbar-track-color : #a0b8d8;
+		scrollbar-base-color : #8098b8;
+		scrollbar-shadow-color : #8098b8;
+		scrollbar-darkshadow-color : #405060;
+		scrollbar-3dlight-color : #8098b8;
+		scrollbar-highlight-color : #8098b8;
+	}
+
+	h2 {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 11.0pt;
+		font-style: normal;
+		font-weight: strong;
+		color: #204060;
+		text-decoration: none;
+	}
+
+	a {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 10.0pt;
+		font-style: normal;
+		font-weight: strong;
+		color: #204060;
+		target: _self;
+		text-decoration: none;
+	}
+	a:visited { color=#204060 }
+	a:active { color=#c01020 }
+	a:hover { color=#20a040 }
+

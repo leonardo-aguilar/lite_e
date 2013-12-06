@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frecuencia</title>
+	<script type='text/javascript' src='../descartes-min.js'></script>
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+	</style>
+</head>
+<body >
+
+<p align="left">
+<applet width=790 height=520
+        code="descinst.com.mja.descartes.DescartesJS.class"
+        codebase="./"
+        archive="descinst.jar,http://recursostic.educacion.es/descartes/web/plugin/descinst.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='' subtitle='Frecuencia Absoluta Vs Frecuencia Relativa. Determina la frecuencia relativa de los coches de acuerdo con su color.' subtitlines='2' bgcolor='d0f0ff' fgcolor='ffffff' align='center' titleimage='imagenes/instrucciones.jpg' titlefont='SansSerif,BOLD,18' subtitlefont='SansSerif,PLAIN,22' ">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="deshacer" value="no">
+   <param name="Versi&oacute;n" value="5.011, 2012-08-27">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' fijo='s&iacute;' escala='40' O.x='-300' O.y='-100' imagen='imagenes/fondo.png' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='n1' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Otro' expresi&oacute;n='(30,400,100,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn100.png' acci&oacute;n='calcular' par&aacute;metro='r1=ent(rnd*4)\nr2=ent(rnd*4)\nr3=ent(rnd*4)\nr4=ent(rnd*4)\nr5=ent(rnd*4)\nr6=ent(rnd*4)\nr7=ent(rnd*4)\nr8=ent(rnd*4)\nr9=ent(rnd*4)\nr10=ent(rnd*4)\nr11=ent(rnd*4)\nr12=ent(rnd*4)\nr13=ent(rnd*4)\nr14=ent(rnd*4)\nr15=ent(rnd*4)\nr16=ent(rnd*4)\nr17=ent(rnd*4)\nr18=ent(rnd*4)\nr19=ent(rnd*4)\nr20=ent(rnd*4)\nr21=ent(rnd*4)\nr22=ent(rnd*4)\nr23=ent(rnd*4)\nr24=ent(rnd*4)\npinta=ent(rnd*3+1)\nsaber=saber+1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='muestra=1'">
+   <param name="C_01" value="id='n22' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='!Debes Saber!' expresi&oacute;n='(570,400,200,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn200.png' acci&oacute;n='calcular' par&aacute;metro='bt1=1\nbt2=0\nbt3=0\nbt4=0\nsaber=0\nmuestra=2' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='saber&gt;2'">
+   <param name="C_02" value="id='n22' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Volver' expresi&oacute;n='(620,400,150,30)' fijo='s&iacute;' visible='s&iacute;' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='imagenes/btn150.png' acci&oacute;n='calcular' par&aacute;metro='\nsaber=0\nmuestra=1\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='muestra=2'">
+   <param name="A_00" value="id='Ccolor' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='4' expresi&oacute;n='Ccolor[0]=0;Ccolor[1]=&squot;azules&squot;;Ccolor[2]=&squot;amarillos&squot;;Ccolor[3]=&squot;rojos&squot;;'">
+   <param name="A_01" value="id='V8' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='4' expresi&oacute;n='V8[0]=&squot;&squot;;V8[1]=&squot;imagenes/1.png&squot;;V8[2]=&squot;imagenes/2.png&squot;;V8[3]=&squot;imagenes/3.png&squot;;'">
+   <param name="A_02" value="id='pinta' constante='s&iacute;' expresi&oacute;n='ent(rnd*3+1)' evaluar='una-sola-vez'">
+   <param name="A_03" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='SOM.Top=200;SOM.Left=200;SOM.transp=0.80;SOM.rojo=0.28;SOM.verde=0.60;SOM.azul=0.93;;;'">
+   <param name="A_04" value="id='muestra' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_05" value="id='n' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_06" value="id='muestra' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_07" value="id='a7' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='r1=ent(rnd*4);r2=ent(rnd*4);r3=ent(rnd*4);r4=ent(rnd*4);r5=ent(rnd*4);r6=ent(rnd*4);r7=ent(rnd*4);r8=ent(rnd*4);r9=ent(rnd*4);r10=ent(rnd*4);r11=ent(rnd*4);r12=ent(rnd*4);r13=ent(rnd*4);r14=ent(rnd*4);r15=ent(rnd*4);r16=ent(rnd*4);r17=ent(rnd*4);r18=ent(rnd*4);r19=ent(rnd*4);r20=ent(rnd*4);r21=ent(rnd*4);r22=ent(rnd*4);r23=ent(rnd*4);r24=ent(rnd*4)'">
+   <param name="G_00" value="espacio='E1' tipo='macro' expresi&oacute;n='macros/sombras.txt' nombre='SOM'">
+   <param name="G_01" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(-.1,0)' archivo='imagenes/garaje.png' rotini='kk'">
+   <param name="G_02" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(1.1,0)' archivo='V8[r1]' rotini='180'">
+   <param name="G_03" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(0.1,0)' archivo='V8[r2]'">
+   <param name="G_04" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(2.1,0)' archivo='V8[r3]'">
+   <param name="G_05" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(3.1,0)' archivo='V8[r4]'">
+   <param name="G_06" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(4.1,0)' archivo='V8[r5]'">
+   <param name="G_07" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(5.1,0)' archivo='V8[r6]'">
+   <param name="G_08" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(6.1,0)' archivo='V8[r7]'">
+   <param name="G_09" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(7.1,0)' archivo='V8[r8]'">
+   <param name="G_10" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(8.1,0)' archivo='V8[r9]'">
+   <param name="G_11" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(9.1,0)' archivo='V8[r10]'">
+   <param name="G_12" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(10.1,0)' archivo='V8[r11]'">
+   <param name="G_13" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(11.1,0)' archivo='V8[r12]'">
+   <param name="G_14" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(2.1,-2)' archivo='V8[r13]' rotini='180'">
+   <param name="G_15" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(3.1,-2)' archivo='V8[r14]' rotini='180'">
+   <param name="G_16" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(4.1,-2)' archivo='V8[r15]' rotini='180'">
+   <param name="G_17" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(5.1,-2)' archivo='V8[r16]' rotini='180'">
+   <param name="G_18" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(6.1,-2)' archivo='V8[r17]' rotini='180'">
+   <param name="G_19" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(7.1,-2)' archivo='V8[r18]' rotini='180'">
+   <param name="G_20" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(8.1,-2)' archivo='V8[r19]' rotini='180'">
+   <param name="G_21" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(9.1,-2)' archivo='V8[r20]' rotini='180'">
+   <param name="G_22" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(10.1,-2)' archivo='V8[r21]' rotini='180'">
+   <param name="G_23" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(11.1,-2)' archivo='V8[r22]' rotini='180'">
+   <param name="G_24" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(12.1,-2)' archivo='V8[r23]' rotini='180'">
+   <param name="G_25" value="espacio='E1' tipo='imagen' dibujar-si='muestra=1' expresi&oacute;n='(13.1,-2)' archivo='V8[r24]' rotini='180'">
+   <param name="G_26" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='muestra=1' expresi&oacute;n='[120,40]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\f1\fs48\cf0 En un garaje hay coches azules, rojos y amarillos.\par \u191 Cu\u225 l es la frecuencia relativa de los coches {\*\mjaformula{\expr Ccolor[pinta]\decimals 0\fixed1}}?\cf1\f2\fs24}' fuente='Arial,PLAIN,24' fijo='s&iacute;'">
+   <param name="G_27" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='bt2=1' expresi&oacute;n='[435,80]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}{\colortbl\red255\green0\blue0;\red64\green64\blue64;\red0\green0\blue255;}\cf0\f1\fs40\b\i Ejemplos:\cf1\b0\i0\par \par Sacar de una bolsa en la que hay\par 10 canicas rojas, una canica \par de color rojo.\par \par Lanzar un dado y que salga \par un n\u250 mero mayor que cero.\par \par Lanzar un dado y que caiga \par un n\u250 mero del uno al se\u237 s.\cf2\f3\fs24}' fuente='Arial Bold Italic,BOLD+ITALIC,20' fijo='s&iacute;'">
+   <param name="G_28" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='muestra=2' expresi&oacute;n='[20,20]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Arial;\f4\fcharset0 Courier New;}{\colortbl\red255\green0\blue0;\red64\green64\blue64;\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs42 Frecuencia Absoluta\cf1\par \cf2 La frecuencia absoluta de un suceso es el n\u250 mero de veces que se repite. \cf1\par \par \cf0 Frecuencia Relativa\cf1\par \cf2 La frecuencia relativa de un suceso es el cociente entre su frecuencia absoluta \par y la suma de todas las frecuencias absolutas.\fs40\par \par La suma de las frecuencias absolutas es igual al n\u250 mero de sucesos posibles.\par En el ejemplo del lanzamiento de un dado es igual a 20.\par \par La suma de las frecuencias relativas es igual a la unidad.\cf0\fs48\par \par \par \par \par .\cf3\f4\fs24\par \par }' fuente='Arial,PLAIN,21' fijo='s&iacute;'">
+   <param name="G_29" value="espacio='E1' tipo='imagen' dibujar-si='muestra=2' expresi&oacute;n='(-1.8,-4.2)' archivo='imagenes/tabla.png'">
+   <param name="Animaci&oacute;n" value="controles='no' auto='no'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.com/" target="_blank">JAVA</a>.</font>
+</applet></p>
+
+<script id="macros/sombras.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='W' constante='s&iacute;' expresi&oacute;n='790' evaluar='una-sola-vez'
+id='H' constante='s&iacute;' expresi&oacute;n='455' evaluar='una-sola-vez'
+id='Top' constante='s&iacute;' expresi&oacute;n='500' evaluar='una-sola-vez'
+id='Left' constante='s&iacute;' expresi&oacute;n='300' evaluar='una-sola-vez'
+id='transp' constante='s&iacute;' expresi&oacute;n='0.8' evaluar='una-sola-vez'
+id='rojo' constante='s&iacute;' expresi&oacute;n='0.2' evaluar='una-sola-vez'
+id='verde' constante='s&iacute;' expresi&oacute;n='0.8' evaluar='una-sola-vez'
+id='azul' constante='s&iacute;' expresi&oacute;n='0.99' evaluar='una-sola-vez'
+tipo='curva' color='(rojo,verde,azul,transp)' coord_abs='s&iacute;' expresi&oacute;n='((t<=1)?Top*t^2:Top*(1-t),(t<=1)?Left*(1-sqrt(1-(1-t^2)^2)):0)' t.intervalo='[0,2]' t.pasos='64' relleno='(rojo,verde,azul,transp)' ancho='0' visible='no' 
+tipo='curva' color='(rojo,verde,azul,transp)' coord_abs='s&iacute;' expresi&oacute;n='((t<=1)?W-Top*t^2:W-Top*(1-t),(t<=1)?H-Left*(1-sqrt(1-(1-t^2)^2)):H)' t.intervalo='[0,2]' t.pasos='64' relleno='(rojo,verde,azul,transp)' ancho='0' visible='no' 
+</script>
+
+</body>
+</html>

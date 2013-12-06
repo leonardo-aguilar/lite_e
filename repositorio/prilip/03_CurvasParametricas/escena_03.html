@@ -1,0 +1,79 @@
+<!Doctype html>
+<html>
+
+<head>
+<title>Construcci&oacute;n de la Cardioide</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type='text/javascript' src='lib/descartes-min.js'></script>
+   <script> var removeApplet = true; //comentar esta linea o poner a falso para mostrar el applet </script>
+   <script type='text/javascript' src='../descartes-min.js'></script>
+</head>
+<body BGCOLOR="d0e8ff">
+<br/>
+<p align="center">
+<ajs width=900 height=600
+        code="Descartes.class"
+        codebase="./"
+        archive="Descartes5.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="900x600">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="4.55, 2011-10-15">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='MAIN' fijo='s&iacute;' escala='36' O.y='-150' despl_imagen='arr-izq' fondo='d0e8ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_01" value="tipo='R2' id='GRAF' x='80' y='30' ancho='740' alto='360' escala='32' despl_imagen='arr-izq' fondo='c0d8ee' red='90a8b0' red10='607880' ejes='203840' texto='no'">
+   <param name="E_02" value="tipo='R2' id='CTRLS' x='0' y='520' ancho='900' alto='80' despl_imagen='arr-izq' fondo='d0e8ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_03" value="tipo='R2' id='TITULO' x='250' y='0' ancho='400' alto='40' despl_imagen='arr-izq' fondo='485070' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_04" value="tipo='R2' id='TEXTO' x='80' y='GRAF._h+45' ancho='740' alto='100' fijo='s&iacute;' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='GRAF.escala' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.escala' expresi&oacute;n='(824,26,35,70)' valor='32' incr='1' min='1' max='1000000' decimales='6' fijo='s&iacute;' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_01" value="id='GRAF.Ox' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.Ox' expresi&oacute;n='(80+GRAF._w+4,35+GRAF._h/2-40,35,70)' incr='10' decimales='6' fijo='no' visible='no' pos_mensajes='centro'">
+   <param name="C_02" value="id='GRAF.Oy' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.Oy' expresi&oacute;n='(80+GRAF._w+4,35+GRAF._h-71,35,70)' incr='10' decimales='6' fijo='no' visible='no' pos_mensajes='centro'">
+   <param name="C_03" value="id='scroll' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='scroll' expresi&oacute;n='(824,439,35,70)' incr='1' min='-14' max='0' decimales='0' fijo='no' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_04" value="id='R' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(95,5,35,70)' valor='1.5' fijo='s&iacute;' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_05" value="id='t' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(85+300,5,35,70)' incr='0.02' min='0' max='1' decimales='3' fijo='s&iacute;' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_06" value="id='envolvente' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(900-85,5,80,70)' incr='1' min='0' max='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="A_00" value="id='T' expresi&oacute;n='pi/2+2*pi*t'">
+   <param name="A_01" value="id='X' expresi&oacute;n='R*cos(T)'">
+   <param name="A_02" value="id='Y' expresi&oacute;n='R*sen(T)'">
+   <param name="A_03" value="id='r' expresi&oacute;n='sqrt((X-0)^2+(Y-R)^2)'">
+   <param name="A_04" value="id='T2(u)' expresi&oacute;n='3*pi/2+4*pi*u'">
+   <param name="A_05" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='RA=R'">
+   <param name="A_06" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='GRAF.escala=((R!=RA)|(eA!=envolvente))?GRAF.escala+0.000001:GRAF.escala;t=(eA!=envolvente)?0:t;RA=R;eA=envolvente;tm=t;'">
+   <param name="G_00" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(0,10)(899,10)(899,599)(0,599)(0,10)' ancho='9'">
+   <param name="G_01" value="espacio='MAIN' tipo='segmento' fondo='s&iacute;' color='d0e8ff' coord_abs='s&iacute;' expresi&oacute;n='(0,0)(900,0)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='19'">
+   <param name="G_02" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(80,30)(819,30)(819,GRAF._h-1+30)(80,GRAF._h-1+30)(80,30)' ancho='9'">
+   <param name="G_03" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(80,GRAF._h-1+45)(819,GRAF._h-1+45)(819,GRAF._h-1+45+TEXTO._h)(80,GRAF._h-1+45+TEXTO._h)(80,GRAF._h-1+45)' ancho='9'">
+   <param name="G_04" value="espacio='GRAF' tipo='arco' color='004488' dibujar-si='(t&lt;1)' radio='R' fin='360' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='3'">
+   <param name="G_05" value="espacio='GRAF' tipo='arco' color='d80028' dibujar-si='(t&lt;1)&amp;envolvente' centro='(X,Y)' radio='r' fin='360' rastro='f080a0' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_06" value="espacio='GRAF' tipo='arco' color='0077dd' dibujar-si='(t&lt;1)' centro='(2*X,2*Y)' radio='R' fin='360' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='3'">
+   <param name="G_07" value="espacio='GRAF' tipo='arco' color='5599ff' dibujar-si='(t&lt;1)&amp;envolvente' centro='(X,Y)' radio='r' fin='360' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='2'">
+   <param name="G_08" value="espacio='GRAF' tipo='curva' color='d80028' expresi&oacute;n='(2*X+R*cos(T2(t)),2*Y+R*sen(T2(t)))' t.intervalo='[0,tm]' t.pasos='128' ancho='3'">
+   <param name="G_09" value="espacio='GRAF' tipo='segmento' color='0077dd' dibujar-si='(t&lt;1)' expresi&oacute;n='(2*X,2*Y)(2*X+R*cos(T2(t)),2*Y+R*sen(T2(t)))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='3' ancho='2'">
+   <param name="G_10" value="espacio='GRAF' tipo='segmento' color='5599ff' dibujar-si='(t&lt;1)&amp;envolvente' expresi&oacute;n='(X,Y)(0,R)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='3' ancho='2'">
+   <param name="G_11" value="espacio='GRAF' tipo='punto' expresi&oacute;n='(2*X+R*cos(T2(t)),2*Y+R*sen(T2(t)))' texto='P' fuente='Serif,PLAIN,14' fijo='s&iacute;'">
+   <param name="G_12" value="espacio='CTRLS' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(0,0)(899,0)(899,79)(0,79)(0,0)' ancho='9'">
+   <param name="G_13" value="espacio='CTRLS' tipo='texto' fondo='s&iacute;' color='203040' expresi&oacute;n='[40,15]' texto='R' fuente='SansSerif,PLAIN,48' decimales='4' fijo='s&iacute;'">
+   <param name="G_14" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[140,15]' texto='[R]' fuente='SansSerif,PLAIN,48' decimales='1' fijo='s&iacute;'">
+   <param name="G_15" value="espacio='CTRLS' tipo='texto' fondo='s&iacute;' color='203040' expresi&oacute;n='[50+300,15]' texto='t' fuente='SansSerif,PLAIN,48' decimales='4' fijo='s&iacute;'">
+   <param name="G_16" value="espacio='TITULO' tipo='texto' color='blanco' expresi&oacute;n='[15,5]' texto='Construcci&oacute;n de la Cardioide' fuente='SansSerif,PLAIN,28' fijo='s&iacute;'">
+   <param name="G_17" value="espacio='TEXTO' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(0,-20+scroll*12)' archivo='images/escena_03_texto.png'">
+   <param name="G_18" value="espacio='GRAF' tipo='punto' dibujar-si='(0.03&lt;t)&amp;(t&lt;1-0.03)' expresi&oacute;n='(X,Y)' texto='C' fuente='Serif,BOLD,16' fijo='s&iacute;'">
+   <param name="G_19" value="espacio='GRAF' tipo='punto' dibujar-si='(0.03&lt;t)&amp;(t&lt;1-0.03)' expresi&oacute;n='(0,R)' texto='Q' fuente='Serif,PLAIN,14' fijo='s&iacute;'">
+   <param name="G_20" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[130+300,15]' texto='[t]' fuente='SansSerif,PLAIN,48' fijo='s&iacute;'">
+   <param name="G_21" value="espacio='CTRLS' tipo='texto' fondo='s&iacute;' color='203040' expresi&oacute;n='[10+2*300,24]' texto='como envolvente' fuente='SansSerif,PLAIN,26' decimales='4' fijo='s&iacute;'">
+</ajs>
+</p>
+
+<p align="center">
+</p>
+
+<br/>
+<br/>
+<br/>
+<br/>
+</body>
+</html>

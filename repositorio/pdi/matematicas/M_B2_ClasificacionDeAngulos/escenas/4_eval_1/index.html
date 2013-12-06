@@ -1,0 +1,305 @@
+<html>
+<head>
+	<title>Clasificaci&oacute;n de &aacute;ngulos&nbsp;-&nbsp;Evaluaci&oacute;n</title>
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+		body{
+			background-color:#7db9f2;
+		}
+	</style>
+	<script type='text/javascript' src='../lib/descartes-min.js'></script>
+</head>
+<body BGCOLOR="ffffff">
+
+<!--
+   <param name="pleca" value="title='Resuelve los siguientes ejercicios, respetando la jerarqu&iacute;a ' subtitle='de las operaciones, al terminar presiona el bot&oacute;n Verificar' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='images/instruccionesDisc.jpg' titlefont='SansSerif,BOLD,22' subtitlefont='SansSerif,BOLD,22' ">
+   <param name="E_00" value="tipo='R2' id='raya' x='0' y='0' ancho='780' alto='12' imagen='images/fondoTop.png' despl_imagen='expand.' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+-->
+
+<p align="center">
+<ajs name="Arquimedes" width=780 height=515
+        code="Arquimedes.class"
+        codebase="../"
+        archive="lib/Arquimedes.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="780x515">
+   <param name="pleca" value="title='Resuelve los siguientes ejercicios, utiliza alguno de los' subtitle='transportadores para medir o modificar los &aacute;ngulos.' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='images/instruccionesDisc.jpg' titlefont='SansSerif,BOLD,22' subtitlefont='SansSerif,BOLD,22' ">
+   <param name="rtf" value="{\rtf1\uc0{\fonttbl\f0\fcharset0 Arial;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Arial;\f4\fcharset0 Times New Roman;\f5\fcharset0 Arial;\f6\fcharset0 Arial;}{\colortbl\red32\green80\blue96;\red0\green0\blue0;}\cf0\f1\fs40 1) Mide el \u225 ngulo que se presenta y completa el enunciado\cf1 .\fs16\par     \fs40\par \fs34            {\*\component\Space 128e1ceb58e}{\*\component\Space 128c6985e21}\par \par \par \par \par \par \par \par \par \par \par \par                     \par \par \par \par \par \par \cf0\fs40\par 2) Si es necesario, modifica el \u225 ngulo que se muestra para que sea un \par     \u225 ngulo\fs34  \f4\fs44\i{\*\mjaformula{\expr _tmpTipoTxt\decimals 0\fixed0}}\f1\fs40\i0\par \par                      {\*\component\Space 128e1d00bbc}\par \par \par \par \par \par \par \par \par \cf1\par \par \fs50    \fs48\par \par  {\*\component\Space 128c6aa057a}\par                                       \fs34\par \fs24\par \par \par \par }">
+   <param name="rtf_height" value="1008">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="deshacer" value="no">
+   <param name="nombre" value="Arquimedes">
+   <param name="Versi&oacute;n" value="5.101, 2013-07-16">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no alto=30">
+   <param name="E_01" value="tipo='R2' id='raya' x='0' y='0' ancho='780' alto='12' imagen='images/fondoTop.png' despl_imagen='expand.' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_02" value="tipo='R2' id='E4' x='71' y='56' ancho='650' alto='376' fijo='s&iacute;' O.y='35' despl_imagen='arr-izq' red='no' red10='no' ejes='no' texto='no' cID='128e1ceb58e'">
+   <param name="E_03" value="tipo='R2' id='graficas' x='142' y='520' ancho='500' alto='300' fijo='s&iacute;' despl_imagen='arr-izq' red='no' red10='no' ejes='no' texto='no' cID='128e1d00bbc'">
+   <param name="E_04" value="tipo='R2' id='Counter' x='23' y='847' ancho='740' alto='70' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no' cID='128c6aa057a'">
+   <param name="C_01" value="id='debug' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='debug' valor='debug' incr='1' min='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_02" value="id='angulo.O' tipo='gr&aacute;fico' espacio='graficas' color='(angulo.O.borde.rojo,angulo.O.borde.verde,angulo.O.borde.azul,angulo.O.borde.alfa)' color-int='(angulo.O.rojo,angulo.O.verde,angulo.O.azul,angulo.O.alfa)' tama&ntilde;o='7' expresi&oacute;n='(angulo.O.x,angulo.O.y)' fijo='s&iacute;'">
+   <param name="C_03" value="id='angulo.A' tipo='gr&aacute;fico' espacio='graficas' color='(angulo.A.borde.rojo,angulo.A.borde.verde,angulo.A.borde.azul,angulo.A.borde.alfa)' color-int='(angulo.A.rojo,angulo.A.verde,angulo.A.azul,angulo.A.alfa)' tama&ntilde;o='8' expresi&oacute;n='(angulo.A.x,angulo.A.y)' fijo='s&iacute;'">
+   <param name="C_04" value="id='angulo.B' tipo='gr&aacute;fico' espacio='graficas' color='(angulo.B.borde.rojo,angulo.B.borde.verde,angulo.B.borde.azul,angulo.B.borde.alfa)' color-int='(angulo.B.rojo,angulo.B.verde,angulo.B.azul,angulo.B.alfa)' tama&ntilde;o='8' expresi&oacute;n='(angulo.B.x,angulo.B.y)' fijo='s&iacute;'">
+   <param name="C_05" value="id='btnVerif' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='Counter' nombre='Verificar' expresi&oacute;n='(btnVerif.x,btnVerif.y,btnVerif.w,btnVerif.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='images/btn100.png' acci&oacute;n='calcular' par&aacute;metro='verificar()' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='btnVerif.dibujarSi' activo-si='!verificado' pos_mensajes='centro'">
+   <param name="C_06" value="id='OtraEv' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='Counter' nombre='Otra evaluaci&oacute;n' expresi&oacute;n='(OtraEv.x,OtraEv.y,OtraEv.w,OtraEv.h)' fijo='s&iacute;' visible='s&iacute;' color='blanco' color-int='naranja' negrita='s&iacute;' fuente puntos='22' imagen='images/btn200.png' acci&oacute;n='calcular' par&aacute;metro='(verificado)?reInit():0' par&aacute;metro.fuente='Monospaced,PLAIN,12' activo-si='verificado' pos_mensajes='centro'">
+   <param name="C_07" value="id='Or' tipo='gr&aacute;fico' espacio='E4' color='ff19ff' color-int='ff19ff' tama&ntilde;o='7' expresi&oacute;n='(Or.x,Or.y)' activo-si='!TR.transp'">
+   <param name="C_08" value="id='A' tipo='gr&aacute;fico' espacio='E4' color='720099ff' color-int='720099ff' tama&ntilde;o='8' expresi&oacute;n='(A.x,A.y)' fijo='s&iacute;' activo-si='!TR.transp'">
+   <param name="C_09" value="id='A.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='A.x' valor='A.x' min='-6.5' max='6.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_10" value="id='A.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='A.y' valor='A.x' min='-3' max='3' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_11" value="id='B' tipo='gr&aacute;fico' espacio='E4' color='720099ff' color-int='720099ff' tama&ntilde;o='8' expresi&oacute;n='(B.x,B.y)' fijo='s&iacute;' activo-si='!TR.transp'">
+   <param name="C_12" value="id='B.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='B.x' valor='A.x' min='-6.5' max='6.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_13" value="id='B.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='B.y' valor='A.x' min='-3' max='3' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_14" value="id='TR.grados' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.grados' valor='180' incr='180' min='180' max='360' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_15" value="id='TR.P' tipo='gr&aacute;fico' espacio='E4' color='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' color-int='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' tama&ntilde;o='8' expresi&oacute;n='(-2,-1)' fijo='s&iacute;' dibujar-si='TR.transp' activo-si='TR.transp'">
+   <param name="C_16" value="id='TR.P.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.P.x' valor='-3' min='-6.5' max='6.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_17" value="id='TR.P.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.P.y' valor='-2' min='-3.5' max='3.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_18" value="id='TR.B' tipo='gr&aacute;fico' espacio='E4' color='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' color-int='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' tama&ntilde;o='8' expresi&oacute;n='(0,-1)' constricci&oacute;n='sqr(x-TR.P.x)+sqr(y-TR.P.y)=7' fijo='s&iacute;' dibujar-si='TR.transp' activo-si='TR.transp'">
+   <param name="C_19" value="id='TR.B.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.B.x' valor='-1' min='-6.5' max='6.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_20" value="id='TR.B.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.B.y' valor='-2' min='-3.5' max='3.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_21" value="id='TR.A' tipo='gr&aacute;fico' espacio='E4' color='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' color-int='(TR.segMed.r,TR.segMed.g,TR.segMed.b,80)' tama&ntilde;o='8' expresi&oacute;n='(-2,1)' constricci&oacute;n='sqr(x-TR.P.x)+sqr(y-TR.P.y)=7' fijo='s&iacute;' dibujar-si='TR.transp' activo-si='TR.transp'">
+   <param name="C_22" value="id='TR.A.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.A.x' valor='-3' min='-6.5' max='6.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_23" value="id='TR.A.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='raya' nombre='TR.A.y' min='-3.5' max='3.5' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_24" value="id='TR.transp' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(E4._w-37-3,3,37,37)' valor='1' fijo='s&iacute;' visible='no' imagen='images/medioTransp.png' acci&oacute;n='calcular' par&aacute;metro='TR.grados=180\nTR.P.x=-3\nTR.P.y=-2\nTR.B.x=0\nTR.B.y=-2\nTR.A.x=-3\nTR.A.y=1\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='!TR.transp'">
+   <param name="C_25" value="id='TR.transp' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(E4._w-37-3,3,37,37)' fijo='s&iacute;' visible='no' imagen='images/medioTransp_no.png' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='TR.transp&amp;(TR.grados=180)' pos_mensajes='centro'">
+   <param name="C_26" value="id='TR.transp' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(E4._w-37-3,3+37+4,37,37)' valor='1' fijo='s&iacute;' visible='no' imagen='images/transpComp.png' acci&oacute;n='calcular' par&aacute;metro='TR.grados=360\nTR.P.x=-3\nTR.P.y=-2\nTR.B.x=0\nTR.B.y=-2\nTR.A.x=-3\nTR.A.y=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='!TR.transp' pos_mensajes='centro'">
+   <param name="C_27" value="id='TR.transp' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(E4._w-37-3,3+37+4,37,37)' fijo='s&iacute;' visible='no' imagen='images/transpComp_no.png' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='TR.transp&amp;(TR.grados=360)' pos_mensajes='centro'">
+   <param name="C_28" value="id='TR.sector' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='E4' nombre='TR.sector' valor='1' incr='1' min='0' max='1' discreto='s&iacute;' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_29" value="id='user_alfa' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(user_alfa.x-8,user_alfa.y+5,user_alfa.w+5,user_alfa.h)' valor='||' decimales='12' fijo='no' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' activo-si='(!verificado)'">
+   <param name="C_30" value="id='tipoAngUsr' tipo='num&eacute;rico' interfaz='men&uacute;' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(tipoAngUsr.x-7,tipoAngUsr.y+5,tipoAngUsr.w,tipoAngUsr.h)' decimales='0' fijo='s&iacute;' visible='no' opciones=' ,agudo,recto,obtuso,llano,c&oacute;ncavo' par&aacute;metro.fuente='Monospaced,PLAIN,12' activo-si='(!verificado)'">
+   <param name="C_31" value="id='razonTipoAngUsr' tipo='num&eacute;rico' interfaz='men&uacute;' regi&oacute;n='interior' espacio='E4' expresi&oacute;n='(razonTipoAngUsr.x,razonTipoAngUsr.y+7,razonTipoAngUsr.w,razonTipoAngUsr.h)' decimales='0' fijo='s&iacute;' visible='no' opciones=' ,mide menos que un recto,mide m&aacute;s que un recto pero menos que un llano,mide 2 rectos,mide m&aacute;s que un llano,mide 90 grados' par&aacute;metro.fuente='Monospaced,PLAIN,12' activo-si='(!verificado)'">
+   <param name="A_01" value="id='reInit()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='verificado=0;correcto=0;limpiarEscena=1;bien1=0;bien2=0;bien3=0;bien4=0;;btnVerif.dibujarSi=1;btnVerif.activoSi=0;;user_alfa=&squot;&squot;;tipoAngUsr=0;razonTipoAngUsr=0;;_tmpRnd=5*rnd;tipoAng2=ent(_tmpRnd);_tmpTipoTxt=Tipo[tipoAng2];;angulo.initEscena();Reinit();'">
+   <param name="A_02" value="id='reInitEscena()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='evaluaciones=0;totalBuenas=0;totalNota=0;;reInit()'">
+   <param name="A_03" value="id='verificar()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_alfa=calcAng();bien1=(abs(user_alfa-_alfa)&lt;1) ;;bien2=((tipoAngUsr-1)==tipo);_c=| ,agudo,recto,obtuso,llano,convexo|;;_c=|1-mide menos que un recto|;_c=|2-mide m&aacute;s que un recto pero menos que un llano|;_c=|3-mide 2 rectos|;_c=|4-mide m&aacute;s que un llano|;_c=|5-mide 90 grados|;;_razon=(tipo==0)?1:-1;_razon=(tipo==1)?5:_razon;_razon=(tipo==2)?2:_razon;_razon=(tipo==3)?3:_razon;_razon=(tipo==4)?4:_razon;bien3=(razonTipoAngUsr==_razon);;_tipoUsrTmp=tipoAngulo(angulo.alfaGrados);bien4=_tipoUsrTmp;bien4=(tipoAng2==bien4);;;verificado=1;correcto=bien1&amp;bien2&amp;bien3&amp;bien4;btnVerif.activoSi=0;buenas=bien1+bien2+bien3+bien4;nota=100*buenas/totalPreg;;evaluaciones=evaluaciones+1;totalBuenas=totalBuenas+buenas;;_dividendo=(evaluaciones*totalPreg);_dividendo=(_dividendo==0)?1:_dividendo;totalNota=(totalBuenas*100)/_dividendo;;;;'">
+   <param name="A_04" value="id='sync_esp()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='angulo.Esp.w=graficas._w;angulo.Esp.h=graficas._h;angulo.Esp.Ox=graficas.Ox;angulo.Esp.Oy=graficas.Oy;angulo.Esp.escala=graficas.escala;;angulo.Esp.mouse_x=graficas.mouse_x;angulo.Esp.mouse_y=graficas.mouse_y;angulo.Esp.mouse_pressed=(graficas.mouse_pressed)&amp;(!verificado)'">
+   <param name="A_05" value="id='Tipo' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='10' expresi&oacute;n='Tipo[0]=&squot;agudo&squot;;Tipo[1]=&squot;recto&squot;;Tipo[2]=&squot;obtuso&squot;;Tipo[3]=&squot;llano&squot;;Tipo[4]=&squot;c&oacute;ncavo&squot;;Tipo[5]=&squot;completo&squot;;;'">
+   <param name="A_06" value="id='Reinit()' algoritmo='s&iacute;' expresi&oacute;n='0' algoritmo='s&iacute;' inicio='r=40/E4.escala;ver=0;TR.transp=0' hacer='user_tipo=0;repr=0;;Or.x=-1.5+3*rnd;Or.y=-1+2*rnd;;Or.x=0;Or.y=0;;rA=(100+200*rnd)/E4.escala;aA=2*pi*rnd;;A.x=Or.x+rA*cos(aA);A.y=Or.y+rA*sen(aA);;rB=(100+200*rnd)/E4.escala;aB=pi/3+(2*pi-2*pi/3)*rnd;;special=(rnd&lt;0.5);aB=(special)?(pi/2)*ent(1+2*rnd):aB;B.x=Or.x+rB*cos(aA+aB);B.y=Or.y+rB*sen(aA+aB);;;AA.x=A.x;AA.y=A.y;BB.x=B.x;BB.y=B.y;A0.x=A.x;A0.y=A.y;B0.x=B.x;B0.y=B.y;;;;'">
+   <param name="A_07" value="id='angle(x,y)' algoritmo='s&iacute;' expresi&oacute;n='ang' algoritmo='s&iacute;' hacer='NU=sqrt(x*x+y*y);X=x/NU;Y=y/NU;cos_a=X;sen_a=Y;ang=acos(cos_a)*180/pi;ang=ent(ang+0.499999);ang=(sen_a&lt;0)?360-ang:ang;'">
+   <param name="A_08" value="id='Norm(x,y)' expresi&oacute;n='sqrt(x*x+y*y)'">
+   <param name="A_09" value="id='Dist(x,y,x1,y1,x2,y2)' algoritmo='s&iacute;' expresi&oacute;n='D' algoritmo='s&iacute;' hacer='N=Norm(x2-x1,y2-y1);U=(x2-x1)/N;V=(y2-y1)/N;D=abs(-V*(x-x1)+U*(y-y1))'">
+   <param name="A_10" value="id='Proy(x,y,x1,y1,x2,y2)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='N=Norm(x2-x1,y2-y1);U=(x2-x1)/N;V=(y2-y1)/N;Pr=U*(x-x1)+V*(y-y1);_x=x1+Pr*U;_y=y1+Pr*V'">
+   <param name="A_11" value="id='sobreRectaA(_mx,_my)' algoritmo='s&iacute;' expresi&oacute;n='_sobre' algoritmo='s&iacute;' hacer='Proy(_mx,_my,Or.x,Or.y,A.x,A.y);comm=|Res proyeccion = (_x,_y)|;;_sobre=sqrt((_x-_mx)^2+(_y-_my)^2);_sobre=(_sobre&lt;(2/E4.escala));;_usarY=(Or.x-A.x)==0;_k=(_usarY)?((A.y-Or.y)/U.y):((A.x-Or.x)/U.x);_k2=(_usarY)?((_y-Or.y)/U.y):((_x-Or.x)/U.x);;_sobre=(_sobre)&amp;(_k2&gt;0)&amp;(_k2&lt;_k)'">
+   <param name="A_12" value="id='sobreRectaB(_mx,_my)' algoritmo='s&iacute;' expresi&oacute;n='_sobre' algoritmo='s&iacute;' hacer='Proy(_mx,_my,Or.x,Or.y,B.x,B.y);comm=|Res proyeccion = (_x,_y)|;;_sobre=sqrt((_x-_mx)^2+(_y-_my)^2);_sobre=(_sobre&lt;(2/E4.escala));;_usarY=(Or.x-B.x)==0;_k =(_usarY)?((B.y-Or.y)/V.y):((B.x-Or.x)/V.x);_k2=(_usarY)?( (_y-Or.y)/V.y):((_x-Or.x)/V.x);;_sobre=(_sobre)&amp;(_k2&gt;0)&amp;(_k2&lt;_k)'">
+   <param name="A_13" value="id='DA' expresi&oacute;n='Dist(E4.mouse_x,E4.mouse_y,Or.x,Or.y,AA.x,AA.y)'">
+   <param name="A_14" value="id='DB' expresi&oacute;n='Dist(E4.mouse_x,E4.mouse_y,Or.x,Or.y,BB.x,BB.y)'">
+   <param name="A_15" value="id='start' expresi&oacute;n='(abs(sqrt(sqr(E4.mouse_x-Or.x)+sqr(E4.mouse_y-Or.y))-r)&lt;0.3)'">
+   <param name="A_16" value="id='synch_esp()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='marcoG1.Esp.x=E4.x;marcoG1.Esp.y=E4.y;marcoG1.Esp.w=E4._w;marcoG1.Esp.h=E4._h;;;'">
+   <param name="A_17" value="id='calcAng()' algoritmo='s&iacute;' expresi&oacute;n='Ang' algoritmo='s&iacute;' hacer='U.x=A.x-Or.x;U.y=A.y-Or.y;NU=sqrt(U.x*U.x+U.y*U.y);U.x=U.x/NU;U.y=U.y/NU;V.x=B.x-Or.x;V.y=B.y-Or.y;NV=sqrt(V.x*V.x+V.y*V.y);V.x=V.x/NV;V.y=V.y/NV;UU.x=20*U.x;UU.y=20*U.y;VV.x=20*V.x;VV.y=20*V.y;cosa=U.x*V.x+U.y*V.y;sena=U.x*V.y-U.y*V.x;a=acos(cosa)*180/pi;a=(sena&lt;0)?360-a:a;_Ang=a;Ang=ent(a+0.49999);'">
+   <param name="A_18" value="id='Calculos()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='TR.escala=E4.escala' hacer='Amoving=(sqr(A0.x-A.x)+sqr(A0.y-A.y)&gt;0.0001);Bmoving=(sqr(B0.x-B.x)+sqr(B0.y-B.y)&gt;0.0001);;AdotAA=((A.x-Or.x)*(AA.x-Or.x)+(A.y-Or.y)*(AA.y-Or.y));A.x=(AdotAA=0)?Or.x+0.1:A.x;AdotAA=((A.x-Or.x)*(AA.x-Or.x)+(A.y-Or.y)*(AA.y-Or.y));chngA=Amoving&amp;(AdotAA&lt;0);NA=Norm(A.x-Or.x,A.y-Or.y);A.x=(chngA)?Or.x-(A.x-Or.x)/NA:A.x;A.y=(chngA)?Or.y-(A.y-Or.y)/NA:A.y;;BdotBB=((B.x-Or.x)*(BB.x-Or.x)+(B.y-Or.y)*(BB.y-Or.y));B.x=(BdotBB=0)?Or.x+0.1:B.x;BdotBB=((B.x-Or.x)*(BB.x-Or.x)+(B.y-Or.y)*(BB.y-Or.y));chngB=Bmoving&amp;(BdotBB&lt;0);NB=Norm(B.x-Or.x,B.y-Or.y);B.x=(chngB)?Or.x-(B.x-Or.x)/NB:B.x;B.y=(chngB)?Or.y-(B.y-Or.y)/NB:B.y;;Proy(B.x,B.y,Or.x,Or.y,BB.x,BB.y);B.x=_x;B.y=_y;B.x=(B.y&gt;3)?Or.x+((3-Or.y)/(B.y-Or.y))*(B.x-Or.x):B.x;B.y=(B.y&gt;3)?Or.y+((3-Or.y)/(B.y-Or.y))*(B.y-Or.y):B.y;B.y=(B.x&gt;8)?Or.y+((8-Or.x)/(B.x-Or.x))*(B.y-Or.y):B.y;B.x=(B.x&gt;8)?Or.x+((8-Or.x)/(B.x-Or.x))*(B.x-Or.x):B.x;B.x=(B.y&lt;-3)?Or.x+((-3-Or.y)/(B.y-Or.y))*(B.x-Or.x):B.x;B.y=(B.y&lt;-3)?Or.y+((-3-Or.y)/(B.y-Or.y))*(B.y-Or.y):B.y;B.y=(B.x&lt;-8)?Or.y+((-8-Or.x)/(B.x-Or.x))*(B.y-Or.y):B.y;B.x=(B.x&lt;-8)?Or.x+((-8-Or.x)/(B.x-Or.x))*(B.x-Or.x):B.x;;Proy(A.x,A.y,Or.x,Or.y,AA.x,AA.y);A.x=_x;A.y=_y;A.x=(A.y&gt;3)?Or.x+((3-Or.y)/(A.y-Or.y))*(A.x-Or.x):A.x;A.y=(A.y&gt;3)?Or.y+((3-Or.y)/(A.y-Or.y))*(A.y-Or.y):A.y;A.y=(A.x&gt;8)?Or.y+((8-Or.x)/(A.x-Or.x))*(A.y-Or.y):A.y;A.x=(A.x&gt;8)?Or.x+((8-Or.x)/(A.x-Or.x))*(A.x-Or.x):A.x;A.x=(A.y&lt;-3)?Or.x+((-3-Or.y)/(A.y-Or.y))*(A.x-Or.x):A.x;A.y=(A.y&lt;-3)?Or.y+((-3-Or.y)/(A.y-Or.y))*(A.y-Or.y):A.y;A.y=(A.x&lt;-8)?Or.y+((-8-Or.x)/(A.x-Or.x))*(A.y-Or.y):A.y;A.x=(A.x&lt;-8)?Or.x+((-8-Or.x)/(A.x-Or.x))*(A.x-Or.x):A.x;;NA=Norm(A.x-Or.x,A.y-Or.y);NB=Norm(B.x-Or.x,B.y-Or.y);A.x=(Amoving&amp;(NA&lt;1))?Or.x+(A.x-Or.x)/NA:A.x;A.y=(Amoving&amp;(NA&lt;1))?Or.y+(A.y-Or.y)/NA:A.y;B.x=(Bmoving&amp;(NB&lt;1))?Or.x+(B.x-Or.x)/NB:B.x;B.y=(Bmoving&amp;(NB&lt;1))?Or.y+(B.y-Or.y)/NB:B.y;;Ang=calcAng();;;tipo=tipoAngulo(Ang);;repr=((tipo=3)&amp;(repr=2))?ent(2*rnd):repr;repr=((tipo=5)&amp;(repr&lt;3))?1:repr;repr=((tipo=5)&amp;(repr&gt;=3))?3:repr;;'">
+   <param name="A_19" value="id='tipoAngulo(_angGrad)' algoritmo='s&iacute;' expresi&oacute;n='_tipo' algoritmo='s&iacute;' hacer='_tipo=0;_tipo=(abs(_angGrad-90)&lt;=0.5)?1:_tipo;_tipo=(_angGrad&gt;90.5)?2:_tipo;_tipo=(abs(_angGrad-180)&lt;=0.5)?3:_tipo;_tipo=(_angGrad&gt;180.5)?4:_tipo;'">
+   <param name="A_20" value="id='INIT_CTR' algoritmo='s&iacute;' evaluar='siempre' hacer='btnVerif.w=101;btnVerif.h=30;btnVerif.x=(Counter._w-btnVerif.w)/2;btnVerif.y=2;;;OtraEv.w=201;OtraEv.h=31;OtraEv.x=(Counter._w-OtraEv.w)/2;OtraEv.y=btnVerif.y+btnVerif.h+5;;;;txtEnun.x=6;txtEnun.y=10;;user_alfa.w=50;user_alfa.h=29;user_alfa.x=txtEnun.x+150;user_alfa.y=txtEnun.y-4;;;tipoAngUsr.w=100;tipoAngUsr.h=29;tipoAngUsr.x=txtEnun.x+405;tipoAngUsr.y=txtEnun.y-4;;;razonTipoAngUsr.w=410;razonTipoAngUsr.h=29;razonTipoAngUsr.x=txtEnun.x+110;razonTipoAngUsr.y=txtEnun.y+31;;'">
+   <param name="A_21" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='totalPreg=4;sync_esp();reInitEscena();'">
+   <param name="A_22" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='sync_esp();;_verVerif=(!verificado)&amp;(user_alfa!=&squot;&squot;)&amp;(tipoAngUsr&gt;0)&amp;(razonTipoAngUsr&gt;0);btnVerif.activoSi=(_verVerif)?1:btnVerif.activoSi;;'">
+   <param name="A_23" value="id='_TRANS_PORTA_' algoritmo='s&iacute;' evaluar='siempre' hacer='sync_esp()'">
+   <param name="A_24" value="id='INI_T' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='T.modulo=|1.4   -   Reconocer, estimar y medir &aacute;ngulos|;T.tema=|Reconocer &aacute;ngulos|;T.N=2;T.en_1=|Selecciona el tipo del &aacute;ngulo AOB en el men&uacute; desplegable.|;T.en_2=|Genera otros &aacute;ngulos al azar pulsando el bot&oacute;n de reiniciar.|;T.y0=10;T.a_t=535;T.a_e=720'">
+   <param name="A_25" value="id='INIT_POS' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='E4.x=(E1._w-E4._w)/2;E4.y=25'">
+   <param name="A_26" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='aux=Reinit()' hacer='dpx=0.2;dpy=0.2;;TR.rojo=0.4;TR.verde=0.2;TR.azul=0.2;;TR.segMed.r=1;TR.segMed.g=0.5;TR.segMed.b=0.2;;;'">
+   <param name="A_27" value="id='TR_IMANES' algoritmo='s&iacute;' evaluar='siempre' inicio='synch_esp()' hacer='ImanP=(sqr(TR.P.x-Or.x)+sqr(TR.P.y-Or.y)&lt;sqr(0.2));TR.P.x=(ImanP)?Or.x:TR.P.x;TR.P.y=(ImanP)?Or.y:TR.P.y;;DAB=Dist(TR.A.x,TR.A.y,Or.x,Or.y,B.x,B.y);DAA=Dist(TR.A.x,TR.A.y,Or.x,Or.y,A.x,A.y);ImanA=(DAB&lt;0.2)&amp;(DAB&lt;=DAA);aux=(ImanA)?Proy(TR.A.x,TR.A.y,Or.x,Or.y,B.x,B.y):0;TR.A.x=(ImanA)?_x:TR.A.x;TR.A.y=(ImanA)?_y:TR.A.y;ImanA=(DAA&lt;0.2)&amp;(DAA&lt;DAB);aux=(ImanA)?Proy(TR.A.x,TR.A.y,Or.x,Or.y,A.x,A.y):0;TR.A.x=(ImanA)?_x:TR.A.x;TR.A.y=(ImanA)?_y:TR.A.y;;DBA=Dist(TR.B.x,TR.B.y,Or.x,Or.y,A.x,A.y);DBB=Dist(TR.B.x,TR.B.y,Or.x,Or.y,B.x,B.y);ImanB=(DBA&lt;0.2)&amp;(DBA&lt;=DBB);aux=(ImanB)?Proy(TR.B.x,TR.B.y,Or.x,Or.y,A.x,A.y):0;TR.B.x=(ImanB)?_x:TR.B.x;TR.B.y=(ImanB)?_y:TR.B.y;ImanB=(DBB&lt;0.2)&amp;(DBB&lt;DBA);aux=(ImanB)?Proy(TR.B.x,TR.B.y,Or.x,Or.y,B.x,B.y):0;TR.B.x=(ImanB)?_x:TR.B.x;TR.B.y=(ImanB)?_y:TR.B.y;;'">
+   <param name="A_28" value="id='MOUSEDN_A' evento='s&iacute;' condici&oacute;n='0&amp;!TR.transp&amp;E4.mouse_pressed&amp;!Amoving&amp;!Bmoving&amp;!moving&amp;!moveB' acci&oacute;n='calcular' par&aacute;metro='moveA=moveA|(sobreRectaA(E4.mouse_x,E4.mouse_y))\nAA.x=(moveA)?E4.mouse_x:AA.x\nAA.y=(moveA)?E4.mouse_y:AA.y\nNAA=Norm(AA.x-Or.x,AA.y-Or.y)\nUAA.x=(AA.x-Or.x)/NAA\nUAA.y=(AA.y-Or.y)/NAA\nNA=Norm(A.x-Or.x,A.y-Or.y)\nA.x=Or.x+UAA.x*NA\nA.y=Or.y+UAA.y*NA\n\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_29" value="id='MOUSEDN_B' evento='s&iacute;' condici&oacute;n='0&amp;!TR.transp&amp;E4.mouse_pressed&amp;!Amoving&amp;!Bmoving&amp;!moving&amp;!moveA' acci&oacute;n='calcular' par&aacute;metro='moveB=(moveB)|(sobreRectaB(E4.mouse_x,E4.mouse_y))\nBB.x=(moveB)?E4.mouse_x:BB.x\nBB.y=(moveB)?E4.mouse_y:BB.y\nNBB=Norm(BB.x-Or.x,BB.y-Or.y)\nUBB.x=(BB.x-Or.x)/NBB\nUBB.y=(BB.y-Or.y)/NBB\nNB=Norm(B.x-Or.x,B.y-Or.y)\nB.x=Or.x+UBB.x*NB\nB.y=Or.y+UBB.y*NB\n\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_30" value="id='MOUSEDN' evento='s&iacute;' condici&oacute;n='0&amp;!TR.transp&amp;E4.mouse_pressed&amp;(start|moving)&amp;!Amoving&amp;!Bmoving&amp;!(moveA|moveB)' acci&oacute;n='calcular' par&aacute;metro='moving=1\nrx=E4.mouse_x-Or.x\nry=E4.mouse_y-Or.y\nr=sqrt(rx*rx+ry*ry)\nr=(r&lt;1)?1:r\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_31" value="id='MOUSEUP' evento='s&iacute;' condici&oacute;n='!E4.mouse_pressed' acci&oacute;n='calcular' par&aacute;metro='moving=0\nmoveA=0\nmoveB=0\n\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_32" value="id='FIN' evento='s&iacute;' condici&oacute;n='1' acci&oacute;n='calcular' par&aacute;metro='Calculos()\nA0.x=A.x\nA0.y=A.y\nB0.x=B.x\nB0.y=B.y\n\n_dist1=sqrt((Or.x-A.x)^2+(Or.y-A.y)^2)\n_dist2=sqrt((Or.x-B.x)^2+(Or.y-B.y)^2)\nmaxR=max(min(_dist2,_dist1),20/E4.escala)\n\n\n\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_33" value="id='limpiarHackArquimedes' evento='s&iacute;' condici&oacute;n='limpiarEscena' acci&oacute;n='limpiar' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="A_34" value="id='finLimpiarVars' evento='s&iacute;' condici&oacute;n='1' acci&oacute;n='calcular' par&aacute;metro='limpiarEscena=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' ejecuci&oacute;n='siempre' pos_mensajes='centro'">
+   <param name="G_01" value="espacio='E4' tipo='imagen' dibujar-si='verif&amp;!bien21' expresi&oacute;n='(0,0,0.67,0.67)' archivo='images/ko.png'">
+   <param name="G_02" value="espacio='Counter' tipo='texto' dibujar-si='evaluaciones&gt;0' expresi&oacute;n='[50,20]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36 Evaluaciones:{\*\mjaformula{\expr evaluaciones}} \par    Media={\*\mjaformula{\expr totalNota}}\f2\fs24}' fuente='Arial,PLAIN,18' decimales='1' fijo='no'">
+   <param name="G_03" value="espacio='Counter' tipo='texto' dibujar-si='verificado' expresi&oacute;n='[515,20]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs36 Buenas={\*\mjaformula{\expr buenas}} Malas={\*\mjaformula{\expr totalPreg-buenas}} \par          Nota={\*\mjaformula{\expr nota}}\f2\fs24}' fuente='Arial,PLAIN,18' decimales='1' fijo='no'">
+   <param name="G_04" value="espacio='graficas' tipo='macro' expresi&oacute;n='macros/angulo.txt' nombre='angulo'">
+   <param name="G_05" value="espacio='E4' tipo='arco' color='41a70d' dibujar-si='(repr=0)' centro='(Or.x,Or.y)' radio='min(maxR,r)' inicio='_(U.x,U.y)' fin='(V.x,V.y)' vectores='s&iacute;' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' relleno='66de33' ancho='3'">
+   <param name="G_06" value="espacio='E4' tipo='arco' color='41a70d' dibujar-si='(repr=1)' centro='(Or.x,Or.y)' radio='min(maxR,r)' inicio='_(U.x,U.y)' fin='(V.x,V.y)' vectores='s&iacute;' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='3'">
+   <param name="G_07" value="espacio='E4' tipo='arco' color='gris' dibujar-si='(repr=2)' centro='(Or.x,Or.y)' radio='max(E4._w,E4._h)*2/E4.escala' inicio='_(U.x,U.y)' fin='(V.x,V.y)' vectores='s&iacute;' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' relleno='aa66de33' ancho='3'">
+   <param name="G_08" value="espacio='E4' tipo='segmento' color='gris' dibujar-si='0' expresi&oacute;n='(Or.x,Or.y)(Or.x+50*(AA.x-Or.x),Or.y+50*(AA.y-Or.y))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' ancho='2'">
+   <param name="G_09" value="espacio='E4' tipo='segmento' color='gris' dibujar-si='0' expresi&oacute;n='(Or.x,Or.y)(Or.x+50*(BB.x-Or.x),Or.y+50*(BB.y-Or.y))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' ancho='2'">
+   <param name="G_10" value="espacio='E4' tipo='segmento' color='0065cc' expresi&oacute;n='(Or.x,Or.y)(A.x,A.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' ancho='5'">
+   <param name="G_11" value="espacio='E4' tipo='segmento' color='0065cc' expresi&oacute;n='(Or.x,Or.y)(B.x,B.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' ancho='5'">
+   <param name="G_12" value="espacio='E4' tipo='punto' color='blanco' expresi&oacute;n='(Or.x,Or.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='3'">
+   <param name="G_13" value="espacio='E4' tipo='punto' color='blanco' expresi&oacute;n='(A.x,A.y)' fijo='s&iacute;' tama&ntilde;o='3'">
+   <param name="G_14" value="espacio='E4' tipo='punto' color='blanco' expresi&oacute;n='(B.x,B.y)' fijo='s&iacute;' tama&ntilde;o='3'">
+   <param name="G_15" value="espacio='E4' tipo='punto' color='negro' expresi&oacute;n='(Or.x+dpx+(cos(s)*(2/E4.escala)),Or.y+dpy+(sen(s)*(2/E4.escala)))' familia='s' s.intervalo='[0,2*pi]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red0\green0\blue0;}\f1\fs44\b\cf0 O\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_16" value="espacio='E4' tipo='punto' color='ffff80' expresi&oacute;n='(Or.x+dpx,Or.y+dpy)' familia='s' s.intervalo='[0,8]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red255\green255\blue128;}\f1\fs44\b\cf0 O\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_17" value="espacio='E4' tipo='punto' color='negro' expresi&oacute;n='(A.x+dpx+(-1+s%3)/E4.escala,A.y+dpy+(-1+ent(s/3))/E4.escala)' familia='s' s.intervalo='[0,8]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red0\green0\blue0;}\f1\fs44\b\cf0 A\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_18" value="espacio='E4' tipo='punto' color='ffff80' expresi&oacute;n='(A.x+dpx,A.y+dpy)' familia='s' s.intervalo='[0,8]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red255\green255\blue128;}\f1\fs44\b\cf0 A\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_19" value="espacio='E4' tipo='punto' color='negro' expresi&oacute;n='(B.x+dpx+(-1+s%3)/E4.escala,B.y+dpy+(-1+ent(s/3))/E4.escala)' familia='s' s.intervalo='[0,8]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red0\green0\blue0;}\f1\fs44\b\cf0 B\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_20" value="espacio='E4' tipo='punto' color='ffff80' expresi&oacute;n='(B.x+dpx,B.y+dpy)' familia='s' s.intervalo='[0,8]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red255\green255\blue128;}\f1\fs44\b\cf0 B\cf1\f2\fs24\b0\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_21" value="espacio='E4' tipo='macro' dibujar-si='TR.transp' expresi&oacute;n='macros/transportador.txt' nombre='TR'">
+   <param name="G_22" value="espacio='E4' tipo='texto' fondo='s&iacute;' dibujar-si='0' expresi&oacute;n='[10,E4._h-35]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}{\colortbl\red113\green0\blue129;\red255\green255\blue255;\red0\green0\blue0;\red255\green200\blue0;\red0\green0\blue255;}\f1\fs44\b\cf0 A\u212 B\cf1\b0  \cf2 es un \u225 ngulo   \cf3{\*\mjaformula{\expr Tipo[tipo]\decimals 0\fixed1}}  \cf4\f3\fs24\par }' fuente='Arial Bold,BOLD,22' fijo='s&iacute;'">
+   <param name="G_23" value="espacio='E4' tipo='texto' color='negro' dibujar-si='TR.transp*((TR.grados=360)|(TR.APB&lt;=180))' expresi&oacute;n='[(E4._w-52)-13*(ent(TR.APB+0.5)&gt;=100),80]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs48{\*\mjaformula{\expr ent(TR.APB+0.5)}{\supix o}}\f2\fs24\par}' fuente='SansSerif,PLAIN,24' fijo='no'">
+   <param name="G_24" value="espacio='graficas' tipo='texto' dibujar-si='debug==1' expresi&oacute;n='[20,20]' texto='[bien1] [bien2] [bien3] [bien4]\n[_tmpRnd] [tipoAng2] [_tmpTipoTxt] [_tipoUsrTmp]' fuente='Monospaced,PLAIN,12' fijo='no'">
+   <param name="G_25" value="espacio='graficas' tipo='imagen' dibujar-si='(verificado&amp;bien4)' expresi&oacute;n='(angulo.O.y+20/graficas.escala,angulo.O.y+20/graficas.escala,1,1)' archivo='images/ok.png'">
+   <param name="G_26" value="espacio='graficas' tipo='imagen' dibujar-si='(verificado&amp;!bien4)' expresi&oacute;n='(angulo.O.y+20/graficas.escala,angulo.O.y+20/graficas.escala,1,1)' archivo='images/ko.png'">
+   <param name="G_27" value="espacio='E4' tipo='texto' expresi&oacute;n='[txtEnun.x,txtEnun.y]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;}{\colortbl\red0\green0\blue0;}\cf0\f1\fs40 El \f2\fs52\i\u8737 \f1\fs40\i0  AOB mide          grados y es un \u225 ngulo                   por que}' fuente='Arial,PLAIN,20' fijo='s&iacute;'">
+   <param name="G_28" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;bien1)' coord_abs='s&iacute;' expresi&oacute;n='(user_alfa.x+user_alfa.w,user_alfa.y-7)' archivo='images/ok.png'">
+   <param name="G_29" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;!bien1)' coord_abs='s&iacute;' expresi&oacute;n='(user_alfa.x+user_alfa.w,user_alfa.y-7)' archivo='images/ko.png'">
+   <param name="G_30" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;bien2)' coord_abs='s&iacute;' expresi&oacute;n='(tipoAngUsr.x+tipoAngUsr.w,tipoAngUsr.y-7)' archivo='images/ok.png'">
+   <param name="G_31" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;!bien2)' coord_abs='s&iacute;' expresi&oacute;n='(tipoAngUsr.x+tipoAngUsr.w,tipoAngUsr.y-7)' archivo='images/ko.png'">
+   <param name="G_32" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;bien3)' coord_abs='s&iacute;' expresi&oacute;n='(razonTipoAngUsr.x+razonTipoAngUsr.w,razonTipoAngUsr.y-7)' archivo='images/ok.png'">
+   <param name="G_33" value="espacio='E4' tipo='imagen' dibujar-si='(verificado&amp;!bien3)' coord_abs='s&iacute;' expresi&oacute;n='(razonTipoAngUsr.x+razonTipoAngUsr.w,razonTipoAngUsr.y-7)' archivo='images/ko.png'">
+   <param name="G_34" value="espacio='graficas' tipo='texto' expresi&oacute;n='[graficas._w-190,graficas._h-30]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}\f1\fs40\b  \f2\fs44\b0\i\u8737 \f1\fs40\b\i0 AOB mide {\*\mjaformula{\expr angulo.alfaGrados\decimals 0\fixed0}}\u176 \f3\fs24\b0}' fuente='Arial Negrita,BOLD,20' fijo='s&iacute;'">
+</ajs></p>
+
+<script id="macros/angulo.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='debug' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='O.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='O.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='O.activo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A.activo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.activo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='sec.r' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='alfa' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='alfaGrados' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='___COLORES___'
+id='O.ancho' constante='s&iacute;' expresi&oacute;n='6' evaluar='una-sola-vez'
+id='O.alfa' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='O.rojo' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='O.verde' constante='s&iacute;' expresi&oacute;n='25/255' evaluar='una-sola-vez'
+id='O.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='O.borde.alfa' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='O.borde.rojo' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='O.borde.verde' constante='s&iacute;' expresi&oacute;n='25/255' evaluar='una-sola-vez'
+id='O.borde.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='A.ancho' constante='s&iacute;' expresi&oacute;n='6' evaluar='una-sola-vez'
+id='A.alfa' constante='s&iacute;' expresi&oacute;n='72/255' evaluar='una-sola-vez'
+id='A.rojo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A.verde' constante='s&iacute;' expresi&oacute;n='153/255' evaluar='una-sola-vez'
+id='A.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='A.borde.alfa' constante='s&iacute;' expresi&oacute;n='72/255' evaluar='una-sola-vez'
+id='A.borde.rojo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A.borde.verde' constante='s&iacute;' expresi&oacute;n='153/255' evaluar='una-sola-vez'
+id='A.borde.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='B.ancho' constante='s&iacute;' expresi&oacute;n='6' evaluar='una-sola-vez'
+id='B.alfa' constante='s&iacute;' expresi&oacute;n='72/255' evaluar='una-sola-vez'
+id='B.rojo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.verde' constante='s&iacute;' expresi&oacute;n='153/255' evaluar='una-sola-vez'
+id='B.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='B.borde.alfa' constante='s&iacute;' expresi&oacute;n='72/255' evaluar='una-sola-vez'
+id='B.borde.rojo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.borde.verde' constante='s&iacute;' expresi&oacute;n='153/255' evaluar='una-sola-vez'
+id='B.borde.azul' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='___VAR ESPACIO___'
+id='Esp.mouse_x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mouse_y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.w' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.h' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.Ox' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.Oy' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.escala' constante='s&iacute;' expresi&oacute;n='45' evaluar='una-sola-vez'
+id='Esp.mouse_pressed' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='___VAR_INTERNAS___'
+id='Esp.minX' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.minY' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.maxX' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.maxY' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A0.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='A0.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B0.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B0.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='U.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='U.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='V.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='V.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='maxRadio' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='verInfoSec' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='verInfoRec' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='verInfoVer' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='rectaActiva' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='_xProy' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='_yProy' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='pressAnt' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mouse_xPix' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='Esp.mouse_yPix' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='___FUNCIONES___'
+id='distPtoP(P1.x,P1.y,P2.x,P2.y)' algoritmo='s&iacute;' expresi&oacute;n='_dist' algoritmo='s&iacute;' hacer='_dist=(P1.x-P2.x)^2+(P1.y-P2.y)^2;_dist=sqrt(_dist)'
+id='distPunToRec(Px,Py,Rx1,Ry1,Rx2,Ry2)' algoritmo='s&iacute;' expresi&oacute;n='D' algoritmo='s&iacute;' hacer='N=distPtoP(Rx1,Ry1,Rx2,Ry2);;U=(Rx2-Rx1)/N;V=(Ry2-Ry1)/N;D=abs(-V*(Px-Rx1)+U*(Py-Ry1))'
+id='angleVtoV(_x1,_y1,_x2,_y2)' algoritmo='s&iacute;' expresi&oacute;n='_alfa' algoritmo='s&iacute;' hacer='_NU=sqrt(_x1^2+_y1^2);_Ux=_x1/_NU;_Uy=_y1/_NU;;;_NV=sqrt(_x2^2+_y2^2);_Vx=_x2/_NV;_Vy=_y2/_NV;;;_cosa=_Ux*_Vx+_Uy*_Vy;_sena=_Ux*_Vy-_Uy*_Vx;;_alfa=acos(_cosa);_alfa=(_sena<0)?(2*pi-_alfa):_alfa;;;'
+id='proyToRecta(_iRec,x,y)' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='_x1=O.x;_y1=O.y;;_x2=(_iRec==0)?A0.x:B0.x;_y2=(_iRec==0)?A0.y:B0.y;;_N=distPtoP(_x1,_y1,_x2,_y2);_U=(_x2-_x1)/_N;_V=(_y2-_y1)/_N;_Pr=_U*(x-_x1)+_V*(y-_y1);_xProy=_x1+_Pr*_U;_yProy=_y1+_Pr*_V'
+id='clickEnSector(_mx,_my)' algoritmo='s&iacute;' expresi&oacute;n='_dentro' algoritmo='s&iacute;' hacer='_v1.x=(O.x-A.x);_v1.y=(O.y-A.y);;_v2.x=(O.x-_mx);_v2.y=(O.y-_my);;_dist=sqrt(_v2.x^2+_v2.y^2);_dentro=_dist<=sec.r;;;_angActSec=(_dentro)?angleVtoV(_v1.x,_v1.y,_v2.x,_v2.y):(alfa+0.1);_dentro=(_dentro)&(_angActSec<=alfa);;'
+id='clickRecta(_mx,_my)' algoritmo='s&iacute;' expresi&oacute;n='_click1|_click2' algoritmo='s&iacute;' hacer='actualizaAlfa();;proyToRecta(0,_mx,_my);_click1=distPtoP(_mx,_my,_xProy,_yProy);_click1=(_click1<(3/Esp.escala));_K1=(A.x-O.x)/U.x;_usarY=(_K1<=0.000001);_K1=(_usarY)?_K1:((A.y-O.y)/U.y);_K2=(_usarY)?((_yProy-O.y)/U.y):((_xProy-O.x)/U.x);_click1=(_click1)&(_K2>=0)&(_K2<=_K1);rectaActiva=(_click1)?0:-1;;;;tt=(_click1)?0:proyToRecta(1,_mx,_my);_click2=(_click1)?100:(distPtoP(_mx,_my,_xProy,_yProy));_click2=(_click2<(3/Esp.escala));_K1=(B.x-O.x)/V.x;_usarY=(_K1<=0.000001);_K1=(_usarY)?_K1:((B.y-O.y)/V.y);_K2=(_usarY)?((_yProy-O.y)/V.y):((_xProy-O.x)/V.x);_click2=(_click2)&(_K2>=0)&(_K2<=_K1);rectaActiva=(_click2)?1:rectaActiva;;;;;;'
+id='clickEnVertice(_mx,_my)' algoritmo='s&iacute;' expresi&oacute;n='_click1' algoritmo='s&iacute;' hacer='_click1=distPtoP(_mx,_my,O.x,O.y);_click1=(_click1<(5/Esp.escala));;;'
+id='actualizaAlfa()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='U.x=A.x-O.x;U.y=A.y-O.y;;NU=sqrt(U.x^2+U.y^2);U.x=U.x/NU;U.y=U.y/NU;V.x=B.x-O.x;V.y=B.y-O.y;;NV=sqrt(V.x^2+V.y^2);V.x=V.x/NV;V.y=V.y/NV;;;cosa=U.x*V.x+U.y*V.y;sena=U.x*V.y-U.y*V.x;;alfa=acos(cosa);alfa=(sena<0)?(2*pi-alfa):alfa;alfaGrados=alfa*180/pi;'
+id='cambiaAngRec(_iRec,Mx,My)' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer='_dist1=distPtoP(O.x,O.y,A.x,A.y);_dist2=distPtoP(O.x,O.y,B.x,B.y);;_rActual=(_iRec==1)?_dist2:_dist1;;_v1.x=(Mx-O.x);_v1.y=(My-O.y);_nV1=distPtoP(_v1.x,_v1.y,0,0);cosa=((_v1.x*1)+(_v1.y*0))/(_nV1*1);_angActual=acos(cosa);_angActual=(_v1.y<0)?-_angActual:_angActual;_angActual=ent(_angActual*180/pi);;_angActual=ent(_angActual);_angActual=ent(_angActual);_angActual=ent(_angActual);;_angActual=_angActual*pi/180;;;_newX=O.x+_rActual*cos(_angActual);_newY=O.y+_rActual*sen(_angActual);;;A.x=(_iRec==0)?_newX:A.x;A.y=(_iRec==0)?_newY:A.y;;B.x=(_iRec==1)?_newX:B.x;B.y=(_iRec==1)?_newY:B.y;;actualizaAlfa();'
+id='mantenDentro()' algoritmo='s&iacute;' algoritmo='s&iacute;' inicio='_estaDentro=0;_facReg=1/Esp.escala' hacer=';_dentroX=(A.x>=Esp.minX)&(A.x<=Esp.maxX);_dentroY=(A.y>=Esp.minY)&(A.y<=Esp.maxY);_dentro1=(_dentroX)&(_dentroY);;A.x=A.x-((_dentro1)?0:U.x*_facReg);A.y=A.y-((_dentro1)?0:U.y*_facReg);;_dentroX=(B.x>=Esp.minX)&(B.x<=Esp.maxX);_dentroY=(B.y>=Esp.minY)&(B.y<=Esp.maxY);_dentro2=(_dentroX)&(_dentroY);;B.x=B.x-((_dentro2)?0:V.x*_facReg);B.y=B.y-((_dentro2)?0:V.y*_facReg);;_estaDentro=(_dentro1)&(_dentro2)' mientras='!_estaDentro'
+id='constricCtrEsp()' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer='tt=(A.activo)?proyToRecta(0,A.x,A.y):0;A.x=(A.activo)?_xProy:A.x;A.y=(A.activo)?_yProy:A.y;;tt=(B.activo)?proyToRecta(1,B.x,B.y):0;B.x=(B.activo)?_xProy:B.x;B.y=(B.activo)?_yProy:B.y;;;Esp.minX=(10-Esp.w/2-Esp.Ox)/Esp.escala;Esp.maxX=(Esp.w-10-Esp.w/2-Esp.Ox)/Esp.escala;;Esp.maxY=-(10-Esp.h/2-Esp.Oy)/Esp.escala;Esp.minY=-(Esp.h-10-Esp.h/2-Esp.Oy)/Esp.escala;;O.x=max(Esp.minX,min(Esp.maxX,O.x));O.y=max(Esp.minY,min(Esp.maxY,O.y));;;actualizaAlfa();tt=(O.activo)?cambiaAngRec(0,O.x+U.x,O.y+U.y):0;tt=(O.activo)?cambiaAngRec(1,O.x+V.x,O.y+V.y):0;;;mantenDentro();;_dist1=distPtoP(O.x,O.y,A.x,A.y);_dist2=distPtoP(O.x,O.y,B.x,B.y);maxRadio=min(_dist1,_dist2);;;'
+id='initEscena()' algoritmo='s&iacute;' expresi&oacute;n='x' algoritmo='s&iacute;' hacer='_margen=10;_radio=min(Esp.w,Esp.h)/2;_radio=(_radio-2*_margen)/Esp.escala;;_tmpA=ent(rnd*359);_tmpA=_tmpA;_tmpB=_tmpA+ent(rnd*330);;_tmpA=_tmpA*pi/180;_tmpB=_tmpB*pi/180;;;O.x=0;O.y=0;;A.x=O.x+_radio*(cos(_tmpA));A.y=O.y+_radio*(sen(_tmpA));;B.x=O.x+_radio*(cos(_tmpB));B.y=O.y+_radio*(sen(_tmpB));;;verInfoSec=0;verInfoRec=0;verInfoVer=0;A0.x=A.x;A0.y=A.y;B0.x=B.x;B0.y=B.y;'
+id='actualizar()' algoritmo='s&iacute;' algoritmo='s&iacute;' hacer='recienPress=(!pressAnt)&(Esp.mouse_pressed);;;_limpiaVar=(recienPress)|(A.activo)|(B.activo)|(O.activo);rectaActiva=(Esp.mouse_pressed)?rectaActiva:-1;verInfoSec=(_limpiaVar)?0:verInfoSec;verInfoRec=(_limpiaVar)?0:verInfoRec;verInfoVer=(_limpiaVar)?0:verInfoVer;;_puedeB=(recienPress);verInfoVer=(_puedeB)?clickEnVertice(Esp.mouse_x,Esp.mouse_y):verInfoVer;verInfoVer=verInfoVer|O.activo;;_puedeB=(!verInfoVer)&(_puedeB);verInfoRec=(_puedeB)?clickRecta(Esp.mouse_x,Esp.mouse_y):verInfoRec;;_puedeB=(!verInfoRec)&(_puedeB);verInfoSec=(_puedeB)?clickEnSector(Esp.mouse_x,Esp.mouse_y):verInfoSec;;;tt=((Esp.mouse_pressed)&(rectaActiva>-1))?cambiaAngRec(rectaActiva,Esp.mouse_x,Esp.mouse_y):0;;constricCtrEsp();actualizaAlfa();;;A0.x=A.x;A0.y=A.y;B0.x=B.x;B0.y=B.y;;pressAnt=Esp.mouse_pressed'
+id='___ALGORITMOS___'
+id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' hacer='sec.r=60/Esp.escala;initEscena();;'
+id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='actualizar()'
+tipo='arco' color='3666de33' dibujar-si='verInfoSec' centro='(O.x,O.y)' radio='min(sec.r,maxRadio)+4/Esp.escala' inicio='(U.x,U.y)' fin='(V.x,V.y)' vectores='s&iacute;' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='6' 
+tipo='arco' color='41a70d' centro='(O.x,O.y)' radio='min(sec.r,maxRadio)' inicio='(U.x,U.y)' fin='(V.x,V.y)' vectores='s&iacute;' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' relleno='66de33' ancho='3' 
+tipo='pol&iacute;gono' color='720099ff' dibujar-si='verInfoRec' expresi&oacute;n='(A.x,A.y)(O.x,O.y)(B.x,B.y)' ancho='12' 
+tipo='pol&iacute;gono' color='0065cc' expresi&oacute;n='(A.x,A.y)(O.x,O.y)(B.x,B.y)' ancho='5' 
+tipo='punto' color='fd1371' dibujar-si='verInfoVer' expresi&oacute;n='(O.x,O.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='10' 
+tipo='punto' color='fd1371' expresi&oacute;n='(O.x,O.y)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='6' 
+tipo='punto' color='ff20303a' expresi&oacute;n='(A.x+cos(s)*(1/Esp.escala),A.y+sen(s)*(1/Esp.escala))' familia='s' s.intervalo='[0,2*pi]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red32\green48\blue58;}\f1\fs44\b\cf0 A\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='punto' color='ff20303a' expresi&oacute;n='(A.x,A.y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red32\green48\blue58;}\f1\fs44\b\cf0 A\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='punto' color='ff20303a' expresi&oacute;n='(B.x+cos(s)*(1/Esp.escala),B.y+sen(s)*(1/Esp.escala))' familia='s' s.intervalo='[0,2*pi]' s.pasos='8' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red32\green48\blue58;}\f1\fs44\b\cf0 B\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='punto' color='ff20303a' expresi&oacute;n='(B.x,B.y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red32\green48\blue58;}\f1\fs44\b\cf0 B\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='punto' expresi&oacute;n='(O.x+cos(s)*(1/Esp.escala),O.y+sen(s)*(1/Esp.escala))' familia='s' s.intervalo='[0,2*pi]' s.pasos='4' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red224\green224\blue224;\red32\green48\blue58;}\f1\fs44\b\cf0 O\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='punto' expresi&oacute;n='(O.x,O.y)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red64\green120\blue153;\red32\green48\blue58;}\f1\fs44\b\cf0 O\cf1\f2\fs24\b0}' fuente='Arial Bold,BOLD,22' fijo='s&iacute;' tama&ntilde;o='4' 
+tipo='texto' fondo='s&iacute;' dibujar-si='0' expresi&oacute;n='[__DEBUG__,0]' fuente='Arial Bold,BOLD,18' fijo='s&iacute;' 
+tipo='segmento' color='203038' dibujar-si='debug==1' expresi&oacute;n='(0,0)(2*cos(_angActSec) , 2*sen(_angActSec))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' 
+tipo='texto' dibujar-si='debug==1' expresi&oacute;n='[20,20]' texto='_K1=[_K1]\n_K2=[_K2]\n' fuente='Monospaced,PLAIN,12' decimales='20' fijo='no' 
+</script>
+
+<script id="macros/transportador.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='escala' constante='s&iacute;' expresi&oacute;n='45' evaluar='una-sola-vez'
+id='grados' constante='s&iacute;' expresi&oacute;n='360' evaluar='una-sola-vez'
+id='grueso' constante='s&iacute;' expresi&oacute;n='3' evaluar='una-sola-vez'
+id='sector' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='APB' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segMed.a' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segMed.r' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segMed.g' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='segMed.b' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='alfa' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='rojo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='verde' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='azul' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='P.x' constante='s&iacute;' expresi&oacute;n='-2' evaluar='una-sola-vez'
+id='P.y' constante='s&iacute;' expresi&oacute;n='-1' evaluar='una-sola-vez'
+id='A.x' constante='s&iacute;' expresi&oacute;n='-2' evaluar='una-sola-vez'
+id='A.y' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.x' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='B.y' constante='s&iacute;' expresi&oacute;n='-1' evaluar='una-sola-vez'
+id='round(x)' expresi&oacute;n='ent(x+0.5)'
+id='d(x1,y1,x2,y2)' expresi&oacute;n='ra&iacute;z((x2-x1)^2+(y2-y1)^2)'
+id='aseno(x)' expresi&oacute;n='asen(x)*180/pi'
+id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='esc0=45;radio=4.29' hacer='r1=radio*0.97;r2=radio*0.94;r3=radio*0.91;r4=radio*0.80;;;;'
+id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='A=((-1)^((A.x-P.x)<0))*aseno((A.y-P.y)/d(A.x,A.y,P.x,P.y))+180*((A.x-P.x)<0)+360*((A.x>P.x)&(A.y<P.y)+(A.x=P.x)&(A.y<P.y));B=((-1)^((B.x-P.x)<0))*aseno((B.y-P.y)/d(B.x,B.y,P.x,P.y))+180*((B.x-P.x)<0)+360*(((B.x-P.x)>0)&((B.y-P.y)<0));APB=360-B+A;APB=(APB>=360)?APB-360:APB;a=A*pi/180;b=B*pi/180;pt=APB*pi/180;p1=ent(APB)*pi/180;p5=5*ent(APB/5)*pi/180;p10=10*ent(APB/10)*pi/180;gg=ent(APB);mm=ent(60*(APB-gg));ss=60*(60*(APB-gg)-mm);ma=(P.x=A.x)?0:(P.y-A.y)/(P.x-A.x);mb=(P.x=B.x)?0:(P.y-B.y)/(P.x-B.x);bf=B*pi/180;p1f=ent(grados)*pi/180;p5f=5*ent(grados/5)*pi/180;p10f=10*ent(grados/10)*pi/180;ptf=pi;bff=bf+14.5*pi/180;ptff=ptf-29*pi/180;CB=cos(b);SB=sen(b);CBR=CB*radio;SBR=SB*radio;CB=CBR/3;SB=SBR/3;X1=P.x-3*CB;Y1=P.y-3*SB;X2=P.x+3*CB;Y2=P.y+3*SB;X3=P.x+0.3*SB+3*CB;Y3=P.y-0.3*CB+3*SB;X3p=P.x+0.3*SB+2*CB;Y3p=P.y-0.3*CB+2*SB;X3pp=P.x+0.2*SB+2*CB;Y3pp=P.y-0.2*CB+2*SB;X4pp=P.x+0.2*SB-2*CB;Y4pp=P.y-0.2*CB-2*SB;X4p=P.x+0.3*SB-2*CB;Y4p=P.y-0.3*CB-2*SB;X4=P.x+0.3*SB-3*CB;Y4=P.y-0.3*CB-3*SB;Xa1=P.x-0.5*SB-sqrt(3.75)*CB;Ya1=P.y+0.5*CB-sqrt(3.75)*SB;Xa2=P.x-0.5*SB+sqrt(3.75)*CB;Ya2=P.y+0.5*CB+sqrt(3.75)*SB;Xb1=P.x-2*CB;Yb1=P.y-2*SB;Xb2=P.x+2*CB;Yb2=P.y+2*SB'
+tipo='arco' color='ffffff44' dibujar-si='sector' centro='(P.x,P.y)' radio='radio' inicio='b*180/pi' fin='(b+pt)*180/pi' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' relleno='bbffffff' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(P.x+r1*cos(t),P.y+r1*sen(t))(P.x+radio*cos(t),P.y+radio*sen(t))' familia='t' t.intervalo='[bf,bf+p1f]' t.pasos='grados' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(P.x+r2*cos(t),P.y+r2*sen(t))(P.x+radio*cos(t),P.y+radio*sen(t))' familia='t' t.intervalo='[bf,bf+p5f]' t.pasos='ent(grados/5)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(P.x+r3*cos(t),P.y+r3*sen(t))(P.x+radio*cos(t),P.y+radio*sen(t))' familia='t' t.intervalo='[bf,bf+p5f]' t.pasos='ent(grados/10)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='punto' color='(rojo,verde,azul,00)' dibujar-si='0' expresi&oacute;n='((8*(abs(t*180/pi-B)<0.1)-15)/esc0+P.x+r4*cos(t),P.y-0.13+r4*sen(t))' familia='t' t.intervalo='[bf,bf+p10f]' t.pasos='ent(grados/10)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs28{\*\mjaformula\f2\fs24{\expr abs(t*180/pi-B)}}\f2\fs24\par}' fuente='SansSerif,PLAIN,14' decimales='0' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(P.x-2.3*cos(b),P.y-2.3*sen(b))(P.x+2.3*cos(b),P.y+2.3*sen(b))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(P.x+0.17*sen(b),P.y-0.17*cos(b))(P.x-0.3*sen(b),P.y+0.3*cos(b))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='arco' color='(rojo,verde,azul,00)' centro='(P.x,P.y)' radio='2.83' inicio='bff*180/pi' fin='(bff+ptff)*180/pi' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' 
+tipo='arco' color='(rojo,verde,azul,00)' dibujar-si='grados=360' centro='(P.x,P.y)' radio='2.83' inicio='5.5+(b+pi)*180/pi' fin='(b+2*pi)*180/pi-5.5' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' 
+tipo='arco' color='(rojo,verde,azul,00)' dibujar-si='grados=360' centro='(P.x,P.y)' radio='radio' fin='360' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' 
+tipo='arco' color='(rojo,verde,azul,00)' dibujar-si='(grados=180)' centro='(P.x,P.y)' radio='radio' inicio='-5.8+b*180/pi' fin='5.8+(b+pi)*180/pi' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' 
+tipo='segmento' color='(rojo,verde,azul,00)' dibujar-si='(grados=180)' expresi&oacute;n='(X4p,Y4p)(X4,Y4)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' dibujar-si='(grados=180)' expresi&oacute;n='(X3p,Y3p)(X3,Y3)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' dibujar-si='(grados=180)' expresi&oacute;n='(X3p,Y3p)(X3pp,Y3pp)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' dibujar-si='grados=180' expresi&oacute;n='(X4p,Y4p)(X4pp,Y4pp)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(Xa1,Ya1)(Xa2,Ya2)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(rojo,verde,azul,00)' expresi&oacute;n='(X3pp,Y3pp)(X4pp,Y4pp)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' 
+tipo='segmento' color='(segMed.r,segMed.g,segMed.b,segMed.a)' expresi&oacute;n='(P.x,P.y)(P.x+cos(b+s*pt)*radio,P.y+radio*sen(bf+s*pt))' familia='s' s.intervalo='[0,1]' s.pasos='1' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0' ancho='grueso' 
+tipo='imagen' dibujar-si='(grados=360)' expresi&oacute;n='(P.x,P.y,escala/esc0,escala/esc0)' archivo='images/circCompleto.png' rotini='b*180/pi' 
+tipo='imagen' dibujar-si='(grados=180)' expresi&oacute;n='(P.x,P.y,escala/esc0,escala/esc0)' archivo='images/medioCirc.png' rotini='b*180/pi' 
+</script>
+
+</body>
+</html>

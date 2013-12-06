@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_08" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Los n&uacute;meros reales: orden y jerarqu&iacute;a de las operaciones</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Distinguir cual de dos n&uacute;meros reales es mayor. Realizar operaciones combinadas con n&uacute;meros reales. Prioridad de las operaciones y signos de agrupaci&oacute;n.
+
+	]]></Descripcion>
+</recurso>

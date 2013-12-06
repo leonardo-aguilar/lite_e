@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITULO</title>
+	<script type='text/javascript' src='../descartes-min.js'></script>
+<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+	</style>
+</head>
+<body BGCOLOR="ffffff">
+
+<p align="left">
+<applet width=790 height=500
+        code="descinst.com.mja.descartes.DescartesJS.class"
+        codebase="./"
+        archive="descinst.jar,http://recursostic.educacion.es/descartes/web/plugin/descinst.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x500">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=",">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="5.011, 2012-08-27">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' fijo='s&iacute;' escala='60' O.y='100' despl_imagen='arr-izq' fondo='006a36' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='g1' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' dibujar-si='pp' activo-si='correcto=0'">
+   <param name="C_01" value="id='g1.x' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='E1' nombre='g1.x' expresi&oacute;n='(0,990)' valor='-5' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_02" value="id='g1.y' tipo='num&eacute;rico' regi&oacute;n='exterior' espacio='E1' nombre='g1.y' expresi&oacute;n='(0,990)' valor='1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_03" value="id='g2' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_04" value="id='g2.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g2.x' expresi&oacute;n='(0,990)' valor='-4' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_05" value="id='g2.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g2.y' expresi&oacute;n='(0,990)' valor='1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_06" value="id='g3' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_07" value="id='g3.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g3.x' expresi&oacute;n='(0,990)' valor='-3' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_08" value="id='g3.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g3.y' expresi&oacute;n='(0,990)' valor='1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_09" value="id='g4' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_10" value="id='g4.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g4.x' expresi&oacute;n='(0,990)' valor='-2' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_11" value="id='g4.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g4.y' expresi&oacute;n='(0,990)' valor='1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_12" value="id='g5' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_13" value="id='g5.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g5.x' expresi&oacute;n='(0,990)' valor='-1' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_14" value="id='g5.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g5.y' expresi&oacute;n='(0,990)' valor='1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_15" value="id='g6' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_16" value="id='g6.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g6.x' expresi&oacute;n='(0,990)' valor='-5' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_17" value="id='g6.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g6.y' expresi&oacute;n='(0,990)' valor='-1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_18" value="id='g7' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_19" value="id='g7.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g7.x' expresi&oacute;n='(0,990)' valor='-4' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_20" value="id='g7.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g7.y' expresi&oacute;n='(0,990)' valor='-1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_21" value="id='g8' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_22" value="id='g8.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g8.x' expresi&oacute;n='(0,990)' valor='-3' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_23" value="id='g8.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g8.y' expresi&oacute;n='(0,990)' valor='-1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_24" value="id='g9' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_25" value="id='g9.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g9.x' expresi&oacute;n='(0,990)' valor='-2' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_26" value="id='g9.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g9.y' expresi&oacute;n='(0,990)' valor='-1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_27" value="id='g10' tipo='gr&aacute;fico' espacio='E1' color='azul' color-int='rojo' tama&ntilde;o='30' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' dibujar-si='pp' activo-si='correcto=0' tooltip.fuente='Monospaced,PLAIN,12' Explicaci&oacute;n.fuente='Monospaced,PLAIN,12'">
+   <param name="C_28" value="id='g10.x' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g10.x' expresi&oacute;n='(0,990)' valor='-1' incr='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' pos_mensajes='centro'">
+   <param name="C_29" value="id='g10.y' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='g10.y' expresi&oacute;n='(0,990)' valor='-1' incr='1' min='-1' decimales='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_30" value="id='n31' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Otro ejercicio' expresi&oacute;n='(150,465,160,30)' fijo='s&iacute;' visible='s&iacute;' color='negro' color-int='ffd200' negrita='s&iacute;' fuente puntos='22' acci&oacute;n='inicio' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='correcto'">
+   <param name="A_00" value="id='J' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='J[0]=&squot;imagenes/img0.png&squot;;J[1]=&squot;imagenes/img1.png&squot;;J[2]=&squot;imagenes/img2.png&squot;;J[3]=&squot;imagenes/img3.png&squot;;J[4]=&squot;imagenes/img4.png&squot;;J[5]=&squot;imagenes/img5.png&squot;'">
+   <param name="A_01" value="id='dia' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='dia[0]=0;dia[1]=&squot;   lunes&squot;;dia[2]=&squot;  martes&squot;;dia[3]=&squot;mi&eacute;rcoles&squot;;dia[4]=&squot;   jueves&squot;;dia[5]=&squot;  viernes&squot;'">
+   <param name="A_02" value="id='I' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='11' expresi&oacute;n='I[0]=0;I[1]=0;I[2]=0'">
+   <param name="A_03" value="id='L' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='11' expresi&oacute;n='L[0]=0;L[1]=0;L[2]=0'">
+   <param name="A_04" value="id='GX' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='11' expresi&oacute;n='GX[0]=0;GX[1]=0;GX[2]=0'">
+   <param name="A_05" value="id='GY' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='11' expresi&oacute;n='GY[0]=0;GY[1]=0;GY[2]=0'">
+   <param name="A_06" value="id='M' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='11' expresi&oacute;n='M[0]=0;M[1]=0;M[2]=0'">
+   <param name="A_07" value="id='a3' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='tt=0' hacer='tt=tt+1;azar=ent(rnd*5)+1;azar=(s1&gt;7)?2:azar;azar=(s2&gt;7)?3:azar;azar=(s3&gt;7)?4:azar;azar=(s4&gt;7)?5:azar;azar=(s5&gt;7)?1:azar;s1=(azar=1)?s1+1:s1;s2=(azar=2)?s2+1:s2;s3=(azar=3)?s3+1:s3;s4=(azar=4)?s4+1:s4;s5=(azar=5)?s5+1:s5;I[tt]=J[azar];L[tt]=azar;' mientras='tt&lt;10'">
+   <param name="A_08" value="id='a4' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='tt=0' hacer='tt=tt+1;M[tt]=(L[tt]=1)?s1:M[tt];M[tt]=(L[tt]=2)?s2:M[tt];M[tt]=(L[tt]=3)?s3:M[tt];M[tt]=(L[tt]=4)?s4:M[tt];M[tt]=(L[tt]=5)?s5:M[tt];' mientras='tt&lt;10'">
+   <param name="A_09" value="id='a6' algoritmo='s&iacute;' evaluar='siempre' hacer='error1=(g1.x&gt;0)&amp;(g1.x!=L[1]);error2=(g2.x&gt;0)&amp;(g2.x!=L[2]);error3=(g3.x&gt;0)&amp;(g3.x!=L[3]);error4=(g4.x&gt;0)&amp;(g4.x!=L[4]);error5=(g5.x&gt;0)&amp;(g5.x!=L[5]);error6=(g6.x&gt;0)&amp;(g6.x!=L[6]);error7=(g7.x&gt;0)&amp;(g7.x!=L[7]);error8=(g8.x&gt;0)&amp;(g8.x!=L[8]);error9=(g9.x&gt;0)&amp;(g9.x!=L[9]);error10=(g10.x&gt;0)&amp;(g10.x!=L[10]);errora=error1+error2+error3+error4+error5;errorb=error6+error7+error8+error9+error10;error=errora+errorb'">
+   <param name="A_10" value="id='a7' algoritmo='s&iacute;' evaluar='siempre' hacer='error11=(g1.x&gt;0)&amp;(g1.y&gt;(M[1]-2));error12=(g2.x&gt;0)&amp;(g2.y&gt;(M[2]-2));error13=(g3.x&gt;0)&amp;(g3.y&gt;(M[3]-2));error14=(g4.x&gt;0)&amp;(g4.y&gt;(M[4]-2));error15=(g5.x&gt;0)&amp;(g5.y&gt;(M[5]-2));error16=(g6.x&gt;0)&amp;(g6.y&gt;(M[6]-2));error17=(g7.x&gt;0)&amp;(g7.y&gt;(M[7]-2));error18=(g8.x&gt;0)&amp;(g8.y&gt;(M[8]-2));error19=(g9.x&gt;0)&amp;(g9.y&gt;(M[9]-2));error20=(g10.x&gt;0)&amp;(g10.y&gt;(M[10]-2));errorf1=error11+error12+error13+error14+error15;errorf2=error16+error17+error18+error19+error20;errorf=errorf1+errorf2;;'">
+   <param name="A_11" value="id='a12' algoritmo='s&iacute;' evaluar='siempre' hacer='GX[1]=g1.x;GX[2]=g2.x;GX[3]=g3.x;GX[4]=g4.x;GX[5]=g5.x;GX[6]=g6.x;GX[7]=g7.x;GX[8]=g8.x;GX[9]=g9.x;GX[10]=g10.x;GY[1]=g1.y;GY[2]=g2.y;GY[3]=g3.y;GY[4]=g4.y;GY[5]=g5.y;GY[6]=g6.y;GY[7]=g7.y;GY[8]=g8.y;GY[9]=g9.y;GY[10]=g10.y'">
+   <param name="A_12" value="id='a13' algoritmo='s&iacute;' evaluar='siempre' inicio='bb=0;repite=0;muestra=0' hacer='bb=bb+1;repite=repite+(g1.x=GX[bb])*(g1.y=GY[bb]);repite=repite+(g2.x=GX[bb])*(g2.y=GY[bb]);repite=repite+(g3.x=GX[bb])*(g3.y=GY[bb]);repite=repite+(g4.x=GX[bb])*(g4.y=GY[bb]);repite=repite+(g5.x=GX[bb])*(g5.y=GY[bb]);repite=repite+(g6.x=GX[bb])*(g6.y=GY[bb]);repite=repite+(g7.x=GX[bb])*(g7.y=GY[bb]);repite=repite+(g8.x=GX[bb])*(g8.y=GY[bb]);repite=repite+(g9.x=GX[bb])*(g9.y=GY[bb]);repite=repite+(g10.x=GX[bb])*(g10.y=GY[bb]);muestra=muestra+(GX[bb]&gt;0);correcto=(muestra=10)*(error=0)*(errorf=0)*(repite=10)' mientras='bb&lt;10'">
+   <param name="G_00" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g1.x-.5,g1.y+.5)' archivo='I[1]'">
+   <param name="G_01" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g2.x-.5,g2.y+.5)' archivo='I[2]'">
+   <param name="G_02" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g3.x-.5,g3.y+.5)' archivo='I[3]'">
+   <param name="G_03" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g4.x-.5,g4.y+.5)' archivo='I[4]'">
+   <param name="G_04" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g5.x-.5,g5.y+.5)' archivo='I[5]'">
+   <param name="G_05" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g6.x-.5,g6.y+.5)' archivo='I[6]'">
+   <param name="G_06" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g7.x-.5,g7.y+.5)' archivo='I[7]'">
+   <param name="G_07" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g8.x-.5,g8.y+.5)' archivo='I[8]'">
+   <param name="G_08" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g9.x-.5,g9.y+.5)' archivo='I[9]'">
+   <param name="G_09" value="espacio='E1' tipo='imagen' expresi&oacute;n='(g10.x-.5,g10.y+.5)' archivo='I[10]'">
+   <param name="G_10" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,1.5)(s,2)(s+1,2)(s+1,1.5)(s,1.5)' familia='s' s.intervalo='[-5.5,-1.5]' s.pasos='4' ancho='2'">
+   <param name="G_11" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,.5)(s,1.5)(s+1,1.5)(s+1,.5)(s,.5)' familia='s' s.intervalo='[-5.5,-1.5]' s.pasos='4' ancho='2'">
+   <param name="G_12" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,-.5)(s,0)(s+1,0)(s+1,-.5)(s,-.5)' familia='s' s.intervalo='[-5.5,-1.5]' s.pasos='4' ancho='2'">
+   <param name="G_13" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,-1.5)(s,-.5)(s+1,-.5)(s+1,-1.5)(s,-1.5)' familia='s' s.intervalo='[-5.5,-1.5]' s.pasos='4' ancho='2'">
+   <param name="G_14" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,-1.5)(s,-.5)(s+1,-.5)(s+1,-1.5)(s,-1.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_15" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,-.5)(s,.5)(s+1,.5)(s+1,-.5)(s,-.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_16" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,.5)(s,1.5)(s+1,1.5)(s+1,.5)(s,.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_17" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,1.5)(s,2.5)(s+1,2.5)(s+1,1.5)(s,1.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_18" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,2.5)(s,3.5)(s+1,3.5)(s+1,2.5)(s,2.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_19" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,3.5)(s,4.5)(s+1,4.5)(s+1,3.5)(s,3.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_20" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto=0' expresi&oacute;n='(s,4.5)(s,5.5)(s+1,5.5)(s+1,4.5)(s,4.5)' familia='s' s.intervalo='[.5,4.5]' s.pasos='4' ancho='2'">
+   <param name="G_21" value="espacio='E1' tipo='imagen' expresi&oacute;n='(s,-2,.5,.5)' familia='s' s.intervalo='[1,5]' s.pasos='4' archivo='J[s]'">
+   <param name="G_22" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='correcto=0' expresi&oacute;n='[25+60*s,235]' familia='s' s.intervalo='[1,5]' s.pasos='4' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red255\green155\blue0;\red0\green0\blue255;}\cf0\f1\fs28\b{\*\mjaformula{\expr s\decimals 0\fixed0}}\cf1\fs24\b0}' fuente='SansSerif,BOLD,14' fijo='s&iacute;'">
+   <param name="G_23" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='correcto=0' expresi&oacute;n='[25+60*s,355]' familia='s' s.intervalo='[1,5]' s.pasos='4' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;}{\colortbl\red255\green155\blue0;\red0\green0\blue255;}\cf0\f1\fs28\b{\*\mjaformula{\expr s+5\decimals 0\fixed0}}\cf1\fs24\b0}' fuente='Arial Bold,BOLD,14' fijo='s&iacute;'">
+   <param name="G_24" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='error&gt;0' expresi&oacute;n='[81,141]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red0\green0\blue0;\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes en una\par  columna equivocada!\cf1}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_25" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='error&gt;0' expresi&oacute;n='[80,140]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes en una\par  columna equivocada!}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_26" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='errorf&gt;0' expresi&oacute;n='[81,71]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red0\green0\blue0;\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes en una\par  fila equivocada!\cf1}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_27" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='errorf&gt;0' expresi&oacute;n='[80,70]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red0\green255\blue0;\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes en una\par  fila equivocada!\cf1}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_28" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='repite&gt;10' expresi&oacute;n='[81,11]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red0\green0\blue0;\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes \par  montadas!\cf1}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_29" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='repite&gt;10' expresi&oacute;n='[80,10]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red255\green255\blue255;\red255\green0\blue0;}\f1\fs50\b\cf0\u161 Hay im\u225 genes \par  montadas!\cf1}' fuente='SansSerif,BOLD,25' fijo='s&iacute;'">
+   <param name="G_30" value="espacio='E1' tipo='imagen' dibujar-si='correcto' expresi&oacute;n='(-5,6)' archivo='J[0]'">
+   <param name="G_31" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='(muestra=0)&amp;(repite&lt;11)' expresi&oacute;n='[3,3]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red255\green255\blue0;\red0\green0\blue255;}\f1\fs48\b\cf0 Observa el tiempo representado en\par los primeros 10 d\u237 as de un mes.\par Arrastra las im\u225 genes a la columna\par correspondiente  comenzando  por\par la fila de abajo.\cf1\par \cf0\par \fs32 Si una imagen est\u225  mal ubicada mostrar\u225  un aviso\cf2\f3\fs24\b0}' fuente='Arial Bold,BOLD,24' fijo='s&iacute;'">
+   <param name="G_32" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='(muestra=0)&amp;(repite&lt;11)' expresi&oacute;n='[2,2]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}{\colortbl\red255\green255\blue0;\red255\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs48\b Observa el tiempo representado en\par los primeros 10 d\u237 as de un mes.\par Arrastra las im\u225 genes a la columna\par correspondiente  comenzando  por\par la fila de abajo.\par \par \cf1\fs32 Si una imagen est\u225  mal ubicada mostrar\u225  un aviso\cf2\f3\fs24\b0}' fuente='Arial Bold,BOLD,24' fijo='s&iacute;'">
+   <param name="G_33" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto' expresi&oacute;n='(.5,-1.5)(.5,-1.5+s1)(1.5,-1.5+s1)(1.5,-1.5)(.5,-1.5)' relleno='7affff00' ancho='2'">
+   <param name="G_34" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto' expresi&oacute;n='(1.5,-1.5)(1.5,-1.5+s2)(2.5,-1.5+s2)(2.5,-1.5)(1.5,-1.5)' relleno='7a00ffff' ancho='2'">
+   <param name="G_35" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto' expresi&oacute;n='(2.5,-1.5)(2.5,-1.5+s3)(3.5,-1.5+s3)(3.5,-1.5)(2.5,-1.5)' relleno='77ff0000' ancho='2'">
+   <param name="G_36" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto' expresi&oacute;n='(3.5,-1.5)(3.5,-1.5+s4)(4.5,-1.5+s4)(4.5,-1.5)(3.5,-1.5)' relleno='7a00ff00' ancho='2'">
+   <param name="G_37" value="espacio='E1' tipo='pol&iacute;gono' color='amarillo' dibujar-si='correcto' expresi&oacute;n='(4.5,-1.5)(4.5,-1.5+s5)(5.5,-1.5+s5)(5.5,-1.5)(4.5,-1.5)' relleno='73ff00ff' ancho='2'">
+   <param name="G_38" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='correcto' expresi&oacute;n='[2,220]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red0\green0\blue0;}\f1\fs60\b\cf0 Observa que has construido\par una gr\u225 fica de tiempo.\par \par Esta gr\u225 fica te permite ver\par los tiempos de mayor o\par de menor frecuencia. }' fuente='Arial Bold,BOLD,30' fijo='s&iacute;'">
+   <param name="G_39" value="espacio='E1' tipo='texto' color='20303a' dibujar-si='correcto' expresi&oacute;n='[3,221]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;}{\colortbl\red255\green255\blue0;\red0\green0\blue0;}\f1\fs60\b\cf0 Observa que has construido\par una gr\u225 fica de tiempo.\par \par Esta gr\u225 fica te permite ver\par los tiempos de mayor o\par de menor frecuencia. \cf1}' fuente='Arial Bold,BOLD,30' fijo='s&iacute;'">
+   <param name="Animaci&oacute;n" value="controles='no' auto='no'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.com/" target="_blank">JAVA</a>.</font>
+</applet></p>
+
+</body>
+</html>

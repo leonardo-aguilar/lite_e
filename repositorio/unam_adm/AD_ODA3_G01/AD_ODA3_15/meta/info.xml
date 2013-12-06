@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_15" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Sistemas de ecuaciones lineales de 2 x 2</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Resoluci&oacute;n de sistemas de ecuaciones lineales con dos inc&oacute;gnitas con los m&eacute;todos de suma - resta, sustituci&oacute;n e igualaci&oacute;n. Gr&aacute;ficas de sistemas de ecuaciones lineales. Interpretaci&oacute;n de la soluci&oacute;n de un sistema de ecuaciones como el punto de intersecci&oacute;n de dos rectas. Soluci&oacute;n de problemas mediante sistemas de ecuaciones lineales de 2 x 2.
+
+	]]></Descripcion>
+</recurso>

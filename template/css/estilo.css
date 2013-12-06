@@ -1,0 +1,231 @@
+body{
+	font-family:			Arial, Helvetica, sans-serif;
+	background-position:	center center;
+	background-color:		#C8D8E8;
+	margin: 				0px;
+	padding:				0px;
+}
+
+div, iframe, table{
+	margin:					0px;
+	padding:				0px;
+	border:					0px;
+}
+
+#container {
+	width:					790px;
+	height:					574px;
+	overflow:				hidden;
+	margin:					0 auto;
+	border:					0;
+	border-collapse:		collapse;
+	border-spacing:			0;
+	border-style:			none;
+	background-image:		url(images/fondo/fondo.png);
+	background-repeat:		repeat;
+}
+
+#header{
+	width:					100%;
+	height:					19px;
+	overflow:				hidden;
+
+	color:					#FFFFFF;
+	font-size: 				12px;
+}
+
+#header span#unitsTitle {
+	float:					left;
+	display:				block;
+	margin:					3px 0px 0px 5px;
+}
+
+#header span#unitPosition {
+	float:					right;
+	display:				block;
+	padding:				3px 5px 0px 0px;
+}
+
+div#content {
+	text-align:				center;
+}
+
+iframe#jsApplet {
+    width:                  790px;
+	height:					520px;
+	/* overflow:				hidden; */
+}
+
+#footer {
+	width:					100%;
+	height:					35px;
+	vertical-align:			middle;
+
+	margin-top:             2px;
+}
+
+#navigation {
+	float:					left;
+	margin-left:			5px;
+	width:					100%;
+	display:				inline;
+}
+
+div#navigationButtons {
+	height:					35px;
+	float:					left;
+
+	overflow:				hidden;
+}
+
+div#navigationButtons div[id^="nbId_"] {
+	float:					left;
+	margin-right:			5px;
+
+	text-align:				center;
+	font-size:				11pt;
+
+	cursor:					pointer;
+}
+
+div#navigationButtons div[id^="nbId_"] div {
+	float:					left;
+	margin:					0px;
+	border:					0px;
+
+	padding-top:			6px;
+	height:					30px;
+
+	background-repeat:		no-repeat;
+}
+
+div#navigationButtons div[id^="nbId_"] div.body {
+	min-width:					85px;
+}
+
+div#navigationButtons div[id^="nbId_"]:hover div.body {
+	color:					#336699;
+}
+
+div#navigationButtons div.navigationButton div.body {
+	color:					#FFFFFF;
+
+	background-repeat:		repeat-x;
+	background-image:		url(images/botones/menu_inferior/boton_body.png);
+}
+
+div#navigationButtons div.selectedNavigationButton div.body {
+	color:					#336699;
+
+	background-repeat:		repeat-x;
+	background-image:		url(images/botones/menu_inferior/boton_activo_body.png);
+}
+
+
+/* Para esquinas redondas en los botones */
+div#navigationButtons div.navigationButton div.leftBorder {
+	width:					6px;
+	overflow:				hidden;
+
+	background-position:	left top;
+	background-image:		url(images/botones/menu_inferior/boton_left.png);
+}
+
+div#navigationButtons div.navigationButton div.rightBorder {
+	width:					6px;
+	overflow:				hidden;
+
+	background-position:	right top;
+	background-image:		url(images/botones/menu_inferior/boton_right.png);
+}
+
+div#navigationButtons div.selectedNavigationButton div.leftBorder {
+	width:					6px;
+	overflow:				hidden;
+
+	background-position:	left top;
+	background-image:		url(images/botones/menu_inferior/boton_activo_left.png);
+}
+
+div#navigationButtons div.selectedNavigationButton div.rightBorder {
+	width:					6px;
+	overflow:				hidden;
+
+	background-position:	right top;
+	background-image:		url(images/botones/menu_inferior/boton_activo_right.png);
+}
+/* termina esquinas redondas */
+
+
+div#navigationArrows {
+	width:					90px;
+	height:					35px;
+	text-align:				center;
+	float:					right;
+}
+
+.arrowButton {
+	border:					0px;
+	padding-top:			0px;
+	margin:					0px;
+	width:					44px;
+	height:					32px;
+	text-decoration:		none;
+	vertical-align:			text-bottom;
+	background-repeat:		no-repeat;
+	background-position:	center;
+}
+
+#back {
+	float:					left;
+	background-image:		url(images/navegacion/anterior_off.png);
+}
+
+
+
+#forward {
+	float:					right;
+	background-image:		url(images/navegacion/siguiente_off.png);
+}
+
+#back:hover {
+	background-image:		url(images/navegacion/anterior_over.png);
+}
+
+#forward:hover {
+	background-image:		url(images/navegacion/siguiente_over.png);
+}
+
+#back:hover, #forward:hover {
+	cursor:					pointer;
+}
+
+#tools {
+	float:					right;
+	margin:					0px 8px 0px 0px;
+}
+
+#tools a {
+	float:					right;
+	vertical-align:			middle;
+	text-align:				center;
+	font-size:				12pt;
+	font-weight:			bold;
+	text-decoration:		none;
+	background-repeat:		no-repeat;
+}
+
+a#info, a#cprght, a#closeWindowButton{
+	background-image:		url(images/botones/inferior_derecha/boton.png);
+	padding-top:			6px;
+	margin-right:			0px;
+	margin-left:			2px;
+	margin-top:				0px;
+	width:					28px;
+	height:					30px;
+	color:					#FFF;
+}
+
+a#info:hover, a#cprght:hover, a#closeWindowButton:hover{
+	color:					#00FFCC;
+}

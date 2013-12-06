@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+
+<title>Evaluaci&oacute;n formativa. Unidad PISA: Sistemas de Ecuaciones</title>
+
+
+	<script type='text/javascript' src='lib/descartes-min.js'></script>
+</head>
+
+
+<body bgcolor="#FFF8E1" text="#000000" link="#993366" vlink="#999933" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="240" rowspan="2" align="center" valign="middle" bgcolor="#FFF8E1"><a target="_blank" href="http://proyectodescartes.org"><img src="imagenes/DescartesJS.jpg" alt="Proyecto Descartes" width="132" height="90" border="0" title="Proyecto Descartes"></a></td>
+
+    <td align="center" width="100%" bgcolor="#006699" height="53"><b><font face="Verdana, Arial, Helvetica, sans-serif" color="#FFFFFF"><img src="imagenes/evfor.png" alt="evaluaci&oacute;n formativa" width="271" height="56"></font></b></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#EAF4FF" height="37"><i>
+	<font face="Arial, Helvetica, sans-serif" color="#006699">Unidad PISA:
+	Sistemas de Ecuaciones.&nbsp;&nbsp;&nbsp; &Aacute;mbito: Educaci&oacute;n
+	Secundaria &nbsp;&nbsp;&nbsp; &Aacute;rea:
+	Matem&aacute;ticas</font></i></td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+  </tr>
+</table>
+
+<hr size="50" align="right" color="#FEE6B8">
+
+<table width="100%" border="0" cellpadding="10">
+
+  <tr>
+
+    <td>
+	<p align="center"><ajs name="Sistemas de Ecuaciones" width=600 height=484
+        code="Descartes.class"
+        codebase="./"
+        archive="lib/Descartes5.jar,lib/Descartes5_Sonido.jar,lib/Descartes5_Algebra.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="600x484">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=",">
+   <param name="antialias" value="s&iacute;">
+   <param name="nombre" value="Sistemas de Ecuaciones">
+   <param name="Versi&oacute;n" value="5.107, 2013-08-17">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_01" value="tipo='R2' id='fondo' ancho='600' alto='459' despl_imagen='arr-izq' fondo='00d4ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_02" value="tipo='R2' id='plantea' x='1' y='1' ancho='350' alto='458' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_03" value="tipo='R2' id='pregunta' x='351' y='1' ancho='248' alto='268' despl_imagen='arr-izq' fondo='ffffb6' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_04" value="tipo='R2' id='puntua' x='351' y='269' ancho='248' alto='190' dibujar-si='1' despl_imagen='arr-izq' fondo='ffceff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_05" value="tipo='R2' id='botones' y='459' ancho='600' alto='25' despl_imagen='arr-izq' fondo='00d4ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_01" value="id='inicio' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='inicio' expresi&oacute;n='(2,1,75,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='inicio' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='binicio' pos_mensajes='centro'">
+   <param name="C_02" value="id='PISA' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='PISA' expresi&oacute;n='(binicio*77+2,1,75,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='abrir URL' par&aacute;metro='pisa.html' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bpisa' pos_mensajes='centro'">
+   <param name="C_03" value="id='modificar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='modificar' expresi&oacute;n='((binicio+bpisa+bpuntua+bverfallos+bverresp)*77+2,1,75,23)' valor='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='modificar=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bmodificar&amp;(~corregir)&amp;(~verresp)&amp;(~modificar)' pos_mensajes='centro'">
+   <param name="C_04" value="id='modificar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='no modificar' expresi&oacute;n='((binicio+bpisa+bpuntua+bverfallos+bverresp)*77+2,1,75,23)' valor='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='modificar=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bmodificar&amp;(~corregir)&amp;(~verresp)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_05" value="id='puntua' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='no puntuar' expresi&oacute;n='((binicio+bpisa)*77+2,1,75,23)' valor='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='puntua=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bpuntua&amp;(~corregir)&amp;(puntua)' pos_mensajes='centro'">
+   <param name="C_06" value="id='puntua' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='puntuar' expresi&oacute;n='((binicio+bpisa)*77+2,1,75,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='puntua=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bpuntua&amp;(~corregir)&amp;(~puntua)' pos_mensajes='centro'">
+   <param name="C_07" value="id='verfallos' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='Comprobar' expresi&oacute;n='((binicio+bpisa+bpuntua)*77+2,1,75,23)' valor='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='verfallos=1\nbverfallos=(ract)?0:1\nfallos[pactual]=(rcorrecta[pactual]==ract)?0:1\nindica=(bverfallos==0)?ract:0\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bverfallos ' pos_mensajes='centro'">
+   <param name="C_08" value="id='verresp' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='respuestas' expresi&oacute;n='((binicio+bpisa+bpuntua+bverfallos)*77+2,1,75,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='verresp=1\nmodificar=0' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bverresp&amp;(~corregir)&amp;(~verresp)' pos_mensajes='centro'">
+   <param name="C_09" value="id='pactual' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='pregunta' nombre='pactual' valor='1' incr='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_10" value="id='corregir' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='corregir' expresi&oacute;n='((binicio+bpisa+bpuntua+bverfallos+bverresp+bmodificar)*77+2,1,75,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='corregir=1\nmodificar=0\npuntua=1\nverfallos=1\nverresp=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='bcorregir&amp;(~corregir)' pos_mensajes='centro'">
+   <param name="C_11" value="id='spreg' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='Aleaciones' expresi&oacute;n='(140,243,70,20)' valor='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='abrir URL' par&aacute;metro='sis2.html' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='testt1' pos_mensajes='centro'">
+   <param name="C_12" value="id='r' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='A' expresi&oacute;n='(40,70,30,30)' valor='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='ract=r\npuntua=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(tipopre[pactual]=1)&amp;(ract#1)&amp;(nrep[pactual]&gt;=1)&amp;(~corregir)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_13" value="id='r' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='B' expresi&oacute;n='(40,105,30,30)' valor='2' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='ract=r\npuntua=1' dibujar-si='(tipopre[pactual]=1)&amp;(ract#2)&amp;(nrep[pactual]&gt;=2)&amp;(~corregir)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_14" value="id='r' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='C' expresi&oacute;n='(40,140,30,30)' valor='3' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='ract=r\npuntua=1' dibujar-si='(tipopre[pactual]=1)&amp;(ract#3)&amp;(nrep[pactual]&gt;=3)&amp;(~corregir)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_15" value="id='r' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='D' expresi&oacute;n='(40,175,30,30)' valor='4' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='ract=r\npuntua=1' dibujar-si='(tipopre[pactual]=1)&amp;(ract#4)&amp;(nrep[pactual]&gt;=4)&amp;(~corregir)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_16" value="id='r' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='pregunta' nombre='E' expresi&oacute;n='(40,210,30,30)' valor='5' decimales='0' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='ract=r\npuntua=1' dibujar-si='(tipopre[pactual]=1)&amp;(ract#5)&amp;(nrep[pactual]&gt;=5)&amp;(~corregir)&amp;(modificar)' pos_mensajes='centro'">
+   <param name="C_17" value="id='cr&eacute;ditos' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='botones' nombre='cr&eacute;ditos' expresi&oacute;n='(541,1,58,23)' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='abrir URL' par&aacute;metro='creditos.htm' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_18" value="id='t1' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' expresi&oacute;n='(187,66,25,17)' decimales='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(rcorrecta[pactual]==indica)&amp;(indica==ract)&amp;(~testt1)' pos_mensajes='centro'">
+   <param name="C_19" value="id='t2' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' expresi&oacute;n='(78,48,29,17)' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro='bverfallos=(testt2)?1:0\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(rcorrecta[pactual]==indica)&amp;(indica==ract)&amp;(~testt1)' pos_mensajes='centro'">
+   <param name="C_20" value="id='t3' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' expresi&oacute;n='(133,48,27,17)' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(rcorrecta[pactual]==indica)&amp;(indica==ract)&amp;(~testt1)' pos_mensajes='centro'">
+   <param name="C_21" value="id='Aceptar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='puntua' nombre='Aceptar' expresi&oacute;n='(127,140,75,23)' valor='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='verfallos=1\nbverfallos=1\nract=0\nindica=0\nt00=0\nt01=0\nt02=0\nt03=0\nerrores=errores+1\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(indica&gt;0) &amp; testt2' pos_mensajes='centro'">
+   <param name="C_22" value="id='t0' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' expresi&oacute;n='(83,106,45,17)' decimales='3' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(rcorrecta[pactual]==indica)&amp;(indica==ract)&amp;(~testt1)' pos_mensajes='centro'">
+   <param name="C_23" value="id='t00' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' nombre='s = ' expresi&oacute;n='(40,105,52,18)' decimales='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(ract&gt;0)&amp;(~bverfallos)&amp;(ract==indica)&amp;(rcorrecta[pactual]#ract)&amp;(~testt2)' pos_mensajes='centro'">
+   <param name="C_24" value="id='t01' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' nombre='t = ' expresi&oacute;n='(40,135,70,17)' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(ract&gt;0)&amp;(~bverfallos)&amp;(ract==indica)&amp;(rcorrecta[pactual]#ract)&amp;(~testt2)' pos_mensajes='centro'">
+   <param name="C_25" value="id='t02' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' nombre='x = ' expresi&oacute;n='(135,105,70,17)' decimales='3' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(ract&gt;0)&amp;(~bverfallos)&amp;(ract==indica)&amp;(rcorrecta[pactual]#ract)&amp;(~testt2)' pos_mensajes='centro'">
+   <param name="C_26" value="id='t03' tipo='num&eacute;rico' interfaz='campo de texto' regi&oacute;n='interior' espacio='puntua' nombre='y = ' expresi&oacute;n='(135,135,70,17)' decimales='3' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(ract&gt;0)&amp;(~bverfallos)&amp;(ract==indica)&amp;(rcorrecta[pactual]#ract)&amp;(~testt2)' pos_mensajes='centro'">
+   <param name="A_01" value="id='nunidad' constante='s&iacute;' expresi&oacute;n='35' evaluar='una-sola-vez'">
+   <param name="A_02" value="id='binicio' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_03" value="id='bpisa' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_04" value="id='bcorregir' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_05" value="id='bmodificar' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_06" value="id='bverfallos' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_07" value="id='bverresp' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_08" value="id='bpuntua' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_09" value="id='npre' constante='s&iacute;' expresi&oacute;n='5' evaluar='una-sola-vez'">
+   <param name="A_10" value="id='tipopre' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='tipopre[0]=0;tipopre[1]=1;tipopre[2]=2;tipopre[3]=1;tipopre[4]=2;tipopre[5]=1'">
+   <param name="A_11" value="id='nrep' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='npre+1' expresi&oacute;n='nrep[0]=0;nrep[1]=5;nrep[2]=1;nrep[3]=5;nrep[4]=1;nrep[5]=5'">
+   <param name="A_12" value="id='controlr' constante='s&iacute;' expresi&oacute;n='c1' evaluar='una-sola-vez'">
+   <param name="A_13" value="id='fallo' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_14" value="id='fallos' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1' expresi&oacute;n='fallos[0]=0;fallos[1]=0;fallos[2]=0;fallos[3]=0;fallos[4]=0;fallos[5]=0'">
+   <param name="A_15" value="id='rcorrecta' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1' expresi&oacute;n='rcorrecta[0]=0;rcorrecta[1]=ent(4*rnd+0.49)+1;rcorrecta[2]=0;rcorrecta[3]=0;rcorrecta[4]=0;rcorrecta[5]=0;rcorrecta[6]=10;rcorrecta[7]=20;rcorrecta[8]=30;rcorrecta[9]=40;rcorrecta[10]=50;rcorrecta[11]=2;rcorrecta[12]=0;rcorrecta[13]=0;rcorrecta[14]=0;rcorrecta[15]=0;rcorrecta[16]=60;rcorrecta[17]=70;rcorrecta[18]=80;rcorrecta[19]=0;rcorrecta[20]=0'">
+   <param name="A_16" value="id='rpulsada' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1'">
+   <param name="A_17" value="id='arpulsada' algoritmo='s&iacute;' evaluar='siempre' inicio='i=0' hacer='c1=(tipopre[pactual]==1)?ract:c1;rpulsada[5*(pactual-1)+1]=c1;rpulsada[5*(pactual-1)+2]=c2;rpulsada[5*(pactual-1)+3]=c3;rpulsada[5*(pactual-1)+4]=c4;rpulsada[5*(pactual-1)+5]=c5;i=1' mientras='i&lt;1'">
+   <param name="A_18" value="id='afallos' algoritmo='s&iacute;' evaluar='siempre' inicio='i=0 ' hacer='fallo=(rcorrecta[pactual]==ract)?0:1;fallo=(ract==0)?0:fallo;fallo=(controlr==ract)?0:fallo;controlr=ract;fallo=(fallos[pactual]==4)?0:fallo;fallo=(fallos[pactual] &amp; bverfallos)?fallo-fallos[pactual]:fallo;fallo=(rcorrecta[pactual]==indica)?0:fallo;fallo=((rcorrecta[pactual]#indica)&amp;(~testt2)&amp;(fallos[pactual]))?0:fallo;fallos[pactual]=fallos[pactual]+fallo;i=1' mientras='i&lt;1'">
+   <param name="A_19" value="id='puntos' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1' expresi&oacute;n='puntos[0]=0;puntos[1]=2-fallos[1]*0.5;puntos[2]=0;puntos[3]=0;puntos[4]=0;puntos[5]=0;puntos[6]=0.4;puntos[7]=0.4;puntos[8]=0.4;puntos[9]=0.4;puntos[10]=0.4;puntos[11]=2;puntos[12]=0;puntos[13]=0;puntos[14]=0;puntos[15]=0;puntos[16]=0.5;puntos[17]=0.5;puntos[18]=0.5;puntos[19]=0.5;puntos[20]=0'">
+   <param name="A_20" value="id='totalpuntos' algoritmo='s&iacute;' evaluar='siempre' inicio='i=1;totalpuntos=0' hacer='totalpuntos=totalpuntos+puntos[i];i=i+1' mientras='i&lt;(5*npre+1)'">
+   <param name="A_21" value="id='aciertos' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1'">
+   <param name="A_22" value="id='puntosapartado' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='5*npre+1'">
+   <param name="A_23" value="id='puntospre' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='npre+1'">
+   <param name="A_24" value="id='acorrige1' algoritmo='s&iacute;' evaluar='siempre' inicio='i=1;total=0' hacer='aciertos[i]=(rcorrecta[i]==rpulsada[i]);puntosapartado[i]=puntos[i]*aciertos[i];i=i+1' mientras='i&lt;=(5*npre+1)'">
+   <param name="A_25" value="id='acorrige2' algoritmo='s&iacute;' evaluar='siempre' inicio='i=0;total=0' hacer='puntospre[i+1]=puntosapartado[5*i+1]+puntosapartado[5*i+2]+puntosapartado[5*i+3]+puntosapartado[5*i+4]+puntosapartado[5*i+5];total=total+puntospre[i+1];i=i+1' mientras='i&lt;npre'">
+   <param name="A_26" value="id='x1' constante='s&iacute;' expresi&oacute;n='ent(20+rnd*30)' evaluar='una-sola-vez'">
+   <param name="A_27" value="id='x2' constante='s&iacute;' expresi&oacute;n='ent(60+rnd*30)' evaluar='una-sola-vez'">
+   <param name="A_28" value="id='x3' constante='s&iacute;' expresi&oacute;n='ent(5+rnd*35)' evaluar='una-sola-vez'">
+   <param name="A_29" value="id='x4' constante='s&iacute;' expresi&oacute;n='ent((x1+x2)*0.5+rnd*4*(-1)^x1)' evaluar='una-sola-vez'">
+   <param name="A_30" value="id='x5' constante='s&iacute;' expresi&oacute;n='x3*(x4-x2)/(x1-x2)' evaluar='una-sola-vez'">
+   <param name="A_31" value="id='x6' constante='s&iacute;' expresi&oacute;n='x3*(x4-x1)/(x2-x1)' evaluar='una-sola-vez'">
+   <param name="A_32" value="id='r1' constante='s&iacute;' expresi&oacute;n='(x3&lt;20)?x5:x6' evaluar='una-sola-vez'">
+   <param name="A_33" value="id='r2' constante='s&iacute;' expresi&oacute;n='(x3&lt;20)?0.9*x5:0.9*x6' evaluar='una-sola-vez'">
+   <param name="A_34" value="id='r3' constante='s&iacute;' expresi&oacute;n='(x3&lt;20)?0.8*x5:0.8*x6' evaluar='una-sola-vez'">
+   <param name="A_35" value="id='r4' constante='s&iacute;' expresi&oacute;n='(x3&lt;20)?0.7*x5:0.7*x6' evaluar='una-sola-vez'">
+   <param name="A_36" value="id='r5' constante='s&iacute;' expresi&oacute;n='(x3&lt;20)?1.1*x5:1.1*x6' evaluar='una-sola-vez'">
+   <param name="A_37" value="id='res' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='res[0]=0;res[1]=r1;res[2]=r2;res[3]=r3;res[4]=r4;res[5]=r5;'">
+   <param name="A_38" value="id='lres' vector='s&iacute;' evaluar='una-sola-vez' tama&ntilde;o='6' expresi&oacute;n='lres[0]=0;lres[1]=0;lres[2]=0;lres[3]=0;lres[4]=0;lres[5]=0'">
+   <param name="A_39" value="id='alres' algoritmo='s&iacute;' evaluar='una-sola-vez' inicio='i=1' hacer='j=(i==1)?rcorrecta[1]:j;lres[j]=res[i];k=(j==5)?0:j;j=k;j=j+1;i=i+1' mientras='i&lt;=5'">
+   <param name="A_40" value="id='testt1' constante='s&iacute;' expresi&oacute;n='(t2=x1/100)&amp;(t3=x2/100)&amp;(t1=x3)&amp;(abs(t0-x6)&lt;0.01)' evaluar='siempre'">
+   <param name="A_41" value="id='testt2' constante='s&iacute;' expresi&oacute;n='((t00=x3)&amp;(t01=x3*x4/100)&amp;(abs(t02-x5)&lt;0.01)&amp;(abs(t03-x6)&lt;0.01))?1:0' evaluar='siempre'">
+   <param name="A_42" value="id='indica' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_43" value="id='errores' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_44" value="id='v4102' algoritmo='s&iacute;' evaluar='siempre' inicio='modificar=1'">
+   <param name="G_01" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract=1)&amp;(tipopre[pactual]==1)' coord_abs='s&iacute;' expresi&oacute;n='(40,70)' archivo='imagenes/Ap.jpg'">
+   <param name="G_02" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract=2)&amp;(tipopre[pactual]==1)' coord_abs='s&iacute;' expresi&oacute;n='(40,105)' archivo='imagenes/Bp.jpg'">
+   <param name="G_03" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract=3)&amp;(tipopre[pactual]==1)' coord_abs='s&iacute;' expresi&oacute;n='(40,140)' archivo='imagenes/Cp.jpg'">
+   <param name="G_04" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract=4)&amp;(tipopre[pactual]==1)' coord_abs='s&iacute;' expresi&oacute;n='(40,175)' archivo='imagenes/Dp.jpg'">
+   <param name="G_05" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract=5)&amp;(tipopre[pactual]==1)' coord_abs='s&iacute;' expresi&oacute;n='(40,210)' archivo='imagenes/Ep.jpg'">
+   <param name="G_06" value="espacio='plantea' tipo='texto' color='naranja' expresi&oacute;n='[80,5]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs48\b Unidad PISA {\*\mjaformula{\expr nunidad\decimals 0\fixed0}}\f2\fs24\b0\par}' fuente='Arial,BOLD,24' fijo='s&iacute;'">
+   <param name="G_07" value="espacio='plantea' tipo='texto' color='rojo' expresi&oacute;n='[3,15]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs48\b\par SISTEMAS DE ECUACIONES\f2\fs24\b0\par}' fuente='Arial,BOLD,24' fijo='s&iacute;'">
+   <param name="G_08" value="espacio='pregunta' tipo='texto' color='5c0000' dibujar-si='npre&gt;1' expresi&oacute;n='[10,5]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs28\b Pregunta {\*\mjaformula{\expr nunidad\decimals 0\fixed0}.{\expr pactual\decimals 0\fixed0}}\f2\fs24\b0\par}' fuente='Arial,BOLD,14' fijo='s&iacute;'">
+   <param name="G_09" value="espacio='pregunta' tipo='texto' color='5c0000' dibujar-si='npre=1' expresi&oacute;n='[10,5]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs28\b Pregunta\f2\fs24\b0\par}' fuente='Arial,BOLD,14' fijo='s&iacute;'">
+   <param name="G_10" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='pactual=1' expresi&oacute;n='[10,25]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs28\b\u191 Cu\u225 ntos litros del l\u237 quido      \par son necesarios?\f2\fs24\b0\par}' fuente='Arial,BOLD,14' fijo='s&iacute;'">
+   <param name="G_11" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='x3&lt;20' expresi&oacute;n='[200,25]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red168\green0\blue0;}\cf0\f1\fs32\b A\cf1\f2\fs24\b0\par}' fuente='Arial,BOLD,16' fijo='s&iacute;'">
+   <param name="G_12" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='(tipopre[pactual]=1)&amp;(pactual=1)&amp;(nrep[pactual]&gt;=1)' expresi&oacute;n='[70,73]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs28\b  {\*\mjaformula{\expr lres[1]\decimals 3\fixed1}\f2\fs24}\fs24\b0  \par}' fuente='Courier New,BOLD,14' fijo='s&iacute;'">
+   <param name="G_13" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='(tipopre[pactual]=1)&amp;(pactual=1)&amp;(nrep[pactual]&gt;=2)' expresi&oacute;n='[70,108]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs28\b  {\*\mjaformula{\expr lres[2]\decimals 3\fixed1}}\fs24\b0\par}' fuente='Courier New,BOLD,14' fijo='s&iacute;'">
+   <param name="G_14" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='(tipopre[pactual]=1)&amp;(pactual=1)&amp;(nrep[pactual]&gt;=3)' expresi&oacute;n='[70,143]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs24  \fs28\b{\*\mjaformula{\expr lres[3]\decimals 3\fixed1}}\fs24\b0\par}' fijo='s&iacute;'">
+   <param name="G_15" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='(tipopre[pactual]=1)&amp;(pactual=1)&amp;(nrep[pactual]&gt;=4)' expresi&oacute;n='[70,178]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs24  \fs28\b{\*\mjaformula{\expr lres[4]\decimals 3\fixed1}}\fs24\b0\par}' fijo='s&iacute;'">
+   <param name="G_16" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='(tipopre[pactual]=1)&amp;(pactual=1)&amp;(nrep[pactual]&gt;=5)' expresi&oacute;n='[70,213]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs24  \fs28\b{\*\mjaformula{\expr lres[5]\decimals 3\fixed1}}\fs24\b0\par}' fijo='s&iacute;'">
+   <param name="G_17" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract#1)&amp;(tipopre[pactual]==1)&amp;(nrep[pactual]&gt;=1)&amp;((corregir)|(verresp)|(~modificar))' coord_abs='s&iacute;' expresi&oacute;n='(40,70)' archivo='imagenes/A.jpg'">
+   <param name="G_18" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract#2)&amp;(tipopre[pactual]==1)&amp;(nrep[pactual]&gt;=2)&amp;((corregir)|(verresp)|(~modificar))' coord_abs='s&iacute;' expresi&oacute;n='(40,105)' archivo='imagenes/B.jpg'">
+   <param name="G_19" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract#3)&amp;(tipopre[pactual]==1)&amp;(nrep[pactual]&gt;=3)&amp;((corregir)|(verresp)|(~modificar))' coord_abs='s&iacute;' expresi&oacute;n='(40,140)' archivo='imagenes/C.jpg'">
+   <param name="G_20" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract#4)&amp;(tipopre[pactual]==1)&amp;(nrep[pactual]&gt;=4)&amp;((corregir)|(verresp)|(~modificar))' coord_abs='s&iacute;' expresi&oacute;n='(40,175)' archivo='imagenes/D.jpg'">
+   <param name="G_21" value="espacio='pregunta' tipo='imagen' dibujar-si='(ract#5)&amp;(tipopre[pactual]==1)&amp;(nrep[pactual]&gt;=5)&amp;&amp;((corregir)|(verresp)|(~modificar))' coord_abs='s&iacute;' expresi&oacute;n='(40,210)' archivo='imagenes/E.jpg'">
+   <param name="G_22" value="espacio='pregunta' tipo='texto' color='00c300' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=1)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,73]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;}\f1\fs24{\*\mjaformula{\expr rcorrecta[5*(pactual-1)+1]}}\par}' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_23" value="espacio='pregunta' tipo='texto' color='00c300' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=2)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,107]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;}\f1\fs24{\*\mjaformula{\expr rcorrecta[5*(pactual-1)+2]}}\par}' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_24" value="espacio='pregunta' tipo='texto' color='00c300' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=3)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,142]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;}\f1\fs24{\*\mjaformula{\expr rcorrecta[5*(pactual-1)+3]}}\par}' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_25" value="espacio='pregunta' tipo='texto' color='00c300' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=4)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,177]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;}\f1\fs24{\*\mjaformula{\expr rcorrecta[5*(pactual-1)+4]}}\par}' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_26" value="espacio='pregunta' tipo='texto' color='00c300' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=5)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,212]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;}\f1\fs24{\*\mjaformula{\expr rcorrecta[5*(pactual-1)+5]}}\par}' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+   <param name="G_27" value="espacio='pregunta' tipo='texto' color='magenta' dibujar-si='(tipopre[pactual]=2)&amp;(nrep[pactual]&gt;=1)&amp;((corregir)|(verresp))' expresi&oacute;n='[49,55]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}{\colortbl\red0\green195\blue0;\red255\green0\blue255;\red0\green0\blue255;}\f1\fs24\b\cf0  correcta\cf1\b0  \cf2\b introducida\cf1\b0\par}' fuente='Courier New,BOLD,12' fijo='s&iacute;'">
+   <param name="G_28" value="espacio='pregunta' tipo='imagen' dibujar-si='(fallos[pactual]&gt;0)&amp;(~bverfallos)&amp;(indica==1)' coord_abs='s&iacute;' expresi&oacute;n='(5,70)' archivo='imagenes/falsechico.jpg'">
+   <param name="G_29" value="espacio='pregunta' tipo='imagen' dibujar-si='(fallos[pactual]&gt;0)&amp;(~bverfallos)&amp;(indica==2)' coord_abs='s&iacute;' expresi&oacute;n='(5,105)' archivo='imagenes/falsechico.jpg'">
+   <param name="G_30" value="espacio='pregunta' tipo='imagen' dibujar-si='(fallos[pactual]&gt;0)&amp;(~bverfallos)&amp;(indica==3)' coord_abs='s&iacute;' expresi&oacute;n='(5,140)' archivo='imagenes/falsechico.jpg'">
+   <param name="G_31" value="espacio='pregunta' tipo='imagen' dibujar-si='(fallos[pactual]&gt;0)&amp;(~bverfallos)&amp;(indica==4)' coord_abs='s&iacute;' expresi&oacute;n='(5,175)' archivo='imagenes/falsechico.jpg'">
+   <param name="G_32" value="espacio='pregunta' tipo='imagen' dibujar-si='(fallos[pactual]&gt;0)&amp;(~bverfallos)&amp;(indica==5)' coord_abs='s&iacute;' expresi&oacute;n='(5,210)' archivo='imagenes/falsechico.jpg'">
+   <param name="G_33" value="espacio='pregunta' tipo='imagen' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp;(rcorrecta[pactual]==1)&amp;(~bverfallos)&amp;(indica==1)' coord_abs='s&iacute;' expresi&oacute;n='(5,70)' archivo='imagenes/okchico.jpg'">
+   <param name="G_34" value="espacio='pregunta' tipo='imagen' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp;(rcorrecta[pactual]==2)&amp;(~bverfallos)&amp;(indica==2)' coord_abs='s&iacute;' expresi&oacute;n='(5,105)' archivo='imagenes/okchico.jpg'">
+   <param name="G_35" value="espacio='pregunta' tipo='imagen' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp;(rcorrecta[pactual]==3)&amp;(~bverfallos)&amp;(indica==3)' coord_abs='s&iacute;' expresi&oacute;n='(5,140)' archivo='imagenes/okchico.jpg'">
+   <param name="G_36" value="espacio='pregunta' tipo='imagen' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp;(rcorrecta[pactual]==4)&amp;(~bverfallos)&amp;(indica==4)' coord_abs='s&iacute;' expresi&oacute;n='(5,175)' archivo='imagenes/okchico.jpg'">
+   <param name="G_37" value="espacio='pregunta' tipo='imagen' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp;(rcorrecta[pactual]==5)&amp;(~bverfallos)&amp;(indica==5)' coord_abs='s&iacute;' expresi&oacute;n='(5,210)' archivo='imagenes/okchico.jpg'">
+   <param name="G_38" value="espacio='puntua' tipo='imagen' dibujar-si='bverfallos' coord_abs='s&iacute;' expresi&oacute;n='(30,40)' archivo='imagenes/logoASIPISA_M.jpg'">
+   <param name="G_39" value="espacio='plantea' tipo='imagen' dibujar-si='pactual=1' coord_abs='s&iacute;' expresi&oacute;n='(1,80)' archivo='imagenes/sis1.jpg'">
+   <param name="G_40" value="espacio='puntua' tipo='texto' dibujar-si='bverfallos' expresi&oacute;n='[1,6]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue203;\red0\green0\blue255;}\cf0\f1\fs36\b Evaluaci\u243 n formativa\fs24\b0\cf1\par \par}' fuente='Courier New,BOLD,18' fijo='s&iacute;'">
+   <param name="G_41" value="espacio='puntua' tipo='texto' dibujar-si='(tipopre[pactual]=1)&amp;(verfallos)&amp; (rpulsada[5*(pactual-1)+1]=rcorrecta[5*(pactual-1)+1])&amp;(~bverfallos)&amp;(ract==indica)&amp;(~testt1)' expresi&oacute;n='[1,3]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}{\colortbl\red255\green0\blue0;\red0\green0\blue255;}\f1\fs40\b\u161 Bien! \fs32\par Si \cf0 x\cf1  son los litros de A e \cf0 y\cf1  los de B  \par se cumple:{\*\mjaformula}      \cf0  x\cf1  +        \cf0 y\cf1  ={\*\mjaformula{\expr x3*x4/100\decimals 2\fixed0}} \par                           \cf0 x\cf1  +        \cf0 y\cf1  =\par siendo: \cf0 x\cf1  =\f3\fs24\b0{\*\mjaformula{\expr x5\decimals 3\fixed1}} \f2\fs32\b e  \cf0\par              y\cf1  =\f3\fs24\b0\par}' fuente='Times New Roman,BOLD,20' fijo='s&iacute;'">
+   <param name="G_42" value="espacio='botones' tipo='texto' color='be0034' dibujar-si='(ract&gt;0)&amp;(rcorrecta[pactual]==indica)&amp;(~bverfallos)&amp;(ract==indica)&amp;(~testt1)' expresi&oacute;n='[150,2]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs24\b Teclea los valores correctos y despu\u233 s pulsa intro\b0\par}' fuente='Courier New,BOLD,12' fijo='s&iacute;'">
+   <param name="G_43" value="espacio='puntua' tipo='texto' dibujar-si='(ract&gt;0)&amp;(~bverfallos)&amp;(ract==indica)&amp;(rcorrecta[pactual]#ract)&amp;(~testt2)' expresi&oacute;n='[1,3]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Courier New;}{\colortbl\red255\green0\blue0;\red0\green0\blue255;\red0\green0\blue0;}\f1\fs28\cf1 \b litros \cf2 A \cf1 (x) + litros \cf2 B \cf1 (y) = total litros\b \par alcohol x + alcohol y = total alcohol \par             x   +      y     = s       \par  {\*\mjaformula{\expr x1/100\decimals 2\fixed1}} x   +{\*\mjaformula{\expr x2/100\decimals 2\fixed1}} y = t \par Resuelve el sistema y completa los datos: }' fuente='Times New Roman,BOLD,12' fijo='s&iacute;'">
+   <param name="G_44" value="espacio='puntua' tipo='texto' dibujar-si='(verfallos)&amp; (pactual=1) &amp;(~(rpulsada[5*(pactual-1)+1]=rcorrecta[5*(pactual-1)+1]))&amp; (ract&gt;0)&amp;(testt2=1)&amp;(~bverfallos)&amp;(ract==indica)' expresi&oacute;n='[1,2]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\cf0\f1\fs24\b\u161 CORRECTO!\f2\fs24\par Usa los  c\u225 lculos realizados para,  \par despu\u233 s de pulsar el bot\u243 n Aceptar,\par elegir la respuesta correcta.\cf1\f3\fs24\b0\par}' fuente='Courier New,BOLD,12' fijo='s&iacute;'">
+   <param name="G_45" value="espacio='botones' tipo='texto' color='be0034' dibujar-si='(rcorrecta[pactual]#indica)&amp;(ract&gt;0)&amp;(~testt1)&amp;(~bverfallos)&amp;(ract==indica)&amp;(~test2)' expresi&oacute;n='[150,2]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs24\b Teclea los valores que faltan y pulsa Intro.\b0\par}' fuente='Courier New,BOLD,12' fijo='s&iacute;'">
+   <param name="G_46" value="espacio='puntua' tipo='texto' dibujar-si='testt1' expresi&oacute;n='[2,162]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Courier New;\f2\fcharset0 Courier New;}\f1\fs32\b Puntuaci\u243 n:{\*\mjaformula{\expr 2-errores*0.5\decimals 2\fixed0}}sobre 2.\fs24\b0\par \par}' fuente='Courier New,BOLD,16' fijo='s&iacute;'">
+   <param name="G_47" value="espacio='pregunta' tipo='imagen' dibujar-si='testt1' coord_abs='s&iacute;' expresi&oacute;n='(213,242)' archivo='imagenes/siguiente.jpg'">
+   <param name="G_48" value="espacio='pregunta' tipo='texto' color='a80000' dibujar-si='x3&gt;=20' expresi&oacute;n='[200,25]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red168\green0\blue0;}\cf0\f1\fs32\b B\cf1\f2\fs24\b0\par}' fuente='Arial,BOLD,16' fijo='s&iacute;'">
+   <param name="G_49" value="espacio='puntua' tipo='texto' dibujar-si='testt1' expresi&oacute;n='[1,3]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Times New Roman;\f2\fcharset0 Times New Roman;\f3\fcharset0 Courier New;}{\colortbl\red0\green0\blue0;\red0\green0\blue255;}\f1\fs40\b\u161 Bien! \fs32\par \par Puedes continuar con el siguiente\par ejercicio de \cf0 aleaciones\cf1  o repetir el \par actual con otros datos pulsando en \cf0\par inicio\cf1 .\f3\fs24\b0\par}' fuente='Times New Roman,BOLD,20' fijo='s&iacute;'">
+   <param name="G_50" value="espacio='plantea' tipo='texto' color='rojo' expresi&oacute;n='[172,67]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}\f1\fs48\b\par \fs40{\*\mjaformula{\expr x1\decimals 0\fixed1}}\f3\fs24\b0\par}' fuente='Arial,BOLD,24' fijo='s&iacute;'">
+   <param name="G_51" value="espacio='plantea' tipo='texto' color='rojo' expresi&oacute;n='[64,100]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs40\b\par {\*\mjaformula{\expr x2\decimals 0\fixed1}}\f2\fs24\b0\par}' fuente='Arial,BOLD,20' fijo='s&iacute;'">
+   <param name="G_52" value="espacio='plantea' tipo='texto' color='rojo' expresi&oacute;n='[147,130]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs40\b\par {\*\mjaformula{\expr x3\decimals 0\fixed1}}\f2\fs24\b0\par}' fuente='Arial,BOLD,20' fijo='s&iacute;'">
+   <param name="G_53" value="espacio='plantea' tipo='texto' color='rojo' expresi&oacute;n='[285,130]' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}\f1\fs40\b\par {\*\mjaformula{\expr x4\decimals 0\fixed1}}\f2\fs24\b0\par}' fuente='Arial,BOLD,20' fijo='s&iacute;'">
+</ajs>
+
+
+</td>
+
+  </tr>
+
+
+
+</table>
+
+
+
+<hr size="50" align="right" color="#FEE6B8">
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr>
+
+    <td valign="top" width="100%" height="39"></td>
+
+    <td align="center" width="41">&nbsp;</td>
+
+    <td valign="top" width="7"></td>
+
+    <td align="center" width="40">&nbsp;</td>
+
+    <td valign="top" width="6"></td>
+
+    <td align="center" width="40">&nbsp;</td>
+
+    <td valign="top" width="5"></td>
+
+  </tr>
+
+  <tr>
+
+    <td height="1"></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td><img src="imagenes/spacer2.gif" width="5" height="1"></td>
+
+  </tr>
+
+</table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr>
+
+    <td width="15" bgcolor="#FEE6B8" height="29"></td>
+
+    <td bgcolor="#FEE6B8" height="29"><i>
+	<font face="Verdana, Arial, Helvetica, sans-serif" size="2">Ildefonso Fern&aacute;ndez
+	Trujillo</font></i><font size="2"
+
+    face="Verdana, Arial, Helvetica, sans-serif"><i> </i></font></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="top" rowspan="3" width="65" bgcolor="#FFF8E1">
+	<img border="0" src="imagenes/logo2.gif" width="65" height="80" alt="Proyecto Descartes" title="Proyecto Descartes"></td>
+
+    <td valign="top" bgcolor="#FFF8E1" height="20"></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="top" bgcolor="#FFF8E1" height="19">
+	<font color="#006699" size="1"
+
+    face="Verdana, Arial, Helvetica, sans-serif">Proyecto Descartes. A&ntilde;o 2013</font></td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="top" bgcolor="#FFF8E1" height="41"></td>
+
+  </tr>
+
+</table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr>
+
+    <td valign="top" bgcolor="#FEE6B8" height="29"></td>
+
+  </tr>
+
+</table>
+
+<!-- Licencia de Creative Commons --><p align="center"><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es_ES"><img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es_ES">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 3.0 Unported</a></p><!-- /Licencia de Creative Commons --></body>
+
+</html>

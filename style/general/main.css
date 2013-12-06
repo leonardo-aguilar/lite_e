@@ -1,0 +1,116 @@
+* {
+    margin:					0px;
+    padding:				0px;
+    font-family:			sans-serif;
+    font-size:				9pt;
+}
+
+div.MenuArea {
+    height:					93.5%;
+    width:					24%;
+
+    float:					left;
+
+    margin-left:			3px;
+    overflow:				auto;
+}
+
+div.ContentArea {
+    height:					93.5%;
+    width:					75%;
+    float:					right;
+
+    margin-right:			5px;
+
+    border-left:			1px solid black;
+}
+
+div.MainMenu {
+    width:					99%;
+    min-width:				800px;
+    height:					35px;
+
+    margin-left:			3px;
+    margin-bottom:			1px;
+
+}
+
+div.MainMenu div.MenuItem {
+    width:					150px;
+    height:					75%;
+    min-height:				16px;
+
+    padding-top:			4px;
+
+    margin-left:			2px;
+    margin-right:			3px;
+
+    float:					left;
+
+    text-align:				center;
+}
+
+div.MainMenu .MenuItem:hover {
+    background-color:		#CACA00;
+}
+
+div.LearningObject {
+    margin:				    5px 2px 10px 1px;
+    min-height:             22px;
+}
+
+div.LearningObjectTitle {
+    font-size:				9pt;
+    cursor:                 pointer;
+}
+
+div.LearningObjectContent {
+    display:                none;
+}
+
+div.LearningObjectDisplayContents img {
+
+    width:                  12px;
+    height:                 12px;
+
+    float:                  left;
+}
+
+div.BrowsableEntry {
+    padding:                2px 0px;
+}
+
+iframe#ContentFrame {
+    width:					99%;
+    height:					99%;
+
+    border:					0;
+
+    margin-left:			2px;
+}
+
+div.locker {
+    display:                none;
+    position:               fixed;
+    top:                    0;
+    left:                   0;
+    width:                  100%;
+    height:                 100%;
+    background:             rgba(0,0,0,0.6); /*lets make it semi-transparent */
+    z-index:                9999;
+}
+
+div#counter {
+    position:               fixed;
+    top:                    0;
+    right:                  0;
+    margin:                 7px 15px;
+    line-height:            20px;
+    padding-right:          4px;
+    width:                  180px;
+    height:                 20px;
+    text-align:             right;
+    background:             rgba(0,0,0,0.8); /*lets make it semi-transparent */
+    color:                  white;
+    z-index:                9899;
+}

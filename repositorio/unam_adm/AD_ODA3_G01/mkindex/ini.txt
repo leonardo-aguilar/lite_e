@@ -1,0 +1,49 @@
+<!-- Actualización: 7 de noviembre de 2013 -->
+<html>
+<head>
+	<title>Unidades Did&aacute;cticas Interactivas Ejemplares</title>
+	<link href="css/descmovil.css" rel="stylesheet" type="text/css" />
+<meta charset="UTF-8"/>
+<base target="_blank">
+</head>
+<body> 
+
+
+<table class="titulo"><tr>
+<!--
+<td width="8%"><a href="http://www.unam.mx/"><img src="images/unam.gif" class="tit_thmb"></a></td>
+-->
+<td width="15%"><a href="http://www.unam.mx/"><img src="images/dgee.gif" class="tit_thmb"></a></td>
+<td width="7%"><a href="http://www.conacyt.gob.mx"><img src="images/conacyt.jpg" class="tit_thmb" ></a></td>
+<td width="50%" align="center"><nobr><b>
+<big>
+<big>
+P</big>royecto <big>A</big>rqu&iacute;medes en <big>JS - HTML5</big>
+<br/>
+D</big>iscursos de <big>D</big>escartes para 1o de <big>B</big>achillerato
+</big>
+</b></nobr><br></td>
+<td width="10%"><a href="http://www.unadmexico.mx/"><img src="images/unadm.png" class="tit_thmb"></a></td>
+<td width="8%"><a href="http://lite.org.mx/"><img src="images/lite.png" class="tit_thmb" width="133" height="72"></a></td>
+<!--
+<td width="10%"><a href="http://proyectodescartes.org/"><img src="images/red.png" class="tit_thmb" </a></td>
+<td width="8%"><a href="http://amite.mx"><img src="images/amite.png" class="tit_thmb" ></a></td>
+-->
+</tr></table>
+
+<br/>
+
+<table width="100%" class="pie">
+<tr><td>
+<ul>
+Para visualizar estas unidades interactivas es necesario usar un navegador de &uacute;ltima generaci&oacute;n 
+<br/>que implemente el Canvas de HTML5, como por ejemplo: Google Chrome, Mozila Firefox o Safari
+</ul>
+</td></tr></table>
+
+<br/>
+
+<table width="100%" height="120" class="bloque">
+<!-- línea de separación inicial -->
+<tr><td><br/></td></tr>
+

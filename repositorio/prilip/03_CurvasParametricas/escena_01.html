@@ -1,0 +1,71 @@
+<!Doctype html>
+<html>
+
+<head>
+<title>Curvas polares</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type='text/javascript' src='lib/descartes-min.js'></script>
+   <script> var removeApplet = true; //comentar esta linea o poner a falso para mostrar el applet </script>
+   <script type='text/javascript' src='../descartes-min.js'></script>
+</head>
+<body BGCOLOR="d0e8ff">
+<br/>
+<p align="center">
+<ajs width=900 height=600
+        code="Descartes.class"
+        codebase="./"
+        archive="Descartes5.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="900x600">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="4.55, 2011-10-15">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='MAIN' fijo='s&iacute;' escala='36' O.y='-150' despl_imagen='arr-izq' fondo='d0e8ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_01" value="tipo='R2' id='GRAF' x='80' y='30' ancho='740' alto='360' escala='64' O.y='10' despl_imagen='arr-izq' fondo='c0d8ee' red='90a8b0' red10='607880' ejes='203840' texto='no'">
+   <param name="E_02" value="tipo='R2' id='CTRLS' x='0' y='520' ancho='900' alto='80' despl_imagen='arr-izq' fondo='d0e8ff' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_03" value="tipo='R2' id='TITULO' x='300' y='0' ancho='300' alto='40' despl_imagen='arr-izq' fondo='485070' red='no' red10='no' ejes='no' texto='no'">
+   <param name="E_04" value="tipo='R2' id='TEXTO' x='80' y='GRAF._h+45' ancho='740' alto='100' fijo='s&iacute;' despl_imagen='arr-izq' fondo='blanco' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='GRAF.escala' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.escala' expresi&oacute;n='(824,26,35,70)' valor='64' incr='1' min='1' max='1000000' decimales='6' fijo='s&iacute;' visible='no' par&aacute;metro.fuente='Monospaced,PLAIN,12'">
+   <param name="C_01" value="id='GRAF.Ox' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.Ox' expresi&oacute;n='(80+GRAF._w+4,35+GRAF._h/2-40,35,70)' incr='10' decimales='6' fijo='no' visible='no' pos_mensajes='centro'">
+   <param name="C_02" value="id='GRAF.Oy' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='GRAF.Oy' expresi&oacute;n='(80+GRAF._w+4,35+GRAF._h-71,35,70)' valor='10' incr='10' decimales='6' fijo='no' visible='no' pos_mensajes='centro'">
+   <param name="C_03" value="id='rellenar' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='_nada_' expresi&oacute;n='(80-35-4,35+GRAF._h/2-40,35,70)' valor='1' incr='1' min='0' max='1' decimales='0' fijo='s&iacute;' visible='no' pos_mensajes='centro'">
+   <param name="C_04" value="id='scroll' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='MAIN' nombre='scroll' expresi&oacute;n='(824,439,35,70)' incr='1' min='-7' max='0' decimales='0' fijo='no' visible='no' pos_mensajes='centro'">
+   <param name="C_05" value="id='a' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(60,5,35,70)' valor='0.5' decimales='1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_06" value="id='b' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(60+1*225,5,35,70)' valor='2' decimales='1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_07" value="id='n' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(60+2*225,5,35,70)' valor='2' incr='1' min='1' decimales='0' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_08" value="id='t' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='CTRLS' nombre='_nada_' expresi&oacute;n='(60+3*225-4,5,35,70)' valor='1' incr='0.01' min='0' max='1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="A_00" value="id='R' expresi&oacute;n='a+b*cos(2*pi*n*t)'">
+   <param name="A_01" value="id='INICIO' algoritmo='s&iacute;' evaluar='una-sola-vez'">
+   <param name="A_02" value="id='CALCULOS' algoritmo='s&iacute;' evaluar='siempre' hacer='tA=t;nA=n'">
+   <param name="G_00" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(0,10)(899,10)(899,599)(0,599)(0,10)' ancho='9'">
+   <param name="G_01" value="espacio='MAIN' tipo='segmento' fondo='s&iacute;' color='d0e8ff' coord_abs='s&iacute;' expresi&oacute;n='(0,0)(900,0)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' ancho='19'">
+   <param name="G_02" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(80,30)(819,30)(819,GRAF._h-1+30)(80,GRAF._h-1+30)(80,30)' ancho='9'">
+   <param name="G_03" value="espacio='MAIN' tipo='pol&iacute;gono' fondo='s&iacute;' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(80,GRAF._h-1+45)(819,GRAF._h-1+45)(819,GRAF._h-1+45+TEXTO._h)(80,GRAF._h-1+45+TEXTO._h)(80,GRAF._h-1+45)' ancho='9'">
+   <param name="G_04" value="espacio='CTRLS' tipo='pol&iacute;gono' color='99aabb' coord_abs='s&iacute;' expresi&oacute;n='(0,0)(899,0)(899,79)(0,79)(0,0)' ancho='9'">
+   <param name="G_05" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15,15]' texto='a' fuente='SansSerif,PLAIN,48' decimales='0' fijo='s&iacute;'">
+   <param name="G_06" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15+90,15]' texto='[a]' fuente='SansSerif,PLAIN,48' fijo='s&iacute;'">
+   <param name="G_07" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15+225,15]' texto='b' fuente='SansSerif,PLAIN,48' decimales='0' fijo='s&iacute;'">
+   <param name="G_08" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15+85+225,15]' texto='[b]' fuente='SansSerif,PLAIN,48' fijo='s&iacute;'">
+   <param name="G_09" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[20+2*225,15]' texto='n' fuente='SansSerif,PLAIN,48' decimales='0' fijo='s&iacute;'">
+   <param name="G_10" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[20+85+2*225,15]' texto='[n]' fuente='SansSerif,PLAIN,48' decimales='0' fijo='s&iacute;'">
+   <param name="G_11" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15+3*225-4,15]' texto='&#x3b8;' fuente='SansSerif,PLAIN,48' fijo='s&iacute;'">
+   <param name="G_12" value="espacio='CTRLS' tipo='texto' color='203040' expresi&oacute;n='[15+85+3*225-4,15]' texto='[t]' fuente='SansSerif,PLAIN,48' fijo='s&iacute;'">
+   <param name="G_13" value="espacio='TITULO' tipo='texto' color='blanco' expresi&oacute;n='[30,5]' texto='   Curvas polares' fuente='SansSerif,PLAIN,28' fijo='s&iacute;'">
+   <param name="G_14" value="espacio='GRAF' tipo='curva' color='ee0022' dibujar-si='rellenar' expresi&oacute;n='(R*cos(2*pi*t),R*sen(2*pi*t))' t.intervalo='[0,tA]' t.pasos='200' relleno='ffff80'">
+   <param name="G_15" value="espacio='TEXTO' tipo='imagen' coord_abs='s&iacute;' expresi&oacute;n='(0,-12+12*scroll)' archivo='images/escena_02_texto.png'">
+   <param name="G_16" value="espacio='GRAF' tipo='curva' color='ee0022' dibujar-si='!rellenar' expresi&oacute;n='(R*cos(2*pi*t),R*sen(2*pi*t))' t.intervalo='[0,tA]' t.pasos='200' ancho='2'">
+   <param name="G_17" value="espacio='GRAF' tipo='punto' color='azul' expresi&oacute;n='(R*cos(2*pi*tA),R*sen(2*pi*tA))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;'">
+</ajs>
+</p>
+<p align="center">
+</p>
+<br/>
+<br/>
+<br/>
+<br/>
+</body>
+</html>

@@ -1,0 +1,36 @@
+'Escribe las tres respuestas de cada pregunta y la posición de la respuesta correcta'
+
+'Obtener 1'
+'Obtener 6'
+'Obtener 4'
+3
+
+'4/10'
+'2/5'
+'10/50'
+3
+
+'39'
+'7'
+'27'
+1
+
+'6/20'
+'14/20'
+'3/10'
+2
+
+'11/25'
+'18/25'
+'7/25'
+2
+
+'4/160'
+'840/1000'
+'4/25'
+3
+
+'341'
+'332'
+'332/1000'
+2

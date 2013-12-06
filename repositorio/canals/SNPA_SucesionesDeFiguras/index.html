@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="./css/estilo.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="./javascript/utils.js" ></script>
+	<!--[if lte IE 7]>
+		<script type="text/javascript" src="supersleight-min.js"></script>
+	<![endif]-->
+    <title>Sucesiones de figuras</title>
+</head>
+
+<body onload="initPage();">
+
+
+
+
+<table id="container">
+	<tr>
+    	<td colspan="2" id='header'>
+            <!--
+            *********************************************************************
+            * El t&iacute;tulo de la secuencia did&aacute;ctica interactiva *
+            *********************************************************************
+            -->
+            <span>
+                Sucesiones de figuras</span></td>
+	</tr>
+    <tr>
+    	<td colspan="2">
+        	<iframe id='containerApplet'></iframe>
+        </td>
+    </tr>
+    <tr id="menu">
+    	<td class="secciones">
+        <!--
+            *********************************************************************
+            * MENU con las secciones y con las rutas a las escenas realcionadas *
+            *********************************************************************
+        -->
+		<ul id='listaSecciones'>
+			<li>
+				<span>
+					 Sucesi&oacute;n 1
+				</span> 
+				<ul>
+					<li>escenas/1_1/index.html</li>
+					
+				</ul>
+			</li>
+			
+			<li>
+				<span>
+					Sucesi&oacute;n 2
+				</span> 
+				<ul>
+					<li>escenas/2_1/index.html</li>
+				</ul>
+			
+            		
+			           
+			            
+			
+		</ul>
+        </td>
+        <td class="herramientas">
+		<A id="cerrar" href="javascript:cerrar();void(0);">x</A>
+             <A id="cprght" href="javascript:verCreditos();void(0);">c</A>
+        <A id="info" href="javascript:verDocumentacion();void(0);">i</A>
+		<A id="siguiente" href="javascript:siguienteEscena();void(0);"></A>
+		<A id="anterior" href="javascript:anteriorEscena();void(0);"></A>        </td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>

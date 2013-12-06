@@ -1,0 +1,707 @@
+BODY
+{
+    TEXT-ALIGN: center;
+    FONT: 70%/1.5em Verdana, Tahoma, arial, sans-serif;
+    BACKGROUND: url(bgPatt.png) #dbdddd;
+    COLOR: #555656;
+    TOP: 100px
+}
+A
+{
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    COLOR: #2180bc;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    COLOR: #2180bc;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    COLOR: #0b3894;
+    TEXT-DECORATION: underline
+}
+H1
+{
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Sans-serif;
+    FONT-WEIGHT: bold
+}
+H2
+{
+	FONT-FAMILY: 'Trebuchet MS', Tahoma, Sans-serif;
+	FONT-WEIGHT: bold;
+	font-size: 24px;
+}
+H3
+{
+    FONT-FAMILY: 'Trebuchet MS', Tahoma, Sans-serif;
+    FONT-WEIGHT: bold
+}
+H1
+{
+    FONT-SIZE: 130%
+}
+H2
+{
+    TEXT-TRANSFORM: uppercase;
+    COLOR: #00c3fa;
+    FONT-SIZE: 120%
+}
+H3
+{
+    COLOR: #666666;
+    FONT-SIZE: 120%
+}
+IMG
+{
+    BORDER-BOTTOM: #e5e5e5 1px solid;
+    BORDER-LEFT: #e5e5e5 1px solid;
+    PADDING-BOTTOM: 5px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    BACKGROUND: white;
+    BORDER-TOP: #e5e5e5 1px solid;
+    BORDER-RIGHT: #e5e5e5 1px solid;
+    PADDING-TOP: 5px
+}
+IMG.float-right
+{
+    MARGIN: 5px 0px 10px 10px
+}
+IMG.float-left
+{
+    MARGIN: 5px 10px 10px 0px
+}
+H1
+{
+    PADDING-BOTTOM: 10px;
+    MARGIN: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    PADDING-TOP: 10px
+}
+H2
+{
+    PADDING-BOTTOM: 10px;
+    MARGIN: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    PADDING-TOP: 10px
+}
+H3
+{
+    PADDING-BOTTOM: 10px;
+    MARGIN: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    PADDING-TOP: 10px
+}
+P
+{
+    PADDING-BOTTOM: 10px;
+    MARGIN: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    PADDING-TOP: 10px
+}
+UL
+{
+    PADDING-BOTTOM: 0px;
+    MARGIN: 5px 20px;
+    PADDING-LEFT: 20px;
+    PADDING-RIGHT: 20px;
+    PADDING-TOP: 0px
+}
+OL
+{
+    PADDING-BOTTOM: 0px;
+    MARGIN: 5px 20px;
+    PADDING-LEFT: 20px;
+    PADDING-RIGHT: 20px;
+    PADDING-TOP: 0px
+}
+UL LI
+{
+    LIST-STYLE-IMAGE: url(bullet.png)
+}
+CODE
+{
+    BORDER-BOTTOM: #f2f2f2 1px solid;
+    TEXT-ALIGN: left;
+    BORDER-LEFT: #f2f2f2 1px solid;
+    PADDING-BOTTOM: 10px;
+    MARGIN: 5px 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    DISPLAY: block;
+    FONT: 500 1em/1.5em 'Lucida Console', 'courier new', monospace;
+    BACKGROUND: #eceeee;
+    OVERFLOW: auto;
+    BORDER-TOP: #f2f2f2 1px solid;
+    BORDER-RIGHT: #f2f2f2 1px solid;
+    PADDING-TOP: 10px
+}
+ACRONYM
+{
+    BORDER-BOTTOM: #777 1px solid;
+    CURSOR: help
+}
+BLOCKQUOTE
+{
+    BORDER-BOTTOM: #f2f2f2 1px solid;
+    BORDER-LEFT: #f2f2f2 1px solid;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 10px;
+    PADDING-LEFT: 28px;
+    PADDING-RIGHT: 0px;
+    BACKGROUND: url(quote.gif) white no-repeat 5px 5px;
+    BORDER-TOP: #f2f2f2 1px solid;
+    BORDER-RIGHT: #f2f2f2 1px solid;
+    PADDING-TOP: 0px
+}
+FORM
+{
+    BORDER-BOTTOM: #f2f2f2 1px solid;
+    BORDER-LEFT: #f2f2f2 1px solid;
+    PADDING-BOTTOM: 0px;
+    BACKGROUND-COLOR: #fafafa;
+    MARGIN: 10px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: #f2f2f2 1px solid;
+    BORDER-RIGHT: #f2f2f2 1px solid;
+    PADDING-TOP: 0px
+}
+LABEL
+{
+    MARGIN: 5px 0px;
+    DISPLAY: block;
+    FONT-WEIGHT: bold
+}
+INPUT
+{
+    BORDER-BOTTOM: #eee 1px solid;
+    BORDER-LEFT: #eee 1px solid;
+    PADDING-BOTTOM: 2px;
+    PADDING-LEFT: 2px;
+    PADDING-RIGHT: 2px;
+    FONT: 1em Verdana, sans-serif;
+    COLOR: #777;
+    BORDER-TOP: #eee 1px solid;
+    BORDER-RIGHT: #eee 1px solid;
+    PADDING-TOP: 2px
+}
+TEXTAREA
+{
+    BORDER-BOTTOM: #eee 1px solid;
+    BORDER-LEFT: #eee 1px solid;
+    PADDING-BOTTOM: 2px;
+    PADDING-LEFT: 2px;
+    WIDTH: 400px;
+    PADDING-RIGHT: 2px;
+    DISPLAY: block;
+    FONT: 1em Verdana, sans-serif;
+    HEIGHT: 100px;
+    COLOR: #777;
+    BORDER-TOP: #eee 1px solid;
+    BORDER-RIGHT: #eee 1px solid;
+    PADDING-TOP: 2px
+}
+INPUT.button
+{
+    BORDER-BOTTOM: medium none;
+    BORDER-LEFT: medium none;
+    PADDING-BOTTOM: 2px;
+    MARGIN: 0px;
+    PADDING-LEFT: 3px;
+    PADDING-RIGHT: 3px;
+    FONT: bold 12px Arial, Sans-serif;
+    BACKGROUND: url(button-bg.jpg) #1294ed repeat-x 0px 0px;
+    HEIGHT: 24px;
+    COLOR: #fff;
+    BORDER-TOP: medium none;
+    BORDER-RIGHT: medium none;
+    PADDING-TOP: 2px
+}
+#wrap
+{
+    POSITION: relative;
+    TEXT-ALIGN: left;
+    WIDTH: 819px;
+    DISPLAY: inline-block;
+    BACKGROUND: url(contenido.png) repeat-y center top;
+    FLOAT: none;
+    MARGIN-LEFT: auto;
+    MARGIN-RIGHT: auto
+}
+#content-wrap
+{
+    PADDING-BOTTOM: 0px;
+    MARGIN: 10px auto;
+    PADDING-LEFT: 0px;
+    WIDTH: 750px;
+    PADDING-RIGHT: 0px;
+    FLOAT: none;
+    CLEAR: both;
+    PADDING-TOP: 0px
+}
+#header
+{
+    POSITION: relative;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px auto;
+    PADDING-LEFT: 0px;
+    WIDTH: 820px;
+    PADDING-RIGHT: 0px;
+    BACKGROUND: url(header_03_mi.png) no-repeat center top;
+    HEIGHT: 137px;
+    COLOR: #fff;
+    PADDING-TOP: 0px
+}
+#header H1#logo-text
+{
+    POSITION: absolute;
+    PADDING-BOTTOM: 0px;
+    TEXT-TRANSFORM: none;
+    MARGIN: 0px;
+    PADDING-LEFT: 0px;
+    WIDTH: 285px;
+    PADDING-RIGHT: 0px;
+    FONT: bolder 25px 'Trebuchet MS', Arial, Sans-serif;
+    LETTER-SPACING: -1px;
+    HEIGHT: 75px;
+    COLOR: #036;
+    TOP: 60px;
+    PADDING-TOP: 0px;
+    LEFT: 30px
+}
+#header #header-links
+{
+    POSITION: absolute;
+    HEIGHT: 32px;
+    COLOR: #c6ddee;
+    FONT-SIZE: 10px;
+    TOP: 9px;
+    RIGHT: 16px
+}
+#header #header-links A
+{
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+#header #header-links A:hover
+{
+    COLOR: #6b1708
+}
+#ruta
+{
+    POSITION: relative;
+    PADDING-LEFT: 10px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    COLOR: #f65f28;
+    FONT-SIZE: 11px;
+    TOP: 10px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    LEFT: 15px
+}
+#ruta A
+{
+    COLOR: #f46220
+}
+#ruta A:hover
+{
+    COLOR: #f36422
+}
+#menu
+{
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px auto;
+    PADDING-LEFT: 0px;
+    WIDTH: 797px;
+    PADDING-RIGHT: 0px;
+    FONT: bold 12px/32px Verdana, Arial, Tahoma, Sans-serif;
+    BACKGROUND: url(menuGen.png) repeat-x 0px 0px;
+    HEIGHT: 30px;
+    CLEAR: both;
+    PADDING-TOP: 0px
+}
+#menu UL
+{
+    PADDING-BOTTOM: 0px;
+    LIST-STYLE-TYPE: none;
+    MARGIN: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    FLOAT: right;
+    PADDING-TOP: 0px
+}
+#menu UL LI
+{
+    DISPLAY: inline
+}
+#menu UL LI A
+{
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    DISPLAY: block;
+    FLOAT: left;
+    COLOR: #000;
+    TEXT-DECORATION: none;
+    PADDING-TOP: 0px
+}
+#menu UL LI.last A
+{
+    PADDING-RIGHT: 20px
+}
+#menu UL LI A:hover
+{
+    COLOR: #fff7f9;
+    FONT-WEIGHT: bold
+}
+#menu UL LI#current A
+{
+    COLOR: #000;
+    TEXT-DECORATION: underline
+}
+#main
+{
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px 0px 0px 5px;
+    PADDING-LEFT: 0px;
+    WIDTH: 70%;
+    PADDING-RIGHT: 0px;
+    DISPLAY: inline;
+    FLOAT: left;
+    PADDING-TOP: 0px
+}
+#main H1
+{
+    BORDER-BOTTOM: #eff0f1 1px solid;
+    PADDING-BOTTOM: 5px;
+    MARGIN-TOP: 10px;
+    PADDING-LEFT: 25px;
+    PADDING-RIGHT: 0px;
+    FONT: bold 140% 'Trebuchet MS', Tahoma, Sans-serif;
+    BACKGROUND: url(square-green.png) #fafafa no-repeat 3px 50%;
+    COLOR: #003e7e;
+    PADDING-TOP: 5px
+}
+.post-footer
+{
+    BORDER-BOTTOM: #f2f2f2 1px solid;
+    BORDER-LEFT: #f2f2f2 1px solid;
+    PADDING-BOTTOM: 5px;
+    BACKGROUND-COLOR: #fafafa;
+    MARGIN: 20px 10px 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    FONT-SIZE: 95%;
+    BORDER-TOP: #f2f2f2 1px solid;
+    BORDER-RIGHT: #f2f2f2 1px solid;
+    PADDING-TOP: 5px
+}
+.post-footer .date
+{
+    MARGIN: 0px 10px 0px 5px;
+    PADDING-LEFT: 20px;
+    BACKGROUND: url(clock.gif) no-repeat left center
+}
+.post-footer .comments
+{
+    MARGIN: 0px 10px 0px 5px;
+    PADDING-LEFT: 20px;
+    BACKGROUND: url(comment.gif) no-repeat left center
+}
+.post-footer .readmore
+{
+    MARGIN: 0px 10px 0px 5px;
+    PADDING-LEFT: 20px;
+    BACKGROUND: url(page.gif) no-repeat left center
+}
+#sidebar
+{
+    POSITION: relative;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    WIDTH: 26.5%;
+    PADDING-RIGHT: 0px;
+    FLOAT: left;
+    COLOR: #68774a;
+    TOP: auto;
+    PADDING-TOP: 0px
+}
+#sidebar H1
+{
+    PADDING-BOTTOM: 5px;
+    MARGIN-TOP: 10px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    FONT: bold 1.4em 'Trebuchet MS', Tahoma, Sans-serif;
+    COLOR: #942410;
+    PADDING-TOP: 5px
+}
+#sidebar UL.sidemenu
+{
+    TEXT-ALIGN: left;
+    PADDING-BOTTOM: 0px;
+    LIST-STYLE-TYPE: none;
+    MARGIN: 7px 4px 8px 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    TEXT-DECORATION: none;
+    PADDING-TOP: 0px
+}
+#sidebar UL.sidemenu LI
+{
+    PADDING-BOTTOM: 4px;
+    LIST-STYLE-TYPE: none;
+    MARGIN: 0px 2px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 0px;
+    COLOR: #0a1a76;
+    PADDING-TOP: 4px
+}
+* HTML BODY #sidebar UL.sidemenu LI
+{
+    HEIGHT: 1%
+}
+#sidebar UL.sidemenu LI A
+{
+    BACKGROUND-IMAGE: none;
+    COLOR: #666666;
+    TEXT-DECORATION: none
+}
+#sidebar UL.sidemenu LI A:hover
+{
+    COLOR: #1773bc
+}
+#footer
+{
+    TEXT-ALIGN: center;
+    MARGIN: 0px auto;
+    WIDTH: 820px;
+    BACKGROUND: url(pie_03_mi.png) no-repeat center top;
+    HEIGHT: 80px;
+    COLOR: #000;
+    CLEAR: both;
+    FONT-SIZE: 100%;
+	margin-top:-6px;
+/* Con el -6px en el margin-top se juntaron los div, no es la opción más limpia*/
+
+}
+#footer A
+{
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+.float-left
+{
+    FLOAT: left
+}
+.float-right
+{
+    FLOAT: right
+}
+.align-left
+{
+    TEXT-ALIGN: left
+}
+.align-right
+{
+    TEXT-ALIGN: right
+}
+.clear
+{
+    CLEAR: both
+}
+.btn
+{
+    POSITION: relative;
+    PADDING-BOTTOM: 5px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    DISPLAY: block;
+    BACKGROUND: #aaa;
+    FLOAT: left;
+    COLOR: #fff;
+    CURSOR: pointer;
+    TEXT-DECORATION: none;
+    PADDING-TOP: 5px
+}
+.btn *
+{
+    BACKGROUND-IMAGE: url(btn2.png);
+    POSITION: relative;
+    FONT-STYLE: normal;
+    DISPLAY: block;
+    BACKGROUND-REPEAT: no-repeat
+}
+.btn I
+{
+    POSITION: absolute;
+    WIDTH: 5px;
+    BACKGROUND-POSITION: left top;
+    MARGIN-BOTTOM: -5px;
+    HEIGHT: 5px;
+    TOP: 0px;
+    LEFT: 0px
+}
+.btn SPAN
+{
+    PADDING-BOTTOM: 5px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 0px;
+    BACKGROUND-POSITION: left bottom;
+    MARGIN-BOTTOM: -5px;
+    PADDING-TOP: 0px;
+    LEFT: -5px
+}
+.btn SPAN I
+{
+    POSITION: absolute;
+    WIDTH: 10px;
+    BACKGROUND-POSITION: right bottom;
+    MARGIN-BOTTOM: 0px;
+    HEIGHT: 100%;
+    TOP: 0px;
+    LEFT: 100%
+}
+.btn SPAN SPAN
+{
+    POSITION: absolute;
+    BACKGROUND-POSITION: right top;
+    HEIGHT: 0px;
+    MARGIN-LEFT: 10px;
+    TOP: -5px;
+    RIGHT: -10px
+}
+* HTML .btn SPAN
+{
+    BACKGROUND-IMAGE: none;
+    WIDTH: auto;
+    FLOAT: left;
+    CURSOR: pointer
+}
+* HTML .btn I
+{
+    BACKGROUND-IMAGE: none;
+    WIDTH: auto;
+    FLOAT: left;
+    CURSOR: pointer
+}
+.btn:hover
+{
+    BACKGROUND-COLOR: #a00
+}
+.btn:active
+{
+    BACKGROUND-COLOR: #444
+}
+[class].btn
+{
+    BACKGROUND-IMAGE: url(shade.png);
+    BACKGROUND-POSITION: 50% bottom
+}
+* HTML .btn
+{
+    BORDER-BOTTOM: #aaa 3px double;
+    BORDER-LEFT: #aaa 3px double;
+    BORDER-TOP: #aaa 3px double;
+    BORDER-RIGHT: #aaa 3px double
+}
+* HTML .azul
+{
+    BORDER-BOTTOM-COLOR: #2ae;
+    BORDER-TOP-COLOR: #2ae;
+    BORDER-RIGHT-COLOR: #2ae;
+    BORDER-LEFT-COLOR: #2ae
+}
+* HTML .verde
+{
+    BORDER-BOTTOM-COLOR: #9d4;
+    BORDER-TOP-COLOR: #9d4;
+    BORDER-RIGHT-COLOR: #9d4;
+    BORDER-LEFT-COLOR: #9d4
+}
+* HTML .rosa
+{
+    BORDER-BOTTOM-COLOR: #e1a;
+    BORDER-TOP-COLOR: #e1a;
+    BORDER-RIGHT-COLOR: #e1a;
+    BORDER-LEFT-COLOR: #e1a
+}
+* HTML .rojo
+{
+    BORDER-BOTTOM-COLOR: #ed3a4b;
+    BORDER-TOP-COLOR: #ed3a4b;
+    BORDER-RIGHT-COLOR: #ed3a4b;
+    BORDER-LEFT-COLOR: #ed3a4b
+}
+* HTML .inicial
+{
+    BORDER-BOTTOM-COLOR: #b2c438;
+    BORDER-TOP-COLOR: #b2c438;
+    BORDER-RIGHT-COLOR: #b2c438;
+    BORDER-LEFT-COLOR: #b2c438
+}
+* HTML .primero
+{
+    BORDER-BOTTOM-COLOR: #ee8b3a;
+    BORDER-TOP-COLOR: #ee8b3a;
+    BORDER-RIGHT-COLOR: #ee8b3a;
+    BORDER-LEFT-COLOR: #ee8b3a
+}
+* HTML .segundo
+{
+    BORDER-BOTTOM-COLOR: #caca38;
+    BORDER-TOP-COLOR: #caca38;
+    BORDER-RIGHT-COLOR: #caca38;
+    BORDER-LEFT-COLOR: #caca38
+}
+* HTML .tercero
+{
+    BORDER-BOTTOM-COLOR: #ed337b;
+    BORDER-TOP-COLOR: #ed337b;
+    BORDER-RIGHT-COLOR: #ed337b;
+    BORDER-LEFT-COLOR: #ed337b
+}
+* HTML .cuarto
+{
+    BORDER-BOTTOM-COLOR: #1dafdd;
+    BORDER-TOP-COLOR: #1dafdd;
+    BORDER-RIGHT-COLOR: #1dafdd;
+    BORDER-LEFT-COLOR: #1dafdd
+}
+* HTML .naranja
+{
+    BORDER-BOTTOM-COLOR: #ff971e;
+    BORDER-TOP-COLOR: #ff971e;
+    BORDER-RIGHT-COLOR: #ff971e;
+    BORDER-LEFT-COLOR: #ff971e
+}
+* HTML .btn:hover
+{
+    BORDER-BOTTOM-COLOR: #a00;
+    BORDER-TOP-COLOR: #a00;
+    BORDER-RIGHT-COLOR: #a00;
+    BORDER-LEFT-COLOR: #a00
+}
+#sidebar P
+{
+    PADDING-BOTTOM: 2em;
+    CLEAR: both
+}
+#sidebar A:hover
+{
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+#sidebar A:visited
+{
+    COLOR: #fff
+}

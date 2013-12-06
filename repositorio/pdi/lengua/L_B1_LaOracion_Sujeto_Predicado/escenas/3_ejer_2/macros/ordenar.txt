@@ -1,0 +1,18 @@
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='debug' constante='si' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='nIndicesAux' constante='si' expresi&oacute;n='0' evaluar='siempre'
+id='n_numeros' constante='si' expresi&oacute;n='3' evaluar='una-sola-vez'
+id='vecValue' vector='si' tama&ntilde;o='n_numeros+20' evaluar='una-sola-vez'
+id='vecValueDis' vector='si' tama&ntilde;o='n_numeros+20' evaluar='una-sola-vez'
+id='VecAux1' vector='si' tama&ntilde;o='n_numeros+20' evaluar='una-sola-vez'
+id='resVec' vector='si' tama&ntilde;o='n_numeros+20' evaluar='una-sola-vez'
+id='initVecAux()' algoritmo='si' algoritmo='si' inicio='_indexT=0;_ancla=minRango;' hacer='VecAux1[_indexT]=_indexT;resVec[_indexT]=-1;_indexT=_indexT+1;' mientras='_indexT&lt;n_numeros'
+id='reacomodaVector(_posBorrar)' algoritmo='si' algoritmo='si' inicio='_indexAcomoda=_posBorrar;' hacer='VecAux1[_indexAcomoda]=VecAux1[_indexAcomoda+1];_indexAcomoda=_indexAcomoda+1' mientras='_indexAcomoda&lt;nIndicesAux'
+id='buscaMin()' algoritmo='si' expresi&oacute;n='_tmpIndexMin' algoritmo='si' inicio='_indexBuscMin=0;_tmpIndexMin=0;_tmpMin=vecValue[VecAux1[_tmpIndexMin]];' hacer='_indexTmp=VecAux1[_indexBuscMin];_valueTmp=vecValue[_indexTmp];_valueTmpDis=vecValueDis[_indexTmp];_valueTmpDisAnt=vecValueDis[VecAux1[_tmpIndexMin]];;;_tmpMin2=min(_tmpMin,_valueTmp);_igualesTmp=(_tmpMin==_valueTmp);_menorDisc=(_valueTmpDis&lt;_valueTmpDisAnt);;_cambioMin=(_tmpMin2==_valueTmp)&amp;((!_igualesTmp)|_menorDisc);_tmpIndexMin=(_cambioMin)?_indexBuscMin:_tmpIndexMin;_tmpMin=_tmpMin2;_indexBuscMin=_indexBuscMin+1;' mientras='_indexBuscMin&lt;nIndicesAux'
+id='ordenaAux()' algoritmo='si' algoritmo='si' inicio='nIndicesAux=n_numeros;' hacer='_indexMin=buscaMin();_indexDebug=(n_numeros-nIndicesAux);resVec[_indexDebug]=VecAux1[_indexMin];reacomodaVector(_indexMin);nIndicesAux=nIndicesAux-1;' mientras='(nIndicesAux&gt;0)'
+id='ordena()' algoritmo='si' algoritmo='si' hacer='initVecAux();ordenaAux()'
+tipo='texto' color='azul' dibujar-si='debug>=1' expresi&oacute;n='[20,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='res([s])=[resVec[s]]' fuente='Monospaced,PLAIN,12' fijo='no' 
+tipo='texto' color='azul' dibujar-si='debug>=1' expresi&oacute;n='[150,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='aux([s])=[VecAux1[s]]' fuente='Monospaced,PLAIN,12' fijo='no' 
+tipo='texto' color='azul' dibujar-si='debug>=1' expresi&oacute;n='[280,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='value([s])=[vecValue[s]]' fuente='Monospaced,PLAIN,12' fijo='no' 
+tipo='texto' color='azul' dibujar-si='debug=2' expresi&oacute;n='[450,20*s]' familia='s' s.intervalo='[0,n_numeros-1]' s.pasos='n_numeros-1' texto='[s]=[vecValue[resVec[s]]]' fuente='Monospaced,PLAIN,12' fijo='no' 

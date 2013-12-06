@@ -1,0 +1,41 @@
+#container{
+	background-color: white;
+	width: 645px;
+}
+
+.cuerpo {
+	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.titulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	font-variant: normal;
+	color: #666666;
+}
+.titulo2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+}
+.titulo3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+}
+.cuerpo2_cuerpo2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+}
+.creditos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	font-variant: normal;
+	color: #666666;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>&Aacute;rea del rombo</title>
+	<script type='text/javascript' src='lib/descartes-min.js'></script>	
+	<style>
+		*{
+		border:0;
+		margin:0;
+		padding:0;
+		}
+		body{
+			background-color:#7db9f2;
+		}
+	</style>
+</head>
+<body >
+
+<p align="center">
+
+<applet width=790 height=520
+        code="descinst.com.mja.descartes.DescartesJS.class"
+        codebase="./"
+        archive="descinst.jar,http://recursostic.educacion.es/descartes/web/plugin/descinst.jar"
+        MAYSCRIPT>
+   <param name="tama&ntilde;o" value="790x520">
+   <param name="pleca" value="title='Presiona el bot&oacute;n Animar y deduce la f&oacute;rmula para obtener' subtitle='el &aacute;rea de cualquier rombo, puedes modificar su altura y su base.' subtitlines='2' bgcolor='268bea' fgcolor='ffffff' align='center' titleimage='img/instrucciones.jpg' titlefont='SansSerif,BOLD,22' subtitlefont='SansSerif,BOLD,22' ">
+   <param name="sonido" value="s&iacute;">
+   <param name="&aacute;lgebra" value="s&iacute;">
+   <param name="decimal_symbol" value=".">
+   <param name="antialias" value="s&iacute;">
+   <param name="Versi&oacute;n" value="4.5616, 2012-07-19">
+   <param name="Idioma" value="espa&ntilde;ol">
+   <param name="Botones" value="cr&eacute;ditos=no config=no inicio=no limpiar=no">
+   <param name="E_00" value="tipo='R2' id='E1' fijo='s&iacute;' escala='43' O.y='-50' imagen='img/fondo.png' despl_imagen='arr-izq' fondo='naranja' red='no' red10='no' ejes='no' texto='no'">
+   <param name="C_00" value="id='d2' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Diagonal mayor' expresi&oacute;n='(0,420,250,30)' valor='4' min='d1+0.5' max='6.5' decimales='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='x1=Ya?-d2/2:x1\nx2=Ya?d2/2:x2\n\n' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0'">
+   <param name="C_01" value="id='d1' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='Diagonal menor' expresi&oacute;n='(250,420,250,30)' valor='3' min='3' max='d2-0.5' decimales='1' fijo='s&iacute;' visible='s&iacute;' acci&oacute;n='calcular' par&aacute;metro='y1=Ya?-d1/2:y1\ny2=Ya?-d1/2:y2' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_02" value="id='btn1ar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(187,395,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ar.png' acci&oacute;n='calcular' par&aacute;metro='d2=d2+.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_03" value="id='btn1ab' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(187,435,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ab.png' acci&oacute;n='calcular' par&aacute;metro='d2=d2-.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_04" value="id='btn2ar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(430,395,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ar.png' acci&oacute;n='calcular' par&aacute;metro='d1=d1+.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_05" value="id='btn2ab' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' expresi&oacute;n='(430,435,35,15)' fijo='s&iacute;' visible='s&iacute;' imagen='img/flecha_ab.png' acci&oacute;n='calcular' par&aacute;metro='d1=d1-.1' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_06" value="id='Dividir' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Dividir' expresi&oacute;n='(515,405,100,30)' decimales='0' fijo='s&iacute;' visible='no' color='blanco' negrita='s&iacute;' fuente puntos='21' imagen='img/btn.png' acci&oacute;n='calcular' par&aacute;metro='vartemp=vartemp+1\nDividir=vartemp%2' par&aacute;metro.fuente='Monospaced,PLAIN,12' pos_mensajes='centro'">
+   <param name="C_07" value="id='x1' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='x1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_08" value="id='y1' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='y1' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_09" value="id='x2' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='x2' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_10" value="id='y2' tipo='num&eacute;rico' regi&oacute;n='interior' espacio='E1' nombre='y2' fijo='s&iacute;' visible='s&iacute;' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='0' pos_mensajes='centro'">
+   <param name="C_11" value="id='Animar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Animar' expresi&oacute;n='(650,405,100,30)' fijo='s&iacute;' visible='s&iacute;' color='blanco' negrita='s&iacute;' fuente puntos='21' imagen='img/btn.png' acci&oacute;n='calcular' par&aacute;metro='animar=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(Dividir)&amp;(x1=0)' pos_mensajes='centro'">
+   <param name="C_12" value="id='Reiniciar' tipo='num&eacute;rico' interfaz='bot&oacute;n' regi&oacute;n='interior' espacio='E1' nombre='Reiniciar' expresi&oacute;n='(650,405,100,30)' fijo='s&iacute;' visible='s&iacute;' color='blanco' negrita='s&iacute;' fuente puntos='21' imagen='img/btn.png' acci&oacute;n='calcular' par&aacute;metro='y1=0;x1=0;x2=0;y2=0\nreini=1' par&aacute;metro.fuente='Monospaced,PLAIN,12' dibujar-si='(Dividir)&amp;(x1&lt;=(-(d2/2)))' pos_mensajes='centro'">
+   <param name="A_00" value="id='v2' expresi&oacute;n='d1/d2'">
+   <param name="A_01" value="id='reini' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'">
+   <param name="A_02" value="id='Ya' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'">
+   <param name="A_03" value="id='a1' algoritmo='s&iacute;' evaluar='siempre' inicio='x1=x1;y1=y1;x2=x2;y2=y2;d1=d1;d2=d2'">
+   <param name="A_04" value="id='Animar' evento='s&iacute;' condici&oacute;n='animar&amp;reini' acci&oacute;n='animar' ejecuci&oacute;n='alternar' pos_mensajes='centro'">
+   <param name="G_00" value="espacio='E1' tipo='texto' color='1569b4' expresi&oacute;n='[10,410]' texto='Diagonal mayor  [d2]' fuente='SansSerif,BOLD,22' fijo='s&iacute;'">
+   <param name="G_01" value="espacio='E1' tipo='texto' color='1569b4' expresi&oacute;n='[250,410]' texto='Diagonal menor  [d1]' fuente='SansSerif,BOLD,22' fijo='s&iacute;'">
+   <param name="G_02" value="espacio='E1' tipo='pol&iacute;gono' color='(1.0,1.0,0.0,Dividir*(-2*x1/d2))' expresi&oacute;n='(-(d2/2),0)(0,(d1/2))((d2/2),0)(0,-(d1/2))(-(d2/2),0)' relleno='(1.0,1.0,0.0,Dividir*(-2*x1/d2))'">
+   <param name="G_03" value="espacio='E1' tipo='segmento' color='000006' dibujar-si='(!Dividir)' expresi&oacute;n='(0,-(d1/2))(0,(d1/2))' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_04" value="espacio='E1' tipo='segmento' color='000900' dibujar-si='(!Dividir)' expresi&oacute;n='(-(d2/2),0)((d2/2),0)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_05" value="espacio='E1' tipo='pol&iacute;gono' color='turquesa' dibujar-si='Dividir=1' expresi&oacute;n='(-(d2/2),0)(0,0)(0,-(d1/2))(-(d2/2),0)' relleno='turquesa' ancho='2'">
+   <param name="G_06" value="espacio='E1' tipo='pol&iacute;gono' color='turquesa' dibujar-si='Dividir=1' expresi&oacute;n='(0,0)((d2/2),0)(0,-(d1/2))(0,0)' relleno='turquesa' ancho='2'">
+   <param name="G_07" value="tipo='macro' dibujar-si='Dividir=1' expresi&oacute;n='macros/area_rom_01.txt' nombre='rom1'">
+   <param name="G_08" value="tipo='macro' dibujar-si='Dividir=1' expresi&oacute;n='macros/area_rom_02.txt' nombre='rom2'">
+   <param name="G_09" value="espacio='E1' tipo='segmento' color='1569b4' expresi&oacute;n='(-(d2/2),-(d1/2)-1.5)((d2/2),-(d1/2)-1.5)' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_10" value="espacio='E1' tipo='segmento' color='1569b4' expresi&oacute;n='(-(d2/2)-1.5,-(d1/2))(-(d2/2)-1.5,(d1/2))' fuente='SansSerif,BOLD,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_11" value="espacio='E1' tipo='segmento' color='1569b4' dibujar-si='Dividir' expresi&oacute;n='((d2/2)+1,-(d1/2))((d2/2)+1,0)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Arial;\f3\fcharset0 Courier New;}\f1\fs44\b{\*\mjaformula{\fraction{\num\f2\fs40\b Diagonal menor}{\den 2}}}\f3\fs24\b0\par}' fuente='SansSerif,BOLD,22' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_12" value="espacio='E1' tipo='segmento' color='1569b4' dibujar-si='Dividir' expresi&oacute;n='((d2/2)+1,-(d1/2))((d2/2)+1,0)' fuente='Monospaced,PLAIN,12' fijo='s&iacute;' tama&ntilde;o='6' ancho='5'">
+   <param name="G_13" value="espacio='E1' tipo='punto' color='000006' expresi&oacute;n='(-(d2/2)-3.9,-(d1/2)+(d1/2))' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red21\green105\blue180;\red0\green0\blue6;}\f1\fs44\b\cf0 Diagonal\par menor\cf1\f2\fs24\b0\par }' fuente='Arial Negrita,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="G_14" value="espacio='E1' tipo='punto' color='000006' expresi&oacute;n='(-(d2/2)+(d2/2)-1.5,-(d1/2)-1+.5)((d2/2),-(d1/2)-1)' texto='{\rtf1\uc0{\fonttbl\f0\fcharset0 Times New Roman;\f1\fcharset0 Arial;\f2\fcharset0 Courier New;}{\colortbl\red21\green105\blue180;\red0\green0\blue6;}\f1\fs44\b\cf0 Diagonal mayor\f2\fs24\b0\par \cf1}' fuente='Arial Negrita,BOLD,22' fijo='s&iacute;' tama&ntilde;o='0'">
+   <param name="Animaci&oacute;n" value="controles='no' auto='no' inicio='x1=0;x2=0;y1=0;y2=0;reini=0;animar=0' hacer='x1=x1-0.1;x2=x2+0.1;y1=y1-(v2/10);y2=y2-(v2/10);Ya=(x1&gt;=(-(d2/2)))?0:1' mientras='x1&gt;=(-(d2/2))'">
+<font face="Arial" size="3">Esta unidad interactiva requiere la m&aacute;quina virtual de Java <a href="http://java.com/" target="_blank">JAVA</a>.</font>
+</applet></p>
+
+</body>
+</html>
+
+<script id="macros/area_rom_01.txt" type="descartes/macro">
+tipo_de_macro=R2
+ Idioma=espa&ntilde;ol
+tipo='pol&iacute;gono' color='grisObscuro' expresi&oacute;n='(x1,y1)(x1,y1+(d1/2))(x1+(d2/2),y1)(x1,y1)' relleno='turquesa' ancho='5'
+</script>
+
+<script id="macros/area_rom_02.txt" type="descartes/macro">
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+tipo='pol&iacute;gono' color='grisObscuro' expresi&oacute;n='(x2,y2)(x2-(d2/2),y2)(x2,y2+(d1/2))(x2,y2)' relleno='turquesa' ancho='5' 
+</script>

@@ -1,0 +1,11 @@
+tipo_de_macro=R2
+Idioma=espa&ntilde;ol
+id='transp' constante='s&iacute;' expresi&oacute;n='0' evaluar='una-sola-vez'
+id='rojo' constante='s&iacute;' expresi&oacute;n='1' evaluar='una-sola-vez'
+id='verde' constante='s&iacute;' expresi&oacute;n='0.93' evaluar='una-sola-vez'
+id='azul' constante='s&iacute;' expresi&oacute;n='0.32' evaluar='una-sola-vez'
+id='x' constante='s&iacute;' expresi&oacute;n='30' evaluar='una-sola-vez'
+id='y' constante='s&iacute;' expresi&oacute;n='20' evaluar='una-sola-vez'
+id='w' constante='s&iacute;' expresi&oacute;n='300' evaluar='una-sola-vez'
+id='h' constante='s&iacute;' expresi&oacute;n='200' evaluar='una-sola-vez'
+tipo='pol&iacute;gono' color='(rojo,verde,azul,transp)' coord_abs='s&iacute;' expresi&oacute;n='(x+10,y)(x+w-10,y)(x+w-3,y+3)(x+w,y+10)(x+w,y+h-10)(x+w-3,y+h-3)(x+w-10,y+h)(x+10,y+h)(x+3,y+h-3)(x,y+h-10)(x,y+10)(x+3,y+3)(x+10,y)' relleno='(rojo,verde,azul,transp)' ancho='0' 

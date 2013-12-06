@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_05" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Operaciones b&aacute;sicas con n&uacute;meros racionales</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Sumas, restas, multiplicaciones, divisiones, soluci&oacute;n de problemas, operaciones combinadas, prioridad de las operaciones y signos de agrupaci&oacute;n.
+
+	]]></Descripcion>
+</recurso>

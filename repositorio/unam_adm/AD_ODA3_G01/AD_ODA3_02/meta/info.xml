@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_02" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Orden y representaci&oacute;n de los n&uacute;meros enteros</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Localizar los n&uacute;meros enteros en la recta num&eacute;rica. Distinguir entre dos n&uacute;meros enteros cu&aacute;l es mayor. Comparaci&oacute;n de n&uacute;meros enteros mediante su representaci&oacute;n gr&aacute;fica.
+
+	]]></Descripcion>
+</recurso>

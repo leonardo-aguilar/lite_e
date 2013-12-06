@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+body p {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComics {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+.TitulosComic {
+	font-family: Comic Sans MS, cursive;
+}
+</style>
+</head>
+
+<body>
+<h3 class="TitulosComics">Objectivo</h3>
+<p><br />
+  En esta lección vamos a explorar la suma infinita de unos en particular y de términos constantes arbitrariamente pequeños en general.  Estos ejemplos ponen en relieve una propiedad importante de los números reales, &quot;la propiedad  arquimediana&quot;, y exhiben a los naturales como el prototipo de conjuntos infinitos.
+</p>
+<h3 class="TitulosComic">Introducción</h3>
+<p><br />
+  Después de explorar la serie armónica, probablemente no nos sorprenda que una suma infinita de unos no tenga un valor finito.  Recordemos que decir que la suma infinita de unos no tiene un valor finito significa que no podemos encontrar a un número que acote a todas las sumas finitas. Como veremos en la discusión que sigue, esto que desde cierta perspectiva parece obvio no lo es para nada. </p>
+<p>Pero que pasa si en lugar de unos el punto se desplaza infinitamente la misma distancia  en cada paso y esa distancia es muy muy pequeña, digamos la constante de Plank, 6.62 × 10^(-34).  La misma propiedad de los reales que hace que la suma infinita de unos no tenga un valor finito también nos asegura que la suma infinita de pasos, de cualquier tamaño, por pequeño que sea, tampoco va a tener un valor finito.</p>
+<h3 class="TitulosComic">Ejemplo</h3>
+<p><br />
+  Queremos saber cual es la distancia total que recorre un punto si en cada paso se mueve una distancia constante continuando así sin parar. Podremos encontrar un valor suficientemente pequeño tal que la suma infinita de los desplazamientos con este valor constante va a tener un valor finito?</p>
+<h3 class="TitulosComic">Discusión</h3>
+<p><br />
+  Aquí estamos considerando un punto que se desplaza infinitamente una unidad en cada paso.  Nos debe parecer obvio que no podemos encontrar un número real que acote a todas las sumas finitas de unos. Ahora, las sumas finitas de unos son simplemente los números naturales:</p>
+<p>1, 2 =1+1, 3 = 1+1+1, 4 = 1+1+1+1... </p>
+<p>Encontrar un número real que acote a todas las sumas finitas de unos es lo mismo que encontrar un número real que acote a todos los naturales.</p>
+<p>El problema que tenemos aquí, de ver porque hay la necesidad de formalizar algo que nos parece intuitivamente obvio es uno típico del razonamiento deductivo: Qué es lo que estamos suponiendo cierto y que es lo que queremos demostrar. </p>
+<p>Cuando usamos un enfoque informal, este punto queda turbio y para aclararlo hay que proceder con cierta formalidad.  En nuestro caso, estamos suponiendo que conocemos a los números reales en un sentido preciso, esto es, suponemos que los números reales son unas entidades matemáticas que cumplen una lista de propiedades básicas bien definidas y que toda propiedad que no aparezca en esta lista debe ser deducida de acuerdo a reglas válidas de deducción. </p>
+<p>En el caso que estamos considerando, la lista de propiedades básicas no incluye a la propiedad que necesitamos para poder demostrar que lo que parece intuitivamente obvio, de hecho, es cierto. </p>
+<p>No es trivial, aunque tampoco difícil, ver que los naturales no están acotados por un número real, i.e. un número tal que sea mayor que todos los naturales.  Esta propiedad, conocida por la propiedad arquimediana, es una consecuencia de una de las propiedades básicas de los números reales, la propiedad de completitud. Exploraremos estas propiedades más adelante.</p>
+<h3 class="TitulosComic">Instrucciones</h3>
+<p><br />
+El espacio interactivo a continuación, demuestra gráficamente al ejemplo que estamos considerando.  Debajo del espacio interactivo hay otro donde aparecen 3 recuadros de controles que aprendimos a usar en los ejercicios de una lección anterior y que vamos a usar en esta lección para explorar si podemos encontrar un valor suficientemente pequeño tal que la suma infinita de los desplazamientos con este valor constante tenga un valor finito.</p>
+<p>En el recuadro #3 se agregó un control, exp2, que controla el valor del exponente negativo de un potencia de 2.  Incrementándolo especificas un valor constante de cada paso cada vez más pequeño. </p>
+<h3 class="TitulosComic">Ejercicios</h3>
+<p><br />
+  En los ejercicios vamos a explorar si es posible o no encontrar un número suficientemente pequeño tal que la suma infinita de los desplazamientos con este valor constante tenga un valor finito.</p>
+<h3 class="TitulosComic">Conclusión</h3>
+<p><br />
+  Vimos, de nuevo procediendo empíricamente, que los naturales no parecen ser acotados por ningún número real.  Sin embargo, como hicimos notar, nuestro enfoque empírico no nos ilustra sobre las dificultades que aparecen cuando trabajamos formalmente. En el ejemplo que consideramos, no había ningún indicio de la necesidad de hacer uso de la propiedad de completitud de los reales para demostrar que de hecho los naturales no son acotados por ningún número real. </p>
+<p>Además el enfoque empírico es finitista por naturaleza y tampoco ofrece mucho a la intuición de como definir y trabajar con el infinito en forma directa. A pesar de todo esto, si nos sirve para revelar patrones de comportamiento de las entidades que estudiamos que pueden ser usados en forma efectiva en demostraciones precisas cuando la estructura formal está bien definida. </p>
+<p>Por ejemplo, aunque con las suma infinita de unos nos parece obvio que esta suma no tiene un valor finito, inicialmente se podría pensar que escogiendo un valor suficientemente pequeño, la suma infinita de este valor  constante si va a tener un valor finito. </p>
+<p>Con algo de reflexión, nos daríamos cuenta de la imposibilidad de este resultado.  Aquí el enfoque empírico ayuda a obviar estos momentos de reflexión y ver que los mismos principios que hacen que la suma de unos no sea finita aplican a cualquier valor por pequeño que este sea.</p>
+<p>Ejercicio 1 - Sumas de unos<br />
+  Haz click en autozoom y autoshift, en los recuadros #1 y #2, para habilitarlos automáticamente.<br />
+  En el recuadro #3, incrementa la n y observa el desplazamiento del punto.</p>
+<p>El valor de la constante e = 2^(-0) = 1, así que cada click del pulsador suma 1 a la suma anterior de unos. Trivial, verdad?  Estamos simplemente construyendo a los números naturales en forma práctica:</p>
+<p>1,  2 = 1+1,  3 = 2+1,  4 = 3+1... </p>
+<p>Nota matemática 1 - Definición formal de los números naturales<br />
+  Este simple artefacto matemático reconstruye a los números naturales cuando tomamos a los números reales como dados.  En esta nota, le daremos un vistazo a la definición formal de los números naturales partiendo del sistema de números reales.</p>
+<p>Los números reales positivos tienen las siguientes dos propiedades:<br />
+  1 es un real positivo;<br />
+  si n es un real positivo, entonces n+1 es un real positivo;</p>
+<p>La clase de todos los subconjuntos de los reales positivos que satisfacen las propiedades i, ii, tiene al menos un miembro, i.e. a los reales positivos.  Los números naturales se definen como la intersección de todos los miembros de esta clase, que por el comentario anterior no es vacía. Esta construcción hace que los naturales sean el menor conjunto con estas dos propiedades. </p>
+<p>No es difícil demostrar que con esta definición esta intersección, satisface a los axiomas de Peano que definen a los naturales categóricamente, en el sentido de que cualquier otro sistema que satisface los axiomas de Peano es esencialmente el sistema de los números naturales.</p>
+<p>Ejercicio 2 - Encuentra el valor de n para que s = 1<br />
+  Reincida la escena<br />
+  Haz click en autozoom y autoshift, en los recuadros #1 y #2, para habilitarlos automáticamente.<br />
+  En el recuadro #3, incrementa exp2 a 1.  El punto s está en 0.5.<br />
+  Cuántos pasos tiene que dar el punto para llegar a 1?  Haciendo clicks en el pulsador n en el recuadro #3 puedes ver cuantos.<br />
+  Repite los pasos 3 y 4 para sucesivos valores de exp2: 2, 3, 4, etc.</p>
+<p>Ejercicio 3 - Encuentra el valor de n para que s = 1 automáticamente<br />
+  Reincida la escena<br />
+  En el recuadro #3, incrementa exp2 a 1.  El punto s está en 0.5.<br />
+  En el recuadro #3 haz un click en acelerador (=1).  Ahora la k se va a incrementar cada vez que hagas click o des intro al pulsador n con el valor n*2^exp2.<br />
+  Selecciona n y da intro. El punto s llega a 1<br />
+  En el recuadro #3, incrementa exp2 a 2.  El punto s regresa a 0.5.<br />
+  Selecciona n y da intro. El punto s regresa a 1<br />
+  Repite los pasos 5 y 6 para sucesivos valores de exp2: 3, 4, etc.</p>
+<p>El acelerador esta haciendo el número requerido de clicks para llegar a 1 que tu tuviste que hacer en el ejercicio 2 manualmente.  Observa los valores de k.  Si el valor de cada desplazamiento es 2^(-r) entonces tienes que dar 2^r pasos para llegar a 1.</p>
+<p>Ejercicio 4 - Llegando a cualquier natural<br />
+  Mientras más chico es cada paso, más pasos tienes que dar para llegar a 1. Pero si llegaste a 1 vas a poder llegar a 2, a 3, a 4, etc., esto es, vas a poder llegar a cualquier número natural. <br />
+  Reinicia la escena<br />
+  Haz click en autozoom y autoshift, en los recuadros #1 y #2, <br />
+  En el recuadro #3, incrementa exp2 a 1.  El punto s está en 0.5.<br />
+  En el recuadro #3 haz un click en acelerador (=1).  Ahora la k se va a incrementar cada vez que hagas click o des intro al pulsador n con el valor n*2^exp2.<br />
+  Selecciona n y da intro. El punto s llega a 1<br />
+  En el recuadro #3, incrementa exp2 a 2.  El punto s regresa a 0.5.<br />
+  Selecciona n = 1 y da intro. El punto s regresa a 1<br />
+  Repite los pasos 5 y 6 para sucesivos valores de exp2: 3, 4, etc.</p>
+<p>Nota matemática 2 - Tenemos una demostración?<br />
+  Ésta no es una demostración de que dando suficientes pasos vamos a poder llegar a cualquier número natural porque solo hemos visto que es cierto en casos concretos, pero no lo sabemos para un número natural arbitrario.  Sin embargo, hemos descubierto un patrón de como podríamos proceder formalmente.</p>
+<p>A pesar de que demostremos formalmente que vamos a poder llegar a cualquier número natural, eso no demostraría que los naturales no están acotados por un número real. Como mencionamos, esta propiedad, conocida por la propiedad arquimediana, es una consecuencia de una de las propiedades básicas de los números reales, la propiedad de completitud. </p>
+<p>Nota matemática 3 - Los números naturales son un conjunto infinito<br />
+  Intuitivamente, vemos a los números naturales como un conjunto infinito, porque no importa que tan grande nos imaginemos a un número natural, sumándole uno más obtenemos un natural mayor.  Esto no está muy lejos de una definición formal. El problema consiste en que no hemos asentado las bases, i.e. no hemos definido lo que suponemos cierto, para que quede claro que es lo que queremos demostrar.</p>
+<p>Una manera de proceder, es empezar suponiendo las propiedades básicas de los números reales, construir los naturales como lo indicamos en la Nota matemática 1 y luego definir que es un conjunto finito y que es uno infinito.  Hay varias maneras equivalentes de proceder. Una, es decir que un conjunto infinito es un conjunto que se puede poner en una correspondencia uno a uno con un subconjunto propio. </p>
+<p>Con esta definición, los naturales son un conjunto infinito porque hay una correspondencia uno a uno entre los naturales y los pares: n &lt;---&gt; 2n, n=1, 2, 3,... Además todo conjunto infinito tiene un subconjunto que se puede poner en una correspondencia uno a uno entre los naturales y los elementos del subconjunto. Idiomáticamente hablando diríamos que todo conjunto infinito contiene a los naturales!  Los naturales son en este sentido el prototipo de los conjuntos infinitos.</p>
+</body>
+</html>

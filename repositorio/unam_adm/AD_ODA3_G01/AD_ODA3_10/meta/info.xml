@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recurso 
+	id="AD_ODA3_10" 
+	nivel="Bachillerato" 
+	area="Matem&aacute;ticas, Aritm&eacute;tica, Algebra elemental" 
+	plataforma="HTML 5" 
+	>
+	<titulo><![CDATA[
+		Las potencias y su significado</nobr>
+	]]></titulo>
+	
+	<Descripcion><![CDATA[
+
+	Conversi&oacute;n entre potencias fraccionarias y radicales. Identificaci&oacute;n de inversos de una potencia como la misma potencia con el exponente negativo.
+
+	]]></Descripcion>
+</recurso>
