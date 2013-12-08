@@ -3,8 +3,11 @@
     ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-?>
+    $SaveContainer = isset($_POST["SaveContainer"]) & $_POST["SaveContainer"] == "true";
+    if ($SaveContainer)
+        ob_start();
 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +48,6 @@
 		// Título de la unidad de Descartes
 		UnitTitle			= <?php printf("'%s'", isset($_POST["UnitTitle"]) ? $_POST["UnitTitle"] : "Título de unidad"); ?>;
 
-
 <?php
 
 
@@ -77,20 +79,28 @@
         $fileSystemSet = $fileSystemSets[$key];
         $browsableEntries = $fileSystemSet->GetBrowsableEntries();
 
-        printf ("declareNewUnit( scene = { Name: '%s', Files: [ ",
+        printf ("\n\r\t\tdeclareNewUnit( scene = { Name: '%s', Files: [ ",
             Utils::GetHTMLTitle ($fileSystemSet->GetIndexEntry()->GetEntryUrl()));
 
         foreach ($value as $browsableEntryId) {
             $length -= 1;
-            printf ("'%s'", $fileSystemSet->GetBrowsableEntry($browsableEntryId)->GetEntryUrl());
+
+            if ($SaveContainer) {
+                printf ("\n\r\t\t\t'%s'",
+                    $fileSystemSet->GetBrowsableEntry($browsableEntryId)->GetEntryRelativeUrl($fileSystemSet->GetBaseDirectoryName()));
+            } else {
+                printf ("\n\r\t\t\t'%s'",
+                    $fileSystemSet->GetBrowsableEntry($browsableEntryId)->GetEntryUrl());
+            }
+
             if ($length != 0) printf (", ");
         }
-        printf ("]} );");
+        printf ("]} );\r\n");
     }
 
 ?>
 
-     $(function() { initializeContainer(); });
+        $(function() { initializeContainer(); });
 
      </script>
     
@@ -98,28 +108,56 @@
 
 <body>
 
-<div id="container">
-    <div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
-	<div id="content"><iframe id="jsApplet"></iframe></div>
-	<div id="footer">
-		<div id="navigation">
-			<div id="navigationButtons" ></div>
-			<div id="tools">
-				<a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
-				<a id="cprght" href="javascript:verCreditos();void(0);">c</a>
-				<a id="info" href="javascript:verDocumentacion();void(0);">i</a>
-			</div>
+    <div id="container">
+        <div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
+        <div id="content"><iframe id="jsApplet"></iframe></div>
+        <div id="footer">
+            <div id="navigation">
+                <div id="navigationButtons" ></div>
+                <div id="tools">
+                    <a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
+                    <a id="cprght" href="javascript:verCreditos();void(0);">c</a>
+                    <a id="info" href="javascript:verDocumentacion();void(0);">i</a>
+                </div>
 
-			<div id="navigationArrows" >
-				<div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
-				<div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
-			</div>
-		</div>
-	</div>
-</div>
+                <div id="navigationArrows" >
+                    <div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
+                    <div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<?php
+
+    if ($SaveContainer) {
+        $randomFolder = substr(md5(date("YmdGis")), 5, 8);
+        $newUnitPath = $GLOBALS["output"] . "/" . $randomFolder;
+
+        @mkdir($newUnitPath, 0777);
+
+        $templateFileSystemSet = new FileSystemSet($GLOBALS["template"]);
+        $templateFileSystemSet->Duplicate($newUnitPath, true);
+
+        foreach ($fileSystemSets as $fileSystemSet) {
+            $fileSystemSet->Duplicate($newUnitPath, false);
+        }
+		
+        // Utils::CompressFolder($newUnitPath, $newUnitPath . ".zip");
+
+        // $zipUrl = Utils::GetFileUrl ($GLOBALS["path_rootdir"], $GLOBALS["wwwroot"], $newUnitPath . ".zip");
+
+		$page = ob_get_contents();
+
+        $fp = fopen($newUnitPath . "/index.html", "w");
+        fwrite($fp, $page);
+        fclose($fp);
+		
+		// header("Location: " . $zipUrl );
+    }
+
+?>
 
 </body>
-
-
 </html>
-

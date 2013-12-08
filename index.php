@@ -155,7 +155,7 @@
                     <ul>
                         <li><a href="javascript:ShowSceneSelection();">Mostrar...</a></li>
                         <li><a href="javascript:CleanSceneSelection();">Limpiar selección...</a></li>
-                        <li class="ui-state-disabled"><a href="javascript:ExportSceneSelection();">Exportar selección...</a></li>
+                        <li><a href="javascript:ExportSceneSelection();">Exportar selección...</a></li>
                     </ul>
                 </li>
                 <li class="ui-state-disabled"><a href="#">Selección de unidades</a>
@@ -172,6 +172,9 @@
 		</div>
 		<div class="MenuArea">
 		<form action="./template/index.php" method="post" id="ContentSelector" name="ContentSelector" target="ContentFrame">
+
+		<input type='hidden' name='SaveContainer' id='SaveContainer' value='' />
+
         <?php
 
 	        $util = new FileSystemSet($GLOBALS["repository"]);

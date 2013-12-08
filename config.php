@@ -22,11 +22,13 @@ $GLOBALS["libdir"]				= $GLOBALS["path_rootdir"] . "/lib";
 $GLOBALS["controller"]			= $GLOBALS["path_rootdir"] . "/controller";
 $GLOBALS["model"]				= $GLOBALS["path_rootdir"] . "/entities";
 $GLOBALS["view"]				= $GLOBALS["path_rootdir"] . "/view";
+$GLOBALS["output"]				= $GLOBALS["path_rootdir"] . "/output";
+$GLOBALS["template"]			= $GLOBALS["path_rootdir"] . "/template";
 
 // Debug
 $GLOBALS["debug"] 				= true;
 
-
+$GLOBALS["system_slash"]        = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "\\" : "/";
 
 // archivo: functions.php
 function noCache() {

@@ -31,6 +31,17 @@ function ShowSceneSelection () {
         alert ("Debes seleccionar al menos una escena.");
         return;
     } else {
+        $("#SaveContainer").val("false");
+        $("#ContainerConfigurationDialog").dialog("open");
+    }
+}
+
+function ExportSceneSelection () {
+    if (SelectedScenes == 0) {
+        alert ("Debes seleccionar al menos una escena.");
+        return;
+    } else {
+        $("#SaveContainer").val("true");
         $("#ContainerConfigurationDialog").dialog("open");
     }
 }

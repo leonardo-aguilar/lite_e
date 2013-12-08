@@ -11,7 +11,7 @@
 	<script language="javascript" src="javascript/utils.js" ></script>
 	<script language="javascript" type="text/javascript">
 		// Muestra u oculta el mensaje de posicion
-		SystemCloseButton 	= false;
+		SystemCloseButton 	=  true;
 		// Controla la propiedad de visibilidad del la posición de navegación
 		ShowUnitPosition 	= true;
 		// Controla la propiedad de visibilidad de las flechas de navegación.
@@ -29,73 +29,51 @@
 		// Cambiar tamaño por omisión del contenedor de escenas.
 		// El valor por omisión es -1. Los valores permitidos son enteros
 		// mayores a 790 en el ancho y 520 en lo alto.
-		ContentFrameWidth	= -1;
-		ContentFrameHeight  = -1;
+		ContentFrameWidth	= 790;
+		ContentFrameHeight  = 520;
 
 
 		// Título de la página
-		PageTitle 			= "Área del romboide";
+		PageTitle 			= 'Nueva página';
 		// Título de la unidad de Descartes
-		UnitTitle			= "Área del romboide";
+		UnitTitle			= 'Nueva unidad';
 
-		// Declara las secciones y escenas del unidad interactiva
-		declareNewUnit(
-			scene = { Name: "Inicio",
-					  Files: [ "escenas/1_intro_1/index.html" ]} );
 
-		declareNewUnit(
-			scene = { Name: "Exploración",
-					  Files: [ "escenas/2_expl_1/index.html", "escenas/2_expl_2/index.html" ]} );
+		declareNewUnit( scene = { Name: 'Pictograma', Files: [ 
+			'MI_Pictograma/escenas/1_1/index.html']} );
 
-		declareNewUnit(
-			scene = { Name: "Ejercicios",
-					  Files: [ "escenas/3_ejer_1/index.html" ]} );
+		declareNewUnit( scene = { Name: 'Sucesiones de figuras', Files: [ 
+			'SNPA_SucesionesDeFiguras/escenas/1_1/index.html', 
+			'SNPA_SucesionesDeFiguras/escenas/2_1/index.html']} );
 
-		declareNewUnit(
-			scene = { Name: "Evaluación",
-					  Files: [ "escenas/4_eval_1/index.html" ]} );
+        $(function() { initializeContainer(); });
 
-		declareNewUnit(
-			scene = { Name: "Primera",
-					  Files: [ "escenas/4_eval_3/index.html" ]} );
-
-		declareNewUnit(
-			scene = { Name: "Segunda",
-					  Files: [ "escenas/4_eval_2/index.html" ]} );
-
-		$(function() {
-			initializeContainer();
-		});
-
-	</script>
+     </script>
+    
 </head>
-
 
 <body>
 
-<div id="container">
-	<div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
-	<div id="content"><iframe id="jsApplet"></iframe></div>
-	<div id="footer">
-		<div id="navigation">
-			<div id="navigationButtons" ></div>
-			<div id="tools">
-				<a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
-				<a id="cprght" href="javascript:verCreditos();void(0);">c</a>
-				<a id="info" href="javascript:verDocumentacion();void(0);">i</a>
-			</div>
+    <div id="container">
+        <div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
+        <div id="content"><iframe id="jsApplet"></iframe></div>
+        <div id="footer">
+            <div id="navigation">
+                <div id="navigationButtons" ></div>
+                <div id="tools">
+                    <a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
+                    <a id="cprght" href="javascript:verCreditos();void(0);">c</a>
+                    <a id="info" href="javascript:verDocumentacion();void(0);">i</a>
+                </div>
 
-			<div id="navigationArrows" >
-				<div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
-				<div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
-			</div>
-		</div>
-	</div>
-</div>
+                <div id="navigationArrows" >
+                    <div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
+                    <div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
-
-
-</html>
 

@@ -37,6 +37,13 @@ class FileSystemSet {
 
 	function GetSetId () { return $this->fileSystemSetID; }
 
+	function GetBaseDirectory () { return $this->entrySetBaseDirectory; }
+
+	function GetBaseDirectoryName () {
+		$pieces = explode("/", $this->entrySetBaseDirectory);
+		return array_pop($pieces);
+	}
+
 	// Tiene documentos de inicio?
 	function HasIndex () {
 		return $this->hasIndex;
@@ -86,8 +93,6 @@ class FileSystemSet {
 			$currentFileSystemEntries[$fileSystemEntry->GetEntryId()] = $fileSystemEntry;
 
 			if($baseDirectory == $this->entrySetBaseDirectory) {
-				// printf ("%s<br/>", $fileSystemEntry->GetEntryType());
-
 				if ($fileSystemEntry->GetEntryType() === FileSystemEntry::$FST_INDEX
 					&& !$this->hasIndex)
 					$this->hasIndex = true;
@@ -195,5 +200,30 @@ class FileSystemSet {
 				$browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle);
 		}
 		printf("</div></div>\r\n");
+	}
+
+	function Duplicate ($targetDir, $removeBaseDir) {
+
+		$targetPath = $targetDir;
+
+		if (!$removeBaseDir) {
+			$pieces = explode("/", $this->entrySetBaseDirectory);
+			$targetFolder = array_pop($pieces);
+			$targetPath = $targetDir . "/" . $targetFolder;
+		}
+
+		$this->entrySetBaseEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+
+		foreach ($this->fileSystemEntries as $fileSystemEntry) {
+			if($fileSystemEntry->GetEntryType() == FileSystemEntry::$FST_DIRECTORY)
+				$fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+		}
+
+		foreach ($this->fileSystemEntries as $fileSystemEntry) {
+			if($fileSystemEntry->GetEntryType() != FileSystemEntry::$FST_DIRECTORY)
+				$fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+		}
+
+		return $targetPath;
 	}
 }

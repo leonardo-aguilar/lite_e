@@ -24,6 +24,11 @@ class FileSystemEntry {
 			$this->fileSystemEntryPath);
 	}
 
+	function GetEntryRelativeUrl ($fileSystemSetBaseDir) {
+		$url = Utils::GetFileUrl ($GLOBALS["path_rootdir"], "", $this->fileSystemEntryPath);
+		return substr($url, strpos($url, $fileSystemSetBaseDir));
+	}
+
 	function GetEntryParentPath () { return $this->fileSystemEntryParentPath; }
 
 	function FileSystemEntry ($entryPath, $entryParentPath) {
@@ -52,7 +57,7 @@ class FileSystemEntry {
 		if (is_dir($this->fileSystemEntryPath)) {
 			$entryType = self::$FST_DIRECTORY;
 		} else
-			if (stripos($this->fileSystemEntryPath, ".htm") !== false ) {
+			if (stripos($this->fileSystemEntryPath, ".htm") !== false) {
 			   // && Utils::IsDescartes($this->fileSystemEntryPath)) {
 			$entryType = self::$FST_BROWSABLE;
 
@@ -74,4 +79,13 @@ class FileSystemEntry {
 
 	}
 
+	function Duplicate ($sourceDir, $targetDir) {
+	    $targetPath = str_replace($sourceDir, $targetDir, $this->fileSystemEntryPath);
+        if($this->fileSystemEntryType == self::$FST_DIRECTORY)
+            @mkdir($targetPath, 0777);
+        else {
+            if (stripos($this->fileSystemEntryPath, ".php") == false)
+                copy($this->fileSystemEntryPath, $targetPath);
+        }
+	}
 }
