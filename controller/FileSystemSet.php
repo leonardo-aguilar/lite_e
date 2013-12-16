@@ -181,23 +181,47 @@ class FileSystemSet {
 		printf("<div class='LearningObjectContent' id='%s'>\n",
 			"loContents_" . $this->fileSystemSetID);
 
+		$descartesScene = "";
+		$descartesClass = "HiddenClass";
+		$disabled = "disabled";
+		
+		if ($this->indexEntry->IsDescartes()) {
+			 $descartesScene = " - [Escena]";
+		   $descartesClass = "DescartesClass";
+		   $disabled = "";
+		}
+		
 		printf("\t<div class='BrowsableEntry'>
-				<input type='checkbox' id='ScenesCheckboxGroup[]' value='%s' disabled />
+				<input type='checkbox' id='ScenesCheckboxGroup[]'
+						name='ScenesCheckboxGroup[]' value='%s' %s />
+				<span class='%s'></span>
 				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
 				$this->entrySetBaseDirectory . "|" . $this->indexEntry->GetEntryId (),
+				$disabled, $descartesClass,
 				$this->indexEntry->GetEntryUrl(),
-				"Ver recurso");
+				"Ver recurso" . $descartesScene);
 
 		foreach ($this->browsableEntries as $browsableEntry) {
 			$browsableEntryTitle =  Utils::GetHTMLTitle ($browsableEntry->GetEntryPath());
 
+			$descartesScene = "";
+		  $descartesClass = "HiddenClass";
+			$disabled = "disabled";
+			
+			if ($browsableEntry->IsDescartes()) {
+			   $descartesScene = " - [Escena]";
+			   $descartesClass = "DescartesClass";
+				 $disabled = "";
+		  }
+			
 			printf("\t<div class='BrowsableEntry'>
 				<input type='checkbox' id='ScenesCheckboxGroup[]'
-					name='ScenesCheckboxGroup[]' value='%s' />
+					name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span>
 				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
 				$this->entrySetBaseDirectory . "|" . $browsableEntry->GetEntryId (),
+				$disabled, $descartesClass,
 				$browsableEntry->GetEntryUrl (),
-				$browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle);
+				($browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle) . $descartesScene);
 		}
 		printf("</div></div>\r\n");
 	}

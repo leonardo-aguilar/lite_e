@@ -107,15 +107,15 @@
 	    <form id="ContainerConfigurationForm">
             <table>
                     <tr>
-                        <td class="label">Mostrar bot贸n de cerrar</td>
+                        <td class="label">Mostrar bot髇 de cerrar</td>
                         <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Mostrar posici贸n de la unidad</td>
+                        <td class="label">Mostrar posici髇 de la unidad</td>
                         <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Mostrar flechas de navegaci贸n</td>
+                        <td class="label">Mostrar flechas de navegaci髇</td>
                         <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
                     </tr>
                     <tr>
@@ -127,7 +127,7 @@
                         <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Tama帽o fijo de botones</td>
+                        <td class="label">Tama駉 fijo de botones</td>
                         <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
@@ -139,11 +139,11 @@
                         <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
-                        <td class="label">T铆tulo para la p谩gina</td>
+                        <td class="label">T韙ulo para la p醙ina</td>
                         <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
-                        <td class="label">T铆tulo para la nueva unidad</td>
+                        <td class="label">T韙ulo para la nueva unidad</td>
                         <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
             </table>
@@ -151,18 +151,18 @@
     </div>
     <div class="MainMenu">
             <ul id="menu">
-                <li><a href="#">Selecci贸n de escenas</a>
+                <li><a href="#">Selecci髇 de escenas</a>
                     <ul>
                         <li><a href="javascript:ShowSceneSelection();">Mostrar...</a></li>
-                        <li><a href="javascript:CleanSceneSelection();">Limpiar selecci贸n...</a></li>
-                        <li><a href="javascript:ExportSceneSelection();">Exportar selecci贸n...</a></li>
+                        <li><a href="javascript:CleanSceneSelection();">Limpiar selecci髇...</a></li>
+                        <li><a href="javascript:ExportSceneSelection();">Exportar selecci髇...</a></li>
                     </ul>
                 </li>
-                <li class="ui-state-disabled"><a href="#">Selecci贸n de unidades</a>
+                <li class="ui-state-disabled"><a href="#">Selecci髇 de unidades</a>
                     <ul>
                         <li><a href="#">Mostrar...</a></li>
-                        <li><a href="#">Limpiar selecci贸n...</a></li>
-                        <li><a href="#">Exportar selecci贸n...</a></li>
+                        <li><a href="#">Limpiar selecci髇...</a></li>
+                        <li><a href="#">Exportar selecci髇...</a></li>
                     </ul>
                 </li>
             </ul>

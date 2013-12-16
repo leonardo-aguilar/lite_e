@@ -12,6 +12,10 @@ class FileSystemEntry {
 	protected $fileSystemEntryParentPath;
 
 	protected $fileSystemEntryID;
+	
+	protected $isDescartes;
+	
+	function IsDescartes () { return $this->isDescartes; }
 
 	function GetEntryType () { return $this->fileSystemEntryType; }
 
@@ -36,9 +40,10 @@ class FileSystemEntry {
 		$this->fileSystemEntryPath 		= $entryPath;
 		$this->fileSystemEntryParentPath = $entryParentPath;
 
+		$this->isDescartes = false;
 		$this->SetFileSystemEntryId ();
 		$this->SetEntryType ();
-
+		
 	}
 
 	function PrintInfo () {
@@ -69,6 +74,7 @@ class FileSystemEntry {
 		}
 
 		$this->fileSystemEntryType = $entryType;
+		$this->CheckScene ();
 
 	}
 
@@ -79,8 +85,14 @@ class FileSystemEntry {
 
 	}
 
+	private function CheckScene () {
+		 if ($this->GetEntryType() == self::$FST_BROWSABLE ||
+		    $this->GetEntryType() == self::$FST_INDEX)
+	      $this->isDescartes = Utils::IsDescartes($this->fileSystemEntryPath) === 1 ? true : false;
+	}
+	
 	function Duplicate ($sourceDir, $targetDir) {
-	    $targetPath = str_replace($sourceDir, $targetDir, $this->fileSystemEntryPath);
+	   $targetPath = str_replace($sourceDir, $targetDir, $this->fileSystemEntryPath);
         if($this->fileSystemEntryType == self::$FST_DIRECTORY)
             @mkdir($targetPath, 0777);
         else {

@@ -18,7 +18,7 @@ class Utils {
 
 	public static function IsDescartes ($htmlFile) {
         $html = file_get_contents ($htmlFile);
-        return preg_match('<ajs(.*?)>i', $html, $matches);
+				return preg_match("/(ajs|descartes-min\.js)/i", $html, $matches);
 	}
 
     public static function copyr($source, $dest)

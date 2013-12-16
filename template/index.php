@@ -1,9 +1,13 @@
 <?php
 
     ini_set('display_errors', 'On');
-	error_reporting(E_ALL);
+		error_reporting(E_ALL);
 
+		require_once ($_SERVER['DOCUMENT_ROOT'] . "/lite_e/config.php");
+	  require_once ($GLOBALS["controller"] . "/FileSystemSet.php");
+		
     $SaveContainer = isset($_POST["SaveContainer"]) & $_POST["SaveContainer"] == "true";
+		
     if ($SaveContainer)
         ob_start();
 
@@ -47,33 +51,33 @@
 		PageTitle 			= <?php printf("'%s'", isset($_POST["PageTitle"]) ? $_POST["PageTitle"] : "Título de página"); ?>;
 		// Título de la unidad de Descartes
 		UnitTitle			= <?php printf("'%s'", isset($_POST["UnitTitle"]) ? $_POST["UnitTitle"] : "Título de unidad"); ?>;
-
 <?php
-
-
-	require_once ($_SERVER['DOCUMENT_ROOT'] . "/lite_e/config.php");
-	require_once ($GLOBALS["controller"] . "/FileSystemSet.php");
-
-    $checkboxes = isset($_POST["ScenesCheckboxGroup"]) ? (array) $_POST["ScenesCheckboxGroup"] : array();
+			
+		$checkboxes = isset($_POST["ScenesCheckboxGroup"]) ? (array) $_POST["ScenesCheckboxGroup"] : array();
 
     $fileSystemSets = array();
     $sceneAssocFileSystemSet = array();
-
+			
     foreach ($checkboxes as $value) {
-
+				
         $values = explode ("|", $value);
         $fileSystemPath = trim ($values[0]);
         $sceneId = trim ($values[1]);
 
-        if(!array_key_exists($fileSystemPath, $fileSystemSets)) {
-            $fileSystemSet = new FileSystemSet($fileSystemPath);
-            $fileSystemSets[$fileSystemSet->GetSetId()] = $fileSystemSet;
+				$fileSystemSet = new FileSystemSet($fileSystemPath);
+				$fileSystemSetId = $fileSystemSet->GetSetId();
+				
+				$keyExists = (isset($fileSystemSets[$fileSystemSetId]) ||
+									    array_key_exists($fileSystemSetId, $fileSystemSets));
+				
+        if(!$keyExists) {
+            $fileSystemSets[$fileSystemSetId] = $fileSystemSet;
         }
 
-        $sceneAssocFileSystemSet[$fileSystemSet->GetSetId()][] = $sceneId;
+        $sceneAssocFileSystemSet[$fileSystemSetId][] = $sceneId;
     }
-
-    foreach ($sceneAssocFileSystemSet as $key => $value) {
+		
+		foreach ($sceneAssocFileSystemSet as $key => $value) {
 
         $length = count($value);
         $fileSystemSet = $fileSystemSets[$key];
@@ -85,22 +89,27 @@
         foreach ($value as $browsableEntryId) {
             $length -= 1;
 
+						$currentEntry = (isset ($fileSystemSet->GetBrowsableEntries()[$browsableEntryId]) ||
+														    array_key_exists($browsableEntryId, $fileSystemSet->GetBrowsableEntries())) ?
+																$fileSystemSet->GetBrowsableEntry($browsableEntryId) :
+																$fileSystemSet->GetIndexEntry();
+						$currentUrl = "";
+						
             if ($SaveContainer) {
-                printf ("\n\r\t\t\t'%s'",
-                    $fileSystemSet->GetBrowsableEntry($browsableEntryId)->GetEntryRelativeUrl($fileSystemSet->GetBaseDirectoryName()));
+                    $currentUrl = $currentEntry->GetEntryRelativeUrl($fileSystemSet->GetBaseDirectoryName());
             } else {
-                printf ("\n\r\t\t\t'%s'",
-                    $fileSystemSet->GetBrowsableEntry($browsableEntryId)->GetEntryUrl());
+                    $currentUrl = $currentEntry->GetEntryUrl();
             }
-
+						printf ("\n\r\t\t\t'%s'", $currentUrl);
+						
             if ($length != 0) printf (", ");
         }
         printf ("]} );\r\n");
     }
-
+			
 ?>
 
-        $(function() { initializeContainer(); });
+$(function() { initializeContainer(); });
 
      </script>
     
@@ -132,6 +141,7 @@
 <?php
 
     if ($SaveContainer) {
+		
         $randomFolder = substr(md5(date("YmdGis")), 5, 8);
         $newUnitPath = $GLOBALS["output"] . "/" . $randomFolder;
 
@@ -148,8 +158,8 @@
 
         // $zipUrl = Utils::GetFileUrl ($GLOBALS["path_rootdir"], $GLOBALS["wwwroot"], $newUnitPath . ".zip");
 
-		$page = ob_get_contents();
-
+    		$page = ob_get_contents();
+    
         $fp = fopen($newUnitPath . "/index.html", "w");
         fwrite($fp, $page);
         fclose($fp);
@@ -161,3 +171,4 @@
 
 </body>
 </html>
+        
