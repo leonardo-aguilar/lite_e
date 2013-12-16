@@ -54,6 +54,17 @@
 <?php
 			
 		$checkboxes = isset($_POST["ScenesCheckboxGroup"]) ? (array) $_POST["ScenesCheckboxGroup"] : array();
+   $postedUnitsNames = isset($_POST["UnitsNames"]) ? $_POST["UnitsNames"] : null;
+  $unitsInfo = array();
+  if ($postedUnitsNames !== null) {
+     $tmpUnitsNames = explode("|", $postedUnitsNames);
+     foreach($tmpUnitsNames as $unitName) {
+        if (strlen($unitName) > 0) {
+            $unitInfo = explode ("%", $unitName);
+            $unitsInfo[$unitInfo[0]] = $unitInfo[1];
+        }
+     }
+  }
 
     $fileSystemSets = array();
     $sceneAssocFileSystemSet = array();
@@ -84,7 +95,8 @@
         $browsableEntries = $fileSystemSet->GetBrowsableEntries();
 
         printf ("\n\r\t\tdeclareNewUnit( scene = { Name: '%s', Files: [ ",
-            Utils::GetHTMLTitle ($fileSystemSet->GetIndexEntry()->GetEntryUrl()));
+            $unitsInfo[$key]);
+            // Utils::GetHTMLTitle ($fileSystemSet->GetIndexEntry()->GetEntryUrl()));
 
         foreach ($value as $browsableEntryId) {
             $length -= 1;

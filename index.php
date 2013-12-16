@@ -21,7 +21,7 @@
 	    <script language="javascript" src="javascript/utils.js"></script>
 
         <script>
-
+				
             $(function() {
 
                 $( "#menu" ).menu({
@@ -29,9 +29,15 @@
                 });
 
                 $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
-                    // alert($(this).attr("id"));
-                    if(this.checked) ++SelectedScenes;
-                    else --SelectedScenes;
+                  instruction = "remove"
+                  
+                  if(this.checked) {
+                     ++SelectedScenes;
+                     instruction = "add";
+                  }
+                  else --SelectedScenes;
+                  
+                  TakeUnitsNames (instruction, $(this).prop("value"));
 
                     $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
                 });
@@ -57,6 +63,15 @@
                                     else
                                         $("#ContentSelector").append("<input type='hidden' name='"+$(this).attr('id')+"' value='" + $(this).val() + "' />");
                                 });
+                                
+                                var unitsNames = "";
+                                var unitNameSchema = "UnitId%UnitName|";
+                                for (var unitId in SelectedEscenesUnitsNames) {
+                                   unitsNames += unitNameSchema.replace(/UnitId/g, unitId)
+                                                   .replace(/UnitName/g, SelectedEscenesUnitsNames[unitId].UnitName);
+                                }
+                                $("#UnitsNames").val(unitsNames);
+                                // alert($("#UnitsNames").val());
 
                                 $("#ContentSelector").submit();
                             }
@@ -70,6 +85,8 @@
                 RestoreContainerDefaults ();
                 CleanSceneSelection ();
             });
+            
+            
 
         </script>
 
@@ -105,7 +122,7 @@
 	<body>
 	<div id="ContainerConfigurationDialog" title="ConfiguraciÃ³n del contenedor">
 	    <form id="ContainerConfigurationForm">
-            <table>
+            <table > 
                     <tr>
                         <td class="label">Mostrar botón de cerrar</td>
                         <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
@@ -146,6 +163,12 @@
                         <td class="label">Título para la nueva unidad</td>
                         <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
+                    <tr> 
+                        <td style="text-align: center;" colspan="2">Títulos para unidades</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div id="UnitsTitles"></div></td>
+                    </tr>
             </table>
         </form>
     </div>
@@ -174,7 +197,7 @@
 		<form action="./template/index.php" method="post" id="ContentSelector" name="ContentSelector" target="ContentFrame">
 
 		<input type='hidden' name='SaveContainer' id='SaveContainer' value='' />
-
+   <input type='hidden' name='UnitsNames' id='UnitsNames' value='' />
         <?php
 
 	        $util = new FileSystemSet($GLOBALS["repository"]);

@@ -172,13 +172,14 @@ class FileSystemSet {
 		$entryTitle = Utils::GetHTMLTitle ($this->indexEntry->GetEntryPath());
 
 		printf("<div class='LearningObject'>
-			<div class='LearningObjectTitle' onClick='ToggleContentView(\"%s\")'>
+			<div class='LearningObjectTitle' onClick='ToggleContentView(\"%s\")' id='LOT_%s'>\n\r
 				<div class='LearningObjectDisplayContents' >
-					<img src='style/general/icons/accept_item.png'/></div>%s</div>",
+					<img src='style/general/icons/accept_item.png'/></div>%s</div>\n\r",
 				"loContents_" . $this->fileSystemSetID,
-				$entryTitle == NULL ? $parentPathName :  $entryTitle);
+         $this->fileSystemSetID,
+				$entryTitle == NULL ? $parentPathName : $entryTitle);
 
-		printf("<div class='LearningObjectContent' id='%s'>\n",
+		printf("<div class='LearningObjectContent' id='%s'>\n\r",
 			"loContents_" . $this->fileSystemSetID);
 
 		$descartesScene = "";
@@ -196,7 +197,7 @@ class FileSystemSet {
 						name='ScenesCheckboxGroup[]' value='%s' %s />
 				<span class='%s'></span>
 				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
-				$this->entrySetBaseDirectory . "|" . $this->indexEntry->GetEntryId (),
+				$this->entrySetBaseDirectory . "|" . $this->indexEntry->GetEntryId () . "|" . $this->fileSystemSetID,
 				$disabled, $descartesClass,
 				$this->indexEntry->GetEntryUrl(),
 				"Ver recurso" . $descartesScene);
@@ -218,7 +219,7 @@ class FileSystemSet {
 				<input type='checkbox' id='ScenesCheckboxGroup[]'
 					name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span>
 				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
-				$this->entrySetBaseDirectory . "|" . $browsableEntry->GetEntryId (),
+				$this->entrySetBaseDirectory . "|" . $browsableEntry->GetEntryId () . "|" . $this->fileSystemSetID,
 				$disabled, $descartesClass,
 				$browsableEntry->GetEntryUrl (),
 				($browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle) . $descartesScene);
