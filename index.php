@@ -1,5 +1,7 @@
 <?php
 
+   header('Content-Type: text/html; charset=UTF-8');
+
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
@@ -9,130 +11,189 @@
 ?>
 
 <html>
-	<head>
-		<title>Titulo</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <head>
+      <title>Titulo</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+      <link rel="stylesheet" type="text/css" href="style/ui-lightness/jquery-ui-1.10.3.custom.css" >
+      <link rel="stylesheet" type="text/css" href="style/general/main.css">
+      
+      <script language="javascript" src="javascript/jquery-1.9.1.js"></script>
+      <script language="javascript" src="javascript/jquery-ui-1.10.3.custom.js"></script>
+      <script language="javascript" src="javascript/utils.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="style/ui-lightness/jquery-ui-1.10.3.custom.css" >
-		<link rel="stylesheet" type="text/css" href="style/general/main.css">
-
-		<script language="javascript" src="javascript/jquery-1.9.1.js"></script>
-		<script language="javascript" src="javascript/jquery-ui-1.10.3.custom.js"></script>
-	    <script language="javascript" src="javascript/utils.js"></script>
-
-        <script>
-				
-            $(function() {
-
-                $( "#menu" ).menu({
-                    position: {at: "left bottom"}
-                });
-
-                $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
-                  instruction = "remove"
-                  
-                  if(this.checked) {
-                     ++SelectedScenes;
-                     instruction = "add";
-                  }
-                  else --SelectedScenes;
-                  
-                  TakeUnitsNames (instruction, $(this).prop("value"));
-
-                    $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
-                });
-
-                 $("#ContainerConfigurationDialog").dialog({
-                    autoOpen: false,
-                    height: 450,
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                        "Restablecer valores": function() {
-                            RestoreContainerDefaults ();
-                        },
-                        "Compilar escenas": function() {
-                            var bValid = true;
-
-                            if ( bValid ) {
-                                $(this).dialog( "close" );
-
-                                $("#ContainerConfigurationForm input").each(function() {
-                                    if ($(this).attr("type") == "checkbox")
-                                        $("#ContentSelector").append("<input type='hidden' name='"+$(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
-                                    else
-                                        $("#ContentSelector").append("<input type='hidden' name='"+$(this).attr('id')+"' value='" + $(this).val() + "' />");
-                                });
-                                
-                                var unitsNames = "";
-                                var unitNameSchema = "UnitId%UnitName|";
-                                for (var unitId in SelectedEscenesUnitsNames) {
-                                   unitsNames += unitNameSchema.replace(/UnitId/g, unitId)
-                                                   .replace(/UnitName/g, SelectedEscenesUnitsNames[unitId].UnitName);
-                                }
-                                $("#UnitsNames").val(unitsNames);
-                                // alert($("#UnitsNames").val());
-
-                                $("#ContentSelector").submit();
-                            }
-                        },
-                        Cancel: function() {
-                            $(this).dialog("close");
-                        }
-                    }
-                });
-
-                RestoreContainerDefaults ();
-                CleanSceneSelection ();
+      <script language="javascript" type="text/javascript">
+         
+         $(function() {
+         
+            document.oncontextmenu = function() {return false;};
+            
+            $(".LearningObjectTitle").mousedown(function(e){ 
+               if( e.button == 2 ) {
+                  var $selectedLoPath = $($(this).parent().find("input")[0]).prop("value").split("|")[0];
+                  $("#MetadataDialog").data("SelectedLO", $selectedLoPath);
+                  $("#MetadataDialog").dialog("open"); 
+                  return false; 
+               } 
+               return true; 
+            }); 
+         
+            $( "#menu" ).menu({
+               position: {at: "left bottom"}
             });
             
+            $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
+               
+               instruction = "remove"
+               
+               if(this.checked) {
+                  ++SelectedScenes;
+                  instruction = "add";
+               }
+               else --SelectedScenes;
+               
+               TakeUnitsNames (instruction, $(this).prop("value"));
+               $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
+               
+            });
+               
+            $("#MetadataDialog").dialog ({
+               autoOpen:   false,
+               height:     450,
+               width:      600,
+               modal:      true,
+               open:       function (event, ui) {
+                  var selectedLoPath = $(this).data("SelectedLO");
+                  var request = "<?php printf ($GLOBALS["wwwroot"]) ?>/ajax/loMetadata.php?loPath=" + selectedLoPath;
+                  $(this).load(request);
+               },
+               buttons: {
+                  "Cancelar cambios":  function () {},
+                  "Salvar cambios":    function () {
+                     PrepareFormData ();
+                     $("#MetadataForm").submit();
+                     $(this).dialog("close");
+                  },
+                  Cancel: function () {
+                     if ($("#MetadataChanged").val() == "true") {
+                        if (confirm ("Has realizado cambios en los metadatos, deseas salvar los cambios antes de salir?")) {
+                           PrepareFormData ();
+                           $("#MetadataForm").submit();
+                        }
+                     }
+                     $(this).dialog("close");
+                  }
+               },
+            });
             
-
-        </script>
-
-        <style>
-
-            .ui-menu { overflow: hidden;}
-            .ui-menu .ui-menu { overflow: visible !important; }
-            .ui-menu > li { float: left; display: block; width: auto !important; }
-            .ui-menu > li { margin: 3px 3px !important; padding: 0 0 !important; }
-            .ui-menu > li > a { float: left; display: block; clear: both; overflow: hidden;}
-            .ui-menu .ui-menu-icon { margin-top: 0 !important;}
-            .ui-menu .ui-menu .ui-menu li { float: left; display: block;}
-
-
-            .ui-dialog .ui-state-error { padding: .3em; }
-            .validateTips { border: 1px solid transparent; padding: 0.3em; }
-
-            #ContainerConfigurationDialog span {
-                display:block;
-                margin-bottom:6px;
-                padding: .4em;
+            function PrepareFormData () {
+               $("#MetadataForm").find("#Action").val("Save");
+               
+               var objectKeywords = "";
+               $("input[id^=ObjectKeyword_]").each (function (key, value){
+                  alert(value);
+               });
+               /*
+               $("#ObjectKeywords").val(objectKeywords);
+               alert ($("#ObjectKeywords").val());
+               
+               var objectThumbnails = "";
+               $("input[id^=ObjectThumbnail_]").each(function (item) {
+                  objectThumbnails += $(item).val() + ",";
+               });
+               $("#ObjectThumbnails").val(objectThumbnails);
+               alert ($("#ObjectThumbnails").val());
+               */
             }
+            
+            $("#ContainerConfigurationDialog").dialog({
+               autoOpen: false,
+               height: 450,
+               width: 400,
+               modal: true,
+               buttons: {
+                  "Restablecer valores": function() { RestoreContainerDefaults (); },
+                  "Compilar escenas": function() {
+                     var bValid = true;
+                     
+                     if ( bValid ) {
+                        $(this).dialog( "close" );
+                     
+                        $("#ContainerConfigurationForm input").each(function() {
+                           if ($(this).attr("type") == "checkbox")
+                              $("#ContentSelector").append("<input type='hidden' name='" + 
+                                 $(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
+                           else
+                              $("#ContentSelector").append("<input type='hidden' name='" + 
+                                 $(this).attr('id')+"' value='" + $(this).val() + "' />");
+                        });
+               
+                        var unitsNames = "";
+                        var unitNameSchema = "UnitId%UnitName|";
+                        for (var unitId in SelectedEscenesUnitsNames) {
+                           unitsNames += unitNameSchema.replace(/UnitId/g, unitId)
+                                             .replace(/UnitName/g, SelectedEscenesUnitsNames[unitId].UnitName);
+                        }
+                        $("#UnitsNames").val(unitsNames);
+                        $("#ContentSelector").submit();
+                     }
+                  },
+                  Cancel: function() { $(this).dialog("close"); }
+               }
+            });
+         
+            RestoreContainerDefaults ();
+            CleanSceneSelection ();
+            
+         });
+      </script>
 
-            #ContainerConfigurationDialog td { padding: 3px; }
-            #ContainerConfigurationDialog td.label { width: 180px; text-align: right; }
-            #ContainerConfigurationDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
+      <style>
+         .ui-menu { overflow: hidden;}
+         .ui-menu .ui-menu { overflow: visible !important; }
+         .ui-menu > li { float: left; display: block; width: auto !important; }
+         .ui-menu > li { margin: 3px 3px !important; padding: 0 0 !important; }
+         .ui-menu > li > a { float: left; display: block; clear: both; overflow: hidden;}
+         .ui-menu .ui-menu-icon { margin-top: 0 !important;}
+         .ui-menu .ui-menu .ui-menu li { float: left; display: block;}
+         
+         
+         .ui-dialog .ui-state-error { padding: .3em; }
+         .validateTips { border: 1px solid transparent; padding: 0.3em; }
+         
+         #ContainerConfigurationDialog span {
+            display:          block;
+            margin-bottom:    6px;
+            padding:          .4em;
+         }
+         
+         #ContainerConfigurationDialog td { padding: 3px; }
+         #ContainerConfigurationDialog td.label { width: 180px; text-align: right; }
+         #ContainerConfigurationDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
 
-            fieldset { padding: 0; border: 0; margin-top: 5px; }
-
-        </style>
+         #MetadataDialog span { display: block; margin-bottom: 6px; padding: .4em; }
+         
+         #MetadataDialog td { padding: 3px; }
+         #MetadataDialog td.label { width: 180px; text-align: right; }
+         #MetadataDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
+         
+      </style>
 
 	</head>
 	<body>
 	<div id="ContainerConfigurationDialog" title="Configuraci贸n del contenedor">
 	    <form id="ContainerConfigurationForm">
-            <table > 
+            <table >
                     <tr>
-                        <td class="label">Mostrar bot髇 de cerrar</td>
+                        <td class="label">Mostrar bot贸n de cerrar</td>
                         <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Mostrar posici髇 de la unidad</td>
+                        <td class="label">Mostrar posici贸n de la unidad</td>
                         <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Mostrar flechas de navegaci髇</td>
+                        <td class="label">Mostrar flechas de navegaci贸n</td>
                         <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
                     </tr>
                     <tr>
@@ -144,7 +205,7 @@
                         <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
                     </tr>
                     <tr>
-                        <td class="label">Tama駉 fijo de botones</td>
+                        <td class="label">Tama帽o fijo de botones</td>
                         <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
@@ -156,15 +217,15 @@
                         <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
-                        <td class="label">T韙ulo para la p醙ina</td>
+                        <td class="label">T铆tulo para la p谩gina</td>
                         <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
                     <tr>
-                        <td class="label">T韙ulo para la nueva unidad</td>
+                        <td class="label">T铆tulo para la nueva unidad</td>
                         <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
                     </tr>
-                    <tr> 
-                        <td style="text-align: center;" colspan="2">T韙ulos para unidades</td>
+                    <tr>
+                        <td style="text-align: center;" colspan="2">T铆tulos para unidades</td>
                     </tr>
                     <tr>
                         <td colspan="2"><div id="UnitsTitles"></div></td>
@@ -172,20 +233,21 @@
             </table>
         </form>
     </div>
+    <div id="MetadataDialog"></div>
     <div class="MainMenu">
             <ul id="menu">
-                <li><a href="#">Selecci髇 de escenas</a>
+                <li><a href="#">Selecci贸n de escenas</a>
                     <ul>
                         <li><a href="javascript:ShowSceneSelection();">Mostrar...</a></li>
-                        <li><a href="javascript:CleanSceneSelection();">Limpiar selecci髇...</a></li>
-                        <li><a href="javascript:ExportSceneSelection();">Exportar selecci髇...</a></li>
+                        <li><a href="javascript:CleanSceneSelection();">Limpiar selecci贸n...</a></li>
+                        <li><a href="javascript:ExportSceneSelection();">Exportar selecci贸n...</a></li>
                     </ul>
                 </li>
-                <li class="ui-state-disabled"><a href="#">Selecci髇 de unidades</a>
+                <li class="ui-state-disabled"><a href="#">Selecci贸n de unidades</a>
                     <ul>
                         <li><a href="#">Mostrar...</a></li>
-                        <li><a href="#">Limpiar selecci髇...</a></li>
-                        <li><a href="#">Exportar selecci髇...</a></li>
+                        <li><a href="#">Limpiar selecci贸n...</a></li>
+                        <li><a href="#">Exportar selecci贸n...</a></li>
                     </ul>
                 </li>
             </ul>
@@ -201,7 +263,7 @@
         <?php
 
 	        $util = new FileSystemSet($GLOBALS["repository"]);
-	        $util->PrintLOInfo();
+	        $util->PrintInfo();
 
         ?>
         </form>

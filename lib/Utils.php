@@ -1,5 +1,7 @@
 <?php
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/lite_e/lib/pclzip.lib.php");
+
 class Utils {
 
 	public static function GetFileUrl ($baseDir, $httpDir, $fullPath) {
@@ -8,7 +10,7 @@ class Utils {
 
 	public static function GetHTMLTitle ($htmlFile) {
 		try {
-			$html = file_get_contents ($htmlFile);
+			$html = utf8_encode(file_get_contents ($htmlFile));
 			return preg_match('!<title>(.*?)</title>!i', $html, $matches) ?
 				$matches[1] : NULL;
 		} catch (Exception $e) {
@@ -16,54 +18,34 @@ class Utils {
 		}
 	}
 
-	public static function IsDescartes ($htmlFile) {
-        $html = file_get_contents ($htmlFile);
-				return preg_match("/(ajs|descartes-min\.js)/i", $html, $matches);
-	}
+   public static function IsDescartes ($htmlFile) {
+      $html = utf8_encode(file_get_contents ($htmlFile));
+      return preg_match("/(ajs|descartes-min\.js)/i", $html, $matches);
+   }
 
-    public static function copyr($source, $dest)
-    {
-        // recursive function to copy
-        // all subdirectories and contents:
-        if(is_dir($source)) {
-            $dir_handle=opendir($source);
-            $sourcefolder = basename($source);
-            mkdir($dest."/".$sourcefolder);
-            while($file=readdir($dir_handle)){
-                if($file!="." && $file!=".."){
-                    if(is_dir($source."/".$file)){
-                        self::copyr($source."/".$file, $dest."/".$sourcefolder);
-                    } else {
-                        copy($source."/".$file, $dest."/".$file);
-                    }
-                }
-            }
-            closedir($dir_handle);
-        } else {
-            // can also handle simple copy commands
-            copy($source, $dest);
-        }
-    }
-
-    public static function CompressFolder ($folderPath, $fileName) {
-		$zip = new ZipArchive();
-
-        if ($zip->open($fileName, ZIPARCHIVE::CREATE)!==TRUE) {
-            exit("cannot open <$filename>\n");
-        }
-
-        $all= new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folderPath));
-
-        foreach ($all as $f=>$value) {
-            $zip->addFile(realpath($f), $f) or die ("ERROR: Unable to add file: $f");
-        }
-
-        $zip->close();
-
-    }
-
-	public static function FileExists () {}
-
-	public static function CreateDir () {}
+   public static function CompressFolder ($folderPath, $fileName) {
+     
+      if (file_exists($fileName))
+         unlink($fileName);
+      
+      $archive = new PclZip($fileName);
+      $archive->add(realpath($folderPath), PCLZIP_OPT_REMOVE_PATH, realpath($folderPath))
+                  or DIE ("ERROR: Unable to create file: $fileName");
+   }
+   
+   public static function RemoveDirAndContents ($folderPath) {
+      $files = array_diff(scandir($folderPath), array('.','..')); 
+      
+      foreach ($files as $file) { 
+         (is_dir("$folderPath/$file")) ? self::RemoveDirAndContents ("$folderPath/$file")
+            : unlink("$folderPath/$file"); 
+      }
+      
+      return rmdir($folderPath); 
+   }
+   
+   public static function FileExists () {}
+   
+   public static function CreateDir () {}
 
 }

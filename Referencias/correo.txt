@@ -1,0 +1,18 @@
+Hola Deya. Te mando el XML con la información del repositorio. Otra cosa que se me olvido comentarte, es si ¿pueden hacer tres capturas de pantalla de los interactivos?
+
+Y en los tags  <Vistas-previas>
+
+puedes listar su dirección, separadas por comas. Por ejemplo :
+<Vistas-previas>
+    images/4o_U2_S05_2_escena1.jpg, 
+    images/4o_U2_S05_2_escena2.jpg, 
+    images/4o_U2_S05_2_escena3.jpg
+</Vistas-previas>
+
+y las imágenes pueden ser de un mínimo de 477px × 342px
+
+
+-- 
+Oscar Escamilla González 
+044 55 34488421
+------------------------------------------

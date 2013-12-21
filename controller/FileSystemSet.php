@@ -2,6 +2,7 @@
 
 require_once ($GLOBALS["libdir"] . "/Utils.php");
 require_once ($GLOBALS["controller"] . "/FileSystemEntry.php");
+require_once ($GLOBALS["controller"] . "/MetaData.php");
 
 class FileSystemSet {
 
@@ -16,17 +17,38 @@ class FileSystemSet {
 	protected $hasBrowsables;
 
 	protected $indexEntry;
+   protected $pngsEntries;
 	protected $browsableEntries;
 	protected $fileSystemEntries;
+   
+   protected $metaData;
 
 	/* Propiedades */
 	// Documento inicial del FileSystemSet
 	function GetIndexEntry () {
 		return $this->hasIndex ? $this->indexEntry : NULL;
 	}
+   
+   function IndexEntryTitle () {
+      $parentPathName = str_replace($GLOBALS["repository"] . "/", "",
+                           $this->indexEntry->EntryParentPath());
+                           
+      $entryTitle = Utils::GetHTMLTitle ($this->indexEntry->EntryPath());
+      return $entryTitle == NULL ? $parentPathName : $entryTitle;
+   }
 
+	// PNGs dentro del FileSystemSet
+	function PngsEntries () {
+		return $this->pngsEntries;
+	}
+
+	// PNGs dentro del FileSystemSet
+	function Metadata () {
+		return $this->metaData;
+	}
+   
 	// Documentos "navegables" del FileSystemSet
-	function GetBrowsableEntries () {
+	function BrowsableEntries () {
 		return $this->browsableEntries;
 	}
 
@@ -70,7 +92,8 @@ class FileSystemSet {
 		$this->entrySetBaseEntry = new FileSystemEntry($this->entrySetBaseDirectory,
 			$this->entrySetBaseDirectory);
 		$this->SearchEntries($this->entrySetBaseDirectory);
-
+         
+      $this->metaData = new MetaData ($baseDirectory . "/manifest.xml");
 
 	}
 
@@ -88,20 +111,20 @@ class FileSystemSet {
 		foreach ($dirContentArray as $entry) {
 
 			$fileSystemEntry = new FileSystemEntry ($baseDirectory . "/" . $entry, $baseDirectory);
-			$this->fileSystemEntries[$fileSystemEntry->GetEntryId()] = $fileSystemEntry;
+			$this->fileSystemEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
 
-			$currentFileSystemEntries[$fileSystemEntry->GetEntryId()] = $fileSystemEntry;
+			$currentFileSystemEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
 
 			if($baseDirectory == $this->entrySetBaseDirectory) {
-				if ($fileSystemEntry->GetEntryType() === FileSystemEntry::$FST_INDEX
+				if ($fileSystemEntry->EntryType() === FileSystemEntry::$FST_INDEX
 					&& !$this->hasIndex)
 					$this->hasIndex = true;
 
-				if ($fileSystemEntry->GetEntryType() === FileSystemEntry::$FST_BROWSABLE
+				if ($fileSystemEntry->EntryType() === FileSystemEntry::$FST_BROWSABLE
 					&& !$this->hasBrowsables)
 					$this->hasBrowsables = true;
 			} else {
-				if ($fileSystemEntry->GetEntryType() === FileSystemEntry::$FST_BROWSABLE
+				if ($fileSystemEntry->EntryType() === FileSystemEntry::$FST_BROWSABLE
 					&& !$this->hasBrowsables)
 					$this->hasBrowsables = true;
 			}
@@ -114,141 +137,139 @@ class FileSystemSet {
 	}
 
 	private function AssignEntry ($fileSystemEntry) {
-		switch ($fileSystemEntry->GetEntryType()) {
+		switch ($fileSystemEntry->EntryType()) {
 
 			case (FileSystemEntry::$FST_DIRECTORY):
 
 				if($this->hasIndex) {
-					$this->SearchEntries($fileSystemEntry->GetEntryPath());
+					$this->SearchEntries($fileSystemEntry->EntryPath());
 				} else {
-					$fileSystemSet = new FileSystemSet ($fileSystemEntry->GetEntryPath());
+					$fileSystemSet = new FileSystemSet ($fileSystemEntry->EntryPath());
 					$this->fileSystemChildSets[$fileSystemSet->GetSetId()] = $fileSystemSet;
-					// printf ("FileSystemChildSets: %s<br/>", count ($this->fileSystemChildSets));
 				}
-				// unset($this->fileSystemEntries[$fileSystemEntry->GetEntryId()]);
 				break;
 
 			case (FileSystemEntry::$FST_BROWSABLE):
-				$this->browsableEntries[$fileSystemEntry->GetEntryId()] = $fileSystemEntry;
-				// unset($this->fileSystemEntries[$fileSystemEntry->GetEntryId()]);
+				$this->browsableEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
 				break;
 
 			case (FileSystemEntry::$FST_INDEX):
 				if ($this->indexEntry == NULL &&
-					$fileSystemEntry->GetEntryParentPath() == $this->entrySetBaseDirectory)
+					$fileSystemEntry->EntryParentPath() == $this->entrySetBaseDirectory)
 					$this->indexEntry = $fileSystemEntry;
 				else
-					$this->browsableEntries[$fileSystemEntry->GetEntryId()] = $fileSystemEntry;
-				// unset($this->fileSystemEntries[$fileSystemEntry->GetEntryId()]);
+					$this->browsableEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
 				break;
 
+         case (FileSystemEntry::$FST_PNGS):
+               $this->pngsEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
+            break;
 			case (FileSystemEntry::$FST_MISC):
 				break;
 
 		}
 	}
 
+   function PrintInfo () {
+      if ($this->hasIndex) {
+         $this->PrintLOInfo();
+      } else {
+         foreach ($this->fileSystemChildSets as $fileSystemSet)
+         $fileSystemSet->PrintInfo ();
+      }
+   }
+
+   function PrintLOInfo () {
+       
+      printf("<div class='LearningObject'> " .
+               "<div class='LearningObjectTitle' onClick='ToggleContentView(\"%s\")' id='LOT_%s'>\n\r ".
+               "<div class='LearningObjectDisplayContents' > " .
+               " <img src='style/general/icons/accept_item.png'/></div>%s</div>\n\r",
+               "loContents_" . $this->fileSystemSetID,
+               $this->fileSystemSetID,
+               $this->IndexEntryTitle());
+      
+      printf("<div class='LearningObjectContent' id='%s'>\n\r",
+               "loContents_" . $this->fileSystemSetID);
+      
+      $descartesScene = "";
+      $descartesClass = "HiddenClass";
+      $disabled = "disabled";
+      
+      if ($this->indexEntry->IsDescartes()) {
+         $descartesScene = " - [Escena]";
+         $descartesClass = "DescartesClass";
+         $disabled = "";
+      }
+      
+      printf("\t<div class='BrowsableEntry'> " .
+               "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
+               "name='ScenesCheckboxGroup[]' value='%s' %s /> " .
+               "<span class='%s'></span> " .
+               "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r ",
+               $this->entrySetBaseDirectory . "|" . $this->indexEntry->EntryId () . "|" . $this->fileSystemSetID,
+               $disabled, $descartesClass,
+               $this->indexEntry->EntryUrl(),
+               "Ver recurso" . $descartesScene);
+      
+      foreach ($this->browsableEntries as $browsableEntry) {
+         $browsableEntryTitle =  Utils::GetHTMLTitle ($browsableEntry->EntryPath());
+         
+         $descartesScene = "";
+         $descartesClass = "HiddenClass";
+         $disabled = "disabled";
+         
+         if ($browsableEntry->IsDescartes()) {
+            $descartesScene = " - [Escena]";
+            $descartesClass = "DescartesClass";
+            $disabled = "";
+         }
+      
+         printf("\t<div class='BrowsableEntry'> " .
+                  "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
+                  "name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span> " .
+                  "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r ",
+                  $this->entrySetBaseDirectory . "|" . $browsableEntry->EntryId () . "|" . $this->fileSystemSetID,
+                  $disabled, $descartesClass,
+                  $browsableEntry->EntryUrl (),
+                  ($browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle) . $descartesScene);
+      }
+      printf("</div></div>\r\n");
+   }
+
+   function Duplicate ($targetDir, $removeBaseDir) {
+   
+      $targetPath = $targetDir;
+      
+      if (!$removeBaseDir) {
+         $pieces = explode("/", $this->entrySetBaseDirectory);
+         $targetFolder = array_pop($pieces);
+         $targetPath = $targetDir . "/" . $targetFolder;
+      }
+      
+      $this->entrySetBaseEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+      
+      foreach ($this->fileSystemEntries as $fileSystemEntry) {
+         if($fileSystemEntry->EntryType() == FileSystemEntry::$FST_DIRECTORY)
+         $fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+      }
+      
+      foreach ($this->fileSystemEntries as $fileSystemEntry) {
+         if($fileSystemEntry->EntryType() != FileSystemEntry::$FST_DIRECTORY)
+         $fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
+      }
+      
+      return $targetPath;
+   }
+   
+   
+/*
 	protected function GetIndexEntryTitle () {
 		if($this->hasIndex) {
 
 		}
 		else { return NULL; }
 	}
-
-	function PrintLOInfo () {
-		if ($this->hasIndex) {
-			$this->PrintInfo();
-		} else {
-			foreach ($this->fileSystemChildSets as $fileSystemSet)
-				$fileSystemSet->PrintLOInfo ();
-		}
-	}
-
-	function PrintInfo () {
-
-		$parentPathName = str_replace($GLOBALS["repository"] . "/", "",
-			$this->indexEntry->GetEntryParentPath());
-
-		$entryTitle = Utils::GetHTMLTitle ($this->indexEntry->GetEntryPath());
-
-		printf("<div class='LearningObject'>
-			<div class='LearningObjectTitle' onClick='ToggleContentView(\"%s\")' id='LOT_%s'>\n\r
-				<div class='LearningObjectDisplayContents' >
-					<img src='style/general/icons/accept_item.png'/></div>%s</div>\n\r",
-				"loContents_" . $this->fileSystemSetID,
-         $this->fileSystemSetID,
-				$entryTitle == NULL ? $parentPathName : $entryTitle);
-
-		printf("<div class='LearningObjectContent' id='%s'>\n\r",
-			"loContents_" . $this->fileSystemSetID);
-
-		$descartesScene = "";
-		$descartesClass = "HiddenClass";
-		$disabled = "disabled";
-		
-		if ($this->indexEntry->IsDescartes()) {
-			 $descartesScene = " - [Escena]";
-		   $descartesClass = "DescartesClass";
-		   $disabled = "";
-		}
-		
-		printf("\t<div class='BrowsableEntry'>
-				<input type='checkbox' id='ScenesCheckboxGroup[]'
-						name='ScenesCheckboxGroup[]' value='%s' %s />
-				<span class='%s'></span>
-				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
-				$this->entrySetBaseDirectory . "|" . $this->indexEntry->GetEntryId () . "|" . $this->fileSystemSetID,
-				$disabled, $descartesClass,
-				$this->indexEntry->GetEntryUrl(),
-				"Ver recurso" . $descartesScene);
-
-		foreach ($this->browsableEntries as $browsableEntry) {
-			$browsableEntryTitle =  Utils::GetHTMLTitle ($browsableEntry->GetEntryPath());
-
-			$descartesScene = "";
-		  $descartesClass = "HiddenClass";
-			$disabled = "disabled";
-			
-			if ($browsableEntry->IsDescartes()) {
-			   $descartesScene = " - [Escena]";
-			   $descartesClass = "DescartesClass";
-				 $disabled = "";
-		  }
-			
-			printf("\t<div class='BrowsableEntry'>
-				<input type='checkbox' id='ScenesCheckboxGroup[]'
-					name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span>
-				\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r",
-				$this->entrySetBaseDirectory . "|" . $browsableEntry->GetEntryId () . "|" . $this->fileSystemSetID,
-				$disabled, $descartesClass,
-				$browsableEntry->GetEntryUrl (),
-				($browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle) . $descartesScene);
-		}
-		printf("</div></div>\r\n");
-	}
-
-	function Duplicate ($targetDir, $removeBaseDir) {
-
-		$targetPath = $targetDir;
-
-		if (!$removeBaseDir) {
-			$pieces = explode("/", $this->entrySetBaseDirectory);
-			$targetFolder = array_pop($pieces);
-			$targetPath = $targetDir . "/" . $targetFolder;
-		}
-
-		$this->entrySetBaseEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
-
-		foreach ($this->fileSystemEntries as $fileSystemEntry) {
-			if($fileSystemEntry->GetEntryType() == FileSystemEntry::$FST_DIRECTORY)
-				$fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
-		}
-
-		foreach ($this->fileSystemEntries as $fileSystemEntry) {
-			if($fileSystemEntry->GetEntryType() != FileSystemEntry::$FST_DIRECTORY)
-				$fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
-		}
-
-		return $targetPath;
-	}
+   
+*/
 }
