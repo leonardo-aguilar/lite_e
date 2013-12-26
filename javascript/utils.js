@@ -50,6 +50,11 @@ function SetLOTitleSelected (unitId, selected) {
    $backgroundValue = selected ? "rgba(180,180,180,.25)" : "";
    $("#LOT_" + unitId).css ("background-color", $backgroundValue);
    
+   if (selected) {
+			$("#LOT_" + unitId).parents("div[class^=Project]")
+				.children("span[class=ProjectTitle]")
+					.css ("background-color", $backgroundValue);
+	}
 }
 
 function CreateUnitsNameSetter () {
@@ -188,7 +193,6 @@ function AddThumbnail () {
 }
 
 function DeleteElement (elementType, elementId) {
-   alert (elementId);
    var elementTypeString = "";
    var elementsDeleteButtonString = "";
    
@@ -204,6 +208,8 @@ function DeleteElement (elementType, elementId) {
    }
    $(elementTypeString + elementId).remove();
    $(elementsDeleteButtonString + elementId).remove();
+   $("#MetadataChanged").val("true");
+   
 }
 
 function RefreshMetadataChangeManager () {
@@ -216,3 +222,29 @@ function RefreshMetadataChangeManager () {
    });
 }
 
+function PrepareFormData () {
+   $("#MetadataForm").find("#Action").val("Save");
+   
+   var objects = $("input[id^=ObjectKeyword_]");
+   var objectString = "";
+   var indexes = objects.length;
+   
+   objects.each (function () {
+      indexes--;
+      objectString += $(this).val() + (indexes > 0 ? ", " : "");
+   });
+   
+   $("#ObjectKeywords").val(objectString.toLowerCase());
+   
+   objects = $("input[id^=ObjectThumbnail_]");
+   objectString = "";
+   indexes = objects.length;
+   
+   objects.each (function () {
+      indexes--;
+      objectString += $(this).val() + (indexes > 0 ? ", " : "");
+   });
+   
+   $("#ObjectThumbnails").val(objectString.toLowerCase());
+   
+}

@@ -2,11 +2,11 @@
 
 class FileSystemEntry {
    
-   public static 	$FST_MISC		   = 0x00;
-	public static 	$FST_DIRECTORY 	= 0x01;
-	public static 	$FST_BROWSABLE 	= 0x02;
-	public static 	$FST_INDEX 		   = 0x03;
-   public static 	$FST_PNGS		   = 0x04;
+	public static 	$FST_MISC		   	= 0x00;
+	public static 	$FST_DIRECTORY 		= 0x01;
+	public static 	$FST_BROWSABLE 		= 0x02;
+	public static 	$FST_INDEX 		   	= 0x03;
+	public static 	$FST_PNGS		   	= 0x04;
 	
 
 	protected $fileSystemEntryPath;

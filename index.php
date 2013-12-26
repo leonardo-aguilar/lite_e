@@ -30,12 +30,20 @@
             
             $(".LearningObjectTitle").mousedown(function(e){ 
                if( e.button == 2 ) {
-                  var $selectedLoPath = $($(this).parent().find("input")[0]).prop("value").split("|")[0];
-                  $("#MetadataDialog").data("SelectedLO", $selectedLoPath);
+                  var selectedLoPath = $($(this).parent().find("input")[0]).prop("value").split("|")[0];
+                  $("#MetadataDialog").data("SelectedLO", selectedLoPath);
                   $("#MetadataDialog").dialog("open"); 
                   return false; 
                } 
                return true; 
+            }); 
+			
+			$(".Project span.ProjectTitle").click (function () {
+				$(this).parent().children("div").toggle();
+			});
+			
+			$(".Project").each(function() { 
+               $(this).children("div[class=LearningObject], div[class=Project]").hide(); 
             }); 
          
             $( "#menu" ).menu({
@@ -64,19 +72,19 @@
                modal:      true,
                open:       function (event, ui) {
                   var selectedLoPath = $(this).data("SelectedLO");
-                  var request = "<?php printf ($GLOBALS["wwwroot"]) ?>/ajax/loMetadata.php?loPath=" + selectedLoPath;
+                  var request = "<?php printf ($GLOBALS["wwwroot"]) ?>/ajax/Ajax_MetadataInterface.php?loPath=" + selectedLoPath;
                   $(this).load(request);
                },
                buttons: {
-                  "Cancelar cambios":  function () {},
+                  "Cancelar cambios":  function () { $(this).dialog("close"); },
                   "Salvar cambios":    function () {
                      PrepareFormData ();
                      $("#MetadataForm").submit();
-                     $(this).dialog("close");
+					 $(this).dialog("close"); 
                   },
                   Cancel: function () {
                      if ($("#MetadataChanged").val() == "true") {
-                        if (confirm ("Has realizado cambios en los metadatos, deseas salvar los cambios antes de salir?")) {
+                        if (confirm ("Has realizado cambios en los metadatos ¿deseas salvar los cambios antes de salir?")) {
                            PrepareFormData ();
                            $("#MetadataForm").submit();
                         }
@@ -86,25 +94,7 @@
                },
             });
             
-            function PrepareFormData () {
-               $("#MetadataForm").find("#Action").val("Save");
-               
-               var objectKeywords = "";
-               $("input[id^=ObjectKeyword_]").each (function (key, value){
-                  alert(value);
-               });
-               /*
-               $("#ObjectKeywords").val(objectKeywords);
-               alert ($("#ObjectKeywords").val());
-               
-               var objectThumbnails = "";
-               $("input[id^=ObjectThumbnail_]").each(function (item) {
-                  objectThumbnails += $(item).val() + ",";
-               });
-               $("#ObjectThumbnails").val(objectThumbnails);
-               alert ($("#ObjectThumbnails").val());
-               */
-            }
+            
             
             $("#ContainerConfigurationDialog").dialog({
                autoOpen: false,

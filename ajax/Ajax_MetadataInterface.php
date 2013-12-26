@@ -1,6 +1,6 @@
-<?php
+Ôªø<?php
 
-   header('Content-Type: text/html; charset=ISO-8859-1');
+   header('Content-Type: text/html; charset=UTF-8');
 
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
@@ -8,16 +8,37 @@
    require_once ($_SERVER['DOCUMENT_ROOT'] . "/lite_e/config.php");
    require_once ($GLOBALS["controller"] . "/FileSystemSet.php");
    
+   $baseDirectory = isset($_GET["loPath"]) ? $_GET["loPath"] : NULL;
+   
+   $baseDirectory = $baseDirectory === NULL ? (isset($_POST["loPath"]) ?
+                        $_POST["loPath"] : NULL) : $baseDirectory;
+                     
+   $fileSystemSet = new FileSystemSet ($baseDirectory);
+   $loMetadata = $fileSystemSet->Metadata();
+   
    if (isset($_POST["Action"]) && $_POST["Action"] == "Save") {
-      printf("Salvando!");
-      var_dump($_POST);
+      
+      // $_POST["IsProject"]
+      
+      $loMetadata->Project ($_POST["ProjectName"]);
+      $loMetadata->Title ($_POST["ObjectTitle"]);
+      $loMetadata->Description ($_POST["ObjectDescription"]);
+      $loMetadata->Keywords ($_POST["ObjectKeywords"]);
+      $loMetadata->Thumbnails ($_POST["ObjectThumbnails"]);
+      $loMetadata->Credits ($_POST["ObjectCredits"]);
+      $loMetadata->Info ($_POST["ObjectInfo"]);
+      $loMetadata->SchoolLevel ($_POST["SchoolLevel"]);
+      $loMetadata->SchoolArea ($_POST["SchoolArea"]);
+      $loMetadata->SchoolTheme ($_POST["SchoolTheme"]);
+      $loMetadata->ObjectPlataform ($_POST["ObjectPlataform"]);
+      
+      $loMetadata->SaveChanges();
+      // var_dump($loMetadata);
+      
       return;
    }
    
-   $baseDirectory = isset($_GET["loPath"]) ? $_GET["loPath"] : "NULL";
    
-   $fileSystemSet = new FileSystemSet ($baseDirectory);
-   $loMetadata = $fileSystemSet->Metadata();
    
    // Funcion para formatear la salida del tÌtulo del recurso
    // En caso de no existir metadatos, pega el nombre que viene
@@ -75,19 +96,6 @@
    function FormatMetadataItem () {
    }
    
-   /*
-    <!--
-      <tr>
-         <td class="label">TÌtulo del recurso o nombre del proyecto</td>
-         <td style="width: 250px"><input type="text" name="ProjectTitle" id="ProjectTitle" class="ui-widget-content ui-corner-all" 
-               value="<?php printf(FormatMetadataTitle($loMetadata, $fileSystemSet)); ?>" /></td>
-      </tr>
-       <tr>
-         <td class="label">Id del proyecto</td>
-         <td><input type="text" name="ProjectId" id="ProjectId" class="ui-widget-content ui-corner-all" /></td>
-      </tr>
-      -->
-   */
 ?>
 
 <script language="javascript" type="text/javascript">
@@ -98,10 +106,11 @@
 
 <div class="MetadataFormTitle">Metadatos para <b><?php printf(FormatMetadataTitle($loMetadata, $fileSystemSet)); ?></b></div>
 
-<form id="MetadataForm" action="<?php printf($GLOBALS["wwwroot"] . "/ajax/loMetadata.php"); ?>" method="post" target="ContentFrame">
+<form id="MetadataForm" action="<?php printf($GLOBALS["wwwroot"] . "/ajax/Ajax_MetadataInterface.php"); ?>" method="post" target="ContentFrame">
    <input type="hidden" id="Action" name="Action" value="" />
    <input type="hidden" id="MetadataChanged" name="MetadataChanged" value="false" />
-   <input type="hidden" id="ObjectPlataform" name="ObjectPlataform" value="" />
+   <input type="hidden" id="loPath" name="loPath" value="<?php printf($fileSystemSet->GetBaseDirectory()); ?>" />
+   <input type="hidden" id="ObjectPlataform" name="ObjectPlataform" value="DESCARTES" />
    <input type="hidden" id="ObjectKeywords" name="ObjectKeywords" value="" />
    <input type="hidden" id="ObjectThumbnails" name="ObjectThumbnails" value="" />   
    
@@ -110,14 +119,18 @@
          <td class="label">Es proyecto</td>
          <td style="width: 350px"><input type="checkbox" name="IsProject" id="IsProject" class="ui-state-disabled" disabled /></td>
       </tr>
-     
       <tr>
-         <td class="label">TÌtulo del recurso o nombre del proyecto</td>
+         <td class="label">Nombre del proyecto</td>
+         <td><input type="text" name="ProjectName" id="ProjectName" class="ui-widget-content ui-corner-all"
+               value="<?php printf($loMetadata->Project()); ?>" /></td>
+      </tr>
+      <tr>
+         <td class="label">T√≠tulo del recurso o nombre del proyecto</td>
          <td><input type="text" name="ObjectTitle" id="ObjectTitle" class="ui-widget-content ui-corner-all"
                value="<?php printf(FormatMetadataTitle($loMetadata, $fileSystemSet)); ?>" /></td>
       </tr>
       <tr>
-         <td class="label">DescripciÛn del recurso</td>
+         <td class="label">Descripci√≥n del recurso</td>
          <td><textarea name="ObjectDescription" id="ObjectDescription" class="ui-widget-content ui-corner-all"
                style="height: 80px; width: 330px; word-break: break-word;"><?php printf($loMetadata->Description()); ?></textarea></td>
       </tr>
@@ -142,12 +155,12 @@
          </td>
       </tr>
       <tr>
-         <td class="label">P·gina de crÈditos</td>
+         <td class="label">P√°gina de cr√©ditos</td>
          <td><input type="text" name="ObjectCredits" id="ObjectCredits" class="ui-widget-content ui-corner-all"
                value="<?php printf($loMetadata->Credits()); ?>" /></td>
       </tr>
       <tr>
-         <td class="label">P·gina de informaciÛn</td>
+         <td class="label">P√°gina de informaci√≥n</td>
          <td><input type="text" name="ObjectInfo" id="ObjectInfo" class="ui-widget-content ui-corner-all"
                value="<?php printf($loMetadata->Info()); ?>" /></td>
       </tr>
@@ -157,7 +170,7 @@
                value="<?php printf($loMetadata->SchoolLevel()); ?>" /></td>
       </tr>
       <tr>
-         <td class="label">¡rea escolar</td>
+         <td class="label">√Årea escolar</td>
          <td><input type="text" name="SchoolArea" id="SchoolArea" class="ui-widget-content ui-corner-all"
                value="<?php printf($loMetadata->SchoolArea()); ?>" /></td>
       </tr>
@@ -166,9 +179,5 @@
          <td><input type="text" name="SchoolTheme" id="SchoolTheme" class="ui-widget-content ui-corner-all"
                value="<?php printf($loMetadata->SchoolTheme()); ?>" /></td>
       </tr>
-      <!-- <tr>
-         <td class="label">Plataforma</td>
-         <td><input type="text" name="" id="" class="ui-widget-content ui-corner-all" /></td>
-      </tr>  -->
    </table>
 </form>

@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
    header('Content-Type: text/html; charset=UTF-8');
 
@@ -99,14 +99,14 @@
       $zipFileName = $zipFileName . $key . "=" . implode ("|", $value);
       
    
-      // Número de escenas asociadas
+      // NÃºmero de escenas asociadas
       $length = count($value);
       // Se selecciona una unidad y se registran todos sus elementos (escenas)
       $fileSystemSet = $fileSystemSets[$key];
       $browsableEntries = $fileSystemSet->BrowsableEntries();
       
       // Se escribe el nombre de la nueva unidad y
-      // el inicio de la declaración de los archivos
+      // el inicio de la declaraciÃ³n de los archivos
       printf ("\n\r\t\tdeclareNewUnit( scene = { Name: '%s', Files: [ ", $unitsInfo[$key]);
       foreach ($value as $browsableEntryId) {
          $length -= 1;
@@ -118,8 +118,8 @@
                            $fileSystemSet->GetBrowsableEntry($browsableEntryId) :
                            $fileSystemSet->GetIndexEntry();
                            
-         // Se solicita la URL que corresponda según la acción deseada,
-         // mostrar o publicar la selección
+         // Se solicita la URL que corresponda segÃºn la acciÃ³n deseada,
+         // mostrar o publicar la selecciÃ³n
          $currentUrl = "";
          if ($SaveContainer) {
             $currentUrl = $currentEntry->EntryRelativeUrl($fileSystemSet->GetBaseDirectoryName());
@@ -130,7 +130,7 @@
          printf ("\n\r\t\t\t'%s'", $currentUrl);
          if ($length != 0) printf (", ");
       }
-      // Se cierra la declaración de la unidad
+      // Se cierra la declaraciÃ³n de la unidad
       printf ("]} );\r\n");
    }
 			
@@ -191,7 +191,7 @@
       $page = ob_get_contents();
       
       $fp = fopen($newUnitPath . "/index.html", "w");
-      fwrite($fp, utf8_encode($page));
+      fwrite($fp, $page);
       fclose($fp);
       
       Utils::CompressFolder($newUnitPath, $newUnitPath . ".zip");

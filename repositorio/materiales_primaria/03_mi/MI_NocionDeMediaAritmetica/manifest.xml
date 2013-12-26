@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas>1, 2</Vistas-previas>
+	<title>Noción de media aritmética</title>
+	<description>Descripción breve</description>
+	<nivel>escolar</nivel>
+	<tema>tema</tema>
+	<area>area</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>CICSA</proyecto>
+	<tags>media, aritmética</tags>
+	<URL>C:/xampp/htdocs/lite_e/repositorio/materiales_primaria/03_mi/MI_NocionDeMediaAritmetica/index.html</URL>
+	<credits>créditos</credits>
+	<info>información</info>
+</node>

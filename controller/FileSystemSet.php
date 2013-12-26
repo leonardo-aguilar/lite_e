@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 require_once ($GLOBALS["libdir"] . "/Utils.php");
 require_once ($GLOBALS["controller"] . "/FileSystemEntry.php");
@@ -41,7 +41,13 @@ class FileSystemSet {
 	function PngsEntries () {
 		return $this->pngsEntries;
 	}
-
+   
+   function Title () {
+      $loTitle = $this->metaData->Title() !== NULL ?
+                  $this->metaData->Title() : $this->IndexEntryTitle();
+      return $loTitle;
+   }
+   
 	// PNGs dentro del FileSystemSet
 	function Metadata () {
 		return $this->metaData;
@@ -174,21 +180,25 @@ class FileSystemSet {
       if ($this->hasIndex) {
          $this->PrintLOInfo();
       } else {
+		printf ("<div class=\"Project\"><span class=\"ProjectTitle\">%s</span><br />",
+					$this->entrySetBaseDirectory);
          foreach ($this->fileSystemChildSets as $fileSystemSet)
-         $fileSystemSet->PrintInfo ();
+			$fileSystemSet->PrintInfo ();
+		printf ("</div>");
       }
    }
 
    function PrintLOInfo () {
        
       printf("<div class='LearningObject'> " .
-               "<div class='LearningObjectTitle' onClick='ToggleContentView(\"%s\")' id='LOT_%s'>\n\r ".
-               "<div class='LearningObjectDisplayContents' > " .
-               " <img src='style/general/icons/accept_item.png'/></div>%s</div>\n\r",
+               "<div class='LearningObjectTitle'>\n\r " .
+               "<input type='checkbox' id='UnitsCheckboxGroup[]' name='UnitsCheckboxGroup[]' value='%s' />" .
+			   "<span onClick='ToggleContentView(\"%s\")' id='LOT_%s'>%s</span></div>\n\r",
+			   $this->entrySetBaseDirectory . "|" . $this->fileSystemSetID,
                "loContents_" . $this->fileSystemSetID,
                $this->fileSystemSetID,
-               $this->IndexEntryTitle());
-      
+               $this->Title());
+	  
       printf("<div class='LearningObjectContent' id='%s'>\n\r",
                "loContents_" . $this->fileSystemSetID);
       
@@ -210,19 +220,17 @@ class FileSystemSet {
                $this->entrySetBaseDirectory . "|" . $this->indexEntry->EntryId () . "|" . $this->fileSystemSetID,
                $disabled, $descartesClass,
                $this->indexEntry->EntryUrl(),
-               "Ver recurso" . $descartesScene);
+               "Ver recurso: " . $this->Title());
       
       foreach ($this->browsableEntries as $browsableEntry) {
          $browsableEntryTitle =  Utils::GetHTMLTitle ($browsableEntry->EntryPath());
          
          $descartesScene = "";
          $descartesClass = "HiddenClass";
-         $disabled = "disabled";
+         $disabled = "";
          
          if ($browsableEntry->IsDescartes()) {
-            $descartesScene = " - [Escena]";
             $descartesClass = "DescartesClass";
-            $disabled = "";
          }
       
          printf("\t<div class='BrowsableEntry'> " .
@@ -262,14 +270,4 @@ class FileSystemSet {
       return $targetPath;
    }
    
-   
-/*
-	protected function GetIndexEntryTitle () {
-		if($this->hasIndex) {
-
-		}
-		else { return NULL; }
-	}
-   
-*/
 }
