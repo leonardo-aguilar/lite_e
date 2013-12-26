@@ -20,7 +20,7 @@ class FileSystemSet {
    protected $pngsEntries;
 	protected $browsableEntries;
 	protected $fileSystemEntries;
-   
+
    protected $metaData;
 
 	/* Propiedades */
@@ -28,12 +28,17 @@ class FileSystemSet {
 	function GetIndexEntry () {
 		return $this->hasIndex ? $this->indexEntry : NULL;
 	}
-   
+
    function IndexEntryTitle () {
-      $parentPathName = str_replace($GLOBALS["repository"] . "/", "",
+   	$entryTitle = NULL;
+   	$parentPathName = $this->entrySetBaseDirectory;
+
+   	if ($this->hasIndex) {
+      	$parentPathName = str_replace($GLOBALS["repository"] . "/", "",
                            $this->indexEntry->EntryParentPath());
-                           
-      $entryTitle = Utils::GetHTMLTitle ($this->indexEntry->EntryPath());
+      	$entryTitle = Utils::GetHTMLTitle ($this->indexEntry->EntryPath());
+      }
+
       return $entryTitle == NULL ? $parentPathName : $entryTitle;
    }
 
@@ -41,18 +46,18 @@ class FileSystemSet {
 	function PngsEntries () {
 		return $this->pngsEntries;
 	}
-   
+
    function Title () {
       $loTitle = $this->metaData->Title() !== NULL ?
                   $this->metaData->Title() : $this->IndexEntryTitle();
       return $loTitle;
    }
-   
+
 	// PNGs dentro del FileSystemSet
 	function Metadata () {
 		return $this->metaData;
 	}
-   
+
 	// Documentos "navegables" del FileSystemSet
 	function BrowsableEntries () {
 		return $this->browsableEntries;
@@ -72,7 +77,7 @@ class FileSystemSet {
 		return array_pop($pieces);
 	}
 
-	// Tiene documentos de inicio?
+	// Tiene documento de inicio?
 	function HasIndex () {
 		return $this->hasIndex;
 	}
@@ -85,20 +90,19 @@ class FileSystemSet {
 	/* Constructor */
 	function FileSystemSet ($baseDirectory) {
 
-		// printf ("Nuevo FSS en: %s<br/>", $baseDirectory);
-
 		$this->fileSystemChildSets = Array();
 		$this->browsableEntries = Array();
 		$this->fileSystemEntries = Array();
 
 		$this->indexEntry = NULL;
+		$this->hasIndex = false;
 
 		$this->entrySetBaseDirectory = $baseDirectory;
 		$this->SetFileSystemSetId();
 		$this->entrySetBaseEntry = new FileSystemEntry($this->entrySetBaseDirectory,
 			$this->entrySetBaseDirectory);
 		$this->SearchEntries($this->entrySetBaseDirectory);
-         
+
       $this->metaData = new MetaData ($baseDirectory . "/manifest.xml");
 
 	}
@@ -180,38 +184,41 @@ class FileSystemSet {
       if ($this->hasIndex) {
          $this->PrintLOInfo();
       } else {
-		printf ("<div class=\"Project\"><span class=\"ProjectTitle\">%s</span><br />",
-					$this->entrySetBaseDirectory);
+			printf ("<div class=\"Project\"> " .
+					"<input type='checkbox' id='ProjectCheckboxGroup[]' name='ProjectCheckboxGroup[]' " .
+					"value='%s' /><span class=\"ProjectTitle\">&nbsp;<span class='ProjectIcon'></span>&nbsp;%s</span><br />",
+					$this->entrySetBaseDirectory . "|" . $this->fileSystemSetID,
+					$this->Title());
          foreach ($this->fileSystemChildSets as $fileSystemSet)
-			$fileSystemSet->PrintInfo ();
-		printf ("</div>");
+				$fileSystemSet->PrintInfo ();
+			printf ("</div>");
       }
    }
 
    function PrintLOInfo () {
-       
+
       printf("<div class='LearningObject'> " .
                "<div class='LearningObjectTitle'>\n\r " .
                "<input type='checkbox' id='UnitsCheckboxGroup[]' name='UnitsCheckboxGroup[]' value='%s' />" .
 			   "<span onClick='ToggleContentView(\"%s\")' id='LOT_%s'>%s</span></div>\n\r",
-			   $this->entrySetBaseDirectory . "|" . $this->fileSystemSetID,
+			   	$this->entrySetBaseDirectory . "|" . $this->fileSystemSetID,
                "loContents_" . $this->fileSystemSetID,
                $this->fileSystemSetID,
                $this->Title());
-	  
+
       printf("<div class='LearningObjectContent' id='%s'>\n\r",
                "loContents_" . $this->fileSystemSetID);
-      
+
       $descartesScene = "";
       $descartesClass = "HiddenClass";
       $disabled = "disabled";
-      
+
       if ($this->indexEntry->IsDescartes()) {
          $descartesScene = " - [Escena]";
          $descartesClass = "DescartesClass";
          $disabled = "";
       }
-      
+
       printf("\t<div class='BrowsableEntry'> " .
                "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
                "name='ScenesCheckboxGroup[]' value='%s' %s /> " .
@@ -221,18 +228,18 @@ class FileSystemSet {
                $disabled, $descartesClass,
                $this->indexEntry->EntryUrl(),
                "Ver recurso: " . $this->Title());
-      
+
       foreach ($this->browsableEntries as $browsableEntry) {
          $browsableEntryTitle =  Utils::GetHTMLTitle ($browsableEntry->EntryPath());
-         
+
          $descartesScene = "";
          $descartesClass = "HiddenClass";
          $disabled = "";
-         
+
          if ($browsableEntry->IsDescartes()) {
             $descartesClass = "DescartesClass";
          }
-      
+
          printf("\t<div class='BrowsableEntry'> " .
                   "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
                   "name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span> " .
@@ -246,28 +253,28 @@ class FileSystemSet {
    }
 
    function Duplicate ($targetDir, $removeBaseDir) {
-   
+
       $targetPath = $targetDir;
-      
+
       if (!$removeBaseDir) {
          $pieces = explode("/", $this->entrySetBaseDirectory);
          $targetFolder = array_pop($pieces);
          $targetPath = $targetDir . "/" . $targetFolder;
       }
-      
+
       $this->entrySetBaseEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
-      
+
       foreach ($this->fileSystemEntries as $fileSystemEntry) {
          if($fileSystemEntry->EntryType() == FileSystemEntry::$FST_DIRECTORY)
          $fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
       }
-      
+
       foreach ($this->fileSystemEntries as $fileSystemEntry) {
          if($fileSystemEntry->EntryType() != FileSystemEntry::$FST_DIRECTORY)
          $fileSystemEntry->Duplicate($this->entrySetBaseDirectory, $targetPath);
       }
-      
+
       return $targetPath;
    }
-   
+
 }

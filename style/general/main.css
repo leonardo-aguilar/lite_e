@@ -46,6 +46,14 @@ span.DescartesClass {
     background: 				transparent url('icons/descartes.png') no-repeat;
 }
 
+span.ProjectIcon {
+    display: 					inline-block;
+    width: 						14px;
+    height:						14px;
+    background: 				transparent url('icons/folder.png') no-repeat;
+    background-size:       14px 14px
+}
+
 div.MainMenu div.MenuItem {
     width:						150px;
     height:						75%;
@@ -67,17 +75,18 @@ div.MainMenu .MenuItem:hover {
 
 div.LearningObject {
     margin:				    	5px 2px 10px 1px;
-    padding-rigth:         4px;                
+    padding-rigth:         4px;
     min-height:        		22px;
-		
+
 	 display:					inline;
 }
 
 div.LearningObjectTitle {
     font-size:				   9pt;
     cursor:                pointer;
-    
+
     border-radius:         3px;
+    margin-left:		      3px;
 }
 
 div.LearningObjectContent {
@@ -85,7 +94,7 @@ div.LearningObjectContent {
 }
 
 div.LearningObjectContent  div {
-    margin-left:		   3px;
+    margin-left:		      6px;
 }
 
 div.BrowsableEntry {
@@ -125,6 +134,7 @@ img.WaitImage {
 img.WidgetControl {
    display:                inline-block;
    height:                 10px;
+   cursor:                 pointer;
 }
 
 div.MetadataFormTitle {
@@ -137,8 +147,9 @@ div.MetadataTable td {
 }
 
 div.Project {
-    border-radius:         3px;
-    margin:                2px 0px;
-	padding-left:		   5px;
-	border:				   1px solid rgba(0,0,0,0.2);
+   border-radius:          3px;
+   margin:                 2px 0px;
+	padding-left:           4px;
+	border:                 1px solid rgba(0,0,0,0.2);
+	cursor:                 pointer;
 }

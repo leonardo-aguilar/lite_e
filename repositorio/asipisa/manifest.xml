@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas></Vistas-previas>
+	<title>ASIPISA</title>
+	<description>Proyecto para PISA</description>
+	<nivel>Primaria</nivel>
+	<tema>TEMAS</tema>
+	<area>Matemáticas</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>ASIPISA</proyecto>
+	<tags></tags>
+	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/asipisa/index.html</URL>
+	<credits>créditos</credits>
+	<info>información</info>
+</node>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas></Vistas-previas>
+	<title>Repositorio base</title>
+	<description>Repositorio base para los objetos de DESCARTES.</description>
+	<nivel>TODOS</nivel>
+	<tema>TODOS</tema>
+	<area>TODOS</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>Repositorio base</proyecto>
+	<tags></tags>
+	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/index.html</URL>
+	<credits>créditos</credits>
+	<info>información</info>
+</node>

@@ -14,57 +14,57 @@
    <head>
       <title>Titulo</title>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      
+
       <link rel="stylesheet" type="text/css" href="style/ui-lightness/jquery-ui-1.10.3.custom.css" >
       <link rel="stylesheet" type="text/css" href="style/general/main.css">
-      
+
       <script language="javascript" src="javascript/jquery-1.9.1.js"></script>
       <script language="javascript" src="javascript/jquery-ui-1.10.3.custom.js"></script>
       <script language="javascript" src="javascript/utils.js"></script>
 
       <script language="javascript" type="text/javascript">
-         
+
          $(function() {
-         
+
             document.oncontextmenu = function() {return false;};
-            
-            $(".LearningObjectTitle").mousedown(function(e){ 
+
+            $(".LearningObjectTitle, .ProjectTitle").mousedown(function(e){
                if( e.button == 2 ) {
                   var selectedLoPath = $($(this).parent().find("input")[0]).prop("value").split("|")[0];
                   $("#MetadataDialog").data("SelectedLO", selectedLoPath);
-                  $("#MetadataDialog").dialog("open"); 
-                  return false; 
-               } 
-               return true; 
-            }); 
-			
+                  $("#MetadataDialog").dialog("open");
+                  return false;
+               }
+               return true;
+            });
+
 			$(".Project span.ProjectTitle").click (function () {
 				$(this).parent().children("div").toggle();
 			});
-			
-			$(".Project").each(function() { 
-               $(this).children("div[class=LearningObject], div[class=Project]").hide(); 
-            }); 
-         
+
+			$(".Project").each(function() {
+               $(this).children("div[class=LearningObject], div[class=Project]").hide();
+            });
+
             $( "#menu" ).menu({
                position: {at: "left bottom"}
             });
-            
+
             $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
-               
+
                instruction = "remove"
-               
+
                if(this.checked) {
                   ++SelectedScenes;
                   instruction = "add";
                }
                else --SelectedScenes;
-               
+
                TakeUnitsNames (instruction, $(this).prop("value"));
                $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
-               
+
             });
-               
+
             $("#MetadataDialog").dialog ({
                autoOpen:   false,
                height:     450,
@@ -80,7 +80,7 @@
                   "Salvar cambios":    function () {
                      PrepareFormData ();
                      $("#MetadataForm").submit();
-					 $(this).dialog("close"); 
+					 $(this).dialog("close");
                   },
                   Cancel: function () {
                      if ($("#MetadataChanged").val() == "true") {
@@ -93,9 +93,9 @@
                   }
                },
             });
-            
-            
-            
+
+
+
             $("#ContainerConfigurationDialog").dialog({
                autoOpen: false,
                height: 450,
@@ -105,19 +105,19 @@
                   "Restablecer valores": function() { RestoreContainerDefaults (); },
                   "Compilar escenas": function() {
                      var bValid = true;
-                     
+
                      if ( bValid ) {
                         $(this).dialog( "close" );
-                     
+
                         $("#ContainerConfigurationForm input").each(function() {
                            if ($(this).attr("type") == "checkbox")
-                              $("#ContentSelector").append("<input type='hidden' name='" + 
+                              $("#ContentSelector").append("<input type='hidden' name='" +
                                  $(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
                            else
-                              $("#ContentSelector").append("<input type='hidden' name='" + 
+                              $("#ContentSelector").append("<input type='hidden' name='" +
                                  $(this).attr('id')+"' value='" + $(this).val() + "' />");
                         });
-               
+
                         var unitsNames = "";
                         var unitNameSchema = "UnitId%UnitName|";
                         for (var unitId in SelectedEscenesUnitsNames) {
@@ -131,10 +131,10 @@
                   Cancel: function() { $(this).dialog("close"); }
                }
             });
-         
+
             RestoreContainerDefaults ();
             CleanSceneSelection ();
-            
+
          });
       </script>
 
@@ -146,27 +146,27 @@
          .ui-menu > li > a { float: left; display: block; clear: both; overflow: hidden;}
          .ui-menu .ui-menu-icon { margin-top: 0 !important;}
          .ui-menu .ui-menu .ui-menu li { float: left; display: block;}
-         
-         
+
+
          .ui-dialog .ui-state-error { padding: .3em; }
          .validateTips { border: 1px solid transparent; padding: 0.3em; }
-         
+
          #ContainerConfigurationDialog span {
             display:          block;
             margin-bottom:    6px;
             padding:          .4em;
          }
-         
+
          #ContainerConfigurationDialog td { padding: 3px; }
          #ContainerConfigurationDialog td.label { width: 180px; text-align: right; }
          #ContainerConfigurationDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
 
          #MetadataDialog span { display: block; margin-bottom: 6px; padding: .4em; }
-         
+
          #MetadataDialog td { padding: 3px; }
          #MetadataDialog td.label { width: 180px; text-align: right; }
          #MetadataDialog input { margin-bottom: 3px; width: 95%; padding: 1px; }
-         
+
       </style>
 
 	</head>

@@ -24,11 +24,11 @@ function TakeUnitsNames (instruction, unitInfo) {
    var unitExists = (unitId in SelectedEscenesUnitsNames);
    var currentUnitInfo = unitExists ? SelectedEscenesUnitsNames[unitId] :
                           {UnitName: unitName, SceneCount: 1};
-   
+
    switch (instruction) {
       case "add":
          SetLOTitleSelected (unitId, true);
-         
+
          if (unitExists)
             currentUnitInfo.SceneCount++;
          else
@@ -46,10 +46,10 @@ function TakeUnitsNames (instruction, unitInfo) {
 }
 
 function SetLOTitleSelected (unitId, selected) {
-   
+
    $backgroundValue = selected ? "rgba(180,180,180,.25)" : "";
    $("#LOT_" + unitId).css ("background-color", $backgroundValue);
-   
+
    if (selected) {
 			$("#LOT_" + unitId).parents("div[class^=Project]")
 				.children("span[class=ProjectTitle]")
@@ -59,16 +59,16 @@ function SetLOTitleSelected (unitId, selected) {
 
 function CreateUnitsNameSetter () {
    $("#UnitsTitles").html("");
-   var elementSchema = "<input type='text' id='UTN_ElementID' name='UTN_ElementID' " + 
+   var elementSchema = "<input type='text' id='UTN_ElementID' name='UTN_ElementID' " +
                         "class='ui-widget-content ui-corner-all' style='width: 250px;' " +
                         "value='ElementValue' /><br/>";
-   
+
    for (var unitId in SelectedEscenesUnitsNames) {
       $("#UnitsTitles")
           .append(elementSchema.replace (/ElementID/g, unitId)
             .replace("ElementValue", SelectedEscenesUnitsNames[unitId].UnitName));
    }
-   
+
    $("input[id^=UTN_]").change(function () {
       UpdateUnitName ($(this).prop("id").replace("UTN_", ""), $(this).prop("value"));
    });
@@ -77,7 +77,7 @@ function CreateUnitsNameSetter () {
 function UpdateUnitName (unitId, newName) {
    SelectedEscenesUnitsNames[unitId].UnitName = newName;
 }
-            
+
 function SetContentFrame (sceneUrl) {
     var iFrameC = $("#" + ContentFrameName);
     currentScene = iFrameC.attr("src");
@@ -111,15 +111,15 @@ function ExportSceneSelection () {
 }
 
 function CleanSceneSelection () {
-   
+
    $("[id^=ScenesCheckboxGroup]").each(function () {
       $(this).attr("checked", false);
    });
-   
+
    $("[id^=loContents_]").each(function() {
       $(this).css("display", "none");
    });
-   
+
    SelectedEscenesUnitsNames = new Array();
    SelectedScenes = 0;
    $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
@@ -132,7 +132,7 @@ function ToggleContentView (contentId) {
    var state = container.css("display");
    var newState = state == "none" ? "inline" : "none";
    container.css("display", newState);
-   
+
    $("[id^=loContents_]").each(function( index ) {
       if ($(this).attr("id") != contentId)
       $(this).css("display", "none");
@@ -147,7 +147,7 @@ function RestoreContainerDefaults () {
    $("#ShowNavigationArrows").prop("checked", false);
    $("#AdjustButtons").prop("checked", true);
    $("#RoundedCorners").prop("checked", false);
-   
+
    $("#FixedButtonWidth").val("-1");
    $("#ContentFrameWidth").val("790");
    $("#ContentFrameHeight").val("520");
@@ -157,45 +157,45 @@ function RestoreContainerDefaults () {
 }
 
 function AddKeyword () {
-      
+
    var keywordTemplate = "<input type=\"text\" name=\"ObjectKeyword_ElementID\" id=\"ObjectKeyword_ElementID\" " +
                            "class=\"ui-widget-content ui-corner-all\" />" +
                            "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"ObjectKeywordDelete_ElementID\" "+
                            "class=\"WidgetControl\" onclick=\"DeleteElement(\'keyword\', \'ElementID\')\"><br/>";
-                           
+
    var keywordControls = $("input[id^=ObjectKeyword_]");
    var keywordControlsLength = keywordControls.length;
    var nextKeywordId = keywordControlsLength > 0 ?
                            parseInt($(keywordControls[keywordControlsLength - 1])
                               .prop("id").replace("ObjectKeyword_", "")) + 1 : 1;
-   
+
    $("#ObjectKeywords_Container").append(keywordTemplate.replace(/ElementID/g, nextKeywordId));
-   
+
    RefreshMetadataChangeManager ();
 }
 
 function AddThumbnail () {
-   
+
    var thumbnailTemplate = "<input type=\"text\" name=\"ObjectThumbnail_ElementID\" id=\"ObjectThumbnail_ElementID\" " +
                               "class=\"ui-widget-content ui-corner-all\" />" +
                               "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"ObjectThumbnailDelete_ElementID\" "+
                               "class=\"WidgetControl\" onclick=\"DeleteElement(\'thumbnail\', \'ElementID\')\"><br/>";
-   
+
    var thumbnailsControls = $("input[id^=ObjectThumbnail_]");
    var thumbnailsControlsLength = thumbnailsControls.length;
    var nextThumbnailId = thumbnailsControlsLength > 0 ?
                            parseInt($(thumbnailsControls[thumbnailsControlsLength - 1])
                               .prop("id").replace("ObjectThumbnail_", "")) + 1 : 1;
-                              
+
    $("#ObjectThumbnails_Container").append(thumbnailTemplate.replace(/ElementID/g, nextThumbnailId));
-   
+
    RefreshMetadataChangeManager ();
 }
 
 function DeleteElement (elementType, elementId) {
    var elementTypeString = "";
    var elementsDeleteButtonString = "";
-   
+
    switch (elementType) {
       case "keyword":
          elementTypeString = "#ObjectKeyword_";
@@ -209,14 +209,14 @@ function DeleteElement (elementType, elementId) {
    $(elementTypeString + elementId).remove();
    $(elementsDeleteButtonString + elementId).remove();
    $("#MetadataChanged").val("true");
-   
+
 }
 
 function RefreshMetadataChangeManager () {
    $("#MetadataForm").find("input").change ( function () {
       $("#MetadataChanged").val("true");
    });
-   
+
    $("#MetadataForm").find("textarea").change ( function () {
       $("#MetadataChanged").val("true");
    });
@@ -224,27 +224,29 @@ function RefreshMetadataChangeManager () {
 
 function PrepareFormData () {
    $("#MetadataForm").find("#Action").val("Save");
-   
+   if ($("#IsProject").prop("checked") == true)
+      $("#ObjectTitle").val($("#ProjectName").val());
+
    var objects = $("input[id^=ObjectKeyword_]");
    var objectString = "";
    var indexes = objects.length;
-   
+
    objects.each (function () {
       indexes--;
       objectString += $(this).val() + (indexes > 0 ? ", " : "");
    });
-   
+
    $("#ObjectKeywords").val(objectString.toLowerCase());
-   
+
    objects = $("input[id^=ObjectThumbnail_]");
    objectString = "";
    indexes = objects.length;
-   
+
    objects.each (function () {
       indexes--;
       objectString += $(this).val() + (indexes > 0 ? ", " : "");
    });
-   
+
    $("#ObjectThumbnails").val(objectString.toLowerCase());
-   
+
 }

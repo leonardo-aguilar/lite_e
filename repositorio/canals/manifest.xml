@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas></Vistas-previas>
+	<title>CANALS</title>
+	<description>Descripción breve de CANALS</description>
+	<nivel>CANALS</nivel>
+	<tema>Tema</tema>
+	<area>Área</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>CANALS</proyecto>
+	<tags></tags>
+	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/canals/index.html</URL>
+	<credits>créditos</credits>
+	<info>información</info>
+</node>
