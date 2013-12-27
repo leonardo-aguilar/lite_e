@@ -45,8 +45,6 @@
       $loTitle =  $loMetadata->Title() !== NULL ?
                   $loMetadata->Title() : $fileSystemSet->Title();
 
-      $loTitle = !$fileSystemSet->HasIndex() ? $fileSystemSet->GetBaseDirectoryName() : $loTitle;
-
       return $loTitle;
    }
 
