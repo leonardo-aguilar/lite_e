@@ -7,6 +7,9 @@
 var SelectedScenes = 0;
 var SelectedEscenesUnitsNames;
 
+var SelectedUnits = 0;
+var SelectedProjects = 0;
+
 // Nombre del iframe de contenido
 var ContentFrameName 	= "ContentFrame";
 var NavigationPanelName = "navigationButtons";
@@ -88,30 +91,20 @@ function SetContentFrame (sceneUrl) {
 	}
 }
 
-function ShowSceneSelection () {
-    if (SelectedScenes == 0) {
-        alert ("Debes seleccionar al menos una escena.");
-        return;
-    } else {
-        CreateUnitsNameSetter ();
-        $("#SaveContainer").val("false");
-        $("#ContainerConfigurationDialog").dialog("open");
-    }
-}
-
-function ExportSceneSelection () {
+function ShowSceneSelection (save) {
    if (SelectedScenes == 0) {
       alert ("Debes seleccionar al menos una escena.");
       return;
    } else {
+      $("#ContentSelector").prop("action", "./template/containers/index.php");
+
       CreateUnitsNameSetter ();
-      $("#SaveContainer").val("true");
+      $("#SaveContainer").val(save);
       $("#ContainerConfigurationDialog").dialog("open");
    }
 }
 
 function CleanSceneSelection () {
-
    $("[id^=ScenesCheckboxGroup]").each(function () {
       $(this).attr("checked", false);
    });
@@ -121,9 +114,29 @@ function CleanSceneSelection () {
    });
 
    SelectedEscenesUnitsNames = new Array();
-   SelectedScenes = 0;
+   RefreshCheckboxesState ("Scene");
    $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
 
+}
+
+function ShowUnitsSelection (save) {
+
+   if (SelectedUnits == 0) {
+      alert ("Debes seleccionar al menos una unidad.");
+      return;
+   } else {
+      $("#ContentSelector").prop("action", "./template/indexes/index.php");
+
+      $("#SaveContainer").val(save);
+      $("#IndexConfigurationDialog").dialog("open");
+   }
+}
+
+function CleanUnitsSelection () {
+   $("input[type=checkbox][id^=ProjectCheckboxGroup], input[type=checkbox][id^=UnitsCheckboxGroup]")
+      .prop("checked", false);
+
+   RefreshCheckboxesState("Unit");
 }
 
 function ToggleContentView (contentId) {
@@ -133,9 +146,9 @@ function ToggleContentView (contentId) {
    var newState = state == "none" ? "inline" : "none";
    container.css("display", newState);
 
-   $("[id^=loContents_]").each(function( index ) {
+   $("[id^=loContents_]").each(function() {
       if ($(this).attr("id") != contentId)
-      $(this).css("display", "none");
+         $(this).css("display", "none");
    });
 
 }
@@ -155,6 +168,16 @@ function RestoreContainerDefaults () {
    $("#UnitTitle").val("Nueva unidad");
 
 }
+
+function RestoreIndexDefaults () {
+
+   $("#IndexPageTitle").val("Nuevo índice");
+   $("#IndexUnitTitle").val("Nuevo índice");
+
+}
+
+
+
 
 function AddKeyword () {
 
@@ -222,7 +245,7 @@ function RefreshMetadataChangeManager () {
    });
 }
 
-function PrepareFormData () {
+function PrepareMetadataFormData () {
    $("#MetadataForm").find("#Action").val("Save");
    if ($("#IsProject").prop("checked") == true)
       $("#ObjectTitle").val($("#ProjectName").val());
@@ -249,4 +272,38 @@ function PrepareFormData () {
 
    $("#ObjectThumbnails").val(objectString.toLowerCase());
 
+}
+
+function RefreshCheckboxesState (objectSenderType) {
+
+   SelectedScenes = 0;
+   $("input[type=checkbox][id^=ScenesCheckboxGroup]").each(function () {
+      if ($(this).prop("checked"))
+         ++SelectedScenes;
+   });
+
+   SelectedProjects = 0;
+   $("input[type=checkbox][id^=ProjectCheckboxGroup]").each(function () {
+      if ($(this).prop("checked"))
+         ++SelectedProjects;
+   });
+
+   SelectedUnits = 0;
+   $("input[type=checkbox][id^=UnitsCheckboxGroup]").each(function () {
+      if ($(this).prop("checked"))
+         ++SelectedUnits;
+   });
+
+   switch (objectSenderType) {
+      case "Project":
+      case "Unit":
+         var newValue = (SelectedProjects == 0 && SelectedUnits == 0) ? false : true;
+         $("input[type=checkbox][id^=ScenesCheckboxGroup]").prop("disabled", newValue);
+         break;
+      case "Scene":
+         var newValue = (SelectedScenes == 0) ? false : true;
+         $("input[type=checkbox][id^=ProjectCheckboxGroup]").prop("disabled", newValue);
+         $("input[type=checkbox][id^=UnitsCheckboxGroup]").prop("disabled", newValue);
+         break;
+   }
 }

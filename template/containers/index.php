@@ -1,6 +1,5 @@
 <?php
 
-
    ini_set('display_errors', 'On');
    error_reporting(E_ALL);
 
@@ -22,7 +21,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <title>Generador de &iacute;ndices</title>
+   <title><?php printf("'%s'", isset($_POST["PageTitle"]) ? $_POST["PageTitle"] : "Título de página"); ?>;</title>
    <link href="css/estilo.css" rel="stylesheet" type="text/css" />
    <script language="javascript" src="javascript/jquery-1.9.1.js"></script>
    <script language="javascript" src="javascript/utils.js" ></script>
@@ -54,9 +53,6 @@
       PageTitle 			= <?php printf("'%s'", isset($_POST["PageTitle"]) ? $_POST["PageTitle"] : "Título de página"); ?>;
       // Título de la unidad de Descartes
       UnitTitle			= <?php printf("'%s'", isset($_POST["UnitTitle"]) ? $_POST["UnitTitle"] : "Título de unidad"); ?>;
-    </script>
-</head>
-<body>
 
 <?php
 
@@ -95,17 +91,15 @@
       $sceneAssocFileSystemSet[$fileSystemSetId][] = $sceneId;
    }
 
-
-
    // Para declarar las escenas y unidades, se recorre el arreglo de unidades declarado
    // en el bloque anterior y se exploran tadas las escenas asociadas
    foreach ($sceneAssocFileSystemSet as $key => $value) {
 
       $zipFileName = $zipFileName . $key . "=" . implode ("|", $value);
 
+
       // Número de escenas asociadas
       $length = count($value);
-
       // Se selecciona una unidad y se registran todos sus elementos (escenas)
       $fileSystemSet = $fileSystemSets[$key];
       $browsableEntries = $fileSystemSet->BrowsableEntries();
@@ -118,15 +112,16 @@
 
          // La escena actual, de no estar entre las entradas "navegables",
          // es la escena con el nombre de archivo "index.html"
+         // "isset ($fileSystemSet->BrowsableEntries()[$browsableEntryId]) ||" se eliminó por incompatibilidad en unix
          $currentEntry = (array_key_exists($browsableEntryId, $fileSystemSet->BrowsableEntries())) ?
                            $fileSystemSet->GetBrowsableEntry($browsableEntryId) :
-                           $fileSystemSet->GetIndexEntry();
+                           $fileSystemSet->IndexEntry();
 
          // Se solicita la URL que corresponda según la acción deseada,
          // mostrar o publicar la selección
          $currentUrl = "";
          if ($SaveContainer) {
-            $currentUrl = $currentEntry->EntryRelativeUrl($fileSystemSet->GetBaseDirectoryName());
+            $currentUrl = $currentEntry->EntryRelativeUrl($fileSystemSet->BaseDirectoryName());
          } else {
             $currentUrl = $currentEntry->EntryUrl();
          }
@@ -140,6 +135,71 @@
 
 ?>
 
+      $(function() { initializeContainer(); });
+
+   </script>
+
+</head>
+
+<body>
+   <div id="container">
+      <div id="header"><span id="unitsTitle"></span><span id="unitPosition"></span></div>
+      <div id="content"><iframe id="jsApplet"></iframe></div>
+      <div id="footer">
+         <div id="navigation">
+            <div id="navigationButtons" ></div>
+            <div id="tools">
+               <a id="closeWindowButton" href="javascript:cerrar();void(0);">x</a>
+               <a id="cprght" href="javascript:verCreditos();void(0);">c</a>
+               <a id="info" href="javascript:verDocumentacion();void(0);">i</a>
+            </div>
+            <div id="navigationArrows" >
+               <div id="back" class="arrowButton" onClick="prevScene();void(0);"></div>
+               <div id="forward" class="arrowButton" onClick="nextScene();void(0);"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </body>
 </html>
 
+<?php
+
+   if ($SaveContainer) {
+
+      // Se crea una carpeta con nombre arbitrario en el sistema de archivos
+
+      $hashFolder = "unit_" . substr(md5($zipFileName), 5, 8);
+      $newUnitPath = $GLOBALS["output"] . "/" . $hashFolder;
+
+      if (file_exists($newUnitPath)) {
+         @rmdir($newUnitPath);
+      }
+
+      @mkdir($newUnitPath, 0777);
+
+      $templateFileSystemSet = new FileSystemSet($GLOBALS["templates"] . "/containers");
+      $templateFileSystemSet->Duplicate($newUnitPath, true);
+
+      foreach ($fileSystemSets as $fileSystemSet)
+         $fileSystemSet->Duplicate($newUnitPath, false);
+
+      // Se obtiene el contenido del buffer de escritura
+      // y se guarda el achivo "index.html" generado
+      $page = ob_get_contents();
+
+      $fp = fopen($newUnitPath . "/index.html", "w");
+      fwrite($fp, $page);
+      fclose($fp);
+
+      Utils::CompressFolder($newUnitPath, $newUnitPath . ".zip");
+      Utils::RemoveDirAndContents($newUnitPath);
+
+      $zipUrl = Utils::GetFileUrl ($GLOBALS["path_rootdir"],
+                  $GLOBALS["wwwroot"], $newUnitPath . ".zip");
+
+      header("Location: " . $zipUrl );
+   }
+
+?>

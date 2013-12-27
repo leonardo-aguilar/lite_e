@@ -20,15 +20,13 @@ $GLOBALS["path_datalayer"]		= $GLOBALS["path_rootdir"] . "/datalayer";
 $GLOBALS["repository"]			= $GLOBALS["path_rootdir"] . "/repositorio";
 $GLOBALS["libdir"]				= $GLOBALS["path_rootdir"] . "/lib";
 $GLOBALS["controller"]			= $GLOBALS["path_rootdir"] . "/controller";
-$GLOBALS["model"]				= $GLOBALS["path_rootdir"] . "/entities";
-$GLOBALS["view"]				= $GLOBALS["path_rootdir"] . "/view";
+$GLOBALS["model"]				   = $GLOBALS["path_rootdir"] . "/entities";
+$GLOBALS["view"]				   = $GLOBALS["path_rootdir"] . "/view";
 $GLOBALS["output"]				= $GLOBALS["path_rootdir"] . "/output";
-$GLOBALS["template"]			= $GLOBALS["path_rootdir"] . "/template";
+$GLOBALS["templates"]			= $GLOBALS["path_rootdir"] . "/template";
 
 // Debug
 $GLOBALS["debug"] 				= true;
-
-$GLOBALS["system_slash"]        = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "\\" : "/";
 
 // archivo: functions.php
 function noCache() {
@@ -38,4 +36,3 @@ function noCache() {
       header("Cache-Control: post-check=0, pre-check=0", false);
       header("Pragma: no-cache");
 }
-

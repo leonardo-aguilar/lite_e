@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas></Vistas-previas>
+	<title>Sucesiones de figuras</title>
+	<description>Descripción breve del material interactivo.</description>
+	<nivel>SECUNDARIA</nivel>
+	<tema>MATEMÁTICAS, TOPOLOGÍA</tema>
+	<area>MATEMÁTICAS, TOPOLOGÍA</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>CANALS</proyecto>
+	<tags></tags>
+	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/canals/SNPA_SucesionesDeFiguras/index.html</URL>
+	<credits>créditos</credits>
+	<info>información</info>
+</node>

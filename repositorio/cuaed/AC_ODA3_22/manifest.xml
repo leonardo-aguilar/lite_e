@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+	<Vistas-previas>imagenes/thumb_1.png</Vistas-previas>
+	<title>Lección interactiva</title>
+	<description>Lección interactiva</description>
+	<nivel>Secundaria</nivel>
+	<tema>Algebra</tema>
+	<area>Matemáticas, trigonometría, álgebra</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>CUAED</proyecto>
+	<tags>abra, cadabra, patas, de cabra</tags>
+	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/cuaed/AC_ODA3_22/index.html</URL>
+	<credits>html/creditos.html</credits>
+	<info>html/información.html</info>
+</node>

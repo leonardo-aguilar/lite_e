@@ -24,9 +24,9 @@
 
       <script language="javascript" type="text/javascript">
 
-         $(function() {
+            $(function() {
 
-            document.oncontextmenu = function() {return false;};
+            document.oncontextmenu = function() { return false; };
 
             $(".LearningObjectTitle, .ProjectTitle").mousedown(function(e){
                if( e.button == 2 ) {
@@ -38,11 +38,11 @@
                return true;
             });
 
-			$(".Project span.ProjectTitle").click (function () {
-				$(this).parent().children("div").toggle();
-			});
+            $(".Project span.ProjectTitle").click (function () {
+               $(this).parent().children("div").toggle();
+            });
 
-			$(".Project").each(function() {
+            $(".Project").each(function() {
                $(this).children("div[class=LearningObject], div[class=Project]").hide();
             });
 
@@ -50,19 +50,49 @@
                position: {at: "left bottom"}
             });
 
-            $("input[type='checkbox'][id^='ScenesCheckboxGroup']").change(function() {
+            // Escuchador del evento "change" de escenas
+            $("input[type=checkbox][id^=ScenesCheckboxGroup]").change(function() {
+               instruction = this.checked ? "add" : "remove";
 
-               instruction = "remove"
-
-               if(this.checked) {
-                  ++SelectedScenes;
-                  instruction = "add";
-               }
-               else --SelectedScenes;
-
+               RefreshCheckboxesState("Scene");
                TakeUnitsNames (instruction, $(this).prop("value"));
                $("#counter").html("Escenas seleccionadas: " + SelectedScenes);
 
+            });
+
+            // Escuchador del evento "change" de unidades
+            $("input[type=checkbox][id^=UnitsCheckboxGroup]").change(function() {
+               instruction = this.checked ? "add" : "remove";
+               RefreshCheckboxesState("Project");
+            });
+
+            // Escuchador del evento "change" de proyectos
+            $("input[type=checkbox][id^=ProjectCheckboxGroup]").change(function() {
+               instruction = this.checked ? "add" : "remove";
+
+               if(this.checked) {
+
+                  if ($(this).parent("div[class=Project]").find("div[class=Project]").length > 0)
+                     $(this).parent("div[class=Project]")
+                        .find("div[class=Project]")
+                           .find("input[type=checkbox][id^=ProjectCheckboxGroup]").prop("checked", true);
+
+                  $(this).parent("div[class=Project]").find("input[type=checkbox][id^=UnitsCheckboxGroup]").prop("checked", true);
+
+                  RefreshCheckboxesState("Project");
+
+               } else {
+
+                  if ($(this).parent("div[class=Project]").find("div[class=Project]").length > 0)
+                     $(this).parent("div[class=Project]")
+                        .find("div[class=Project]")
+                           .find("input[type=checkbox][id^=ProjectCheckboxGroup]").prop("checked", false);
+
+                  $(this).parent("div[class=Project]").find("input[type=checkbox][id^=UnitsCheckboxGroup]").prop("checked", false);
+
+                  RefreshCheckboxesState("Project");
+
+               }
             });
 
             $("#MetadataDialog").dialog ({
@@ -78,14 +108,14 @@
                buttons: {
                   "Cancelar cambios":  function () { $(this).dialog("close"); },
                   "Salvar cambios":    function () {
-                     PrepareFormData ();
+                     PrepareMetadataFormData ();
                      $("#MetadataForm").submit();
-					 $(this).dialog("close");
+                     $(this).dialog("close");
                   },
                   Cancel: function () {
                      if ($("#MetadataChanged").val() == "true") {
                         if (confirm ("Has realizado cambios en los metadatos ¿deseas salvar los cambios antes de salir?")) {
-                           PrepareFormData ();
+                           PrepareMetadataFormData ();
                            $("#MetadataForm").submit();
                         }
                      }
@@ -93,8 +123,6 @@
                   }
                },
             });
-
-
 
             $("#ContainerConfigurationDialog").dialog({
                autoOpen: false,
@@ -113,16 +141,18 @@
                            if ($(this).attr("type") == "checkbox")
                               $("#ContentSelector").append("<input type='hidden' name='" +
                                  $(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
-                           else
+                           else {
                               $("#ContentSelector").append("<input type='hidden' name='" +
                                  $(this).attr('id')+"' value='" + $(this).val() + "' />");
+                           }
                         });
 
                         var unitsNames = "";
                         var unitNameSchema = "UnitId%UnitName|";
+
                         for (var unitId in SelectedEscenesUnitsNames) {
                            unitsNames += unitNameSchema.replace(/UnitId/g, unitId)
-                                             .replace(/UnitName/g, SelectedEscenesUnitsNames[unitId].UnitName);
+                                          .replace(/UnitName/g, SelectedEscenesUnitsNames[unitId].UnitName);
                         }
                         $("#UnitsNames").val(unitsNames);
                         $("#ContentSelector").submit();
@@ -132,7 +162,39 @@
                }
             });
 
+            $("#IndexConfigurationDialog").dialog({
+               autoOpen: false,
+               height: 250,
+               width: 400,
+               modal: true,
+               buttons: {
+                  "Restablecer valores": function() { RestoreIndexDefaults (); },
+                  "Compilar unidades": function() {
+                     var bValid = true;
+
+                     if ( bValid ) {
+                        $(this).dialog( "close" );
+
+                        $("#IndexConfigurationForm input").each(function() {
+                           if ($(this).attr("type") == "checkbox") {
+                              $("#ContentSelector").append("<input type='hidden' name='" +
+                                 $(this).attr('id')+"' value='" + $(this).prop("checked") + "' />");
+                           }
+                           else {
+                              $("#ContentSelector").append("<input type='hidden' name='" +
+                                 $(this).attr('id')+"' value='" + $(this).val() + "' />");
+                           }
+                        });
+
+                        $("#ContentSelector").submit();
+                     }
+                  },
+                  Cancel: function() { $(this).dialog("close"); }
+               }
+            });
+
             RestoreContainerDefaults ();
+            RestoreIndexDefaults ();
             CleanSceneSelection ();
 
          });
@@ -171,94 +233,108 @@
 
 	</head>
 	<body>
-	<div id="ContainerConfigurationDialog" title="Configuración del contenedor">
-	    <form id="ContainerConfigurationForm">
+      <div id="ContainerConfigurationDialog" title="Configuración del contenedor">
+          <form id="ContainerConfigurationForm">
+               <table >
+                       <tr>
+                           <td class="label">Mostrar botón de cerrar</td>
+                           <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Mostrar posición de la unidad</td>
+                           <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Mostrar flechas de navegación</td>
+                           <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Autoajustar botones</td>
+                           <td><input type="checkbox" name="AdjustButtons" id="AdjustButtons" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Redondear botones</td>
+                           <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Tamaño fijo de botones</td>
+                           <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Anchura del contenedor</td>
+                           <td><input type="text" name="ContentFrameWidth" id="ContentFrameWidth" class="ui-widget-content ui-corner-all" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Altura del contenedor</td>
+                           <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Título para la página</td>
+                           <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
+                       </tr>
+                       <tr>
+                           <td class="label">Título para la nueva unidad</td>
+                           <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
+                       </tr>
+                       <tr>
+                           <td style="text-align: center;" colspan="2">Títulos para unidades</td>
+                       </tr>
+                       <tr>
+                           <td colspan="2"><div id="UnitsTitles"></div></td>
+                       </tr>
+               </table>
+           </form>
+       </div>
+      <div id="IndexConfigurationDialog" title="Configuración del índice general">
+         <form id="IndexConfigurationForm">
             <table >
-                    <tr>
-                        <td class="label">Mostrar botón de cerrar</td>
-                        <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Mostrar posición de la unidad</td>
-                        <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Mostrar flechas de navegación</td>
-                        <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Autoajustar botones</td>
-                        <td><input type="checkbox" name="AdjustButtons" id="AdjustButtons" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Redondear botones</td>
-                        <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Tamaño fijo de botones</td>
-                        <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Anchura del contenedor</td>
-                        <td><input type="text" name="ContentFrameWidth" id="ContentFrameWidth" class="ui-widget-content ui-corner-all" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Altura del contenedor</td>
-                        <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Título para la página</td>
-                        <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Título para la nueva unidad</td>
-                        <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" colspan="2">Títulos para unidades</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><div id="UnitsTitles"></div></td>
-                    </tr>
+               <tr>
+                  <td class="label">Título para la página</td>
+                  <td><input type="text" name="IndexPageTitle" id="IndexPageTitle" class="ui-widget-content ui-corner-all" /></td>
+               </tr>
+               <tr>
+                  <td class="label">Título para la nueva unidad</td>
+                  <td><input type="text" name="IndexUnitTitle" id="IndexUnitTitle" class="ui-widget-content ui-corner-all" /></td>
+               </tr>
             </table>
-        </form>
-    </div>
-    <div id="MetadataDialog"></div>
-    <div class="MainMenu">
-            <ul id="menu">
-                <li><a href="#">Selección de escenas</a>
-                    <ul>
-                        <li><a href="javascript:ShowSceneSelection();">Mostrar...</a></li>
-                        <li><a href="javascript:CleanSceneSelection();">Limpiar selección...</a></li>
-                        <li><a href="javascript:ExportSceneSelection();">Exportar selección...</a></li>
-                    </ul>
-                </li>
-                <li class="ui-state-disabled"><a href="#">Selección de unidades</a>
-                    <ul>
-                        <li><a href="#">Mostrar...</a></li>
-                        <li><a href="#">Limpiar selección...</a></li>
-                        <li><a href="#">Exportar selección...</a></li>
-                    </ul>
-                </li>
-            </ul>
-		</div>
-		<div class="ContentArea">
-			<iframe id="ContentFrame" name="ContentFrame" src=""></iframe>
-		</div>
-		<div class="MenuArea">
-		<form action="./template/index.php" method="post" id="ContentSelector" name="ContentSelector" target="ContentFrame">
+         </form>
+      </div>
+      <div id="MetadataDialog"></div>
+      <div class="MainMenu">
+               <ul id="menu">
+                   <li><a href="#">Selección de escenas</a>
+                       <ul>
+                           <li><a href="javascript:ShowSceneSelection(false);">Mostrar...</a></li>
+                           <li><a href="javascript:CleanSceneSelection();">Limpiar selección...</a></li>
+                           <li><a href="javascript:ShowSceneSelection(true);">Exportar selección...</a></li>
+                       </ul>
+                   </li>
+                   <li><a href="#">Selección de unidades</a>
+                       <ul>
+                           <li><a href="javascript:ShowUnitsSelection(false);">Mostrar...</a></li>
+                           <li><a href="javascript:CleanUnitsSelection();">Limpiar selección...</a></li>
+                           <li><a href="javascript:ShowUnitsSelection(true);">Exportar selección...</a></li>
+                       </ul>
+                   </li>
+               </ul>
+         </div>
+      <div class="ContentArea">
+            <iframe id="ContentFrame" name="ContentFrame" src=""></iframe>
+         </div>
+      <div class="MenuArea">
+         <form action="" method="post" id="ContentSelector" name="ContentSelector" target="ContentFrame">
 
-		<input type='hidden' name='SaveContainer' id='SaveContainer' value='' />
-   <input type='hidden' name='UnitsNames' id='UnitsNames' value='' />
-        <?php
+            <input type='hidden' name='SaveContainer' id='SaveContainer' value='' />
+            <input type='hidden' name='UnitsNames' id='UnitsNames' value='' />
 
-	        $util = new FileSystemSet($GLOBALS["repository"]);
-	        $util->PrintInfo();
+            <?php
+              $baseFileSystem = new FileSystemSet($GLOBALS["repository"]);
+              $baseFileSystem->PrintInfo();
+            ?>
 
-        ?>
-        </form>
-    </div>
-    <div class="locker"></div>
-    <div id="counter">Escenas seleccionadas: 0</div>
+         </form>
+       </div>
+      <div class="locker"></div>
+      <div id="counter">Escenas seleccionadas: 0</div>
 	</body>
 </html>

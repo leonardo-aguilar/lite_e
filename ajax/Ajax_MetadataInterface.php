@@ -113,7 +113,7 @@
 <form id="MetadataForm" action="<?php printf($GLOBALS["wwwroot"] . "/ajax/Ajax_MetadataInterface.php"); ?>" method="post" target="ContentFrame">
    <input type="hidden" id="Action" name="Action" value="" />
    <input type="hidden" id="MetadataChanged" name="MetadataChanged" value="false" />
-   <input type="hidden" id="loPath" name="loPath" value="<?php printf($fileSystemSet->GetBaseDirectory()); ?>" />
+   <input type="hidden" id="loPath" name="loPath" value="<?php printf($fileSystemSet->BaseDirectory()); ?>" />
    <input type="hidden" id="ObjectPlataform" name="ObjectPlataform" value="DESCARTES" />
    <input type="hidden" id="ObjectKeywords" name="ObjectKeywords" value="" />
    <input type="hidden" id="ObjectThumbnails" name="ObjectThumbnails" value="" />

@@ -25,7 +25,7 @@ class FileSystemSet {
 
 	/* Propiedades */
 	// Documento inicial del FileSystemSet
-	function GetIndexEntry () {
+	function IndexEntry () {
 		return $this->hasIndex ? $this->indexEntry : NULL;
 	}
 
@@ -53,10 +53,17 @@ class FileSystemSet {
       return $loTitle;
    }
 
-	// PNGs dentro del FileSystemSet
-	function Metadata () {
-		return $this->metaData;
-	}
+	function Metadata () { return $this->metaData; }
+
+	function Description () { return $this->metaData->Description(); }
+
+	function Thumbnail () { return $this->metaData->Thumbnails(); }
+
+	function Area () { return $this->metaData->SchoolArea(); }
+
+	function Level () { return $this->metaData->SchoolLevel(); }
+
+	function Project () { return $this->metaData->Project(); }
 
 	// Documentos "navegables" del FileSystemSet
 	function BrowsableEntries () {
@@ -70,9 +77,9 @@ class FileSystemSet {
 
 	function GetSetId () { return $this->fileSystemSetID; }
 
-	function GetBaseDirectory () { return $this->entrySetBaseDirectory; }
+	function BaseDirectory () { return $this->entrySetBaseDirectory; }
 
-	function GetBaseDirectoryName () {
+	function BaseDirectoryName () {
 		$pieces = explode("/", $this->entrySetBaseDirectory);
 		return array_pop($pieces);
 	}
@@ -191,27 +198,27 @@ class FileSystemSet {
 					$this->Title());
          foreach ($this->fileSystemChildSets as $fileSystemSet)
 				$fileSystemSet->PrintInfo ();
-			printf ("</div>");
+			printf ("</div>\n\r");
       }
    }
 
    function PrintLOInfo () {
 
       printf("<div class='LearningObject'> " .
-               "<div class='LearningObjectTitle'>\n\r " .
+               "<div class='LearningObjectTitle'>" .
                "<input type='checkbox' id='UnitsCheckboxGroup[]' name='UnitsCheckboxGroup[]' value='%s' />" .
-			   "<span onClick='ToggleContentView(\"%s\")' id='LOT_%s'>%s</span></div>\n\r",
+			   "<span onClick='ToggleContentView(\"%s\")' id='LOT_%s'>%s</span></div>\n",
 			   	$this->entrySetBaseDirectory . "|" . $this->fileSystemSetID,
                "loContents_" . $this->fileSystemSetID,
                $this->fileSystemSetID,
                $this->Title());
 
-      printf("<div class='LearningObjectContent' id='%s'>\n\r",
+      printf("<div class='LearningObjectContent' id='%s'>\n",
                "loContents_" . $this->fileSystemSetID);
 
       $descartesScene = "";
       $descartesClass = "HiddenClass";
-      $disabled = "disabled";
+      $disabled = "style=\"visibility: hidden;\"";
 
       if ($this->indexEntry->IsDescartes()) {
          $descartesScene = " - [Escena]";
@@ -223,7 +230,7 @@ class FileSystemSet {
                "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
                "name='ScenesCheckboxGroup[]' value='%s' %s /> " .
                "<span class='%s'></span> " .
-               "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r ",
+               "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n",
                $this->entrySetBaseDirectory . "|" . $this->indexEntry->EntryId () . "|" . $this->fileSystemSetID,
                $disabled, $descartesClass,
                $this->indexEntry->EntryUrl(),
@@ -243,13 +250,13 @@ class FileSystemSet {
          printf("\t<div class='BrowsableEntry'> " .
                   "<input type='checkbox' id='ScenesCheckboxGroup[]' " .
                   "name='ScenesCheckboxGroup[]' value='%s' %s /><span class='%s'></span> " .
-                  "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n\r ",
+                  "\t\t<a href='javascript:SetContentFrame(\"%s\")'>%s</a></div>\n",
                   $this->entrySetBaseDirectory . "|" . $browsableEntry->EntryId () . "|" . $this->fileSystemSetID,
                   $disabled, $descartesClass,
                   $browsableEntry->EntryUrl (),
                   ($browsableEntryTitle == NULL ? "Documento navegable" : $browsableEntryTitle) . $descartesScene);
       }
-      printf("</div></div>\r\n");
+      printf("</div>\n</div>\n");
    }
 
    function Duplicate ($targetDir, $removeBaseDir) {
