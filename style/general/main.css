@@ -1,116 +1,116 @@
 * {
-    margin:					   0px;
-    padding:				   0px;
-    font-family:			   sans-serif;
-    font-size:				   9pt;
+   margin:					   0px;
+   padding:				   0px;
+   font-family:			   sans-serif;
+   font-size:				   9pt;
 }
 
 div.MenuArea {
-    height:					   93.5%;
-    width:					   24%;
-    float:					   left;
-    margin-left:			   3px;
-    overflow:				   auto;
+   height:					   93.5%;
+   width:					   24%;
+   float:					   left;
+   margin-left:			   3px;
+   overflow:				   auto;
 }
 
 div.ContentArea {
-    height:					   93.5%;
-    width:					   75%;
-    float:					   right;
-    margin-right:			   5px;
-    border-left:			   1px solid black;
+   height:					   93.5%;
+   width:					   75%;
+   float:					   right;
+   margin-right:			   5px;
+   border-left:			   1px solid black;
 }
 
 div.MainMenu {
-    width:					   99%;
-    min-width:				   800px;
-    height:					   35px;
-    margin-left:			   3px;
-    margin-bottom:		   1px;
+   width:					   99%;
+   min-width:				   800px;
+   height:					   35px;
+   margin-left:			   3px;
+   margin-bottom:		      1px;
 }
 
 span.HiddenClass {
-    display:     				none;
+   display:     				none;
 }
 
 span.DescartesClass {
-    display: 					inline-block;
-    width: 						14px;
-    height:						14px;
-    background: 				transparent url('icons/descartes.png') no-repeat;
+   display: 					inline-block;
+   width: 						14px;
+   height:						14px;
+   background: 				transparent url('icons/descartes.png') no-repeat;
 }
 
 span.ProjectIcon {
-    display: 					inline-block;
-    width: 						14px;
-    height:						14px;
-    background: 				transparent url('icons/folder.png') no-repeat;
-    background-size:       14px 14px
+   display: 					inline-block;
+   width: 						14px;
+   height:						14px;
+   background: 				transparent url('icons/folder.png') no-repeat;
+   background-size:        14px 14px
 }
 
 div.MainMenu div.MenuItem {
-    width:						150px;
-    height:						75%;
-    min-height:				16px;
-    padding-top:				4px;
-    margin-left:				2px;
-    margin-right:				3px;
-    float:						left;
-    text-align:				center;
+   width:						150px;
+   height:						75%;
+   min-height:				   16px;
+   padding-top:				4px;
+   margin-left:				2px;
+   margin-right:				3px;
+   float:						left;
+   text-align:				   center;
 }
 
 div.MainMenu .MenuItem:hover {
-    background-color:		#CACA00;
+   background-color:		   #CACA00;
 }
 
 div.LearningObject {
-    margin:				    	5px 3px 0px 0px;
-	 display:					inline;
+   margin:				    	5px 3px 0px 0px;
+   display:					   inline;
 }
 
 div.LearningObjectTitle {
-    font-size:				   9pt;
-    cursor:                pointer;
-    margin-left:		      3px;
-    margin-top:				5px;
+   font-size:				   9pt;
+   cursor:                 pointer;
+   margin-left:		      3px;
+   margin-top:				   5px;
 }
 
 div.LearningObjectContent {
-    display:               none;
-    margin-left:           6px;
+   display:                none;
+   margin-left:            6px;
 }
 
 div.LearningObjectContent div {
-    margin-left:		      6px;
+   margin-left:		      6px;
 }
 
 div.BrowsableEntry {
-    margin:                3px 0px;
+   margin:                 3px 0px;
 }
 
 iframe#ContentFrame {
-    width:					   99%;
-    height:					   99%;
+   width:					   99%;
+   height:					   99%;
 
-    border:					   0;
+   border:					   0;
 
-    margin-left:			   2px;
+   margin-left:			   2px;
 }
 
 div#counter {
-    position:              fixed;
-    border-radius:         3px;
-    top:                   0;
-    right:                 0;
-    margin:                7px 15px;
-    line-height:           20px;
-    padding-right:         4px;
-    width:                 180px;
-    height:                20px;
-    text-align:            right;
-    background:            rgba(0,0,0,0.8);
-    color:                 white;
-    z-index:               9899;
+   position:               fixed;
+   border-radius:          3px;
+   top:                    0;
+   right:                  0;
+   margin:                 7px 15px;
+   line-height:            20px;
+   padding-right:          4px;
+   width:                  180px;
+   height:                 20px;
+   text-align:             right;
+   background:             rgba(0,0,0,0.8);
+   color:                  white;
+   z-index:                99;
 }
 
 img.WaitImage {
@@ -135,6 +135,10 @@ div.MetadataTable td {
 
 div.Project {
    margin:                 4px 0px;
-	padding-left:           4px;
-	cursor:                 pointer;
+   padding-left:           4px;
+   cursor:                 pointer;
+}
+
+.selectedTreeElement {
+   background-color:       rgba(180,180,180,.25)
 }

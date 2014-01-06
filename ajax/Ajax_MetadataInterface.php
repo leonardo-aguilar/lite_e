@@ -1,12 +1,16 @@
 ﻿<?php
 
-   header('Content-Type: text/html; charset=UTF-8');
-
    ini_set('display_errors', 'On');
-   error_reporting(E_ALL);
+	error_reporting(E_ALL);
 
    require_once ($_SERVER['DOCUMENT_ROOT'] . "/lite_e/config.php");
    require_once ($GLOBALS["controller"] . "/FileSystemSet.php");
+
+   header("Expires: Tue, 01 Jul 2001 06:00:00 GMT");
+   header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+   header("Cache-Control: no-store, no-cache, must-revalidate");
+   header("Cache-Control: post-check=0, pre-check=0", false);
+   header("Pragma: no-cache");
 
    $baseDirectory = isset($_GET["loPath"]) ? $_GET["loPath"] : NULL;
 
@@ -74,6 +78,10 @@
       if ($loMetadata->Keywords() !== NULL) {
          $keywordsControlsCount = 0;
          $patterns = array("/ElementID/", "/ElementValue/");
+         $stringInputPattern = "<input type=\"text\" name=\"ObjectKeyword_ElementID\" id=\"ObjectKeyword_ElementID\" " .
+                           "class=\"ui-widget-content ui-corner-all\" value=\"ElementValue\"/>" .
+                           "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"ObjectKeywordDelete_ElementID\" " .
+                           "class=\"WidgetControl\" onclick=\"DeleteElement('keyword', 'ElementID')\"><br/>";
 
          $keywords = explode(",", trim($loMetadata->Keywords()));
 
@@ -81,20 +89,111 @@
             $keywordsControlsCount++;
             $sustitutions = array ($keywordsControlsCount, trim($keyword));
 
-            $keywordControl = preg_replace($patterns, $sustitutions,
-                                    "<input type=\"text\" name=\"ObjectKeyword_ElementID\" id=\"ObjectKeyword_ElementID\" " .
-                                    "class=\"ui-widget-content ui-corner-all\" value=\"ElementValue\"/>" .
-                                    "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"ObjectKeywordDelete_ElementID\" " .
-                                    "class=\"WidgetControl\" onclick=\"DeleteElement('keyword', 'ElementID')\"><br/>");
+            $keywordControl = preg_replace($patterns, $sustitutions, $stringInputPattern);
 
             printf($keywordControl);
          }
       }
    }
 
+   function PrintThumbnailsUrls ($fileSystemSet) {
+      $pngEntriesNumber = count($fileSystemSet->PngEntries());
+
+      if ($pngEntriesNumber > 0) {
+
+         $iterator = $pngEntriesNumber;
+
+         $relativeUrls = "";
+         $absoluteUrls = "";
+         $fileNames = "";
+
+         foreach ($fileSystemSet->PngEntries() as $pngEntry) {
+            $iterator--;
+            $comaString = $iterator == 0 ? " " : ", ";
+            $relativeUrls .= "\"" . $pngEntry->EntryRelativeUrl($fileSystemSet->BaseDirectoryName()) . "\"" . $comaString;
+            $absoluteUrls .= "\"" . $pngEntry->EntryUrl() . "\"" . $comaString;
+            $fileNames .= "\"" . $pngEntry->EntryFileName() . "\"" . $comaString;
+         }
+
+         printf ("{ RelativeUrls: [%s], AbsoluteUrls: [%s], FileNames: [%s]}",
+            $relativeUrls, $absoluteUrls, $fileNames);
+      }
+   }
+
+   function PrintBrowsablesUrls ($fileSystemSet) {
+      $browsableEntriesNumber = count($fileSystemSet->BrowsableEntries());
+
+      if ($browsableEntriesNumber > 0) {
+
+         $iterator = $browsableEntriesNumber;
+
+         $relativeUrls = "";
+         $absoluteUrls = "";
+         $fileNames = "";
+
+         foreach ($fileSystemSet->BrowsableEntries() as $browsableEntry) {
+            $comaString = $iterator == $browsableEntriesNumber ? " " : ", ";
+
+            if (!$browsableEntry->IsDescartes()) {
+               $relativeUrls .= $comaString . "\"" . $browsableEntry->EntryRelativeUrl($fileSystemSet->BaseDirectoryName()) . "\"";
+               $absoluteUrls .= $comaString . "\"" . $browsableEntry->EntryUrl() . "\"";
+               $fileNames .= $comaString . "\"" . $browsableEntry->EntryFileName() . "\"";
+            }
+
+            $iterator--;
+         }
+
+         printf ("{ RelativeUrls: [%s], AbsoluteUrls: [%s], FileNames: [%s]}",
+            $relativeUrls, $absoluteUrls, $fileNames);
+      }
+   }
+
 ?>
 
+<style>
+div.ObjectSelectorBox {
+   margin:                 3px;
+}
+
+.ObjectSelectorBox input {
+   margin-right:           5px;
+}
+</style>
+
 <script language="javascript" type="text/javascript">
+
+   var CurrentControlId = "";
+   var thumbnailsUrls = <?php PrintThumbnailsUrls($fileSystemSet); ?>;
+   var browsablesUrls = <?php PrintBrowsablesUrls($fileSystemSet); ?>;
+
+   var urlSelectorTemplate = "<div class=\"ObjectSelectorBox\">" +
+                                 "<input type=\"radio\" name=\"ObjectSelectorRadio\" id=\"ObjectSelectorRadio\" value=\"RELATIVE_URL\">" +
+                                 "<a href=\"ABSOLUTE_URL\" target='_blank'>FILE_NAME</a></div>";
+
+   function RefreshUrlSelectors () {
+
+      $('input[id^=ObjectCredits], input[id^=ObjectInfo], input[id^=ObjectThumbnail_]').click(function(e) {
+         CurrentControlId = $(this).prop("id");
+         objectKind = CurrentControlId.indexOf ("ObjectThumbnail") > -1 ? "thumb" : "browsable";
+         valuesObject = objectKind == "thumb" ? thumbnailsUrls : browsablesUrls;
+         selectorDesc = objectKind == "thumb" ? "Thumbnail" : "Navegable";
+         $("#ValueSelection").empty();
+
+         for (i = 0; i < valuesObject.RelativeUrls.length; i++) {
+
+            newElementString = urlSelectorTemplate.replace(/RELATIVE_URL/g, valuesObject.RelativeUrls[i]);
+            newElementString = newElementString.replace(/ABSOLUTE_URL/g, valuesObject.AbsoluteUrls[i]);
+            newElementString = newElementString.replace(/FILE_NAME/g, valuesObject.FileNames[i]);
+
+            $("#ValueSelection").append($(newElementString));
+
+         }
+
+         $("#ValueSelection").dialog('open');
+      });
+
+   }
+
    function SetUpForm (isLo) {
       if (isLo != 1) {
          $("#ObjectTitle").css("display", "none");
@@ -103,11 +202,52 @@
       }
    }
 
+   $("#ValueSelection").dialog({
+      autoOpen: false,
+      height: 250,
+      width: 250,
+      modal: true,
+      buttons: {
+         "Guardar selección": function() {
+            if ($("input[name='ObjectSelectorRadio']:checked").length == 1) {
+               $("#" + CurrentControlId).val($("input[name='ObjectSelectorRadio']:checked").val());
+            } else if (!confirm ("¿Deseas cerrar sin seleccionar un elemento?"))
+               return;
+
+            $(this).dialog("close");
+         },
+         Cancel: function() { $(this).dialog("close"); }
+      }
+   });
+
    RefreshMetadataChangeManager();
    SetUpForm(<?php printf($fileSystemSet->HasIndex()); ?>);
 
+
+   /*function SetControlValue (controlId, newValue) {
+      alert (controlId + ": " + newValue);
+      var isValueRepeated = false;
+
+      if (controlId.indexOf("ObjectThumbnail") != -1)
+         alert("ObjectThumbnail");
+      }
+
+      $(controlId).val(newValue);
+   }
+
+   $('#ObjectCredits').click(function () {
+      $(this).tooltip('close');
+      $(this).removeClass("on");
+   });
+
+   $("#ObjectCredits").on('mouseout', function (e) {
+
+   });
+*/
+
 </script>
 
+<div id="ValueSelection"></div>
 <div class="MetadataFormTitle">Metadatos para <b><?php printf(FormatMetadataTitle($loMetadata, $fileSystemSet)); ?></b><br/></div>
 
 <form id="MetadataForm" action="<?php printf($GLOBALS["wwwroot"] . "/ajax/Ajax_MetadataInterface.php"); ?>" method="post" target="ContentFrame">

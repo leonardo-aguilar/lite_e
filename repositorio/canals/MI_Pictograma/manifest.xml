@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <node>
-	<Vistas-previas>a</Vistas-previas>
+	<Vistas-previas>MI_Pictograma/docs/images/pictograma.png</Vistas-previas>
 	<title>Pictograma</title>
-	<description>recurso bonito y ictograma de paragüas icónico de los ochentas fríos</description>
+	<description>Pictograma de paragüas icónico de los ochentas fríos</description>
 	<nivel>a</nivel>
 	<tema>ass</tema>
 	<area>a</area>
 	<plataforma>DESCARTES</plataforma>
-	<proyecto>k-9</proyecto>
+	<proyecto>CANALS</proyecto>
 	<tags>a, b</tags>
 	<URL></URL>
-	<credits>a</credits>
-	<info>a</info>
+	<credits>MI_Pictograma/docs/creditos.html</credits>
+	<info>MI_Pictograma/docs/info.html</info>
 </node>

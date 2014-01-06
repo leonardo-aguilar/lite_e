@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <node>
-	<Vistas-previas>vista</Vistas-previas>
+	<Vistas-previas>Sistemas_pisa-JS/imagenes/menos.png</Vistas-previas>
 	<title>Sistemas de ecuaciones 1</title>
 	<description>Un material de sistema de ecuaciones 1</description>
 	<nivel>Primaria</nivel>
@@ -8,8 +8,8 @@
 	<area>Matemáticas</area>
 	<plataforma>DESCARTES</plataforma>
 	<proyecto>ASIPISA</proyecto>
-	<tags>sistemasde ecuaciones</tags>
+	<tags>sistemas de ecuaciones</tags>
 	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/asipisa/Sistemas_pisa-JS/index.html</URL>
-	<credits>créditos</credits>
-	<info>información</info>
+	<credits>Sistemas_pisa-JS/creditos.htm</credits>
+	<info>Sistemas_pisa-JS/pisa.html</info>
 </node>

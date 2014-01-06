@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <node>
-	<Vistas-previas></Vistas-previas>
+	<Vistas-previas>SNPA_SucesionesDeFiguras/docs/images/sucesionesFig.png</Vistas-previas>
 	<title>Sucesiones de figuras</title>
 	<description>Descripción breve del material interactivo.</description>
 	<nivel>SECUNDARIA</nivel>
@@ -10,6 +10,6 @@
 	<proyecto>CANALS</proyecto>
 	<tags></tags>
 	<URL>/Applications/MAMP/htdocs/lite_e/repositorio/canals/SNPA_SucesionesDeFiguras/index.html</URL>
-	<credits>créditos</credits>
-	<info>información</info>
+	<credits>SNPA_SucesionesDeFiguras/docs/creditos.html</credits>
+	<info>SNPA_SucesionesDeFiguras/docs/info.html</info>
 </node>

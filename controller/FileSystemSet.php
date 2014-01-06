@@ -17,7 +17,7 @@ class FileSystemSet {
 	protected $hasBrowsables;
 
 	protected $indexEntry;
-   protected $pngsEntries;
+   protected $pngEntries;
 	protected $browsableEntries;
 	protected $fileSystemEntries;
 
@@ -43,8 +43,8 @@ class FileSystemSet {
    }
 
 	// PNGs dentro del FileSystemSet
-	function PngsEntries () {
-		return $this->pngsEntries;
+	function PngEntries () {
+		return $this->pngEntries;
 	}
 
    function Title () {
@@ -57,13 +57,38 @@ class FileSystemSet {
 
 	function Description () { return $this->metaData->Description(); }
 
-	function Thumbnail () { return $this->metaData->Thumbnails(); }
+	function Thumbnails () { return $this->metaData->Thumbnails(); }
 
 	function Area () { return $this->metaData->SchoolArea(); }
 
 	function Level () { return $this->metaData->SchoolLevel(); }
 
 	function Project () { return $this->metaData->Project(); }
+
+	function CreditsUrl ($isRelative = true) {
+		$url = "";
+		if($isRelative) $url = $this->metaData->Credits();
+		else {
+			$tmp = str_ireplace($this->BaseDirectoryName(), "", $this->BaseDirectory()) .
+						$this->metaData->Credits();
+			$url = Utils::GetFileUrl ($GLOBALS["path_rootdir"], $GLOBALS["wwwroot"], $tmp);
+		}
+
+		return $url;
+	}
+
+	function InfoUrl ($isRelative = true) {
+		$url = "";
+		if($isRelative) $url = $this->metaData->Info();
+
+		else {
+			$tmp = str_ireplace($this->BaseDirectoryName(), "", $this->BaseDirectory()) .
+						$this->metaData->Info();
+			$url = Utils::GetFileUrl ($GLOBALS["path_rootdir"], $GLOBALS["wwwroot"], $tmp);
+		}
+
+		return $url;
+	}
 
 	// Documentos "navegables" del FileSystemSet
 	function BrowsableEntries () {
@@ -100,6 +125,7 @@ class FileSystemSet {
 		$this->fileSystemChildSets = Array();
 		$this->browsableEntries = Array();
 		$this->fileSystemEntries = Array();
+		$this->pngsEntries = Array();
 
 		$this->indexEntry = NULL;
 		$this->hasIndex = false;
@@ -179,7 +205,7 @@ class FileSystemSet {
 				break;
 
          case (FileSystemEntry::$FST_PNGS):
-               $this->pngsEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
+               $this->pngEntries[$fileSystemEntry->EntryId()] = $fileSystemEntry;
             break;
 			case (FileSystemEntry::$FST_MISC):
 				break;

@@ -1,7 +1,5 @@
 <?php
 
-   header('Content-Type: text/html; charset=UTF-8');
-
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
@@ -63,7 +61,7 @@
             // Escuchador del evento "change" de unidades
             $("input[type=checkbox][id^=UnitsCheckboxGroup]").change(function() {
                instruction = this.checked ? "add" : "remove";
-               RefreshCheckboxesState("Project");
+               RefreshCheckboxesState("Units");
             });
 
             // Escuchador del evento "change" de proyectos
@@ -98,7 +96,7 @@
             $("#MetadataDialog").dialog ({
                autoOpen:   false,
                height:     450,
-               width:      600,
+               width:      500,
                modal:      true,
                open:       function (event, ui) {
                   var selectedLoPath = $(this).data("SelectedLO");
@@ -127,7 +125,7 @@
             $("#ContainerConfigurationDialog").dialog({
                autoOpen: false,
                height: 450,
-               width: 400,
+               width: 650,
                modal: true,
                buttons: {
                   "Restablecer valores": function() { RestoreContainerDefaults (); },
@@ -235,53 +233,34 @@
 	<body>
       <div id="ContainerConfigurationDialog" title="Configuración del contenedor">
           <form id="ContainerConfigurationForm">
-               <table >
+               <table style="width: 630px;">
+                       <tr><td class="label">Mostrar botón de cerrar</td>
+                           <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td></tr>
+                       <tr><td class="label">Mostrar posición de la unidad</td>
+                           <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td></tr>
+                       <tr><td class="label">Mostrar flechas de navegación</td>
+                           <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td></tr>
+                       <tr><td class="label">Autoajustar botones</td>
+                           <td><input type="checkbox" name="AdjustButtons" id="AdjustButtons" /></td></tr>
+                       <tr><td class="label">Redondear botones</td>
+                           <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td></tr>
+                       <tr><td class="label">Tamaño fijo de botones</td>
+                           <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td></tr>
+                       <tr><td class="label">Anchura del contenedor</td>
+                           <td><input type="text" name="ContentFrameWidth" id="ContentFrameWidth" class="ui-widget-content ui-corner-all" /></td></tr>
+                       <tr><td class="label">Altura del contenedor</td>
+                           <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td></tr>
+                       <tr><td class="label">Título para la página</td>
+                           <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td></tr>
+                       <tr><td class="label">Título para la nueva unidad</td>
+                           <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td></tr>
+                       <tr><td style="text-align: center;" colspan="2">Orden para unidades</td></tr>
                        <tr>
-                           <td class="label">Mostrar botón de cerrar</td>
-                           <td><input type="checkbox" name="SystemCloseButton" id="SystemCloseButton" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Mostrar posición de la unidad</td>
-                           <td><input type="checkbox" name="ShowUnitPosition" id="ShowUnitPosition" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Mostrar flechas de navegación</td>
-                           <td><input type="checkbox" name="ShowNavigationArrows" id="ShowNavigationArrows" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Autoajustar botones</td>
-                           <td><input type="checkbox" name="AdjustButtons" id="AdjustButtons" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Redondear botones</td>
-                           <td><input type="checkbox" name="RoundedCorners" id="RoundedCorners" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Tamaño fijo de botones</td>
-                           <td><input type="text" name="FixedButtonWidth" id="FixedButtonWidth" class="ui-widget-content ui-corner-all" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Anchura del contenedor</td>
-                           <td><input type="text" name="ContentFrameWidth" id="ContentFrameWidth" class="ui-widget-content ui-corner-all" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Altura del contenedor</td>
-                           <td><input type="text" name="ContentFrameHeight" id="ContentFrameHeight" class="ui-widget-content ui-corner-all" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Título para la página</td>
-                           <td><input type="text" name="PageTitle" id="PageTitle" class="ui-widget-content ui-corner-all" /></td>
-                       </tr>
-                       <tr>
-                           <td class="label">Título para la nueva unidad</td>
-                           <td><input type="text" name="UnitTitle" id="UnitTitle" class="ui-widget-content ui-corner-all" /></td>
-                       </tr>
-                       <tr>
-                           <td style="text-align: center;" colspan="2">Títulos para unidades</td>
-                       </tr>
-                       <tr>
-                           <td colspan="2"><div id="UnitsTitles"></div></td>
-                       </tr>
+                           <td style="text-align: center; width: 315px">
+                               Botones<img src="style/general/icons/add_item.png" alt="agregar" class="WidgetControl" onclick="AddUnitButton();">
+                           </td>
+                           <td style="text-align: center;">Escenas</td></tr>
+                       <tr><td><div id="UnitsTitles"></div></td><td><div id="SelectedScenes"></div></tr>
                </table>
            </form>
        </div>

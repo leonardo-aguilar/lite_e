@@ -99,16 +99,18 @@
 
 
       // Número de escenas asociadas
-      $length = count($value);
+      $iterator = count($value);
       // Se selecciona una unidad y se registran todos sus elementos (escenas)
       $fileSystemSet = $fileSystemSets[$key];
       $browsableEntries = $fileSystemSet->BrowsableEntries();
 
-      // Se escribe el nombre de la nueva unidad y
-      // el inicio de la declaración de los archivos
-      printf ("\n\r\t\tdeclareNewUnit( scene = { Name: '%s', Files: [ ", $unitsInfo[$key]);
+      $filesUrls = "";
+      $infoUrls = "";
+      $creditsUrls = "";
+
       foreach ($value as $browsableEntryId) {
-         $length -= 1;
+         $iterator--;
+         $comaString = $iterator == 0 ? "" : ", ";
 
          // La escena actual, de no estar entre las entradas "navegables",
          // es la escena con el nombre de archivo "index.html"
@@ -117,20 +119,21 @@
                            $fileSystemSet->GetBrowsableEntry($browsableEntryId) :
                            $fileSystemSet->IndexEntry();
 
-         // Se solicita la URL que corresponda según la acción deseada,
-         // mostrar o publicar la selección
-         $currentUrl = "";
          if ($SaveContainer) {
-            $currentUrl = $currentEntry->EntryRelativeUrl($fileSystemSet->BaseDirectoryName());
+            $filesUrls .= "\"" . $currentEntry->EntryRelativeUrl($fileSystemSet->BaseDirectoryName()) . "\"" . $comaString;
+            $infoUrls .= "\"" . $fileSystemSet->InfoUrl(true) . "\"" . $comaString;
+            $creditsUrls .= "\"" . $fileSystemSet->CreditsUrl(true) . "\"" . $comaString;
          } else {
-            $currentUrl = $currentEntry->EntryUrl();
+            $filesUrls .= "\"" . $currentEntry->EntryUrl() . "\"" . $comaString;
+            $infoUrls .= "\"" . $fileSystemSet->InfoUrl(false) . "\"" . $comaString;
+            $creditsUrls .= "\"" . $fileSystemSet->CreditsUrl(false) . "\"" . $comaString;
          }
-         // Se escribe la URL del recurso seleccionado
-         printf ("\n\r\t\t\t'%s'", $currentUrl);
-         if ($length != 0) printf (", ");
       }
-      // Se cierra la declaración de la unidad
-      printf ("]} );\r\n");
+
+      // Se escribe el nombre de la nueva unidad y
+      // el inicio de la declaración de los archivos
+      printf ("\n\r\t\tdeclareNewUnit( scene = { Name: \"%s\", Files: [ %s ], Credits: [ %s ], Info: [ %s ] } );\r\n",
+                  $unitsInfo[$key], $filesUrls, $creditsUrls, $infoUrls);
    }
 
 ?>

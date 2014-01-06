@@ -17,14 +17,16 @@
 
    $layoutTemplate_1   = "\t\t<tr>\r" .
                            "\t\t\t<td width=\"25%\" align=\"center\">\r" .
-                           "\t\t\t\t<a href=\"URL_REPLACEMENT\"><small>CODE_REPLACEMENT</small><br/>\r" .
-                           "\t\t\t\t\t<img src=\"ICON_REPLACEMENT\" width=\"180\" height=\"120\" /><br/>\r" .
+                           "\t\t\t\t<a href=\"URL_REPLACEMENT\" target=\"_blank\"><small>CODE_REPLACEMENT</small><br/>\r" .
+                           "\t\t\t\t\t<img src=\"ICON_REPLACEMENT\" width=\"180\" height=\"120\" " .
+                              "id=\"RollOverImage_CODE_REPLACEMENT\" onMouseOut=\"cancelRollover()\" " .
+                              "onMouseOver=\"startRollover('RollOverImage_CODE_REPLACEMENT', ICONS_REPLACEMENT)\" /><br/>\r" .
                            "\t\t\t\t\t<img src=\"images/trlogo.png\" />\r" .
                            "\t\t\t\t</a>\r" .
                            "\t\t\t</td>\r" .
                            "\t\t\t<td width=\"5%\" align=\"left\"></td>\r" .
                            "\t\t\t<td width=\"70%\" align=\"left\">\r" .
-                           "\t\t\t\t<a href=\"URL_1_REPLACEMENT\"><big>NAME_REPLACEMENT</big></a><br/><br/>\r" .
+                           "\t\t\t\t<a href=\"URL_REPLACEMENT\" target=\"_blank\"><big>NAME_REPLACEMENT</big></a><br/><br/>\r" .
                            "\t\t\t\tDESCRIPITION_REPLACEMENT<br/><br/>\r" .
                            "\t\t\t\t<strong>Área:</strong>AREA_REPLACEMENT<br/>\r" .
                            "\t\t\t\t<strong>Nivel:</strong>LEVEL_REPLACEMENT<br/>\r" .
@@ -34,8 +36,8 @@
                            "\t\t<tr><td><br/></td></tr>\r\r";
 
    $patterns = array( "/URL_REPLACEMENT/", "/CODE_REPLACEMENT/", "/ICON_REPLACEMENT/",
-                        "/URL_1_REPLACEMENT/", "/NAME_REPLACEMENT/", "/DESCRIPITION_REPLACEMENT/",
-                        "/AREA_REPLACEMENT/", "/LEVEL_REPLACEMENT/", "/PROJECT_REPLACEMENT/" );
+                        "/NAME_REPLACEMENT/", "/DESCRIPITION_REPLACEMENT/", "/AREA_REPLACEMENT/",
+                        "/LEVEL_REPLACEMENT/", "/PROJECT_REPLACEMENT/", "/ICONS_REPLACEMENT/");
 
 ?>
 
@@ -45,6 +47,45 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
    <title><?php printf("%s", isset($_POST["IndexPageTitle"]) ? $_POST["IndexPageTitle"] : "Título de página"); ?></title>
 	<link href="css/descmovil.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" src="javascript/jquery-1.9.1.js"></script>
+	<script language="javascript">
+	   var RolloverInterval = 1000;
+	   var RolloverImageInterval = null;
+	   var RolloverImageSrcSet = null;
+	   var CurrentImageSrcIndex = 0;
+	   var CurrentRolloverImageId = null;
+
+	   function log (mensaje) {
+
+	   }
+
+	   function startRollover (imageId, imageSet) {
+	      if (RolloverImageSrcSet == null) {
+            CurrentRolloverImageId = imageId;
+            RolloverImageSrcSet = imageSet;
+            CurrentImageSrcIndex = 0;
+
+            if (RolloverImageSrcSet.length > 1)
+               RolloverImageInterval = setInterval (function() { changeImage(); }, RolloverInterval);
+         }
+	   }
+
+	   function cancelRollover () {
+	      RolloverImageTimeout = null;
+	      RolloverImageSrcSet = null;
+	      CurrentRolloverImageId = null;
+
+	      clearInterval(RolloverImageInterval);
+	      RolloverImageInterval = null;
+	   }
+
+	   function changeImage () {
+         $("#" + CurrentRolloverImageId).prop("src", RolloverImageSrcSet[CurrentImageSrcIndex]);
+         CurrentImageSrcIndex = CurrentImageSrcIndex < (RolloverImageSrcSet.length - 1) ?
+                                 (CurrentImageSrcIndex + 1) : 0;
+	   }
+
+	</script>
 </head>
 <body>
    <table class="titulo">
@@ -98,9 +139,33 @@
 
       $fileStringTemplate = $layoutTemplate_1;
 
-      $sustitutions = array($currentUrl, $fileSystemSet->GetSetId(), $fileSystemSet->Thumbnail(),
-                              $currentUrl, $fileSystemSet->Title(), $fileSystemSet->Description(),
-                              $fileSystemSet->Area(), $fileSystemSet->Level(), $fileSystemSet->Project());
+
+      $thumbnailsArray = explode(",", $fileSystemSet->Thumbnails());
+
+      $iterator = count($thumbnailsArray);
+      $lastThumbnail = "";
+      $thusmbnailsString = "[ ";
+
+      foreach ($thumbnailsArray as $thumbnail) {
+         $iterator--;
+         $comaString = $iterator == 0 ? "" : ", ";
+
+         $url = trim($thumbnail);
+
+         if (!$SaveContainer) {
+            $tmp = str_ireplace($fileSystemSet->BaseDirectoryName(), "", $fileSystemSet->BaseDirectory()) . $url;
+            $url = Utils::GetFileUrl ($GLOBALS["path_rootdir"], $GLOBALS["wwwroot"], $tmp);
+         }
+
+         $lastThumbnail = $iterator == 0 ? $url : $lastThumbnail;
+         $thusmbnailsString .= "'" . $url . "'" . $comaString;
+		}
+
+		$thusmbnailsString .= "]";
+
+      $sustitutions = array($currentUrl, $fileSystemSet->GetSetId(), $lastThumbnail,
+                              $fileSystemSet->Title(), $fileSystemSet->Description(), $fileSystemSet->Area(),
+                              $fileSystemSet->Level(), $fileSystemSet->Project(), $thusmbnailsString);
 
       $loString = preg_replace($patterns, $sustitutions, $fileStringTemplate);
 

@@ -49,31 +49,36 @@ function TakeUnitsNames (instruction, unitInfo) {
 }
 
 function SetLOTitleSelected (unitId, selected) {
-
-   $backgroundValue = selected ? "rgba(180,180,180,.25)" : "";
-   $("#LOT_" + unitId).css ("background-color", $backgroundValue);
+   return;
 
    if (selected) {
-			$("#LOT_" + unitId).parents("div[class^=Project]")
-				.children("span[class=ProjectTitle]")
-					.css ("background-color", $backgroundValue);
+      $("#LOT_" + unitId).addClass ("selectedTreeElement");
+      $("#LOT_" + unitId).parents("div[class^=Project]")
+         .children("span[class=ProjectTitle]")
+            .addClass ("selectedTreeElement");
+	} else {
+	   $("#LOT_" + unitId).removeClass ("selectedTreeElement");
+      $("#LOT_" + unitId).parents("div[class^=Project]")
+         .children("span[class=ProjectTitle]")
+            .removeClass ("selectedTreeElement");
 	}
 }
 
 function CreateUnitsNameSetter () {
    $("#UnitsTitles").html("");
-   var elementSchema = "<input type='text' id='UTN_ElementID' name='UTN_ElementID' " +
-                        "class='ui-widget-content ui-corner-all' style='width: 250px;' " +
-                        "value='ElementValue' /><br/>";
+   var elementSchema = "<input type=\"text\" name=\"UnitButtonName_ElementID\" id=\"UnitButtonName_ElementID\" " +
+                           "class=\"ui-widget-content ui-corner-all\" value=\"ElementValue\" />" +
+                           "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"UnitButtonDelete_ElementID\" "+
+                           "class=\"WidgetControl\" onclick=\"DeleteUnitButton(\'ElementID\')\"><br/>";
 
    for (var unitId in SelectedEscenesUnitsNames) {
       $("#UnitsTitles")
           .append(elementSchema.replace (/ElementID/g, unitId)
-            .replace("ElementValue", SelectedEscenesUnitsNames[unitId].UnitName));
+            .replace(/ElementValue/g, SelectedEscenesUnitsNames[unitId].UnitName));
    }
 
-   $("input[id^=UTN_]").change(function () {
-      UpdateUnitName ($(this).prop("id").replace("UTN_", ""), $(this).prop("value"));
+   $("input[id^=UnitButtonName_]").change(function () {
+      UpdateUnitName ($(this).prop("id").replace("UnitButtonName_", ""), $(this).prop("value"));
    });
 }
 
@@ -188,9 +193,7 @@ function AddKeyword () {
 
    var keywordControls = $("input[id^=ObjectKeyword_]");
    var keywordControlsLength = keywordControls.length;
-   var nextKeywordId = keywordControlsLength > 0 ?
-                           parseInt($(keywordControls[keywordControlsLength - 1])
-                              .prop("id").replace("ObjectKeyword_", "")) + 1 : 1;
+   var nextKeywordId = keywordControlsLength > 0 ? keywordControlsLength + 1 : 1;
 
    $("#ObjectKeywords_Container").append(keywordTemplate.replace(/ElementID/g, nextKeywordId));
 
@@ -229,10 +232,39 @@ function DeleteElement (elementType, elementId) {
          elementsDeleteButtonString = "#ObjectThumbnailDelete_";
          break;
    }
+
+   $(elementsDeleteButtonString + elementId).next("br").remove();
    $(elementTypeString + elementId).remove();
    $(elementsDeleteButtonString + elementId).remove();
    $("#MetadataChanged").val("true");
 
+}
+
+function AddUnitButton () {
+   var unitButtonTemplate = "<input type=\"text\" name=\"UnitButtonName_ElementID\" id=\"UnitButtonName_ElementID\" " +
+                              "class=\"ui-widget-content ui-corner-all\" />" +
+                              "<img src=\"style/general/icons/delete_item.png\" alt=\"Eliminar\" id=\"UnitButtonDelete_ElementID\" "+
+                              "class=\"WidgetControl\" onclick=\"DeleteUnitButton(\'ElementID\')\"><br/>";
+
+   var unitButtonControls = $("input[id^=UnitButtonName_]");
+   var unitButtonControlsLength = unitButtonControls.length;
+   var nextUnitButtonId = unitButtonControlsLength > 0 ?
+                              parseInt($(unitButtonControls[unitButtonControlsLength - 1])
+                                 .prop("id").replace("UnitButtonName_", "")) + 1 : 1;
+
+   if(unitButtonControlsLength < 6)
+      $("#UnitsTitles").append(unitButtonTemplate.replace(/ElementID/g, nextUnitButtonId));
+   else
+      alert ("No es posible agregar un número mayor a seis botones.");
+}
+
+function DeleteUnitButton (elementId) {
+   var elementTypeString = "#UnitButtonName_";
+   var elementsDeleteButtonString = "#UnitButtonDelete_";
+
+   $(elementsDeleteButtonString + elementId).next("br").remove();
+   $(elementTypeString + elementId).remove();
+   $(elementsDeleteButtonString + elementId).remove();
 }
 
 function RefreshMetadataChangeManager () {
@@ -243,6 +275,9 @@ function RefreshMetadataChangeManager () {
    $("#MetadataForm").find("textarea").change ( function () {
       $("#MetadataChanged").val("true");
    });
+
+   RefreshUrlSelectors();
+
 }
 
 function PrepareMetadataFormData () {
@@ -270,7 +305,7 @@ function PrepareMetadataFormData () {
       objectString += $(this).val() + (indexes > 0 ? ", " : "");
    });
 
-   $("#ObjectThumbnails").val(objectString.toLowerCase());
+   $("#ObjectThumbnails").val(objectString);
 
 }
 
@@ -306,4 +341,7 @@ function RefreshCheckboxesState (objectSenderType) {
          $("input[type=checkbox][id^=UnitsCheckboxGroup]").prop("disabled", newValue);
          break;
    }
+
 }
+
+

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<node>
-	<Vistas-previas></Vistas-previas>
-	<title>PISA: Polinomios y Ecuaciones</title>
-	<description>Un recurso de polinomios y ecuaciones para el proyecto PISA.</description>
-	<nivel>Primaria</nivel>
-	<tema>Polinomios</tema>
-	<area>Matemáticas</area>
-	<plataforma>DESCARTES</plataforma>
-	<proyecto>PISA</proyecto>
-	<tags>pisa, polinómios, eucaciones</tags>
-	<URL>C:/xampp/htdocs/lite_e/repositorio/asipisa/pye_pisa-JS/index.html</URL>
-	<credits>créditos</credits>
-	<info>información</info>
-</node>
+<node>
+	<Vistas-previas>pye_pisa-JS/imagenes/pye2.png, pye_pisa-JS/imagenes/ruf6.png, pye_pisa-JS/imagenes/ruf4.png</Vistas-previas>
+	<title>PISA: Polinomios y Ecuaciones</title>
+	<description>Un recurso de polinomios y ecuaciones para el proyecto PISA.</description>
+	<nivel>Primaria</nivel>
+	<tema>Polinomios</tema>
+	<area>Matemáticas</area>
+	<plataforma>DESCARTES</plataforma>
+	<proyecto>PISA</proyecto>
+	<tags>pisa, polinómios, eucaciones</tags>
+	<URL>C:/xampp/htdocs/lite_e/repositorio/asipisa/pye_pisa-JS/index.html</URL>
+	<credits>pye_pisa-JS/creditos.htm</credits>
+	<info>pye_pisa-JS/eformativa.htm</info>
+</node>
